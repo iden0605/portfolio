@@ -1,0 +1,280 @@
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0; /* or keep a smaller value like padding: 1rem if needed */
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Color scheme */
+  --primary-color: #333333;
+  --accent-color: #007bff;
+  --secondary-color: #f5f5f5;
+  --subtle-accent: #6a7fda;
+  --highlight-color: #00b894;
+  --text-color: var(--primary-color);
+}
+
+
+
+/* New styles for the portfolio website */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure the navbar stays on top */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color); /* Darker background color for navbar */
+  color: white; /* Change text color to white for better contrast */
+  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out; /* Add transition for fade and slide effect */
+}
+
+.navbar-hidden {
+  opacity: 0;
+  transform: translateY(-100%); /* Move the navbar up by its height */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Increased spacing between links */
+  font-size: 1.1em; /* Slightly larger font size */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #FFFFF0; /* Change text color to cream */
+  display: inline-block; /* Add display: inline-block for better transform support */
+}
+
+.navbar a:hover {
+  color: var(--subtle-accent);
+  text-decoration: underline; /* Add underline on hover */
+  text-underline-offset: 4px; /* Add some space between text and underline */
+  transition: color 0.5s ease-in-out, text-decoration 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* Style for the active navigation link */
+.navbar a.active {
+  font-weight: bold; /* Make the text bold */
+  border-bottom: 2px solid var(--subtle-accent); /* Add an underline */
+}
+
+/* Prevent double underline on hover for active link */
+.navbar a.active:hover {
+  text-decoration: none;
+}
+
+.contact-button {
+  padding: 0.6em 1.2em; /* Consistent padding with default buttons */
+  font-size: 1em; /* Consistent font size */
+  font-weight: 500; /* Consistent font weight */
+  font-family: inherit; /* Consistent font family */
+  background-color: var(--subtle-accent); /* Use subtle accent color for button background */
+  color: white; /* White text for better contrast */
+  border: none; /* No border */
+  border-radius: 8px; /* Consistent border radius */
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out; /* Subtle background color transition on hover */
+}
+
+.contact-button:hover {
+  background-color: #5a6fca; /* Darker shade of subtle accent on hover */
+}
+
+.main-content {
+  padding: 2rem;
+  color: var(--text-color); /* Add default text color */
+  flex-grow: 1;
+  max-width: 1600px; /* Limit content width */
+  margin: 0 auto; /* Center the content */
+  padding: 2rem; /* Add padding around the content */
+  margin-bottom: 4rem; /* Add space between main content and footer */
+  /* Add margin-top to create space for the sticky navbar */
+  margin-top: 60px; /* Estimated height of the navbar */
+}
+
+.section {
+  margin-bottom: 6rem; /* Increased space between sections for better flow */
+  padding: 2rem 4rem 4rem 4rem; /* Reduced top padding within sections */
+  background-color: #FFFFF0; /* Bright cream background color for sections */
+  border-radius: 8px; /* Rounded corners for sections */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for better contrast */
+  width: 80%;
+  margin: 4rem auto 0 auto;
+}
+
+.section h2 {
+  font-size: 2em; /* Increased font size for section headings */
+  font-weight: 700; /* Bolder font weight for section headings */
+  color: var(--primary-color);
+  margin-top: 0; /* Revert margin-top change */
+  margin-bottom: 4rem; /* Add space below headings */
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 3rem 0; /* Add space around the divider */
+  transition: all 0.5s ease-in-out; /* Add transition for animation */
+}
+
+.content-card {
+  background-color: #fff; /* White background for cards */
+  padding: 1rem; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+  margin-bottom: 1rem; /* Reduced space between cards */
+  transition: transform 0.2s ease-in-out; /* Add transition for hover effect */
+}
+
+.content-card:hover {
+  transform: scale(1.02); /* Subtle scale on hover */
+}
+
+.content-card img {
+  max-width: 80%; /* Increased image size */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space below the image */
+  margin: 0 auto 1rem auto; /* Center the image and add space below */
+  aspect-ratio: 16 / 9; /* Set a consistent aspect ratio */
+  object-fit: contain; /* Contain image within the area, preventing cropping */
+}
+
+.content-card h3 {
+  font-size: 1.5em; /* Reduced font size for titles */
+}
+
+.content-card p {
+  font-size: 0.9em; /* Reduced font size for description */
+}
+
+.main-content {
+  width: 80%;
+}
+
+.main-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8em; /* Increased font size for hierarchy */
+  font-weight: 600; /* Poppins weight */
+  color: var(--primary-color);
+}
+
+.main-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em; /* Standard body font size */
+  line-height: 1.6; /* Improved readability */
+  color: var(--text-color);
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0; /* Set gap to 0 and use margin-bottom on h1 instead */
+  overflow: hidden; /* Add overflow hidden to clip the image */
+  margin-top: 0.5rem; /* Reduced top margin for profile section */
+}
+
+.profile-section h1 {
+  margin-bottom: 0.2rem; /* Add margin-bottom to h1 to control space below it */
+}
+
+.profile-picture {
+  width: 300px;
+  height: 300px; /* Set height equal to width for a circular shape */
+  background-color: var(--subtle-accent);
+  border-radius: 50%;
+  object-fit: cover; /* Add object-fit to maintain aspect ratio */
+}
+
+.footer {
+  background-color: var(--primary-color); /* Darker background color for footer */
+  padding: 5px;
+  text-align: center;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased spacing between icons */
+  align-items: center;
+}
+
+.footer-icon {
+  color: #333; /* Default icon color */
+  font-size: 36px; /* Icon size */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.footer-icon:hover {
+  color: #007bff; /* Hover color */
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.footer a:hover {
+  color: var(--accent-color);
+}
+
+/* Removed body styles as they are now in index.css */
+
+.social-icon {
+  width: 36px; /* Set the desired width for the icons */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the image vertically with text */
+}
+
+.cta-button {
+  padding: 0.8em 1.5em; /* Slightly larger padding for a prominent button */
+  margin-top: 1rem;
+  font-size: 1.1em; /* Slightly larger font size */
+  font-weight: 600; /* Bolder font weight */
+  font-family: inherit;
+  background-color: #36454F; /* Match body background color */
+  color: white; /* Change text color for contrast */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out; /* Smooth transition for all properties */
+  box-shadow: none; /* Remove box shadow */
+}
+
+.cta-button:hover {
+  background-color: #4a5a6a; /* Slightly lighter shade on hover */
+  box-shadow: none; /* Remove box shadow on hover */
+  transform: none; /* Remove transform on hover */
+}
+
+/* Add margin below the last section before the footer */
+.page-content {
+  margin-bottom: 4rem; /* Add space between page content and footer */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns, equal width */
+  gap: 1.5rem; /* Space between grid items */
+}
+
+.projects-grid .content-card {
+  margin-bottom: 0; /* Remove margin-bottom from cards within the grid */
+}
