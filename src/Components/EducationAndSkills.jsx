@@ -15,7 +15,7 @@ function EducationAndSkills() {
 
   const languages = [
     <><strong>English:</strong> Native</>,
-    <><strong>Cantonese:</strong> Conversational Proficiency</>,
+    <><strong>Cantonese:</strong> Proficient</>,
     <><strong>Mandarin:</strong> Basic Proficiency</>
   ];
 

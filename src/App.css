@@ -42,7 +42,7 @@
   display: flex;
   gap: 1.5rem; /* Increased spacing between links */
   font-size: 1.1em; /* Slightly larger font size */
-  margin: 0;
+  margin-right: 45rem; /* Add space between nav links and contact button */
   padding: 0;
 }
 
@@ -56,7 +56,8 @@
   color: var(--subtle-accent);
   text-decoration: underline; /* Add underline on hover */
   text-underline-offset: 4px; /* Add some space between text and underline */
-  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out; /* Even faster transition */
+  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out; /* Even faster transition */
+  transform: translateY(-2px); /* Move the link up slightly on hover */
 }
 
 /* Style for the active navigation link */
@@ -87,6 +88,11 @@
   background-color: #5a6fca; /* Darker shade of subtle accent on hover */
 }
 
+.navbar-logo {
+  height: 30px; /* Adjust height as needed */
+  margin-right: 1rem; /* Space between logo and nav links */
+}
+
 .main-content {
   padding: 2rem;
   color: var(--text-color); /* Add default text color */
@@ -94,9 +100,9 @@
   max-width: 1600px; /* Limit content width */
   margin: 0 auto; /* Center the content */
   padding: 2rem; /* Add padding around the content */
-  margin-bottom: 4rem; /* Add space between main content and footer */
+  margin-bottom: 0.5rem; /* Add space between main content and footer */
   /* Add margin-top to create space for the sticky navbar */
-  margin-top: 60px; /* Estimated height of the navbar */
+  margin-top: 30px; /* Estimated height of the navbar */
 }
 
 .section {
@@ -115,7 +121,7 @@
   font-weight: 700; /* Bolder font weight for section headings */
   color: var(--primary-color);
   margin-top: 0;
-  margin-bottom: 2rem; /* Adjusted space below headings */
+  margin-bottom: 0; /* Removed bottom margin from main heading */
 }
 
 .section-divider {
@@ -267,7 +273,7 @@
 
 /* Add margin below the last section before the footer */
 .page-content {
-  margin-bottom: 4rem; /* Add space between page content and footer */
+  margin-bottom: 0.5rem; /* Add space between page content and footer */
 }
 
 .projects-grid {
@@ -287,11 +293,14 @@
 }
 
 .section h3 {
-  font-size: 1.3em; /* Adjusted font size for subheadings */
-  font-weight: 600; /* Slightly less bold than main heading */
+  font-size: 1.4em; /* Slightly increased font size for subheadings */
+  font-weight: 700; /* Bolder font weight for subheadings */
   color: var(--primary-color);
-  margin-top: 1.5rem; /* Adjusted space above subheadings */
+  margin-top: 0; /* Removed top margin from subheadings */
   margin-bottom: 0.8rem; /* Adjusted space below subheadings */
+  border-bottom: 2px solid var(--subtle-accent); /* Subtle underline */
+  padding-bottom: 0.2em; /* Space between text and underline */
+  display: inline-block; /* Ensure underline only covers text */
 }
 
 /* AboutMe Component Styles */
@@ -339,6 +348,8 @@
   text-align: left; /* Align text to the left */
   margin-top: 1.5rem; /* Space above the table */
   padding: 0 20px; /* Add horizontal padding for alignment */
+  border-bottom: 1px solid #ccc; /* Add a fine bottom border */
+  padding-bottom: 1.5rem; /* Add padding below the border */
 }
 
 .table-header {
