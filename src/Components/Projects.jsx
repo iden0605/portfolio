@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
 function Projects() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const projects = {
     "PebbleTask": ["/src/assets/PebbleTask-image.png", "Brief description of Project 1."],
     "Project 2": ["path/to/project2-image.png", "Brief description of Project 2."],

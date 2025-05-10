@@ -8,7 +8,7 @@
   flex-direction: column;
 
   /* Color scheme */
-  --primary-color: #333333;
+  --primary-color: #1a1a1a; /* Made primary color darker */
   --accent-color: #007bff;
   --secondary-color: #f5f5f5;
   --subtle-accent: #6a7fda;
@@ -56,7 +56,7 @@
   color: var(--subtle-accent);
   text-decoration: underline; /* Add underline on hover */
   text-underline-offset: 4px; /* Add some space between text and underline */
-  transition: color 0.5s ease-in-out, text-decoration 0.5s ease-in-out; /* Smooth transition */
+  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out; /* Even faster transition */
 }
 
 /* Style for the active navigation link */
@@ -100,21 +100,22 @@
 }
 
 .section {
-  margin-bottom: 6rem; /* Increased space between sections for better flow */
-  padding: 2rem 4rem 4rem 4rem; /* Reduced top padding within sections */
+  margin-bottom: 4rem; /* Adjusted space between sections */
+  padding: 2rem; /* Consistent padding within sections */
   background-color: #FFFFF0; /* Bright cream background color for sections */
   border-radius: 8px; /* Rounded corners for sections */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
   width: 80%;
-  margin: 4rem auto 0 auto;
+  margin: 2rem auto; /* Center the section with consistent top and bottom margin */
+  border-bottom: 1px solid #ccc; /* Add a light separator line */
 }
 
 .section h2 {
   font-size: 2em; /* Increased font size for section headings */
   font-weight: 700; /* Bolder font weight for section headings */
   color: var(--primary-color);
-  margin-top: 0; /* Revert margin-top change */
-  margin-bottom: 4rem; /* Add space below headings */
+  margin-top: 0;
+  margin-bottom: 2rem; /* Adjusted space below headings */
 }
 
 .section-divider {
@@ -167,10 +168,10 @@
 }
 
 .main-content p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1em; /* Standard body font size */
+  font-family: 'Inter', sans-serif; /* Changed font to Inter */
+  font-size: 1.1rem; /* Increased font size */
   line-height: 1.6; /* Improved readability */
-  color: var(--text-color);
+  color: #444; /* Lightened text color */
 }
 
 .profile-section {
@@ -277,4 +278,102 @@
 
 .projects-grid .content-card {
   margin-bottom: 0; /* Remove margin-bottom from cards within the grid */
+}
+
+.skills-list {
+  list-style: disc; /* Ensure bullet points are visible */
+  text-align: left; /* Align text to the left */
+  padding-left: 20px; /* Add some padding to the left for bullet points */
+}
+
+.section h3 {
+  font-size: 1.3em; /* Adjusted font size for subheadings */
+  font-weight: 600; /* Slightly less bold than main heading */
+  color: var(--primary-color);
+  margin-top: 1.5rem; /* Adjusted space above subheadings */
+  margin-bottom: 0.8rem; /* Adjusted space below subheadings */
+}
+
+/* AboutMe Component Styles */
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 2rem; /* Adjusted space below heading */
+  text-decoration: underline; /* Add underline */
+  text-decoration-color: #a0aec0; /* Pastel underline color */
+  text-underline-offset: 0.3em; /* Space between text and underline */
+}
+
+.section p {
+  line-height: 1.8; /* Increased line spacing */
+  font-size: 1.1rem; /* Increased body font size */
+  font-weight: 300; /* Lighter font weight */
+  margin-top: 1.5rem; /* Added space above paragraphs */
+  border-left: 4px solid #a0aec0; /* Subtle left border (light grey) */
+  padding-left: 1.5rem; /* Add padding for the border */
+  color: #444; /* Lightened text color */
+  border-top-left-radius: 4px; /* Reduced rounded corners */
+  border-bottom-left-radius: 4px; /* Reduced rounded corners */
+  font-family: 'Inter', sans-serif; /* Changed font to Inter */
+}
+
+.about-me-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: text-decoration 0.1s ease-in-out;
+}
+
+.skills-languages-hobbies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2 or 3 columns */
+  gap: 2rem; /* Space between columns and rows */
+}
+
+.skills-languages-hobbies-container > div {
+  /* Optional: Add some styling to the individual columns if needed */
+}
+
+.education-table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for institution and qualification */
+  gap: 1rem; /* Space between columns */
+  text-align: left; /* Align text to the left */
+  margin-top: 1.5rem; /* Space above the table */
+  padding: 0 20px; /* Add horizontal padding for alignment */
+}
+
+.table-header {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc; /* Separator line for header */
+  padding-bottom: 0.5rem; /* Space below header */
+  grid-column: span 2; /* Span across both columns */
+  display: grid; /* Use grid for header content alignment */
+  grid-template-columns: inherit; /* Inherit column structure from parent */
+}
+
+.table-header > div {
+  padding: 0 0.5rem; /* Padding for header cells */
+}
+
+.table-row {
+  grid-column: span 2; /* Span across both columns */
+  display: grid; /* Use grid for row content alignment */
+  grid-template-columns: inherit; /* Inherit column structure from parent */
+  border-bottom: 1px dashed #eee; /* Dashed line between rows */
+  padding: 0.5rem 0; /* Padding for rows */
+}
+
+.table-row > div {
+   padding: 0 0.5rem; /* Padding for row cells */
+}
+
+.table-row:last-child {
+  border-bottom: none; /* No border for the last row */
+}
+
+.skills-languages-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2 columns */
+  gap: 2rem; /* Space between columns and rows */
+  margin-top: 2rem; /* Space above the container */
+  padding: 0 20px; /* Add horizontal padding for alignment */
 }

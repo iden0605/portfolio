@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
 
 function WorkExperience() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const workExperiences = {
     "Job Title 1": ["path/to/image1.jpg", "Brief description of responsibilities and achievements for Job 1."],
     "Job Title 2": ["path/to/image2.png", "Brief description of responsibilities and achievements for Job 2."],

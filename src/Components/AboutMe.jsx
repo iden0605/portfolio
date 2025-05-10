@@ -1,11 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function AboutMe() {
+  const title = "About Me";
+
   return (
     <section className="section" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>Placeholder content for the About Me section.</p>
+      <div className="aboutme-container">
+        <h2>{title}</h2>
+
+        <p>
+          Hi! I'm <strong>Iden</strong>, a Computer Science student at the University of Melbourne
+          with a strong focus on AI and web development. I'm passionate about building full-stack
+          applications that are meaningful and user-focused.
+        </p>
+
+        <p>
+          I primarily work with <strong>React (JavaScript)</strong> for the frontend,
+          <strong> Flask (Python)</strong> or <strong>Node (JavaScript)</strong> for backend development,
+          and <strong>MongoDB</strong> for data storage.
+        </p>
+
+        <p>
+          Outside of my personal projects, I have experience in tutoring and freelance web development,
+          including co-founding the business <strong>BookingMadeEasy</strong>. Through this, I've strengthened
+          my ability to communicate technical ideas clearly, manage real-world client needs, and collaborate
+          effectively in small teams.
+        </p>
+
+        <p>
+          Check out my <Link to="/projects" className="about-me-link">projects</Link> and <Link to="/work-experience" className="about-me-link">work experiences</Link>!
+        </p>
+      </div>
     </section>
   );
 }

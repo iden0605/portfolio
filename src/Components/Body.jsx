@@ -3,7 +3,7 @@ import '../App.css';
 import Profile from './Profile';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
-import Skills from './Skills';
+import EducationAndSkills from './EducationAndSkills';
 
 function Body() {
   return (
@@ -16,7 +16,7 @@ function Body() {
 
       <hr className="section-divider" />
 
-      <Skills />
+      <EducationAndSkills />
     </main>
   );
 }
