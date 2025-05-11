@@ -10,7 +10,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-links">
         <a href={githubLink} target="_blank" rel="noopener noreferrer" className="footer-icon">
-          <img src="/src/assets/github-logo.png" alt="GitHub Logo" className="social-icon"/>
+          <img src="/src/assets/github-white-logo.png" alt="GitHub Logo" className="social-icon"/>
         </a>
         <a href={linkedinLink} target="_blank" rel="noopener noreferrer" className="footer-icon">
           <img src="/src/assets/LinkedIn-logo.png" alt="LinkedIn Logo" className="social-icon"/>

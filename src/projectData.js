@@ -1,43 +1,62 @@
 const projectData = {
   "PebbleTask": {
-    description: "This is the detailed description for PebbleTask. It can include more information about the project, its features, and the technologies used.",
-    screenshots: [
-      "/src/assets/PebbleTask-image.png",
+    description: "A task management app that enables users to track and manage personal tasks.",
+    thumbnail: "/src/assets/PebbleTask-image.png",
+    images: [
       // Add more screenshot paths here
     ],
-    technologies: ["React", "Node.js", "MongoDB"],
+    technologies: ["React (Javascript)"],
     liveLink: "https://example.com/pebbletask",
     githubLink: "https://github.com/yourusername/pebbletask",
+    type: "Hackathon",
+    teamSize: 1,
+    role: "Frontend Developer",
+    date: "HackMelbourne Hackiethon 2025",
+    gif: "/PebbleTask-gif.gif"
   },
-  "Project 2": {
-    description: "This is the detailed description for Project 2.",
-    screenshots: [
-      "path/to/project2-image.png",
+  "MindBack": {
+    description: "Talk to your past self, friends or relatives.",
+    date: "April 2025 - Present", 
+    type: "Short Term Project", 
+    teamSize: 2, 
+    role: "Frontend Developer",
+    thumbnail: "path/to/project2-image.png",
+    images: [
       // Add more screenshot paths here
     ],
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
     liveLink: "https://example.com/project2",
     githubLink: "https://github.com/yourusername/project2",
   },
-  "Project 3": {
-    description: "This is the detailed description for Project 3.",
-    screenshots: [
-      "path/to/project3-image.png",
+  "Lunarly": {
+    description: "A companion AI.",
+    date: "May 2025 - Present",
+    type: "Long Term Project",
+    teamSize: 2,
+    role: "Fullstack Developer",
+    thumbnail: "path/to/project3-image.png",
+    images: [
       // Add more screenshot paths here
     ],
     technologies: ["Python", "Django"],
     liveLink: "https://example.com/project3",
     githubLink: "https://github.com/yourusername/project3",
+  
   },
-  "Project 4": {
+  "OverGrown": {
     description: "This is the detailed description for Project 4.",
-    screenshots: [
-      "path/to/project4-image.png",
+    date: "CISSA x GMC Game Jam 2025", // Placeholder
+    type: "Game Jam", // Placeholder
+    teamSize: 4, // Placeholder
+    role: "Programmer (Unity)", // Placeholder
+    thumbnail: "/src/assets/OverGrown-image.png",
+    images: [
       // Add more screenshot paths here
     ],
     technologies: ["Ruby", "Rails"],
     liveLink: "https://example.com/project4",
     githubLink: "https://github.com/yourusername/project4",
+    gif: "/OverGrown-gif.gif"
   },
 };
 
