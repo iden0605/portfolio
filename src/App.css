@@ -20,8 +20,6 @@
 
 /* New styles for the portfolio website */
 .navbar {
-  position: sticky;
-  top: 0;
   z-index: 1000; /* Ensure the navbar stays on top */
   display: flex;
   justify-content: space-between;
@@ -29,7 +27,7 @@
   padding: 1rem 2rem;
   background-color: var(--primary-color); /* Darker background color for navbar */
   color: white; /* Change text color to white for better contrast */
-  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out; /* Add transition for fade and slide effect */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Add transition for fade and slide effect */
 }
 
 .navbar-hidden {

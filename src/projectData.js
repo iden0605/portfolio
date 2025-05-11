@@ -6,8 +6,8 @@ const projectData = {
       // Add more screenshot paths here
     ],
     technologies: ["React (Javascript)"],
-    liveLink: "https://example.com/pebbletask",
-    githubLink: "https://github.com/yourusername/pebbletask",
+    liveLink: "https://www.youtube.com/watch?v=S6Kpp-MXBes&ab_channel=IdenMcElhone",
+    githubLink: "https://github.com/iden0605/PebbleTask",
     type: "Hackathon",
     teamSize: 1,
     role: "Frontend Developer",

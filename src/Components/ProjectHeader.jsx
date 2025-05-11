@@ -15,11 +15,19 @@ function ProjectHeader({ projectName }) {
         {/* 1. Project title (centered) */}
         <h2 style={{ textAlign: 'center' }}>{projectName}</h2>
 
-        {/* 2. YouTube video (centered) - Placeholder */}
-        {/* You will need to replace this with actual YouTube embed code */}
+        {/* 2. YouTube video (centered) */}
         <div style={{ textAlign: 'center', margin: '20px 0' }}>
-          <p>[YouTube Video Placeholder for {projectName}]</p>
-          {/* Example: <iframe width="560" height="315" src="YOUR_YOUTUBE_EMBED_URL" frameborder="0" allowfullscreen></iframe> */}
+          {project.liveLink && project.liveLink.includes('youtube.com') && (
+            <iframe
+              width="800"
+              height="450"
+              src={`https://www.youtube.com/embed/${project.liveLink.split('v=')[1].split('&')[0]}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={`YouTube video for ${projectName}`}
+            ></iframe>
+          )}
         </div>
 
         {/* 3. Project type (centered, styled like project content cards) */}
