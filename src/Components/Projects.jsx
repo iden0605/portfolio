@@ -22,12 +22,25 @@ function Projects() {
             onMouseLeave={() => setHoveredProject(null)}
           >
             <div className="content-card">
-              <h3>{projectName}</h3>
+            <h3>{projectName}</h3>
+            {/* Conditional rendering for video or image */}
+            {hoveredProject === projectName && project.previewVid ? (
+              <video
+                src={project.previewVid}
+                alt={`${projectName} image`}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="project-preview-video"
+              />
+            ) : (
               <img
-                src={hoveredProject === projectName && project.gif ? project.gif : project.thumbnail}
+                src={project.thumbnail}
                 alt={`${projectName} image`}
               />
-              <div className="project-type-box">{project.type}</div> {/* Project type */}
+            )}
+            <div className="project-type-box">{project.type}</div> {/* Project type */}
               <div className="project-role">{project.role}</div> {/* Project role */}
               <div>{project.date}</div>
               <div className="project-footer">

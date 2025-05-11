@@ -12,7 +12,7 @@ const projectData = {
     teamSize: 1,
     role: "Frontend Developer",
     date: "HackMelbourne Hackiethon 2025",
-    gif: "/PebbleTask-gif.gif"
+    previewVid: "/PebbleTask-hover.mp4"
   },
   "MindBack": {
     description: "Talk to your past self, friends or relatives.",
@@ -56,7 +56,7 @@ const projectData = {
     technologies: ["Ruby", "Rails"],
     liveLink: "https://example.com/project4",
     githubLink: "https://github.com/yourusername/project4",
-    gif: "/OverGrown-gif.gif"
+    previewVid: "/OverGrown-hover.mp4"
   },
 };
 

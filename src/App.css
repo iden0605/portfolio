@@ -541,3 +541,13 @@
 .project-link:hover {
   background-color: #0056b3; /* Darker accent color on hover */
 }
+
+/* CSS for project preview video */
+.project-preview-video {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  object-fit: cover;
+}
