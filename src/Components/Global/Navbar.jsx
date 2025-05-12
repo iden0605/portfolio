@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../App.css'; // Assuming App.css contains styles for the navbar
+import './Navbar.css';
 
-function Navbar() {
+function Navbar({ onContactClick }) { // Accept onContactClick prop
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -36,7 +36,7 @@ function Navbar() {
         <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''}>Work Experience</Link></li>
         <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''}>Projects</Link></li>
       </ul>
-      <button className="contact-button">Contact Me</button>
+      <button className="contact-button" onClick={onContactClick}>Contact Me</button> {/* Add onClick handler */}
     </nav>
   );
 }

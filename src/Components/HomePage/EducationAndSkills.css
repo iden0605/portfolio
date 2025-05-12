@@ -1,0 +1,53 @@
+.skills-list {
+  list-style: disc; /* Ensure bullet points are visible */
+  text-align: left; /* Align text to the left */
+  padding-left: 20px; /* Add some padding to the left for bullet points */
+}
+
+.education-table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for institution and qualification */
+  gap: 1rem; /* Space between columns */
+  text-align: left; /* Align text to the left */
+  margin-top: 1.5rem; /* Space above the table */
+  padding: 0 20px; /* Add horizontal padding for alignment */
+  border-bottom: 1px solid #ccc; /* Add a fine bottom border */
+  padding-bottom: 1.5rem; /* Add padding below the border */
+}
+
+.table-header {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc; /* Separator line for header */
+  padding-bottom: 0.5rem; /* Space below header */
+  grid-column: span 2; /* Span across both columns */
+  display: grid; /* Use grid for header content alignment */
+  grid-template-columns: inherit; /* Inherit column structure from parent */
+}
+
+.table-header > div {
+  padding: 0 0.5rem; /* Padding for header cells */
+}
+
+.table-row {
+  grid-column: span 2; /* Span across both columns */
+  display: grid; /* Use grid for row content alignment */
+  grid-template-columns: inherit; /* Inherit column structure from parent */
+  border-bottom: 1px dashed #eee; /* Dashed line between rows */
+  padding: 0.5rem 0; /* Padding for rows */
+}
+
+.table-row > div {
+   padding: 0 0.5rem; /* Padding for row cells */
+}
+
+.table-row:last-child {
+  border-bottom: none; /* No border for the last row */
+}
+
+.skills-languages-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2 columns */
+  gap: 2rem; /* Space between columns and rows */
+  margin-top: 2rem; /* Space above the container */
+  padding: 0 20px; /* Add horizontal padding for alignment */
+}

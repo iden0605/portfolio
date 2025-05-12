@@ -19,77 +19,6 @@
 
 
 /* New styles for the portfolio website */
-.navbar {
-  z-index: 1000; /* Ensure the navbar stays on top */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--primary-color); /* Darker background color for navbar */
-  color: white; /* Change text color to white for better contrast */
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Add transition for fade and slide effect */
-}
-
-.navbar-hidden {
-  opacity: 0;
-  transform: translateY(-100%); /* Move the navbar up by its height */
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem; /* Increased spacing between links */
-  font-size: 1.1em; /* Slightly larger font size */
-  margin-right: 45rem; /* Add space between nav links and contact button */
-  padding: 0;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #FFFFF0; /* Change text color to cream */
-  display: inline-block; /* Add display: inline-block for better transform support */
-}
-
-.navbar a:hover {
-  color: var(--subtle-accent);
-  text-decoration: underline; /* Add underline on hover */
-  text-underline-offset: 4px; /* Add some space between text and underline */
-  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out; /* Even faster transition */
-  transform: translateY(-2px); /* Move the link up slightly on hover */
-}
-
-/* Style for the active navigation link */
-.navbar a.active {
-  font-weight: bold; /* Make the text bold */
-  border-bottom: 2px solid var(--subtle-accent); /* Add an underline */
-}
-
-/* Prevent double underline on hover for active link */
-.navbar a.active:hover {
-  text-decoration: none;
-}
-
-.contact-button {
-  padding: 0.6em 1.2em; /* Consistent padding with default buttons */
-  font-size: 1em; /* Consistent font size */
-  font-weight: 500; /* Consistent font weight */
-  font-family: inherit; /* Consistent font family */
-  background-color: var(--subtle-accent); /* Use subtle accent color for button background */
-  color: white; /* White text for better contrast */
-  border: none; /* No border */
-  border-radius: 8px; /* Consistent border radius */
-  cursor: pointer;
-  transition: background-color 0.25s ease-in-out; /* Subtle background color transition on hover */
-}
-
-.contact-button:hover {
-  background-color: #5a6fca; /* Darker shade of subtle accent on hover */
-}
-
-.navbar-logo {
-  height: 30px; /* Adjust height as needed */
-  margin-right: 1rem; /* Space between logo and nav links */
-}
 
 .main-content {
   padding: 2rem;
@@ -130,6 +59,15 @@
   transition: all 0.5s ease-in-out; /* Add transition for animation */
 }
 
+.section-divider-subtle {
+  height: 2px; /* Subtle separator height */
+  width: 100%; /* Set width to 100% */
+  background: linear-gradient(to right, transparent, #ccc, transparent); /* Subtle gradient fading at ends */
+  margin: 1.5rem 0; /* Space around the divider */
+  display: block; /* Ensure it takes up space */
+  border: none; /* Remove border */
+}
+
 .content-card {
   background-color: #e0e0e0; /* Slightly darker neutral background */
   padding: 2rem; /* Increased padding */
@@ -138,6 +76,7 @@
   margin-bottom: 0; /* Removed margin-bottom as grid gap handles spacing */
   transition: transform 0.2s ease-in-out; /* Add transition for hover effect */
   position: relative; /* Added for absolute positioning of footer */
+  padding-bottom: 40px; /* Increase padding to the bottom to make more space for the footer */
 }
 
 .content-card:hover {
@@ -163,10 +102,25 @@
   display: block; /* Remove extra space below the image */
   margin: 0 auto 1rem auto; /* Center the image and add space below */
   object-fit: cover; /* Cover the area, potentially cropping the image */
+  border-radius: 8px;
 }
 
-.content-card h3 {
-  font-size: 1.5em; /* Reduced font size for titles */
+.description {
+  margin-top: 0rem; /* Added top margin for spacing below subtitle */
+}
+
+.desc-image {
+  margin-bottom: 1rem;
+}
+
+.desc-image img {
+  border-radius: 8px;
+}
+
+
+
+.projects-grid .content-card h3 {
+  font-size: 1.6em;
   color: #333; /* Darker color for better readability */
   font-weight: 700; /* Bold font weight */
   text-align: left; /* Align title to the left */
@@ -195,67 +149,10 @@
   color: #444; /* Lightened text color */
 }
 
-.profile-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 
-.profile-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0; /* Set gap to 0 and use margin-bottom on h1 instead */
-  overflow: hidden; /* Add overflow hidden to clip the image */
-  margin-top: 0.5rem; /* Reduced top margin for profile section */
-}
 
-.profile-section h1 {
-  margin-bottom: 0.2rem; /* Add margin-bottom to h1 to control space below it */
-}
 
-.profile-picture {
-  width: 300px;
-  height: 300px; /* Set height equal to width for a circular shape */
-  background-color: var(--subtle-accent);
-  border-radius: 50%;
-  object-fit: cover; /* Add object-fit to maintain aspect ratio */
-}
 
-.footer {
-  background-color: var(--primary-color); /* Darker background color for footer */
-  padding: 5px;
-  text-align: center;
-  margin-top: 5px;
-  padding-bottom: 5px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* Increased spacing between icons */
-  align-items: center;
-}
-
-.footer-icon {
-  color: #333; /* Default icon color */
-  font-size: 36px; /* Icon size */
-  text-decoration: none; /* Remove underline from links */
-}
-
-.footer-icon:hover {
-  color: #007bff; /* Hover color */
-}
-
-.footer a {
-  text-decoration: none;
-  color: var(--primary-color);
-}
-
-.footer a:hover {
-  color: var(--accent-color);
-}
 
 /* Removed body styles as they are now in index.css */
 
@@ -291,40 +188,31 @@
   margin-bottom: 0.5rem; /* Add space between page content and footer */
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
-  gap: 2rem; /* Increased space between grid items */
-  margin: 2rem auto; /* Center the grid and add margin */
-  padding: 0 1rem; /* Add padding on the sides */
-}
 
-.projects-grid .content-card {
-  margin-bottom: 0; /* Remove margin-bottom from cards within the grid */
-}
 
-.project-footer {
-  position: absolute;
-  bottom: 0; /* Adjust as needed */
-  left: 10px; /* Adjust as needed */
-  margin-top: 10px; /* Added top margin for spacing */
-}
-
-.skills-list {
-  list-style: disc; /* Ensure bullet points are visible */
-  text-align: left; /* Align text to the left */
-  padding-left: 20px; /* Add some padding to the left for bullet points */
-}
 
 .section h3 {
   font-size: 1.4em; /* Slightly increased font size for subheadings */
   font-weight: 700; /* Bolder font weight for subheadings */
   color: var(--primary-color);
   margin-top: 0; /* Removed top margin from subheadings */
-  margin-bottom: 0.8rem; /* Adjusted space below subheadings */
-  border-bottom: 2px solid var(--subtle-accent); /* Subtle underline */
-  padding-bottom: 0.2em; /* Space between text and underline */
+  margin-bottom: 0.4rem; /* Adjusted space below subheadings */
+}
+
+.section h4 .subtitle {
+  font-size: 1.2em; /* Slightly smaller font size for sub-subheadings */
+  font-weight: 600; /* Slightly less bold than subheadings */
+  color: var(--primary-color);
+  margin-top: 0.5rem; /* Add some space above */
+  margin-bottom: 0rem; /* Add some space below */
+}
+
+.subtitle {
+  text-decoration-line: underline;
+  text-decoration-color: #9bace0;
+  text-underline-offset: 0.1em; /* Adjust to move the underline lower */
   display: inline-block; /* Ensure underline only covers text */
+  margin-bottom: 0; /* Add space below the heading */
 }
 
 /* AboutMe Component Styles */
@@ -332,21 +220,25 @@
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 2rem; /* Adjusted space below heading */
   text-decoration: underline; /* Add underline */
-  text-decoration-color: #a0aec0; /* Pastel underline color */
+  text-decoration-color: #9bace0; /* Softer purple accent underline color */
   text-underline-offset: 0.3em; /* Space between text and underline */
 }
 
-.section p {
+.section > div:not(.project-details) p {
   line-height: 1.8; /* Increased line spacing */
   font-size: 1.1rem; /* Increased body font size */
   font-weight: 300; /* Lighter font weight */
-  margin-top: 1.5rem; /* Added space above paragraphs */
-  border-left: 4px solid #a0aec0; /* Subtle left border (light grey) */
+  margin-top: 0.8rem; /* Added space above paragraphs */
+  border-left: 4px solid #9bace0; /* Subtle left border (softer purple accent) */
   padding-left: 1.5rem; /* Add padding for the border */
   color: #444; /* Lightened text color */
   border-top-left-radius: 4px; /* Reduced rounded corners */
   border-bottom-left-radius: 4px; /* Reduced rounded corners */
   font-family: 'Inter', sans-serif; /* Changed font to Inter */
+}
+
+.project-details p {
+  border-left: none; /* Remove the left border for project details paragraphs */
 }
 
 .about-me-link:hover {
@@ -363,189 +255,4 @@
 
 .skills-languages-hobbies-container > div {
   /* Optional: Add some styling to the individual columns if needed */
-}
-
-.education-table {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns for institution and qualification */
-  gap: 1rem; /* Space between columns */
-  text-align: left; /* Align text to the left */
-  margin-top: 1.5rem; /* Space above the table */
-  padding: 0 20px; /* Add horizontal padding for alignment */
-  border-bottom: 1px solid #ccc; /* Add a fine bottom border */
-  padding-bottom: 1.5rem; /* Add padding below the border */
-}
-
-.table-header {
-  font-weight: bold;
-  border-bottom: 1px solid #ccc; /* Separator line for header */
-  padding-bottom: 0.5rem; /* Space below header */
-  grid-column: span 2; /* Span across both columns */
-  display: grid; /* Use grid for header content alignment */
-  grid-template-columns: inherit; /* Inherit column structure from parent */
-}
-
-.table-header > div {
-  padding: 0 0.5rem; /* Padding for header cells */
-}
-
-.table-row {
-  grid-column: span 2; /* Span across both columns */
-  display: grid; /* Use grid for row content alignment */
-  grid-template-columns: inherit; /* Inherit column structure from parent */
-  border-bottom: 1px dashed #eee; /* Dashed line between rows */
-  padding: 0.5rem 0; /* Padding for rows */
-}
-
-.table-row > div {
-   padding: 0 0.5rem; /* Padding for row cells */
-}
-
-.table-row:last-child {
-  border-bottom: none; /* No border for the last row */
-}
-
-.skills-languages-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2 columns */
-  gap: 2rem; /* Space between columns and rows */
-  margin-top: 2rem; /* Space above the container */
-  padding: 0 20px; /* Add horizontal padding for alignment */
-}
-
-.project-type-box {
-  border: 1px solid var(--subtle-accent); /* Use subtle accent color for border */
-  padding: 4px 12px; /* Adjusted padding */
-  display: inline-block; /* Make the box wrap the text */
-  margin-bottom: 8px; /* Adjusted space below the box */
-  margin-right: 10px; /* Added right margin */
-  background-color: var(--subtle-accent); /* Use subtle accent color for background */
-  color: white; /* White text for better contrast */
-  font-size: 0.95em; /* Slightly increased font size */
-  font-weight: 500; /* Semi-bold font weight */
-  border-radius: 16px; /* More rounded corners for pill shape */
-}
-
-.project-role {
-  margin-bottom: 10px; /* Add space below the role text */
-  margin-right: 10px; /* Added right margin */
-  font-size: 0.95em; /* Similar font size to category */
-  font-weight: normal; /* Regular font weight */
-  color: #777; /* Medium gray color */
-  text-align: center; /* Center the text */
-  font-style: italic; /* Italicize the text */
-  padding-left: 0; /* Remove left padding for centering */
-}
-
-.content-card .project-role + div { /* Target the div immediately following .project-role */
-  color: #777; /* Same neutral gray as the role */
-  font-size: 0.9em; /* Slightly smaller font size than the role */
-  font-weight: normal; /* Regular font weight */
-  text-align: center; /* Center the text */
-  padding-left: 0; /* Remove left padding for centering */
-  margin-bottom: 10px; /* Add space below the timeframe */
-}
-
-.team-size .team-icon {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle; /* Align the image vertically with text */
-  display: inline-block; /* Make the image an inline-block element */
-  margin-right: 3px; /* Add some space between the icon and the text */
-  margin-top: 12px
-}
-
-/* Project Detail Page Styles */
-.project-detail-container {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 40px 20px;
-  color: #f0f0f0; /* Text color for the project detail page */
-}
-
-.back-link {
-  color: #007bff; /* Accent color */
-  text-decoration: none;
-  margin-bottom: 20px;
-  display: inline-block;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
-.project-title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.project-section {
-  margin-bottom: 40px;
-}
-
-.project-section-heading {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.project-description {
-  line-height: 1.6;
-}
-
-.screenshot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.screenshot-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.technologies-list {
-  list-style: none;
-  padding: 0;
-}
-
-.technology-item {
-  margin-bottom: 8px;
-  position: relative;
-  padding-left: 20px;
-}
-
-.technology-bullet {
-  position: absolute;
-  left: 0;
-  color: #007bff; /* Accent color */
-}
-
-.project-links {
-  /* Styles for the container of links if needed */
-}
-
-.project-link {
-  display: inline-block;
-  background-color: #007bff; /* Accent color */
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-right: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.project-link:hover {
-  background-color: #0056b3; /* Darker accent color on hover */
-}
-
-/* CSS for project preview video */
-.project-preview-video {
-  width: 100%;
-  max-width: 400px;
-  height: 250px;
-  display: block;
-  margin: 0 auto 1rem auto;
-  object-fit: cover;
 }

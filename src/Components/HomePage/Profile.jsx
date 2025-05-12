@@ -1,5 +1,4 @@
-import React from 'react';
-import '../App.css';
+import './Profile.css';
 
 function Profile() {
   const name = "Iden McElhone";

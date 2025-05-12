@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
-import projectData from '../projectData'; // Import projectData
+import './Projects.css';
+import projectData from '../../Data/projectData'; // Import projectData
 
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -44,7 +44,7 @@ function Projects() {
               <div className="project-role">{project.role}</div> {/* Project role */}
               <div>{project.date}</div>
               <div className="project-footer">
-                <span className="team-size"><img src="/src/assets/people-icon.png" alt="team size icon" className="team-icon"/> {project.teamSize}</span> {/* Person icon and team size */}
+                <span className="team-size"><img src="/src/assets/icon/people-icon.png" alt="team size icon" className="team-icon"/> {project.teamSize}</span> {/* Person icon and team size */}
               </div>
             </div>
           </Link>

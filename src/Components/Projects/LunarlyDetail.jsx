@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import projectData from '../projectData';
+import projectData from '../../Data/projectData';
 import ProjectHeader from './ProjectHeader';
+import ProjectBackButton from '../Utilities/ProjectBackButton';
+import './ProjectDetails.css';
 
 function LunarlyDetail() {
   const project = projectData.Lunarly;
@@ -14,9 +14,7 @@ function LunarlyDetail() {
     <div className="project-detail-container">
       <ProjectHeader projectName="Lunarly" />
       {/* Add additional Lunarly specific content below the header if needed */}
-      <Link to="/projects" className="back-link">
-        &larr; Back to Projects
-      </Link>
+      <ProjectBackButton />
     </div>
   );
 }

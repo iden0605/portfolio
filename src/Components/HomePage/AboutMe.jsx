@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 
 function AboutMe() {
   const title = "About Me";
@@ -24,7 +23,7 @@ function AboutMe() {
 
         <p>
           Outside of my personal projects, I have experience in tutoring and freelance web development,
-          including co-founding the business <strong>BookingMadeEasy</strong>. Through this, I've strengthened
+          including co-founding the business <strong>BookingsMadeEasy</strong>. Through this, I've strengthened
           my ability to communicate technical ideas clearly, manage real-world client needs, and collaborate
           effectively in small teams.
         </p>

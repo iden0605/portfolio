@@ -79,3 +79,35 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #808080;
 }
+
+/* Styles for Image and Description Sections */
+.image-description-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between blocks */
+  margin-top: 40px;
+}
+
+.image-description-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-description-block h3 {
+  color: #61dafb; /* Highlight color for titles */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.image-description-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: -15px;
+}
+
+.image-description-block .description {
+  color: #abb2bf; /* Light gray for text */
+  line-height: 1.6;
+}

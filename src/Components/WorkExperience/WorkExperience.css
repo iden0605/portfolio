@@ -1,0 +1,111 @@
+/* Add styles for the WorkExperience component here */
+.work-experience-container {
+  padding: 20px;
+}
+
+.work-experience-container {
+  padding: 20px;
+}
+
+.job-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 20px; /* Gap between grid items */
+  margin-bottom: 40px; /* Add margin between cards */
+  background-color: #e0e0e0; /* Slightly darker neutral background */
+  padding: 2rem; /* Increased padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Soft box shadow */
+  width: 100%;
+  max-width: 800px; /* Set a maximum width for the card */
+  box-sizing: border-box;
+  margin-left: auto; /* Center the card */
+  margin-right: auto; /* Center the card */
+  transition: transform 0.2s ease-in-out; /* Add transition for hover effect */
+  position: relative; /* Add position relative for absolute positioning of children */
+}
+
+.job-card:hover {
+  transform: scale(1.02); /* Subtle scale on hover */
+}
+
+.company-name {
+  color: #333; /* Darker color for better readability */
+  font-weight: 700; /* Bold font weight */
+  font-size: 1.6em; /* Decrease font size */
+  text-align: center; /* Center company name */
+  margin-top: -10px; /* Move the company name higher */
+  grid-column: 1 / 3; /* Span across both columns */
+  grid-row: 1 / 2; /* First row */
+}
+
+.job-title {
+  color: #777; /* Medium gray color */
+  font-size: 1.2em; /* Increase font size */
+  font-weight: normal; /* Regular font weight */
+  font-style: italic; /* Keep italic style */
+  text-align: center; /* Center job title */
+  grid-column: 1 / 3; /* Span across both columns */
+  grid-row: 1 / 2; /* First row */
+  align-self: end; /* Align to the bottom of the row */
+  margin-top: 1.8em; /* Add margin to position below company name */
+}
+
+.job-image {
+  width: 350px; /* Slightly decrease fixed width */
+  height: 230px; /* Slightly decrease fixed height */
+  object-fit: contain; /* Scale image to fit within the container while maintaining aspect ratio */
+  grid-column: 1 / 2; /* First column */
+  grid-row: 2 / 3; /* Second row */
+  justify-self: center; /* Center horizontally in grid cell */
+  align-self: start; /* Align to the top vertically in grid cell */
+}
+
+.bottom-right-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Ensure content within is left-aligned */
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 2 / 3; /* Second row */
+  align-self: center; /* Center vertically in the grid cell */
+  justify-self: center; /* Center horizontally in the grid cell */
+  max-width: 300px; /* Make the text box narrower */
+}
+
+.job-description {
+  color: #777; /* Same neutral gray as the role */
+  font-size: 1em; /* Increase font size */
+  text-align: left; /* Explicitly left-align the description */
+}
+
+.job-date {
+  text-align: center;
+  grid-column: 1 / 3; /* Span across both columns */
+  grid-row: 3 / 4; /* Third row */
+  margin-top: 10px; /* Add some space above the date */
+  color: #555; /* Slightly darker color for the date */
+  font-size: 1em; /* Slightly larger font size for the date */
+  font-style: italic; /* Make the date italic */
+}
+
+.team-size-container {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed for spacing from the bottom */
+  left: 10px; /* Adjust as needed for spacing from the left */
+  display: flex;
+  align-items: center;
+}
+
+.people-icon {
+  width: 16px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px; /* Space between icon and text */
+  margin-bottom: 2px;
+}
+
+.team-size {
+  font-size: 1em;
+  color: #555; /* Match the date color */
+}

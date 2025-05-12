@@ -1,0 +1,104 @@
+/* Project Detail Page Styles */
+.project-detail-container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #f0f0f0; /* Text color for the project detail page */
+}
+
+.back-link {
+  color: #007bff; /* Accent color */
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.project-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.project-section {
+  margin-bottom: 40px;
+}
+
+.project-section-heading {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  line-height: 1.6;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.screenshot-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.technologies-list {
+  list-style: none;
+  padding: 0;
+}
+
+.technology-item {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.technology-bullet {
+  position: absolute;
+  left: 0;
+  color: #007bff; /* Accent color */
+}
+
+.project-links {
+  /* Styles for the container of links if needed */
+}
+
+.project-link {
+  display: inline-block;
+  background-color: #007bff; /* Accent color */
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #0056b3; /* Darker accent color on hover */
+}
+
+
+.project-details p {
+  margin-bottom: 2px; /* Adjust as needed for desired spacing */
+}
+
+.project-header-content .project-details p strong {
+  display: inline-block;
+  margin-right: -3px !important; /* Adjust as needed for desired spacing */
+}
+
+.project-details p {
+  border-left: none; /* Remove the left border for project details paragraphs */
+  padding-left: 0; /* Remove left padding */
+}
+
+.project-details-vertical {
+  display: flex;
+  flex-direction: column;
+}
