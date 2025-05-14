@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Global/Navbar';
 import Body from './Components/HomePage/Body';
 import Footer from './Components/Global/Footer';
-import WorkExperience from './Components/Workexperience/WorkExperience';
+import WorkExperience from './Components/WorkExperience/WorkExperience';
+import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasyDetail';
+import TutoringDetail from './Components/WorkExperience/TutoringDetail';
 import Projects from './Components/Projects/Projects';
 import PebbleTaskDetail from './Components/Projects/PebbleTaskDetail';
 import MindBackDetail from './Components/Projects/MindBackDetail';
@@ -37,6 +39,8 @@ function App() {
           <Route path="/projects/MindBack" element={<MindBackDetail />} />
           <Route path="/projects/Lunarly" element={<LunarlyDetail />} />
           <Route path="/projects/OverGrown" element={<OverGrownDetail />} />
+          <Route path="/work-experience/BookingsMadeEasy" element={<BookingsMadeEasyDetail />} />
+          <Route path="/work-experience/Iden-McElhone-(Freelance)" element={<TutoringDetail />} />
         </Routes>
       </main>
       <Footer />

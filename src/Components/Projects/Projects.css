@@ -73,3 +73,8 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
+.content-card img {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Add box shadow to project images */
+  border-radius: 8px; /* Add border radius to match the video */
+}

@@ -62,16 +62,18 @@ function ProjectHeader({ projectName }) {
           )}
         </div>
 
-        <div className="project-details project-details-vertical" style={{ textAlign: 'left', marginTop: '20px' }}>
-          <h3><span className="subtitle">Key Responsibilities</span></h3>
-          <div style={{ textAlign: 'left', marginTop: '-10px' }}>
-            <ul>
-              {project.keyResponsibilities && project.keyResponsibilities.map((responsibility, index) => (
-                <li key={index} style={{ color: '#444', marginBottom: '5px' }}>{responsibility}</li>
-              ))}
-            </ul>
+        {project.keyResponsibilities?.length > 0 && (
+          <div className="project-details project-details-vertical" style={{ textAlign: 'left', marginTop: '20px' }}>
+            <h3><span className="subtitle">Key Responsibilities</span></h3>
+            <div style={{ textAlign: 'left', marginTop: '-10px' }}>
+              <ul>
+                {project.keyResponsibilities && project.keyResponsibilities.map((responsibility, index) => (
+                  <li key={index} style={{ color: '#444', marginBottom: '5px' }}>{responsibility}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+          )}
       </div>
     </section>
   );

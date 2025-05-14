@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectBackButton.css'; // Assuming we'll create a CSS file for styling
 
@@ -12,7 +12,7 @@ function ProjectBackButton() {
       const scrollPercentage = (scrolledFromTop / scrollableHeight) * 100;
 
       // Show button when scrolled past 50% of the page height
-      if (scrollPercentage > 20) {
+      if (scrollPercentage > 30) {
         setIsVisible(true);
       } else {
         setIsVisible(false);

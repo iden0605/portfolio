@@ -55,11 +55,14 @@
 .job-image {
   width: 350px; /* Slightly decrease fixed width */
   height: 230px; /* Slightly decrease fixed height */
-  object-fit: contain; /* Scale image to fit within the container while maintaining aspect ratio */
+  object-fit: cover; /* Scale image to cover the container while maintaining aspect ratio */
+  border-radius: 8px; /* Add border radius */
   grid-column: 1 / 2; /* First column */
   grid-row: 2 / 3; /* Second row */
   justify-self: center; /* Center horizontally in grid cell */
   align-self: start; /* Align to the top vertically in grid cell */
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adjusted box shadow */
 }
 
 .bottom-right-content {

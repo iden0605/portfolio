@@ -33,7 +33,10 @@ const projectData = {
   },
 
   "MindBack": {
-    description: "Talk to your past self, friends or relatives.",
+    description: `MindBack is a web application designed to help you reconnect with your past self 
+    or friends by interacting with your digital memories through a conversational AI. Upload your 
+    personal data archives (from WhatsApp and Instagram), and MindBack will process them, allowing 
+    you to chat with an AI persona based on the communication style and content from a specific year.`,
     date: "April 2025 - Present",
     type: "Short Term Project",
     teamSize: 2,
@@ -52,7 +55,9 @@ const projectData = {
   },
   
   "Lunarly": {
-    description: "A companion AI.",
+    description: `A conversational companion chatbot that builds a closer friendship with users 
+    over time. The more you chat, the more the bond grows — creating a personalized and engaging 
+    experience.`,
     date: "May 2025 - Present",
     type: "Long Term Project",
     teamSize: 2,

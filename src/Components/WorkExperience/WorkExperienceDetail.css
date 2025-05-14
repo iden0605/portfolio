@@ -1,0 +1,79 @@
+/* Add styles specific to WorkExperienceDetail component here */
+.work-experience-detail-content {
+    padding: 20px;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center the content */
+}
+
+.work-experience-details {
+    margin-top: 15px;
+}
+
+.work-experience-details-vertical p {
+    margin-bottom: 5px; /* Space between vertical details */
+}
+
+/* Style for the image in WorkExperienceHeader */
+.work-experience-image {
+    width: 690px; /* Slightly decrease fixed width */
+    height: 410px; /* Slightly decrease fixed height */
+    object-fit: cover; /* Scale image to cover the container while maintaining aspect ratio */
+    border-radius: 8px; /* Add border radius */
+    grid-column: 1 / 2; /* First column */
+    grid-row: 2 / 3; /* Second row */
+    justify-self: center; /* Center horizontally in grid cell */
+    align-self: start; /* Align to the top vertically in grid cell */
+    border-radius: 6px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adjusted box shadow */
+}
+
+/* Styles for the image and description section, similar to project details */
+.image-description-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between blocks */
+    margin-top: 20px;
+    text-align: left; /* Align content within the section to the left */
+}
+
+.image-description-section h2 {
+    text-align: left; /* Ensure the heading is left-aligned */
+    align-self: flex-start; /* Align heading to the left */
+}
+
+.work-experience-detail-content .subtitle {
+    font-size: 1.3em; /* Reduce the subtitle text size */
+}
+
+.image-description-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Ensure block takes full width to allow text-align: left to work */
+}
+
+.image-description-block .description {
+    margin-top: 5px; /* Reduced margin-top */
+    line-height: 1.6;
+    text-align: left; /* Ensure text is left-aligned */
+    align-self: flex-start; /* Align description to the left */
+    border-left: none; /* Remove left border */
+    padding-left: 0; /* Remove left padding */
+}
+
+.section-divider-subtle {
+    width: 100%;
+    height: 1px;
+    background-color: #555; /* Subtle divider color */
+    margin: 20px 0;
+}
+
+.date-text {
+    border-left: none; /* Remove left border for date text */
+    padding-left: 0; /* Remove left padding for date text */
+    margin-bottom: 5px; /* Add margin-bottom to reduce space */
+}
+
+.description a:hover {
+    text-decoration: underline;
+}
