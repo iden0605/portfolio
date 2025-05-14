@@ -44,8 +44,8 @@ function Navbar({ onContactClick }) {
   // render the navbar
   return (
     <nav className={`navbar ${isVisible ? '' : 'navbar-hidden'}`}>
-      <ul>
-        <li><Link to="/home" className={location.pathname === '/home' ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
+      <ul className={isMenuOpen ? 'open' : ''}>
+        <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
         <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeMenu}>Work Experience</Link></li>
         <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={closeMenu}>Projects</Link></li>
       </ul>

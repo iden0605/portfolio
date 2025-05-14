@@ -1,9 +1,9 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Global/Navbar';
 import Body from './Components/HomePage/Body';
 import Footer from './Components/Global/Footer';
-import WorkExperience from './Components/Workexperience/WorkExperience';
+import WorkExperience from './Components/WorkExperience/WorkExperience';
 import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasyDetail';
 import TutoringDetail from './Components/WorkExperience/TutoringDetail';
 import Projects from './Components/Projects/Projects';
@@ -31,12 +31,12 @@ function App() {
 
   // this is the main app structure with routing
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Navbar onContactClick={handleOpenPopup} />
       <main className="page-content">
         <Routes>
-          <Route path="/home" element={<Body />} />
+          <Route path="/" element={<Body />} />
           <Route path="/work-experience" element={<WorkExperience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/PebbleTask" element={<PebbleTaskDetail />} />
@@ -49,7 +49,7 @@ function App() {
       </main>
       <Footer />
       <ContactMePopup isOpen={isPopupOpen} onClose={handleClosePopup} />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

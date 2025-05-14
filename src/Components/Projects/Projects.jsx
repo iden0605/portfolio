@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 import projectData from '../../Data/projectData'; // Import projectData
+import peopleIcon from '/assets/icon/people-icon.png';
+
 
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -40,11 +42,11 @@ function Projects() {
                 alt={`${projectName} image`}
               />
             )}
-            <div className="project-type-box">{project.type}</div> {/* Project type */}
-              <div className="project-role">{project.role}</div> {/* Project role */}
+            <div className="project-type-box">{project.type}</div> 
+              <div className="project-role">{project.role}</div> 
               <div>{project.date}</div>
               <div className="project-footer">
-                <span className="team-size"><img src="/src/assets/icon/people-icon.png" alt="team size icon" className="team-icon"/> {project.teamSize}</span> {/* Person icon and team size */}
+                <span className="team-size"><img src={peopleIcon} alt="team size icon" className="team-icon"/> {project.teamSize}</span>
               </div>
             </div>
           </Link>

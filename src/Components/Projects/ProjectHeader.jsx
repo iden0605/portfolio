@@ -1,6 +1,6 @@
 import '../../App.css';
 import projectData from '../../Data/projectData';
-import wwwIcon from '../../assets/icon/WWW-icon.png';
+import wwwIcon from '/assets/icon/WWW-icon.png';
 
 function ProjectHeader({ projectName }) {
   // get project data based on project name
@@ -17,8 +17,8 @@ function ProjectHeader({ projectName }) {
       <div className="project-header-content">
         <h2 style={{ textAlign: 'center' }}>{projectName}</h2>
 
-        <div className="video-container" style={{ margin: '20px auto' }}>
-          {project.liveLink && project.liveLink.includes('youtube.com') && (
+        {project.liveLink && project.liveLink.includes('youtube.com') && (
+          <div className="video-container" style={{ margin: '20px auto' }}>
             <iframe
               src={`https://www.youtube.com/embed/${project.liveLink.split('v=')[1].split('&')[0]}`}
               frameBorder="0"
@@ -26,20 +26,20 @@ function ProjectHeader({ projectName }) {
               allowFullScreen
               title={`YouTube video for ${projectName}`}
             ></iframe>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="project-type-box" style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>{project.type}</div>
 
         <div style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>
           {project.githubLink && project.githubLink !== "" && (
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-              <img src="/src/assets/logo/Github-black-logo.png" alt="GitHub Link" style={{ width: '45px', height: '45px' }} />
+              <img src="/portfolio/assets/logo/Github-black-logo.png" alt="GitHub Link" style={{ width: '45px', height: '45px' }} />
             </a>
           )}
           {project.itchLink && project.itchLink !== "" && (
             <a href={project.itchLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '20px' }}>
-              <img src="/src/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
+              <img src="/portfolio/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
             </a>
           )}
           {project.wwwLink && project.wwwLink !== "" && (

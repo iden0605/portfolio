@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 import './WorkExperience.css';
 import jobExperienceData from '../../Data/jobExperienceData';
-import peopleIcon from '../../assets/icon/people-icon.png';
+import peopleIcon from '/assets/icon/people-icon.png';
 
 function WorkExperience() {
     // scroll to top on component mount

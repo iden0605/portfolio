@@ -14,7 +14,7 @@ const projectData = {
     type: "Hackathon",
     teamSize: 1,
     role: "Frontend Developer",
-    thumbnail: "/src/assets/project/PebbleTask/PebbleTask-image.png",
+    thumbnail: "/portfolio/assets/project/PebbleTask/PebbleTask-image.png",
     images: [
 
     ],
@@ -23,7 +23,7 @@ const projectData = {
     githubLink: "https://github.com/iden0605/PebbleTask",
     itchLink: "",
     wwwLink: "https://iden0605.github.io/PebbleTask/",
-    previewVid: "/PebbleTask-hover.mp4",
+    previewVid: "/portfolio/PebbleTask-hover.mp4",
     status: "Released",
     projectTime: "2 Days",
     keyResponsibilities: [
@@ -43,7 +43,7 @@ const projectData = {
     type: "Short Term Project",
     teamSize: 2,
     role: "Fullstack Developer",
-    thumbnail: "/src/assets/project/MindBack/MIndBack-image.png",
+    thumbnail: "/portfolio/assets/project/MindBack/MIndBack-image.png",
     images: [
 
     ],
@@ -65,7 +65,7 @@ const projectData = {
     type: "Long Term Project",
     teamSize: 2,
     role: "Frontend Developer",
-    thumbnail: "/src/assets/project/Lunarly/Lunarly-image.png",
+    thumbnail: "/portfolio/assets/project/Lunarly/Lunarly-image.png",
     images: [
 
     ],
@@ -91,7 +91,7 @@ const projectData = {
     type: "Game Jam",
     teamSize: 4,
     role: "Programmer (Unity)",
-    thumbnail: "/src/assets/project/OverGrown/OverGrown-image.png",
+    thumbnail: "/portfolio/assets/project/OverGrown/OverGrown-image.png",
     images: [
 
     ],
@@ -100,7 +100,7 @@ const projectData = {
     githubLink: "https://github.com/yourusername/project4",
     itchLink: "https://iden0605.itch.io/overgrown",
     wwwLink: "",
-    previewVid: "/OverGrown-hover.mp4",
+    previewVid: "/portfolio/OverGrown-hover.mp4",
     status: "Completed",
     projectTime: "5 Days",
     keyResponsibilities: [
