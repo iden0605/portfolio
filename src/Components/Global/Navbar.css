@@ -62,11 +62,6 @@
     background-color: #5a6fca;
   }
 
-  .navbar-logo {
-    height: 30px;
-    margin-right: 1rem;
-  }
-
   .hamburger-icon {
     display: none;
     flex-direction: column;
