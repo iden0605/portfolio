@@ -10,13 +10,5 @@
       "dest": "api/send-email.js",
       "methods": ["POST"]
     }
-  ],
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
-  "dev": {
-    "framework": "vite"
-  }
+  ]
 }
