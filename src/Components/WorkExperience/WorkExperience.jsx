@@ -11,7 +11,7 @@ function WorkExperience() {
       window.scrollTo(0, 0);
     }, []);
 
-  // render the work experience section
+  // render work experience section
   return (
     <section className="section" data-aos="fade-up">
       <h2>Work Experience</h2>
