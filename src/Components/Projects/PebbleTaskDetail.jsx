@@ -4,17 +4,18 @@ import ProjectBackButton from '../Utilities/ProjectBackButton';
 import './ProjectDetails.css';
 
 function PebbleTaskDetail() {
+  // get project data for PebbleTask
   const project = projectData.PebbleTask;
 
+  // handle case where project data is not found
   if (!project) {
     return <div>Project not found.</div>;
   }
 
+  // render the project detail page
   return (
     <div className="project-detail-container">
       <ProjectHeader projectName="PebbleTask" />
-      {/* Add additional PebbleTask specific content below the header if needed */}
-      {/* Section for Image and Description Blocks */}
       <section className="section" data-aos="fade-up">
         <div className="project-header-content">
           <div className="image-description-section">
@@ -44,7 +45,6 @@ function PebbleTaskDetail() {
           </div>
         </div>
       </section>
-
       <ProjectBackButton />
     </div>
   );

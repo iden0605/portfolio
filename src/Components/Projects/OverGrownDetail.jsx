@@ -4,17 +4,18 @@ import ProjectBackButton from '../Utilities/ProjectBackButton';
 import './ProjectDetails.css';
 
 function OverGrownDetail() {
+  // get project data for OverGrown
   const project = projectData.OverGrown;
 
+  // handle case where project data is not found
   if (!project) {
     return <div>Project not found.</div>;
   }
 
+  // render the project detail page
   return (
     <div className="project-detail-container">
       <ProjectHeader projectName="OverGrown" />
-      {/* Add additional OverGrown specific content below the header if needed */}
-      {/* Section for Image and Description Blocks */}
       <section className="section" data-aos="fade-up">
         <div className="project-header-content">
           <div className="image-description-section">
@@ -71,7 +72,6 @@ function OverGrownDetail() {
           </div>
         </div>
       </section>
-
       <ProjectBackButton />
     </div>
   );

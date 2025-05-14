@@ -1,10 +1,12 @@
 import './Footer.css';
 
 function Footer() {
-  const githubLink = "https://github.com/iden0605"; 
+  // define social media links
+  const githubLink = "https://github.com/iden0605";
   const linkedinLink = "https://www.linkedin.com/in/iden-mcelhone-8a6983354/";
   const gmailLink = "mailto:iden0605@gmail.com";
 
+  // render the footer with social links
   return (
     <footer className="footer">
       <div className="footer-links">

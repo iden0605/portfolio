@@ -1,69 +1,68 @@
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
-  gap: 2rem; /* Increased space between grid items */
-  margin: 2rem auto; /* Center the grid and add margin */
-  padding: 0 1rem; /* Add padding on the sides */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .projects-grid .content-card {
-  margin-bottom: 0; /* Remove margin-bottom from cards within the grid */
+  margin-bottom: 0;
 }
 
 .project-footer {
   position: absolute;
-  bottom: 0; /* Adjust as needed */
-  left: 10px; /* Adjust as needed */
-  margin-top: 10px; /* Added top margin for spacing */
+  bottom: 0;
+  left: 10px;
+  margin-top: 10px;
 }
 
 .project-type-box {
-  border: 1px solid var(--subtle-accent); /* Use subtle accent color for border */
-  padding: 4px 12px; /* Adjusted padding */
-  display: inline-block; /* Make the box wrap the text */
-  margin-bottom: 8px; /* Adjusted space below the box */
-  margin-right: 10px; /* Added right margin */
-  background-color: var(--subtle-accent); /* Use subtle accent color for background */
-  color: white; /* White text for better contrast */
-  font-size: 1.3em; /* Slightly increased font size */
-  font-weight: 500; /* Semi-bold font weight */
-  border-radius: 16px; /* More rounded corners for pill shape */
+  border: 1px solid var(--subtle-accent);
+  padding: 4px 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  background-color: var(--subtle-accent);
+  color: white;
+  font-size: 1.3em;
+  font-weight: 500;
+  border-radius: 16px;
 }
 
 .projects-grid .project-type-box {
-  font-size: 1em; /* Smaller font size for project type boxes in the projects grid */
+  font-size: 1em;
 }
 
 .project-role {
-  margin-bottom: 10px; /* Add space below the role text */
-  margin-right: 10px; /* Added right margin */
-  font-size: 0.95em; /* Similar font size to category */
-  font-weight: normal; /* Regular font weight */
-  color: #777; /* Medium gray color */
-  text-align: center; /* Center the text */
-  font-style: italic; /* Italicize the text */
-  padding-left: 0; /* Remove left padding for centering */
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 0.95em;
+  font-weight: normal;
+  color: #777;
+  text-align: center;
+  font-style: italic;
+  padding-left: 0;
 }
 
-.content-card .project-role + div { /* Target the div immediately following .project-role */
-  color: #777; /* Same neutral gray as the role */
-  font-size: 0.9em; /* Slightly smaller font size than the role */
-  font-weight: normal; /* Regular font weight */
-  text-align: center; /* Center the text */
-  padding-left: 0; /* Remove left padding for centering */
-  margin-bottom: 10px; /* Add space below the timeframe */
+.content-card .project-role + div {
+  color: #777;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-align: center;
+  padding-left: 0;
+  margin-bottom: 10px;
 }
 
 .team-size .team-icon {
   width: 16px;
   height: 20px;
-  vertical-align: middle; /* Align the image vertically with text */
-  display: inline-block; /* Make the image an inline-block element */
-  margin-right: 0px; /* Add some space between the icon and the text */
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 0px;
   margin-top: 13px;
 }
 
-/* CSS for project preview video */
 .project-preview-video {
   width: 100%;
   max-width: 400px;
@@ -75,6 +74,46 @@
 }
 
 .content-card img {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Add box shadow to project images */
-  border-radius: 8px; /* Add border radius to match the video */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-card img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    margin: 2rem 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+
+  .projects-grid .content-card > img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
 }

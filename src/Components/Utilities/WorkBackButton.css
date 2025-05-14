@@ -1,32 +1,31 @@
-/* Styles for the "Back to Work Experiences" link */
 .back-link {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #6a7fda; /* Subtle accent color */
-  color: #FFFFF0 !important; /* White cream text color */
+  padding: 1vh 2vw;
+  background-color: #6a7fda;
+  color: #FFFFF0 !important;
   border-radius: 5px;
   margin-top: 0px;
-  text-decoration: none; /* Remove default underline */
-  font-weight: bold; /* Increased font weight */
-  font-size: 1.1em; /* Slightly increased font size */
-  transition: background-color 0.2s ease, opacity 0.15s ease-in-out, transform 0.15s ease-in-out; /* Add transitions for opacity and transform */
-  position: fixed; /* Make the element sticky */
-  bottom: 89vh; /* Position at the bottom */
-  left: 30px; /* Position at the left */
-  z-index: 1000; /* Ensure it's on top */
-  opacity: 1; /* Default visible state */
-  transform: translateY(0); /* Default visible state */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5vw;
+  transition: background-color 0.2s ease, opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  position: fixed;
+  bottom: 89vh;
+  left: calc(2vw + 10px);
+  z-index: 1000;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .back-link.hidden {
   opacity: 0;
-  transform: translateY(20px); /* Move down for fade up effect */
+  transform: translateY(20px);
 }
 
-.back-link span { /* Style for the arrow */
-  margin-right: 5px; /* Space between arrow and text */
+.back-link span {
+  margin-right: 5px;
 }
 
 .back-link:hover {
-  background-color: #5a6fca; /* Darker shade of subtle accent on hover */
+  background-color: #5a6fca;
 }

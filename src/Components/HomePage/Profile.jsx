@@ -1,9 +1,11 @@
 import './Profile.css';
 
 function Profile() {
+  // define name and tagline
   const name = "Iden McElhone";
   const tagline = "Full-Stack Developer | Building innovative web solutions";
 
+  // render the profile section
   return (
     <section className="section profile-section" data-aos="fade-up">
       <img src="/src/assets/iden_image.jpg" alt="Iden McElhone's profile picture" className="profile-picture"/>

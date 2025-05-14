@@ -1,6 +1,7 @@
 import './EducationAndSkills.css';
 
 function EducationAndSkills() {
+  // education data
   const education = [
     {
       institution: "University of Melbourne (2024–2026)",
@@ -12,12 +13,14 @@ function EducationAndSkills() {
     }
   ];
 
+  // language proficiency data
   const languages = [
     <><strong>English:</strong> Native</>,
     <><strong>Cantonese:</strong> Proficient</>,
     <><strong>Mandarin:</strong> Basic Proficiency</>
   ];
 
+  // skills data
   const skills = {
     "Programming Languages": ["Python", "Java", "C#", "Javascript"],
     "Frameworks & Libraries": ["React", "Flask", "Unity"],
@@ -26,6 +29,7 @@ function EducationAndSkills() {
   };
 
 
+  // render education and skills section
   return (
     <section className="section" data-aos="fade-up">
       <h2>Education and Skills</h2>

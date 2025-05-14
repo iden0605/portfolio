@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--primary-color); /* Darker background color for footer */
+  background-color: var(--primary-color);
   padding: 5px;
   text-align: center;
   margin-top: 5px;
@@ -9,18 +9,18 @@
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Increased spacing between icons */
+  gap: 30px;
   align-items: center;
 }
 
 .footer-icon {
-  color: #333; /* Default icon color */
-  font-size: 36px; /* Icon size */
-  text-decoration: none; /* Remove underline from links */
+  color: #333;
+  font-size: 36px;
+  text-decoration: none;
 }
 
 .footer-icon:hover {
-  color: #007bff; /* Hover color */
+  color: #007bff;
 }
 
 .footer a {

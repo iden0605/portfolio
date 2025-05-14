@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 
 function AboutMe() {
+  // define the section title
   const title = "About Me";
 
+  // render the about me section
   return (
     <section className="section" data-aos="fade-up">
       <div className="aboutme-container">

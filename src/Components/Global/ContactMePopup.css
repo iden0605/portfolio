@@ -4,32 +4,32 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's above other content */
-  animation: fadeIn 0.2s ease-out; /* Make fade-in animation faster */
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .popup-overlay.closing {
-  animation: fadeOut 0.2s ease-in forwards; /* Make fade-out animation faster for closing */
+  animation: fadeOut 0.2s ease-in forwards;
 }
 
 .popup-content {
-  background-color: #F5F3EA; /* Use the cream color for the popup background */
-  padding: 2rem 2.5rem; /* Increased horizontal padding */
+  background-color: #F5F3EA;
+  padding: 2rem 2.5rem;
   border-radius: 8px;
   position: relative;
   width: 90%;
-  max-width: 500px; /* Limit the maximum width */
-  color: var(--primary-color); /* Use primary color for text within the popup */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow for depth */
-  animation: scaleUp 0.2s ease-out; /* Make scale-up animation faster */
+  max-width: 500px;
+  color: var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.2s ease-out;
 }
 
 .popup-content.closing {
-  animation: fadeOutDown 0.2s ease-in forwards; /* Make fade-out down animation faster for closing */
+  animation: fadeOutDown 0.2s ease-in forwards;
 }
 
 @keyframes fadeOut {
@@ -43,116 +43,116 @@
 }
 
 @keyframes scaleUp {
-  from { transform: scale(0.95) translateY(20px); opacity: 0; } /* Scale up and move up from 20px below, start with opacity 0 */
-  to { transform: scale(1) translateY(0); opacity: 1; } /* End at original size and position, end with opacity 1 */
+  from { transform: scale(0.95) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 @keyframes fadeOutDown {
-  from { transform: scale(1) translateY(0); opacity: 1; } /* Start at original size and position, start with opacity 1 */
-  to { transform: scale(0.95) translateY(20px); opacity: 0; } /* Scale down and move down to 20px below, end with opacity 0 */
+  from { transform: scale(1) translateY(0); opacity: 1; }
+  to { transform: scale(0.95) translateY(20px); opacity: 0; }
 }
 
 .popup-content h2 {
   margin-top: 0;
-  margin-bottom: 1.5rem; /* Add more space below the title */
-  color: var(--primary-color); /* Ensure heading color matches text color */
-  font-size: 1.8em; /* Slightly larger font size */
-  font-weight: 700; /* Bolder font weight */
-  text-align: left; /* Align title to the left */
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: left;
 }
 
 .form-group {
-  margin-bottom: 1rem; /* Adjusted vertical spacing */
+  margin-bottom: 1rem;
 }
 
 .form-group {
-  margin-bottom: 1.2rem; /* Adjusted vertical spacing */
-  position: relative; /* Add position relative for absolute positioning of asterisk */
+  margin-bottom: 1.2rem;
+  position: relative;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.2rem; /* Reduced space below label */
+  margin-bottom: 0.2rem;
   font-weight: bold;
-  text-align: left; /* Left align the label text */
+  text-align: left;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.8rem; /* Increased padding */
-  border: 1px solid #ccc; /* Subtle light grey border */
-  border-radius: 6px; /* Adjusted border-radius */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  background-color: #e0e0e0; /* Ensure white background for input fields */
-  color: var(--primary-color); /* Use primary color for input text */
-  font-family: inherit; /* Ensure input and textarea use the inherited font */
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #e0e0e0;
+  color: var(--primary-color);
+  font-family: inherit;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--primary-color); /* Use primary color for placeholder text */
-  opacity: 0.7; /* Make placeholder text slightly less opaque */
-  font-family: inherit; /* Ensure placeholder uses the inherited font */
+  color: var(--primary-color);
+  opacity: 0.7;
+  font-family: inherit;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--subtle-accent); /* Accent color on focus */
-  box-shadow: 0 0 0 0.2rem rgba(106, 127, 218, 0.25); /* Subtle glow on focus */
+  border-color: var(--subtle-accent);
+  box-shadow: 0 0 0 0.2rem rgba(106, 127, 218, 0.25);
 }
 
 .form-group textarea {
-  min-height: 120px; /* Increased minimum height */
-  resize: vertical; /* Allow vertical resizing */
+  min-height: 120px;
+  resize: vertical;
 }
 
 .popup-content button[type="submit"] {
-  background-color: var(--subtle-accent); /* Use subtle accent color for the submit button */
+  background-color: var(--subtle-accent);
   color: white;
   border: none;
-  padding: 0.8em 2em; /* Increased horizontal padding */
+  padding: 0.8em 2em;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1em;
-  font-weight: bold; /* Make text bolder */
-  transition: background-color 0.25s ease-in-out, transform 0.1s ease-in-out; /* Add transform to transition */
-  width: 100%; /* Make button full width */
-  margin-top: 1.5rem; /* Adjusted space above the button for consistent vertical rhythm */
+  font-weight: bold;
+  transition: background-color 0.25s ease-in-out, transform 0.1s ease-in-out;
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
 .popup-content button[type="submit"]:hover {
-  background-color: #5a6fca; /* Darker shade on hover */
-  transform: translateY(-2px); /* Subtle lift on hover */
+  background-color: #5a6fca;
+  transform: translateY(-2px);
 }
 
 .popup-content button[type="submit"]:active {
-  background-color: #4a5fac; /* Even darker shade when active */
-  transform: translateY(0); /* Reset transform when active */
+  background-color: #4a5fac;
+  transform: translateY(0);
 }
 
 .close-button {
   position: absolute;
-  top: 15px; /* Adjusted top position */
-  right: 15px; /* Adjusted right position */
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
-  font-size: 2.5rem; /* Increased font size for better visibility */
+  font-size: 2.5rem;
   cursor: pointer;
-  color: var(--primary-color); /* Use primary color for the close button */
-  padding: 10px; /* Increased clickable area */
-  transition: color 0.2s ease-in-out; /* Add transition for hover effect */
+  color: var(--primary-color);
+  padding: 10px;
+  transition: color 0.2s ease-in-out;
 }
 
 .required-asterisk {
   position: absolute;
-  top: 0.5rem; /* Adjust as needed to move the asterisk down */
-  right: 0; /* Adjust as needed to align with the right of the input */
-  color: red; /* Or any color to make it stand out */
+  top: 0.5rem;
+  right: 0;
+  color: red;
   font-weight: bold;
 }
 
 .close-button:hover {
-  color: var(--subtle-accent); /* Change color on hover */
+  color: var(--subtle-accent);
 }

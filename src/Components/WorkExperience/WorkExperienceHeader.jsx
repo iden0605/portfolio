@@ -1,42 +1,40 @@
 import '../../App.css';
-import './WorkExperienceDetail.css'; // Keep the existing CSS import
-import jobExperienceData from '../../Data/jobExperienceData'; // Import jobExperienceData
+import './WorkExperienceDetail.css';
+import jobExperienceData from '../../Data/jobExperienceData';
 
 function WorkExperienceHeader({ companyName }) {
+  // get job experience data based on company name
   const job = jobExperienceData[companyName];
 
+  // return null if job data is not found
   if (!job) {
-    return null; // Or a loading/error state
+    return null;
   }
 
+  // render the work experience header section
   return (
-    <section className="section" data-aos="fade-up" style={{ width: '62%', margin: '20px auto 0 auto' }}>
+    <section className="section" data-aos="fade-up">
       <div className="work-experience-header-content">
-        {/* 1. Company Name (centered) */}
         <h2 style={{ textAlign: 'center', marginBottom: '8px' }}>{companyName}</h2>
 
-        {/* 2. Job Title (centered) */}
         <div style={{ textAlign: 'center', margin: '0 0', fontStyle: 'italic', fontSize: '1.15em' }}>
           {job.jobTitle}
         </div>
 
-        {/* 3. Job Image (centered) */}
-         <div style={{ textAlign: 'center', margin: '20px 0' }}>
+         <div className="work-experience-image-container">
            {job.image && (
              <img src={job.image} alt={`${companyName} image`} className="work-experience-image" />
            )}
          </div>
 
 
-        {/* 4. Overview (left-aligned) */}
-        <div style={{ textAlign: 'left' }}>
+        <div className="work-experience-overview">
           <h3><span className="subtitle">Overview</span></h3>
           {job.description && (
-            <p style={{ marginBottom: '20px' }}>{job.description}</p>
+            <p style={{ textAlign: 'left' }}>{job.description}</p>
           )}
         </div>
 
-        {/* 5. Details (left-aligned) */}
         <div className="work-experience-details work-experience-details-vertical" style={{ textAlign: 'left' }}>
           {job.timeInRole && <p><strong>Time in Role:</strong>&nbsp;&nbsp;{job.timeInRole}</p>}
           {job.technologies && <p><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
@@ -48,7 +46,7 @@ function WorkExperienceHeader({ companyName }) {
             <div style={{ textAlign: 'left', marginTop: '-10px' }}>
               <ul>
                 {job.keyResponsibilities && job.keyResponsibilities.map((responsibility, index) => (
-                  <li key={index} style={{ color: '#444', marginBottom: '5px' }}>{responsibility}</li>
+                  <li key={index} style={{ color: '#444', marginBottom: '5px', textAlign: 'left' }}>{responsibility}</li>
                 ))}
               </ul>
             </div>

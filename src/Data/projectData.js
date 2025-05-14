@@ -1,3 +1,4 @@
+// data for project section
 const projectData = {
   "PebbleTask": {
     description: `
@@ -15,12 +16,13 @@ const projectData = {
     role: "Frontend Developer",
     thumbnail: "/src/assets/project/PebbleTask/PebbleTask-image.png",
     images: [
-      // Add more screenshot paths here
+
     ],
     technologies: ["React (Javascript)"],
     liveLink: "https://www.youtube.com/watch?v=S6Kpp-MXBes&ab_channel=IdenMcElhone",
     githubLink: "https://github.com/iden0605/PebbleTask",
     itchLink: "",
+    wwwLink: "https://iden0605.github.io/PebbleTask/",
     previewVid: "/PebbleTask-hover.mp4",
     status: "Released",
     projectTime: "2 Days",
@@ -33,9 +35,9 @@ const projectData = {
   },
 
   "MindBack": {
-    description: `MindBack is a web application designed to help you reconnect with your past self 
-    or friends by interacting with your digital memories through a conversational AI. Upload your 
-    personal data archives (from WhatsApp and Instagram), and MindBack will process them, allowing 
+    description: `MindBack is a web application designed to help you reconnect with your past self
+    or friends by interacting with your digital memories through a conversational AI. Upload your
+    personal data archives (from WhatsApp and Instagram), and MindBack will process them, allowing
     you to chat with an AI persona based on the communication style and content from a specific year.`,
     date: "April 2025 - Present",
     type: "Short Term Project",
@@ -43,20 +45,21 @@ const projectData = {
     role: "Fullstack Developer",
     thumbnail: "/src/assets/project/MindBack/MIndBack-image.png",
     images: [
-      // Add more screenshot paths here
+
     ],
     technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
     liveLink: "https://example.com/project2",
     githubLink: "https://github.com/yourusername/project2",
     itchLink: "",
+    wwwLink: "",
     status: "In Progress",
     projectTime: "Ongoing",
     keyResponsibilities: []
   },
-  
+
   "Lunarly": {
-    description: `A conversational companion chatbot that builds a closer friendship with users 
-    over time. The more you chat, the more the bond grows — creating a personalized and engaging 
+    description: `A conversational companion chatbot that builds a closer friendship with users
+    over time. The more you chat, the more the bond grows — creating a personalized and engaging
     experience.`,
     date: "May 2025 - Present",
     type: "Long Term Project",
@@ -64,40 +67,42 @@ const projectData = {
     role: "Frontend Developer",
     thumbnail: "/src/assets/project/Lunarly/Lunarly-image.png",
     images: [
-      // Add more screenshot paths here
+
     ],
     technologies: ["React (Javascript)", "Flask (Python)"],
     liveLink: "https://example.com/project3",
     githubLink: "https://github.com/yourusername/project3",
     itchLink: "",
-    status: "In Progress", // Placeholder
-    projectTime: "Ongoing", // Placeholder
+    wwwLink: "",
+    status: "In Progress",
+    projectTime: "Ongoing",
     keyResponsibilities: []
   },
   "OverGrown": {
     description: `
-    In this game, a town has been taken over by Cyborg Lumberjacks, and it’s up to 
-    Mother Nature to bring it back to life. With the help of a small nature fairy, you uncover 
-    her story and face the challenges caused by the damage to the environment. Along the way, 
-    you free a companion who joins you on your journey as you work together to clean up the town 
-    and find what was lost—your heart. The game focuses on simple exploration, with themes of 
+    In this game, a town has been taken over by Cyborg Lumberjacks, and it’s up to
+    Mother Nature to bring it back to life. With the help of a small nature fairy, you uncover
+    her story and face the challenges caused by the damage to the environment. Along the way,
+    you free a companion who joins you on your journey as you work together to clean up the town
+    and find what was lost—your heart. The game focuses on simple exploration, with themes of
     healing, friendship, and the fight between nature and machines.
     `,
-    date: "CISSA x GMC Game Jam 2025", // Placeholder
-    type: "Game Jam", // Placeholder
-    teamSize: 4, // Placeholder
-    role: "Programmer (Unity)", // Placeholder
+    date: "CISSA x GMC Game Jam 2025",
+    type: "Game Jam",
+    teamSize: 4,
+    role: "Programmer (Unity)",
     thumbnail: "/src/assets/project/OverGrown/OverGrown-image.png",
     images: [
-      // Add more screenshot paths here
+
     ],
     technologies: ["Unity (C#)"],
     liveLink: "https://www.youtube.com/watch?v=KPQG4P6r2QU",
     githubLink: "https://github.com/yourusername/project4",
     itchLink: "https://iden0605.itch.io/overgrown",
+    wwwLink: "",
     previewVid: "/OverGrown-hover.mp4",
-    status: "Completed", // Placeholder
-    projectTime: "5 Days", // Placeholder
+    status: "Completed",
+    projectTime: "5 Days",
     keyResponsibilities: [
       "Designed and implemented player character mechanics, including movement, attack systems, health management, and inventory.",
       "Developed enemy AI and spawning systems.",

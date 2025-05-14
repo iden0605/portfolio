@@ -4,6 +4,7 @@ import AboutMe from './AboutMe';
 import EducationAndSkills from './EducationAndSkills';
 
 function Body() {
+  // render the main content sections
   return (
     <main className="main-content">
       <Profile />

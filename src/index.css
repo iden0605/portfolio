@@ -30,8 +30,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #36454F; /* Dark charcoal gray background */
-  color: var(--primary-color); /* Use primary color for body text */
+  background-color: #36454F;
+  color: var(--primary-color);
+  overflow-x: hidden;
 }
 
 h1 {
@@ -62,29 +63,27 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 12px; /* width of the vertical scrollbar */
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* color of the track */
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A9A9A9; /* color of the scroll thumb */
-  border-radius: 6px; /* round the corners of the thumb */
+  background: #A9A9A9;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #808080;
 }
 
-/* Styles for Image and Description Sections */
 .image-description-section {
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Space between blocks */
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -95,7 +94,7 @@ html {
 }
 
 .image-description-block h3 {
-  color: #61dafb; /* Highlight color for titles */
+  color: #61dafb;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -108,6 +107,6 @@ html {
 }
 
 .image-description-block .description {
-  color: #abb2bf; /* Light gray for text */
+  color: #abb2bf;
   line-height: 1.6;
 }

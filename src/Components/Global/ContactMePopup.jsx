@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect } from 'react';
 import './ContactMePopup.css';
 
 const ContactMePopup = ({ isOpen, onClose }) => {
+  // state for popup visibility and animation
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
+  // state for form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
+  // effect to handle popup open/close animation
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
@@ -18,20 +21,23 @@ const ContactMePopup = ({ isOpen, onClose }) => {
       setIsClosing(true);
       const timeoutId = setTimeout(() => {
         setShouldRender(false);
-      }, 200); // Match the new animation duration
+      }, 200);
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
 
+  // don't render if not open and not closing
   if (!shouldRender) {
     return null;
   }
 
+  // handle input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -45,25 +51,24 @@ const ContactMePopup = ({ isOpen, onClose }) => {
       });
 
       if (response.ok) {
-        // Handle success (e.g., clear form, show message)
         setFormData({ name: '', email: '', message: '' });
-        alert('Message sent successfully!'); // Simple alert for now
-        onClose(); // Close the popup on success
+        alert('Message sent successfully!');
+        onClose();
       } else {
-        // Handle errors
         const errorData = await response.json();
         console.error('Error sending message:', errorData.error);
-        alert(`Failed to send message: ${errorData.error}`); // Simple alert for now
+        alert(`Failed to send message: ${errorData.error}`);
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      alert('An error occurred while sending the message.'); // Simple alert for now
+      alert('An error occurred while sending the message.');
     }
   };
 
   const overlayClassName = `popup-overlay ${isClosing ? 'closing' : ''}`;
   const contentClassName = `popup-content ${isClosing ? 'closing' : ''}`;
 
+  // render the popup
   return (
     <div className={overlayClassName}>
       <div className={contentClassName}>

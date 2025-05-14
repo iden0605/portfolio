@@ -1,25 +1,25 @@
-import '../../App.css'; // Assuming styling is in App.css
-import projectData from '../../Data/projectData'; // Import projectData
+import '../../App.css';
+import projectData from '../../Data/projectData';
+import wwwIcon from '../../assets/icon/WWW-icon.png';
 
 function ProjectHeader({ projectName }) {
+  // get project data based on project name
   const project = projectData[projectName];
 
+  // return null if project data is not found
   if (!project) {
-    return null; // Or a loading/error state
+    return null;
   }
 
+  // render the project header section
   return (
     <section className="section" data-aos="fade-up">
       <div className="project-header-content">
-        {/* 1. Project title (centered) */}
         <h2 style={{ textAlign: 'center' }}>{projectName}</h2>
 
-        {/* 2. YouTube video (centered) */}
-        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+        <div className="video-container" style={{ margin: '20px auto' }}>
           {project.liveLink && project.liveLink.includes('youtube.com') && (
             <iframe
-              width="800"
-              height="450"
               src={`https://www.youtube.com/embed/${project.liveLink.split('v=')[1].split('&')[0]}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -29,10 +29,8 @@ function ProjectHeader({ projectName }) {
           )}
         </div>
 
-        {/* 3. Project type (centered, styled like project content cards) */}
         <div className="project-type-box" style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>{project.type}</div>
 
-        {/* 4. Icons for project links (centered) */}
         <div style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>
           {project.githubLink && project.githubLink !== "" && (
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
@@ -44,16 +42,19 @@ function ProjectHeader({ projectName }) {
               <img src="/src/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
             </a>
           )}
+          {project.wwwLink && project.wwwLink !== "" && (
+            <a href={project.wwwLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '20px' }}>
+              <img src={wwwIcon} alt="WWW Link" style={{ width: '45px', height: '45px' }} />
+            </a>
+          )}
         </div>
 
         <div style={{ textAlign: 'left' }}>
           <h3><span className="subtitle">Overview</span></h3>
 
-          {/* 5. Project description (centered) */}
           <p style={{ marginBottom: '20px' }}>{project.description}</p>
         </div>
 
-        {/* 6. Status, technologies (left-aligned) */}
         <div className="project-details project-details-vertical" style={{ textAlign: 'left' }}>
           <p><strong>Status:</strong>&nbsp;&nbsp;{project.status}</p>
           <p><strong>Project Time:</strong>&nbsp;&nbsp;{project.projectTime}</p>

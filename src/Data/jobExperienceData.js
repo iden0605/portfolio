@@ -1,5 +1,6 @@
+// data for work experience section
 const jobExperienceData = {
-  "BookingsMadeEasy": {
+  "Bookings Made Easy": {
     jobTitle: "Co-founder | Software/Web Developer",
     image: "/src/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.png",
     description: `  Self-founded a web development service based in Kota Kinabalu, Malaysia, focused
@@ -9,8 +10,8 @@ const jobExperienceData = {
     teamSize: 2,
     timeInRole: "Ongoing",
     keyResponsibilities: [
-      "Web development (Frontend)", 
-      "Database planning and development", 
+      "Web development (Frontend)",
+      "Database planning and development",
       "Software development (Booking management software)"
     ],
     technologies: "GoHighLevel, Javascript, HTML, CSS"
@@ -24,8 +25,8 @@ const jobExperienceData = {
     teamSize: 1,
     timeInRole: "6 Months",
     keyResponsibilities: [
-      "Tutoring and mentoring students in Mathematics and Programming", 
-      "Planning Lessons and exercise sheets for students", 
+      "Tutoring and mentoring students in Mathematics and Programming",
+      "Planning Lessons and exercise sheets for students",
       "Guiding students through past papers",
       "Supporting students off-hours (helping with homework or assignments)"
     ],

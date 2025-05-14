@@ -1,8 +1,8 @@
-/* Add styles specific to WorkExperienceDetail component here */
 .work-experience-detail-content {
     padding: 20px;
-    max-width: 800px; /* Adjust as needed */
-    margin: 0 auto; /* Center the content */
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .work-experience-details {
@@ -10,70 +10,191 @@
 }
 
 .work-experience-details-vertical p {
-    margin-bottom: 5px; /* Space between vertical details */
+    margin-bottom: 5px;
 }
 
-/* Style for the image in WorkExperienceHeader */
-.work-experience-image {
-    width: 690px; /* Slightly decrease fixed width */
-    height: 410px; /* Slightly decrease fixed height */
-    object-fit: cover; /* Scale image to cover the container while maintaining aspect ratio */
-    border-radius: 8px; /* Add border radius */
-    grid-column: 1 / 2; /* First column */
-    grid-row: 2 / 3; /* Second row */
-    justify-self: center; /* Center horizontally in grid cell */
-    align-self: start; /* Align to the top vertically in grid cell */
-    border-radius: 6px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adjusted box shadow */
+.work-experience-image, .job-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-/* Styles for the image and description section, similar to project details */
 .image-description-section {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between blocks */
+    gap: 20px;
     margin-top: 20px;
-    text-align: left; /* Align content within the section to the left */
+    text-align: left;
+}
+
+.work-experience-overview {
+    text-align: left;
 }
 
 .image-description-section h2 {
-    text-align: left; /* Ensure the heading is left-aligned */
-    align-self: flex-start; /* Align heading to the left */
+    text-align: left;
+    align-self: flex-start;
 }
 
 .work-experience-detail-content .subtitle {
-    font-size: 1.3em; /* Reduce the subtitle text size */
+    font-size: 1.3em;
 }
 
 .image-description-block {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    width: 100%; /* Ensure block takes full width to allow text-align: left to work */
+    align-items: center;
+    width: 100%;
 }
 
 .image-description-block .description {
-    margin-top: 5px; /* Reduced margin-top */
+    margin-top: 5px;
     line-height: 1.6;
-    text-align: left; /* Ensure text is left-aligned */
-    align-self: flex-start; /* Align description to the left */
-    border-left: none; /* Remove left border */
-    padding-left: 0; /* Remove left padding */
+    text-align: left;
+    align-self: flex-start;
+    border-left: none;
+    padding-left: 0;
 }
 
 .section-divider-subtle {
     width: 100%;
     height: 1px;
-    background-color: #555; /* Subtle divider color */
+    background-color: #555;
     margin: 20px 0;
 }
 
 .date-text {
-    border-left: none; /* Remove left border for date text */
-    padding-left: 0; /* Remove left padding for date text */
-    margin-bottom: 5px; /* Add margin-bottom to reduce space */
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 5px;
 }
 
 .description a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .work-experience-detail-content {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .work-experience-detail-content .section {
+        width: 100% !important;
+        margin: 1.5rem auto !important;
+    }
+
+    .work-experience-detail-content > * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .work-experience-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-experience-image-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .work-experience-image {
+        width: 100%;
+    }
+
+    .work-experience-overview {
+        width: 100%;
+        text-align: left;
+    }
+
+    .image-description-section {
+        gap: 15px;
+    }
+
+    .image-description-block .description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-experience-detail-content {
+        padding: 10px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .work-experience-detail-content .section {
+        width: 100% !important;
+        margin: 1rem auto !important;
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        overflow-x: hidden;
+    }
+
+    .work-experience-detail-content > * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+     .work-experience-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-experience-image-container {
+        margin-bottom: 10px;
+    }
+
+    .image-description-block .description {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .work-experience-overview {
+        text-align: left;
+    }
+
+    .image-description-section {
+        gap: 10px;
+    }
+
+    .work-experience-details-vertical p {
+        margin-bottom: 5px;
+        margin-left: 0rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 1024px) {
+  .work-experience-detail-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .work-experience-detail-content p,
+  .work-experience-detail-content li {
+    text-align: left;
+  }
+
+  .image-description-block {
+    align-items: flex-start;
+  }
+
+  .work-experience-detail-content > * {
+      width: 100%;
+      box-sizing: border-box;
+  }
 }

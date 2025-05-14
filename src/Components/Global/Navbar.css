@@ -1,71 +1,143 @@
 .navbar {
-  z-index: 1000; /* Ensure the navbar stays on top */
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.1rem 2rem;
-  background-color: var(--primary-color); /* Darker background color for navbar */
-  color: white; /* Change text color to white for better contrast */
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Add transition for fade and slide effect */
+  background-color: var(--primary-color);
+  color: white;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .navbar-hidden {
   opacity: 0;
-  transform: translateY(-100%); /* Move the navbar up by its height */
+  transform: translateY(-100%);
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem; /* Increased spacing between links */
-  font-size: 1.1em; /* Slightly larger font size */
-  margin-right: 45rem; /* Add space between nav links and contact button */
+  gap: 1.5rem;
+  font-size: 1.1em;
   padding: 0;
 }
 
 .navbar a {
   text-decoration: none;
-  color: #FFFFF0; /* Change text color to cream */
-  display: inline-block; /* Add display: inline-block for better transform support */
+  color: #FFFFF0;
+  display: inline-block;
 }
 
 .navbar a:hover {
   color: var(--subtle-accent);
-  text-decoration: underline; /* Add underline on hover */
-  text-underline-offset: 4px; /* Add some space between text and underline */
-  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out; /* Even faster transition */
-  transform: translateY(-2px); /* Move the link up slightly on hover */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(-2px);
 }
 
-/* Style for the active navigation link */
 .navbar a.active {
-  font-weight: bold; /* Make the text bold */
-  border-bottom: 2px solid var(--subtle-accent); /* Add an underline */
+  font-weight: bold;
+  border-bottom: 2px solid var(--subtle-accent);
 }
 
-/* Prevent double underline on hover for active link */
 .navbar a.active:hover {
   text-decoration: none;
 }
 
 .contact-button {
-  padding: 0.6em 1.2em; /* Consistent padding with default buttons */
-  font-size: 1em; /* Consistent font size */
-  font-weight: 500; /* Consistent font weight */
-  font-family: inherit; /* Consistent font family */
-  background-color: var(--subtle-accent); /* Use subtle accent color for button background */
-  color: white; /* White text for better contrast */
-  border: none; /* No border */
-  border-radius: 8px; /* Consistent border radius */
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--subtle-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.25s ease-in-out; /* Subtle background color transition on hover */
+  transition: background-color 0.25s ease-in-out;
 }
 
-.contact-button:hover {
-  background-color: #5a6fca; /* Darker shade of subtle accent on hover */
+  .contact-button:hover {
+    background-color: #5a6fca;
+  }
+
+  .navbar-logo {
+    height: 30px;
+    margin-right: 1rem;
+  }
+
+  .hamburger-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+@media (max-width: 768px) {
+  .navbar-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .hamburger-icon {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-right: 0;
+    margin-top: 0;
+    text-align: center;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    font-size: 0.9em;
+
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #333;
+    padding: 0.5rem;
+    width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .navbar ul.open {
+    display: flex;
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .navbar a {
+    padding: 0.3rem 0;
+  }
+
+  .contact-button {
+    margin-top: 0;
+  }
 }
 
-.navbar-logo {
-  height: 30px; /* Adjust height as needed */
-  margin-right: 1rem; /* Space between logo and nav links */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .navbar ul {
+    margin-top: 0.5rem;
+  }
 }
