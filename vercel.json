@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/send-email.js": {
+      "runtime": "node_20.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/send-email",
+      "dest": "api/send-email.js"
+    }
+  ]
+}
