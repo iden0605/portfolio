@@ -110,3 +110,7 @@ html {
   color: #abb2bf;
   line-height: 1.6;
 }
+
+.instagram-browser {
+  margin-top: 100px; /* Added to account for the Instagram in-app browser header */
+}
