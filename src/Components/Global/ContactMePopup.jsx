@@ -31,6 +31,16 @@ const ContactMePopup = ({ isOpen, onClose }) => {
       const timeoutId = setTimeout(() => {
         setShouldRender(false);
       }, 200);
+      // Cleanup cooldown timer and toast when popup closes
+      if (cooldownTimerRef.current) {
+        clearInterval(cooldownTimerRef.current);
+        cooldownTimerRef.current = null;
+      }
+      if (toastIdRef.current) {
+        toast.dismiss('cooldown-toast');
+        toastIdRef.current = null;
+      }
+      setCooldown(0); // Reset cooldown state
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
@@ -38,13 +48,34 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   // Effect to manage cooldown timer and toast
   useEffect(() => {
     if (cooldown > 0) {
+      // Show initial toast when cooldown starts
+      if (!toast.isActive('cooldown-toast')) {
+        toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
+          position: "bottom-right",
+          autoClose: false,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+          style: { backgroundColor: '#6a7fda' },
+          toastId: 'cooldown-toast', // Use a consistent ID to update the toast
+        });
+      }
+
       cooldownTimerRef.current = setInterval(() => {
         setCooldown((prevCooldown) => {
           const newCooldown = prevCooldown - 1;
-          if (newCooldown <= 0) {
+          if (newCooldown > 0) {
+            // Update toast with remaining time
+            toast.update('cooldown-toast', {
+              render: `Please wait ${newCooldown}s before trying again`,
+            });
+          } else {
+            // Cooldown finished
             clearInterval(cooldownTimerRef.current);
             cooldownTimerRef.current = null; // Clear the ref
-            // Dismiss the toast when cooldown finishes
             if (toastIdRef.current) {
               toast.dismiss('cooldown-toast');
               toastIdRef.current = null;
@@ -53,13 +84,23 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           return newCooldown;
         });
       }, 1000);
+    } else {
+      // Cooldown is 0 or less, ensure timer and toast are cleared
+      if (cooldownTimerRef.current) {
+        clearInterval(cooldownTimerRef.current);
+        cooldownTimerRef.current = null;
+      }
+      if (toastIdRef.current) {
+        toast.dismiss('cooldown-toast');
+        toastIdRef.current = null;
+      }
     }
 
     return () => {
+      // Cleanup on unmount or when cooldown changes
       if (cooldownTimerRef.current) {
         clearInterval(cooldownTimerRef.current);
       }
-      // Ensure toast is dismissed on unmount
       if (toastIdRef.current) {
         toast.dismiss('cooldown-toast');
       }
@@ -82,7 +123,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     event.preventDefault();
 
     if (cooldown > 0) {
-      // Prevent submission if cooldown is active and show toast
+      // Prevent submission if cooldown is active and show/update toast
       if (!toast.isActive('cooldown-toast')) {
         toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
           position: "bottom-right",
@@ -96,6 +137,11 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           style: { backgroundColor: '#6a7fda' },
           toastId: 'cooldown-toast', // Use a consistent ID to update the toast
         });
+      } else {
+         // Update existing toast with current cooldown time
+         toast.update('cooldown-toast', {
+           render: `Please wait ${cooldown}s before trying again`,
+         });
       }
       return;
     }
@@ -124,8 +170,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           theme: "colored",
           style: { backgroundColor: '#6a7fda' },
         });
+        setCooldown(60); // Start cooldown BEFORE closing popup
         onClose();
-        setCooldown(60); // Start cooldown
       } else {
         const errorData = await response.json();
         console.error('Error sending message:', errorData.error);
@@ -160,6 +206,13 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   const overlayClassName = `popup-overlay ${isClosing ? 'closing' : ''}`;
   const contentClassName = `popup-content ${isClosing ? 'closing' : ''}`;
 
+  // Determine button text
+  const buttonText = isSending
+    ? 'Sending...'
+    : cooldown > 0
+      ? `Wait ${cooldown}s`
+      : 'Send Message';
+
   // render the popup
   return (
     <div className={overlayClassName}>
@@ -179,7 +232,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
             <textarea id="message" name="message" placeholder="Enter your message" aria-required="true" required value={formData.message} onChange={handleInputChange}></textarea>
           </div>
           <button type="submit" disabled={cooldown > 0 || isSending}>
-            Send Message
+            {buttonText}
           </button>
         </form>
         <button className="close-button" onClick={onClose}>&times;</button>
