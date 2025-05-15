@@ -42,7 +42,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://portfolio-six-delta-96.vercel.app/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
