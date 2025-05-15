@@ -31,47 +31,6 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (cooldown > 0) {
-      toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
-        position: "bottom-right",
-        autoClose: false,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-        style: { backgroundColor: '#6a7fda' },
-        toastId: 'cooldown-toast', // Use a consistent ID to update the toast
-      });
-
-      cooldownTimerRef.current = setInterval(() => {
-        setCooldown((prevCooldown) => {
-          const newCooldown = prevCooldown - 1;
-          if (newCooldown > 0) {
-            toast.update('cooldown-toast', {
-              render: `Please wait ${newCooldown}s before trying again`,
-            });
-          } else {
-            toast.dismiss('cooldown-toast');
-            clearInterval(cooldownTimerRef.current);
-          }
-          return newCooldown;
-        });
-      }, 1000);
-    }
-
-    return () => {
-      if (cooldownTimerRef.current) {
-        clearInterval(cooldownTimerRef.current);
-      }
-      if (toastIdRef.current) {
-        toast.dismiss('cooldown-toast');
-      }
-    };
-  }, [cooldown]);
-
   // don't render if not open and not closing
   if (!shouldRender) {
     return null;
