@@ -34,7 +34,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
 
   // Effect to manage cooldown timer and toast
   useEffect(() => {
-    if (cooldown > 0) {
+    if (cooldown === 60) { // Start cooldown and show initial toast
       toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
         position: "bottom-right",
         autoClose: false,
@@ -58,10 +58,20 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           } else {
             toast.dismiss('cooldown-toast');
             clearInterval(cooldownTimerRef.current);
+            cooldownTimerRef.current = null; // Clear the ref
           }
           return newCooldown;
         });
       }, 1000);
+    } else if (cooldown === 0) { // Cooldown finished
+      if (cooldownTimerRef.current) {
+        clearInterval(cooldownTimerRef.current);
+        cooldownTimerRef.current = null; // Clear the ref
+      }
+      if (toastIdRef.current) {
+        toast.dismiss('cooldown-toast');
+        toastIdRef.current = null; // Clear the ref
+      }
     }
 
     return () => {
