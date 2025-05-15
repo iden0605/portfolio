@@ -13,6 +13,9 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     message: '',
   });
 
+  // State for button disable during sending
+  const [isSending, setIsSending] = useState(false);
+
   // State for cooldown
   const [cooldown, setCooldown] = useState(0);
   const cooldownTimerRef = useRef(null);
@@ -97,6 +100,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
       return;
     }
 
+    setIsSending(true); // Disable button immediately
+
     try {
       const response = await fetch('https://portfolio-six-delta-96.vercel.app/api/send-email', {
         method: 'POST',
@@ -147,6 +152,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
          progress: undefined,
          theme: "colored",
       });
+    } finally {
+      setIsSending(false); // Re-enable button after fetch completes
     }
   };
 
@@ -171,7 +178,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
             <label htmlFor="message">Message: <span className="required-asterisk">*</span></label>
             <textarea id="message" name="message" placeholder="Enter your message" aria-required="true" required value={formData.message} onChange={handleInputChange}></textarea>
           </div>
-          <button type="submit" disabled={cooldown > 0}>
+          <button type="submit" disabled={cooldown > 0 || isSending}>
             Send Message
           </button>
         </form>
