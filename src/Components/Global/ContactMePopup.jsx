@@ -13,7 +13,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     message: '',
   });
 
-  const [cooldown, setCooldown] = useState(0);
+  const [cooldown, setCooldown] = useState(60);
   const cooldownTimerRef = useRef(null);
   const toastIdRef = useRef(null);
 
