@@ -1,6 +1,10 @@
 import nodemailer from 'nodemailer';
 
 export default async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://iden0605.github.io');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
