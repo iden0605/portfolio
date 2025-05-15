@@ -16,10 +16,14 @@ import OverGrownDetail from './Components/Projects/OverGrownDetail';
 import ContactMePopup from './Components/Global/ContactMePopup';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
 import { useState } from 'react';
+import useInstagramBrowserDetection from './hooks/useInstagramBrowserDetection';
 
 function App() {
   // state to manage the contact me popup visibility
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // Use the Instagram browser detection hook
+  useInstagramBrowserDetection();
 
   // function to open the popup
   const handleOpenPopup = () => {
@@ -51,7 +55,7 @@ function App() {
       </main>
       <Footer />
       <ContactMePopup isOpen={isPopupOpen} onClose={handleClosePopup} />
-    <ToastContainer />
+      <ToastContainer />
     </HashRouter>
   );
 }
