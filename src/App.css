@@ -326,7 +326,8 @@
 
 
 :root {
-  --instagram-header-height: 80px;
+  --instagram-header-height: 44px; /* Adjust based on Instagram's header height */
+  --instagram-footer-height: 46px; /* Adjust based on Instagram's footer height */
 }
 
 html.instagram-browser {
@@ -335,12 +336,35 @@ html.instagram-browser {
 
 .instagram-browser #root {
   padding-top: var(--instagram-header-height);
+  padding-bottom: var(--instagram-footer-height);
+  min-height: calc(100vh - var(--instagram-footer-height));
 }
 
+/* Fix for navbar position */
 .instagram-browser .navbar {
   top: var(--instagram-header-height);
+  bottom: auto; /* Ensure it's not sticking to bottom */
+  z-index: 1000; /* Ensure navbar is above other content */
 }
 
+/* Fix for fixed position navbar when scrolling */
+.instagram-browser .navbar-hidden {
+  transform: translateY(calc(-100% - var(--instagram-header-height)));
+}
+
+/* Adjust page content */
 .instagram-browser .page-content {
   margin-top: calc(var(--instagram-header-height) + 20px);
+  padding-bottom: calc(var(--instagram-footer-height) + 20px);
+}
+
+/* Footer adjustment */
+.instagram-browser footer {
+  margin-bottom: var(--instagram-footer-height);
+}
+
+/* Make sure elements at the bottom are still accessible */
+.instagram-browser .contact-button,
+.instagram-browser .footer {
+  margin-bottom: var(--instagram-footer-height);
 }

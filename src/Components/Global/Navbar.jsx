@@ -10,6 +10,8 @@ function Navbar({ onContactClick }) {
   const [lastScrollY, setLastScrollY] = useState(0);
   // state for mobile menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // state to track if we're in Instagram browser
+  const [isInstagram, setIsInstagram] = useState(false);
 
   // toggle mobile menu visibility
   const toggleMenu = () => {
@@ -21,10 +23,21 @@ function Navbar({ onContactClick }) {
     setIsMenuOpen(false);
   };
 
+  // effect to check if we're in Instagram browser
+  useEffect(() => {
+    setIsInstagram(document.documentElement.classList.contains('instagram-browser'));
+  }, []);
+
   // effect to handle navbar visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollThreshold = 50;
+
+      // Don't hide navbar in Instagram browser on small scroll distances
+      if (isInstagram && window.scrollY < 100) {
+        setIsVisible(true);
+        return;
+      }
 
       if (window.scrollY > lastScrollY && window.scrollY > scrollThreshold) {
         setIsVisible(false);
@@ -39,11 +52,14 @@ function Navbar({ onContactClick }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, isInstagram]);
+
+  // Get navbar classes
+  const navbarClasses = `navbar ${isVisible ? '' : 'navbar-hidden'} ${isInstagram ? 'instagram-navbar' : ''}`;
 
   // render the navbar
   return (
-    <nav className={`navbar ${isVisible ? '' : 'navbar-hidden'}`}>
+    <nav className={navbarClasses}>
       <ul className={isMenuOpen ? 'open' : ''}>
         <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
         <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeMenu}>Work Experience</Link></li>

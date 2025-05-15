@@ -136,3 +136,40 @@
     margin-top: 0.5rem;
   }
 }
+
+/* Instagram-specific navbar styles */
+.instagram-navbar {
+  /* Ensure navbar is not hidden by Instagram header */
+  position: fixed;
+  top: var(--instagram-header-height, 44px) !important;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Add a stronger box-shadow to make it stand out from Instagram UI */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust navbar transition for Instagram */
+.instagram-navbar.navbar-hidden {
+  /* When hiding navbar in Instagram, push it above the Instagram header */
+  transform: translateY(calc(-100% - var(--instagram-header-height, 44px)));
+}
+
+/* Make navbar more visible on Instagram */
+.instagram-navbar {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+@media (max-width: 768px) {
+  .instagram-navbar .navbar-top-row {
+    /* Ensure the mobile navbar elements have proper spacing */
+    padding-right: 15px;
+  }
+  
+  .instagram-navbar ul.open {
+    /* Adjust the dropdown menu when open in Instagram */
+    top: calc(var(--instagram-header-height, 44px) + 100%);
+    max-height: calc(80vh - var(--instagram-header-height, 44px) - var(--instagram-footer-height, 46px));
+    overflow-y: auto;
+  }
+}
