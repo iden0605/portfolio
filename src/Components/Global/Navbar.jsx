@@ -23,11 +23,6 @@ function Navbar({ onContactClick }) {
     setIsMenuOpen(false);
   };
 
-  // effect to check if we're in Instagram browser
-  useEffect(() => {
-    setIsInstagram(document.documentElement.classList.contains('instagram-browser'));
-  }, []);
-
   // effect to handle navbar visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
