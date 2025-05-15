@@ -1,5 +1,7 @@
 import './App.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Components/Global/Navbar';
 import Body from './Components/HomePage/Body';
 import Footer from './Components/Global/Footer';
@@ -49,6 +51,7 @@ function App() {
       </main>
       <Footer />
       <ContactMePopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+    <ToastContainer />
     </HashRouter>
   );
 }
