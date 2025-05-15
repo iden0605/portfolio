@@ -20,6 +20,26 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   const [cooldown, setCooldown] = useState(0);
   const cooldownTimerRef = useRef(null);
   const toastIdRef = useRef(null);
+  
+  // Store cooldown end time in localStorage to persist between popup openings
+  const cooldownEndTimeKey = 'contactFormCooldownEndTime';
+
+  // Check for existing cooldown on component mount
+  useEffect(() => {
+    const storedEndTime = localStorage.getItem(cooldownEndTimeKey);
+    if (storedEndTime) {
+      const endTime = parseInt(storedEndTime);
+      const now = Date.now();
+      if (endTime > now) {
+        // Calculate remaining cooldown time
+        const remainingSeconds = Math.ceil((endTime - now) / 1000);
+        setCooldown(remainingSeconds);
+      } else {
+        // Clear expired cooldown
+        localStorage.removeItem(cooldownEndTimeKey);
+      }
+    }
+  }, []);
 
   // effect to handle popup open/close animation
   useEffect(() => {
@@ -31,16 +51,13 @@ const ContactMePopup = ({ isOpen, onClose }) => {
       const timeoutId = setTimeout(() => {
         setShouldRender(false);
       }, 200);
-      // Cleanup cooldown timer and toast when popup closes
-      if (cooldownTimerRef.current) {
-        clearInterval(cooldownTimerRef.current);
-        cooldownTimerRef.current = null;
-      }
+      
+      // Only dismiss toast when popup closes, don't cancel cooldown
       if (toastIdRef.current) {
         toast.dismiss('cooldown-toast');
         toastIdRef.current = null;
       }
-      setCooldown(0); // Reset cooldown state
+      
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
@@ -48,8 +65,12 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   // Effect to manage cooldown timer and toast
   useEffect(() => {
     if (cooldown > 0) {
-      // Show initial toast when cooldown starts
-      if (!toast.isActive('cooldown-toast')) {
+      // Store cooldown end time in localStorage
+      const endTime = Date.now() + cooldown * 1000;
+      localStorage.setItem(cooldownEndTimeKey, endTime.toString());
+      
+      // Show initial toast when cooldown starts (if popup is open)
+      if (isOpen && !toast.isActive('cooldown-toast')) {
         toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
           position: "bottom-right",
           autoClose: false,
@@ -68,14 +89,17 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         setCooldown((prevCooldown) => {
           const newCooldown = prevCooldown - 1;
           if (newCooldown > 0) {
-            // Update toast with remaining time
-            toast.update('cooldown-toast', {
-              render: `Please wait ${newCooldown}s before trying again`,
-            });
+            // Update toast with remaining time (if popup is open)
+            if (isOpen && toast.isActive('cooldown-toast')) {
+              toast.update('cooldown-toast', {
+                render: `Please wait ${newCooldown}s before trying again`,
+              });
+            }
           } else {
             // Cooldown finished
             clearInterval(cooldownTimerRef.current);
             cooldownTimerRef.current = null; // Clear the ref
+            localStorage.removeItem(cooldownEndTimeKey); // Remove from localStorage
             if (toastIdRef.current) {
               toast.dismiss('cooldown-toast');
               toastIdRef.current = null;
@@ -94,18 +118,19 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         toast.dismiss('cooldown-toast');
         toastIdRef.current = null;
       }
+      localStorage.removeItem(cooldownEndTimeKey);
     }
 
     return () => {
-      // Cleanup on unmount or when cooldown changes
+      // Only clear interval on unmount, keep localStorage
       if (cooldownTimerRef.current) {
         clearInterval(cooldownTimerRef.current);
       }
-      if (toastIdRef.current) {
+      if (toastIdRef.current && !isOpen) {
         toast.dismiss('cooldown-toast');
       }
     };
-  }, [cooldown]); // Only re-run when cooldown changes
+  }, [cooldown, isOpen]); // Re-run when cooldown or isOpen changes
 
   // don't render if not open and not closing
   if (!shouldRender) {
@@ -123,7 +148,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     event.preventDefault();
 
     if (cooldown > 0) {
-      // Prevent submission if cooldown is active and show/update toast
+      // Show toast with current cooldown time
       if (!toast.isActive('cooldown-toast')) {
         toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
           position: "bottom-right",
@@ -135,13 +160,13 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           progress: undefined,
           theme: "colored",
           style: { backgroundColor: '#6a7fda' },
-          toastId: 'cooldown-toast', // Use a consistent ID to update the toast
+          toastId: 'cooldown-toast',
         });
       } else {
-         // Update existing toast with current cooldown time
-         toast.update('cooldown-toast', {
-           render: `Please wait ${cooldown}s before trying again`,
-         });
+        // Update existing toast with current cooldown time
+        toast.update('cooldown-toast', {
+          render: `Please wait ${cooldown}s before trying again`,
+        });
       }
       return;
     }
@@ -159,7 +184,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
 
       if (response.ok) {
         setFormData({ name: '', email: '', message: '' });
-        toast.success('Thank you for your message! I’ll get back to you soon.', {
+        toast.success('Thank you for your message! I\'ll get back to you soon.', {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
