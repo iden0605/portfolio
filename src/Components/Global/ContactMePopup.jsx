@@ -13,7 +13,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     message: '',
   });
 
-  const [cooldown, setCooldown] = useState(60);
+  // State for cooldown
+  const [cooldown, setCooldown] = useState(0);
   const cooldownTimerRef = useRef(null);
   const toastIdRef = useRef(null);
 
@@ -31,21 +32,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  // don't render if not open and not closing
-  if (!shouldRender) {
-    return null;
-  }
-
-  // handle input changes
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  // handle form submission
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  // Effect to manage cooldown timer and toast
+  useEffect(() => {
     if (cooldown > 0) {
       toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
         position: "bottom-right",
@@ -74,6 +62,35 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           return newCooldown;
         });
       }, 1000);
+    }
+
+    return () => {
+      if (cooldownTimerRef.current) {
+        clearInterval(cooldownTimerRef.current);
+      }
+      if (toastIdRef.current) {
+        toast.dismiss('cooldown-toast');
+      }
+    };
+  }, [cooldown]); // Only re-run when cooldown changes
+
+  // don't render if not open and not closing
+  if (!shouldRender) {
+    return null;
+  }
+
+  // handle input changes
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (cooldown > 0) {
+      // Prevent submission if cooldown is active
       return;
     }
 
@@ -100,7 +117,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           style: { backgroundColor: '#6a7fda' },
         });
         onClose();
-        setCooldown(60);
+        setCooldown(60); // Start cooldown
       } else {
         const errorData = await response.json();
         console.error('Error sending message:', errorData.error);
@@ -152,7 +169,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
             <textarea id="message" name="message" placeholder="Enter your message" aria-required="true" required value={formData.message} onChange={handleInputChange}></textarea>
           </div>
           <button type="submit" disabled={cooldown > 0}>
-            Send Message
+            {cooldown > 0 ? `Sending available in ${cooldown}s` : 'Send Message'}
           </button>
         </form>
         <button className="close-button" onClick={onClose}>&times;</button>
