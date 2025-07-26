@@ -31,16 +31,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // Detect if the website is opened in the Instagram in-app browser
-      function isInInstagramApp() {
-        return navigator.userAgent.includes('Instagram');
-      }
-
-      // Add a class to the body if in Instagram app
-      if (isInInstagramApp()) {
-        document.body.classList.add('instagram-browser');
-      }
-    </script>
   </body>
 </html>

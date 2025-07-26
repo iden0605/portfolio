@@ -5,7 +5,7 @@ function EducationAndSkills() {
   const education = [
     {
       institution: "University of Melbourne (2024–2026)",
-      qualification: "Bachelor of Science in Computing and Software Systems | WAM 84.7"
+      qualification: "Bachelor of Science in Computing and Software Systems | WAM 86"
     },
     {
       institution: "Xceleration Education (2022–2023)",

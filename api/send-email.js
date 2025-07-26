@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 export default async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://iden0605.github.io');
+  res.setHeader('Access-Control-Allow-Origin', 'https://idenmcelhone.dev');
   res.setHeader('Access-Control-Allow-Methods', 'POST');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -20,20 +20,19 @@ export default async (req, res) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  // Configure your email transporter (using environment variables)
   const transporter = nodemailer.createTransport({
-    service: 'gmail', // You can change this to your email service (e.g., 'SendGrid', 'Mailgun')
+    service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Your email address from Vercel Environment Variables
-      pass: process.env.EMAIL_PASS, // Your email password or app-specific password from Vercel Environment Variables
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   try {
     // Compose and send email
     await transporter.sendMail({
-      from: process.env.EMAIL_USER, // Your email address
-      to: process.env.RECIPIENT_EMAIL, // The email address you want to receive messages (from Vercel Environment Variables)
+      from: process.env.EMAIL_USER, 
+      to: process.env.RECIPIENT_EMAIL,
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });

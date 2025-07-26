@@ -1,6 +1,5 @@
 import projectData from '../../Data/projectData';
 import ProjectHeader from './ProjectHeader';
-import ProjectBackButton from '../Utilities/ProjectBackButton';
 import './ProjectDetails.css';
 
 function MindBackDetail() {
@@ -16,7 +15,6 @@ function MindBackDetail() {
   return (
     <div className="project-detail-container">
       <ProjectHeader projectName="MindBack" />
-      <ProjectBackButton />
     </div>
   );
 }

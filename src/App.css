@@ -17,6 +17,7 @@
   --subtle-accent: #6a7fda;
   --highlight-color: #00b894;
   --text-color: var(--primary-color);
+  --navbar-height: 60px; /* Estimated height of the fixed navbar */
 }
 
 
@@ -29,7 +30,6 @@
   margin: 0 auto;
   padding: 2rem;
   margin-bottom: 0.5rem;
-  margin-top: 30px;
 }
 
 .section {
@@ -172,6 +172,7 @@
 
 .page-content {
   margin-bottom: 0.5rem;
+  padding-top: var(--navbar-height); /* Add padding to account for the fixed navbar */
 }
 
 

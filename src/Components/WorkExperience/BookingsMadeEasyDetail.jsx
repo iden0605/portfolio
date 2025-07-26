@@ -1,5 +1,3 @@
-import React from 'react';
-import WorkBackButton from '../Utilities/WorkBackButton';
 import '../../App.css';
 import '../WorkExperience/WorkExperienceDetail.css';
 import ScrollToTop from '../Utilities/ScrollToTop';
@@ -18,7 +16,6 @@ function BookingsMadeEasyDetail() {
   // render the job experience detail page
   return (
     <>
-      <WorkBackButton />
       <ScrollToTop />
       <WorkExperienceHeader companyName="Bookings Made Easy" />
       {/* Section for Bookings Made Easy Details */}

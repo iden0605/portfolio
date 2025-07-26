@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ContactMePopup.css';
 import { toast } from 'react-toastify';
 
 const ContactMePopup = ({ isOpen, onClose }) => {
-  // state for popup visibility and animation
+  // State for popup visibility and animation
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
-  // state for form data
+  // State for form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +21,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   const cooldownTimerRef = useRef(null);
   const toastIdRef = useRef(null);
   
-  // Store cooldown end time in localStorage to persist between popup openings
+  // Store cooldown end time in localStorage
   const cooldownEndTimeKey = 'contactFormCooldownEndTime';
 
   // Check for existing cooldown on component mount
@@ -34,19 +34,23 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         // Calculate remaining cooldown time
         const remainingSeconds = Math.ceil((endTime - now) / 1000);
         setCooldown(remainingSeconds);
-      } else {
+      } 
+      else {
         // Clear expired cooldown
         localStorage.removeItem(cooldownEndTimeKey);
       }
     }
   }, []);
 
-  // effect to handle popup open/close animation
+  // Effect to handle popup open/close animation
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
       setIsClosing(false);
-    } else {
+      // Lock scrolling
+      document.body.style.overflow = 'hidden';
+    } 
+    else {
       setIsClosing(true);
       const timeoutId = setTimeout(() => {
         setShouldRender(false);
@@ -58,30 +62,40 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         toastIdRef.current = null;
       }
       
+      // Unlock scrolling
+      document.body.style.overflow = '';
       return () => clearTimeout(timeoutId);
     }
   }, [isOpen]);
 
-  // Effect to manage cooldown timer and toast
+  // Ensure scrolling is re-enabled if component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+
+  // Manage cooldown timer and toast
   useEffect(() => {
     if (cooldown > 0) {
       // Store cooldown end time in localStorage
       const endTime = Date.now() + cooldown * 1000;
       localStorage.setItem(cooldownEndTimeKey, endTime.toString());
       
-      // Show initial toast when cooldown starts (if popup is open)
+      // Show initial toast when cooldown starts if popup is open
       if (isOpen && !toast.isActive('cooldown-toast')) {
         toastIdRef.current = toast.info(`Please wait ${cooldown}s before trying again`, {
           position: "bottom-right",
           autoClose: false,
           hideProgressBar: true,
-          closeOnClick: false,
+          closeOnClick: true,
           pauseOnHover: false,
           draggable: false,
           progress: undefined,
           theme: "colored",
           style: { backgroundColor: '#6a7fda' },
-          toastId: 'cooldown-toast', // Use a consistent ID to update the toast
+          toastId: 'cooldown-toast',
         });
       }
 
@@ -89,7 +103,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         setCooldown((prevCooldown) => {
           const newCooldown = prevCooldown - 1;
           if (newCooldown > 0) {
-            // Update toast with remaining time (if popup is open)
+            // Update toast with remaining time if popup is open
             if (isOpen && toast.isActive('cooldown-toast')) {
               toast.update('cooldown-toast', {
                 render: `Please wait ${newCooldown}s before trying again`,
@@ -108,8 +122,9 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           return newCooldown;
         });
       }, 1000);
-    } else {
-      // Cooldown is 0 or less, ensure timer and toast are cleared
+    } 
+    else {
+      // Cooldown is 0 or less, timer and toast are cleared
       if (cooldownTimerRef.current) {
         clearInterval(cooldownTimerRef.current);
         cooldownTimerRef.current = null;
@@ -130,9 +145,9 @@ const ContactMePopup = ({ isOpen, onClose }) => {
         toast.dismiss('cooldown-toast');
       }
     };
-  }, [cooldown, isOpen]); // Re-run when cooldown or isOpen changes
+  }, [cooldown, isOpen]);
 
-  // don't render if not open and not closing
+  // Don't render if not open and not closing
   if (!shouldRender) {
     return null;
   }
@@ -195,7 +210,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
           theme: "colored",
           style: { backgroundColor: '#6a7fda' },
         });
-        setCooldown(60); // Start cooldown BEFORE closing popup
+        setCooldown(60);
         onClose();
       } else {
         const errorData = await response.json();
@@ -211,7 +226,8 @@ const ContactMePopup = ({ isOpen, onClose }) => {
            theme: "colored",
         });
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error sending message:', error);
       toast.error('An error occurred while sending the message.', {
          position: "bottom-right",
@@ -223,22 +239,23 @@ const ContactMePopup = ({ isOpen, onClose }) => {
          progress: undefined,
          theme: "colored",
       });
-    } finally {
-      setIsSending(false); // Re-enable button after fetch completes
+    } 
+    finally {
+      setIsSending(false);
     }
   };
 
   const overlayClassName = `popup-overlay ${isClosing ? 'closing' : ''}`;
   const contentClassName = `popup-content ${isClosing ? 'closing' : ''}`;
 
-  // Determine button text
+  // Button text
   const buttonText = isSending
     ? 'Sending...'
     : cooldown > 0
       ? `Wait ${cooldown}s`
       : 'Send Message';
 
-  // render the popup
+  // Render the popup
   return (
     <div className={overlayClassName}>
       <div className={contentClassName}>

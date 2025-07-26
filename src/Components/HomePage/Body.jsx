@@ -9,11 +9,15 @@ function Body() {
     <main className="main-content">
       <Profile />
 
-      <hr className="section-divider" />
+      <div data-aos="fade-up">
+        <hr className="section-divider"  />
+      </div>
 
       <AboutMe />
 
-      <hr className="section-divider" />
+      <div data-aos="fade-up">
+        <hr className="section-divider" />
+      </div>
 
       <EducationAndSkills />
     </main>

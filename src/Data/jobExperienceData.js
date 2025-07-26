@@ -2,7 +2,7 @@
 const jobExperienceData = {
   "Bookings Made Easy": {
     jobTitle: "Co-founder | Software/Web Developer",
-    image: "/portfolio/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.png",
+    image: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.png",
     description: `  Self-founded a web development service based in Kota Kinabalu, Malaysia, focused
     on building custom websites for hotels and Airbnb hosts. As co-founder and lead developer,
     I design and maintain client-facing platforms.`,
@@ -18,7 +18,7 @@ const jobExperienceData = {
   },
   "Iden McElhone (Freelance)": {
     jobTitle: "Tutor",
-    image: "/portfolio/assets/WorkExperience/Tutoring/Tutoring-image.png",
+    image: "/assets/WorkExperience/Tutoring/Tutoring-image.png",
     description: `Tutored in Mathematics and Programming (Python and C) through private
     and group sessions, using tailored strategies such as practice questions and past papers.`,
     date: "Mar 2024 - Oct 2024",

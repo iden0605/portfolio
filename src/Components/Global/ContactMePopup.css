@@ -26,6 +26,10 @@
   color: var(--primary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: scaleUp 0.2s ease-out;
+  max-height: 95vh; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .popup-content.closing {
@@ -125,6 +129,84 @@
 .popup-content button[type="submit"]:hover {
   background-color: #5a6fca;
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 1.5rem 1.5rem;
+    width: 95%;
+    max-height: 95vh; /* Adjust max-height for smaller screens */
+    overflow-y: auto; /* Allow scrolling if content is too long */
+  }
+
+  .popup-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7rem;
+  }
+
+  .popup-content button[type="submit"] {
+    padding: 0.7em 1.5em;
+    font-size: 0.9em;
+  }
+
+  .close-button {
+    font-size: 2rem;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+  .popup-content {
+    padding: 0.8rem 0.8rem; /* Further reduce padding */
+    max-height: 98vh; /* Allow more vertical space */
+    width: 95%;
+    overflow-y: hidden; /* Prevent scrolling */
+    justify-content: center; /* Center content vertically */
+  }
+
+  .popup-content h2 {
+    font-size: 1.2em; /* Further reduce font size */
+    margin-bottom: 0.6rem; /* Reduce margin */
+  }
+
+  .form-group {
+    margin-bottom: 0.6rem; /* Reduce margin */
+  }
+
+  .form-group label {
+    font-size: 0.9em; /* Reduce label font size */
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.5rem; /* Further reduce padding */
+    font-size: 0.9em; /* Reduce input font size */
+  }
+
+  .form-group textarea {
+    min-height: 60px; /* Significantly reduce min-height for landscape phones */
+    max-height: 100px; /* Add max-height to prevent excessive growth */
+  }
+
+  .popup-content button[type="submit"] {
+    padding: 0.5em 1em; /* Further reduce padding */
+    font-size: 0.8em; /* Further reduce font size */
+    margin-top: 0.5rem; /* Further reduce margin to move button higher */
+  }
+
+  .close-button {
+    font-size: 1.8rem;
+    top: 5px;
+    right: 5px;
+    padding: 3px;
+  }
 }
 
 .popup-content button[type="submit"]:active {

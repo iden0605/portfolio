@@ -1,6 +1,5 @@
 import projectData from '../../Data/projectData';
 import ProjectHeader from './ProjectHeader';
-import ProjectBackButton from '../Utilities/ProjectBackButton';
 import './ProjectDetails.css';
 
 function LunarlyDetail() {
@@ -16,7 +15,6 @@ function LunarlyDetail() {
   return (
     <div className="project-detail-container">
       <ProjectHeader projectName="Lunarly" />
-      <ProjectBackButton />
     </div>
   );
 }

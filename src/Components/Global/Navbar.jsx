@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ onContactClick }) {
-  // get current location for active link styling
   const location = useLocation();
-  // state for navbar visibility on scroll
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  // state for mobile menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // state to track if we're in Instagram browser
-  const [isInstagram, setIsInstagram] = useState(false);
 
-  // toggle mobile menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // close mobile menu
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -26,31 +19,52 @@ function Navbar({ onContactClick }) {
   // effect to handle navbar visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
       const scrollThreshold = 50;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
 
-      // Don't hide navbar in Instagram browser on small scroll distances
-      if (isInstagram && window.scrollY < 100) {
-        setIsVisible(true);
+      // Only trigger changes if we've scrolled enough to avoid jitter
+      if (scrollDifference < 4) {
         return;
       }
 
-      if (window.scrollY > lastScrollY && window.scrollY > scrollThreshold) {
-        setIsVisible(false);
-      } else {
+      // Show navbar at the very top
+      if (currentScrollY === 0) {
         setIsVisible(true);
       }
-      setLastScrollY(window.scrollY);
+      // Hide navbar when scrolling down past threshold
+      else if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+        setIsVisible(false);
+      }
+      // Show navbar when scrolling up (with some threshold to prevent jitter)
+      else if (currentScrollY < lastScrollY - 10) {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledHandleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledHandleScroll);
     };
-  }, [lastScrollY, isInstagram]);
+  }, [lastScrollY]);
 
   // Get navbar classes
-  const navbarClasses = `navbar ${isVisible ? '' : 'navbar-hidden'} ${isInstagram ? 'instagram-navbar' : ''}`;
+  const navbarClasses = `navbar ${isVisible ? '' : 'navbar-hidden'}`;
 
   // render the navbar
   return (

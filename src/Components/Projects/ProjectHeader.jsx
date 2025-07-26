@@ -34,12 +34,12 @@ function ProjectHeader({ projectName }) {
         <div style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>
           {project.githubLink && project.githubLink !== "" && (
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-              <img src="/portfolio/assets/logo/Github-black-logo.png" alt="GitHub Link" style={{ width: '45px', height: '45px' }} />
+              <img src="/assets/logo/Github-black-logo.png" alt="GitHub Link" style={{ width: '45px', height: '45px' }} />
             </a>
           )}
           {project.itchLink && project.itchLink !== "" && (
             <a href={project.itchLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '20px' }}>
-              <img src="/portfolio/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
+              <img src="/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
             </a>
           )}
           {project.wwwLink && project.wwwLink !== "" && (
