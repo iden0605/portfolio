@@ -8,7 +8,7 @@ import Footer from './Components/Global/Footer';
 import WorkExperience from './Components/WorkExperience/WorkExperience';
 import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasyDetail';
 import TutoringDetail from './Components/WorkExperience/TutoringDetail';
-import Projects from './Components/projects/Projects';
+import Projects from './Components/Projects/Projects';
 import PebbleTaskDetail from './Components/Projects/PebbleTaskDetail';
 import MindBackDetail from './Components/Projects/MindBackDetail';
 import LunarlyDetail from './Components/Projects/LunarlyDetail';
