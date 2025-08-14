@@ -115,7 +115,7 @@ const projectData = {
     type: "Short Term Project",
     teamSize: 2,
     role: "Fullstack Developer",
-    thumbnail: "/assets/project/MindBack/MIndBack-image.png",
+    thumbnail: "/assets/project/MindBack/MindBack-image.png",
     images: [
 
     ],
