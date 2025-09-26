@@ -23,7 +23,12 @@ function WorkExperienceHeader({ companyName }) {
 
          <div className="work-experience-image-container">
            {job.image && (
-             <img src={job.image} alt={`${companyName} image`} className="work-experience-image" />
+             <img
+                src={job.image}
+                alt={`${companyName} image`}
+                className="work-experience-image"
+                style={companyName === "Unimelb GameMakers Club" ? { maxWidth: '400px', margin: '0 auto' } : {maxWidth: '700px', margin: '0 auto'}}
+              />
            )}
          </div>
 

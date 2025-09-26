@@ -18,23 +18,26 @@ function Navbar({ onContactClick }) {
 
   // Effect to handle navbar visibility on scroll
   useEffect(() => {
+    const SCROLL_THRESHOLD = 100; // Pixels
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY;
 
       // Show navbar at the very top
       if (currentScrollY === 0) {
         setIsVisible(true);
       }
       // Hide navbar when scrolling down past threshold
-      else if (currentScrollY > lastScrollY) {
+      else if (scrollDifference > SCROLL_THRESHOLD) {
         setIsVisible(false);
+        setLastScrollY(currentScrollY);
       }
-      // Show navbar when scrolling up (with some threshold to prevent jitter)
-      else if (currentScrollY < lastScrollY) {
+      // Show navbar when scrolling up past threshold
+      else if (scrollDifference < -SCROLL_THRESHOLD) {
         setIsVisible(true);
+        setLastScrollY(currentScrollY);
       }
-
-      setLastScrollY(currentScrollY);
     };
 
     // Throttle scroll events for better performance

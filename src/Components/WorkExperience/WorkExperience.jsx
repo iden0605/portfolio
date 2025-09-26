@@ -18,7 +18,7 @@ function WorkExperience() {
       <div className="work-experience-container">
         {Object.entries(jobExperienceData).map(([companyName, job]) => (
           <Link
-            to={`/work-experience/${companyName.replace(/ /g, '-')}`}
+            to={`/work-experience/${job.tokenizedName}`}
             key={companyName}
           >
           <div className={`job-card ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>

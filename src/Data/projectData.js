@@ -1,5 +1,31 @@
 // data for project section
 const projectData = {
+  "EchoAI": {
+    tokenizedName: "echoai",
+    description: `Echo is an innovative, AI-powered web application designed to transform conversations 
+    into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, 
+    flashcards, and notes directly from your chat interactions. MelbourneHack 2025 Education Track Winner.`,
+    date: "MelbourneHack 2025 Winner",
+    type: "Hackathon",
+    teamSize: 2,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/EchoAi/EchoAi-image.png",
+    previewVid: "/EchoAi-hover.mp4",
+    images: [],
+    technologies: ["React (Javascript)", "Python", "Gemini API", "Tailwind CSS"],
+    liveLink: "https://www.youtube.com/watch?v=RlUeeHvd93g",
+    githubLink: "https://github.com/iden0605/Echo",
+    itchLink: "",
+    wwwLink: "https://echoai.academy/",
+    status: "Released",
+    projectTime: "4 Days",
+    keyResponsibilities: [
+      "Designed and developed the chat interface.",
+      "Created and coded the right-split-screen calling logic.",
+      "Implemented Multiple-choice quiz, Blanks quiz, Flashcards and Notes UI.",
+      "Responsible for ensuring the backend and frontend connected smoothly.",
+      "Deployed the website at www.echoai.academy."]
+  },
   "PebbleTask": {
     tokenizedName: "pebbletask",
     description: `
