@@ -9,6 +9,7 @@ import WorkExperience from './Components/WorkExperience/WorkExperience';
 import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasyDetail';
 import TutoringDetail from './Components/WorkExperience/TutoringDetail';
 import UMGMCDetail from './Components/WorkExperience/UMGMCDetail';
+import MomuDetail from './Components/WorkExperience/MomuDetail';
 import Projects from './Components/Projects/Projects';
 import PebbleTaskDetail from './Components/Projects/PebbleTaskDetail';
 import MindBackDetail from './Components/Projects/MindBackDetail';
@@ -54,6 +55,7 @@ function App() {
           <Route path="/work-experience/bookings-made-easy" element={<BookingsMadeEasyDetail />} />
           <Route path="/work-experience/iden-mcelhone-freelance" element={<TutoringDetail />} />
           <Route path="/work-experience/umgmc" element={<UMGMCDetail />} />
+          <Route path="/work-experience/momu" element={<MomuDetail />} />
           <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
           <Route path="/projects/echoai" element={<EchoAIDetail />} />
         </Routes>

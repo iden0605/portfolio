@@ -142,3 +142,8 @@
     margin-top: 3.5em;
   }
 }
+
+.job-card.momu .job-image {
+  width: 270px;
+  height: 270px;
+}

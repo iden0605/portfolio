@@ -137,8 +137,8 @@ const projectData = {
     or friends by interacting with your digital memories through a conversational AI. Upload your
     personal data archives (from WhatsApp and Instagram), and MindBack will process them, allowing
     you to chat with an AI persona based on the communication style and content from a specific year.`,
-    date: "April 2025 - Present",
-    type: "Short Term Project",
+    date: "April 2025 - May 2025",
+    type: "Hackathon",
     teamSize: 2,
     role: "Fullstack Developer",
     thumbnail: "/assets/project/MindBack/MindBack-image.png",
@@ -146,13 +146,17 @@ const projectData = {
 
     ],
     technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
-    liveLink: "https://example.com/project2",
-    githubLink: "https://github.com/yourusername/project2",
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/MindBack",
     itchLink: "",
     wwwLink: "",
-    status: "In Progress",
-    projectTime: "Ongoing",
-    keyResponsibilities: []
+    status: "Completed",
+    projectTime: "1 week",
+    keyResponsibilities: [
+      "Designed and developed the home page and chat interface.",
+      "Implemented file uploads and data processing to handle social media input.",
+      "Optimised data parsing of Whatsapp, Instagram and Discord chat files."
+    ]
   },
   "Lunarly": {
     tokenizedName: "lunarly",

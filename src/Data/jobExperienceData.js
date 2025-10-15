@@ -1,5 +1,21 @@
 // data for work experience section
 const jobExperienceData = {
+  "Unimelb MoMU Club": {
+    tokenizedName: "momu",
+    jobTitle: "IT and Analytics Officer",
+    image: "/assets/WorkExperience/Momu/Momu-image.png",
+    description: `Working as the sole IT and Analytics officer under the publicity team in the Malaysians of Melbourne Uni club. 
+    Responsible for maintenence and improvement on the club's website and collecting and analysing the club's soial media analytics.`,
+    date: "Oct 2025 - Present",
+    teamSize: 25,
+    timeInRole: "Ongoing",
+    keyResponsibilities: [
+      "Club website maintenence and enhancement.",
+      "Social media anlytics, including use of Instagram API and Notion.",
+      "Collecting and reporting social media performance metrics to the publicity team."
+    ],
+    technologies: "HTML, Vanilla CSS, Javascript, Google Sheets, Squarespace, Notion"
+  },
   "Unimelb GameMakers Club": {
     tokenizedName: "umgmc",
     jobTitle: "Technical Officer | Website Developer",

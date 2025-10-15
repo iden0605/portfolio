@@ -21,7 +21,7 @@ function WorkExperience() {
             to={`/work-experience/${job.tokenizedName}`}
             key={companyName}
           >
-          <div className={`job-card ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>
+          <div className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>
             <div className="company-name">{companyName}</div>
             <div className="job-title">{job.jobTitle}</div>
             <img src={job.image} alt={`${companyName} image`} className="job-image" />
