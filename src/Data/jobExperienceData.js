@@ -4,8 +4,8 @@ const jobExperienceData = {
     tokenizedName: "momu",
     jobTitle: "IT and Analytics Officer",
     image: "/assets/WorkExperience/Momu/Momu-image.png",
-    description: `Working as the sole IT and Analytics officer under the publicity team in the Malaysians of Melbourne Uni club. 
-    Responsible for maintenence and improvement on the club's website and collecting and analysing the club's soial media analytics.`,
+    description: `Working as the sole IT and Analytics officer under the publicity team in the Malaysians of Melbourne University club. 
+    Responsible for maintenence and improvement on the club's website and collecting and analysing the club's social media analytics.`,
     date: "Oct 2025 - Present",
     teamSize: 25,
     timeInRole: "Ongoing",
