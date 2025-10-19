@@ -22,10 +22,10 @@ function EducationAndSkills() {
 
   // skills data
   const skills = {
-    "Programming Languages": ["Python", "Java", "C#", "Javascript"],
-    "Frameworks & Libraries": ["React", "Flask", "Unity"],
+    "Programming Languages": ["Python", "Java", "C#", "Javascript", "Typescript", "C", "SQL"],
+    "Frameworks & Libraries": ["Next.js", "React", "Flask", "Pandas", "Seaborn", "Scikit-learn"],
     "Databases": ["SQL", "MongoDB"],
-    "Tools & Technologies": ["Git"]
+    "Tools & Technologies": ["Github", "Unity", "Docker", "Firebase"]
   };
 
 

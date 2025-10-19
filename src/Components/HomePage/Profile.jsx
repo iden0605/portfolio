@@ -3,7 +3,7 @@ import './Profile.css';
 function Profile() {
   // define name and tagline
   const name = "Iden McElhone";
-  const tagline = "Full-Stack Developer | AI Enthusiast";
+  const tagline = "Full-Stack Developer";
 
   // render the profile section
   return (

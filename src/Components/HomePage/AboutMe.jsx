@@ -18,7 +18,7 @@ function AboutMe() {
         </p>
 
         <p>
-          I primarily work with <strong>React (JavaScript)</strong> for the frontend,
+          I primarily work with <strong>React (JavaScript/Typescript)</strong> for frontend development,
           <strong> Flask (Python)</strong> or <strong>Node (JavaScript)</strong> for backend development,
           and <strong>MongoDB</strong> for data storage.
         </p>
