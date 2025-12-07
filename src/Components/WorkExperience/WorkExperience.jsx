@@ -4,6 +4,7 @@ import '../../App.css';
 import './WorkExperience.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import peopleIcon from '/assets/icon/people-icon.png';
+import { calculateMonthsInRole } from '../Utilities/DateCalculator';
 
 function WorkExperience() {
     // scroll to top on component mount
@@ -32,7 +33,10 @@ function WorkExperience() {
             <div className="bottom-right-content">
               <div className="job-description">{job.description}</div>
             </div>
-            <div className="job-date">{job.date}</div>
+            <div className="job-date">
+              <div>{job.date}</div>
+              <div>{calculateMonthsInRole(job.date).months} Months</div>
+            </div>
           </div>
           </Link>
         ))}

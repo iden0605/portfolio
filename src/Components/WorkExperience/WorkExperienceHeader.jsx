@@ -1,6 +1,7 @@
 import '../../App.css';
 import './WorkExperienceDetail.css';
 import jobExperienceData from '../../Data/jobExperienceData';
+import { calculateMonthsInRole } from '../Utilities/DateCalculator';
 
 function WorkExperienceHeader({ companyName }) {
   // get job experience data based on company name
@@ -10,6 +11,8 @@ function WorkExperienceHeader({ companyName }) {
   if (!job) {
     return null;
   }
+
+  const { months, isOngoing } = calculateMonthsInRole(job.date);
 
   // render the work experience header section
   return (
@@ -27,7 +30,7 @@ function WorkExperienceHeader({ companyName }) {
                 src={job.image}
                 alt={`${companyName} image`}
                 className="work-experience-image"
-                style={companyName === "Unimelb GameMakers Club" || "Unimelb MoMU Club" ? { maxWidth: '400px', margin: '0 auto' } : {maxWidth: '700px', margin: '0 auto'}}
+                style={companyName === "Unimelb GameMakers Club" || companyName === "Unimelb MoMU Club" ? { maxWidth: '400px', margin: '0 auto' } : {maxWidth: '700px', margin: '0 auto'}}
               />
            )}
          </div>
@@ -41,7 +44,7 @@ function WorkExperienceHeader({ companyName }) {
         </div>
 
         <div className="work-experience-details work-experience-details-vertical" style={{ textAlign: 'left' }}>
-          {job.timeInRole && <p><strong>Time in Role:</strong>&nbsp;&nbsp;{job.timeInRole}</p>}
+          <p><strong>Time in Role:</strong>&nbsp;&nbsp;{months} Months {isOngoing && '(Ongoing)'}</p>
           {job.technologies && <p><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
         </div>
 
