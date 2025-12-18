@@ -93,26 +93,42 @@
 
 @media (max-width: 1024px) {
   .job-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     max-width: 100%;
     margin: 0 auto 40px auto;
   }
 
+  .company-name, .job-title {
+      grid-column: 1 / -1;
+  }
+
   .job-image {
-    grid-column: 1 / 2;
+    grid-column: 1 / -1;
     grid-row: 2 / 3;
     max-width: 100%;
     justify-self: center;
   }
 
   .bottom-right-content {
-    grid-column: 1 / 2;
+    grid-column: 1 / -1;
     grid-row: 3 / 4;
     max-width: 100%;
     align-self: start;
     justify-self: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .job-description {
+      text-align: center;
+  }
+
+  .job-date {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+    margin-top: 10px;
   }
 }
 
@@ -143,7 +159,3 @@
   }
 }
 
-.job-card.momu .job-image {
-  width: 270px;
-  height: 270px;
-}

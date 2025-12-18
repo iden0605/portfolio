@@ -30,7 +30,11 @@ function WorkExperienceHeader({ companyName }) {
                 src={job.image}
                 alt={`${companyName} image`}
                 className="work-experience-image"
-                style={companyName === "Unimelb GameMakers Club" || companyName === "Unimelb MoMU Club" ? { maxWidth: '400px', margin: '0 auto' } : {maxWidth: '700px', margin: '0 auto'}}
+                style={{
+                  maxWidth: '100%',
+                  width: job.headerImageSize || '700px',
+                  margin: '0 auto'
+                }}
               />
            )}
          </div>

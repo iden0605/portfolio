@@ -25,7 +25,16 @@ function WorkExperience() {
           <div className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>
             <div className="company-name">{companyName}</div>
             <div className="job-title">{job.jobTitle}</div>
-            <img src={job.image} alt={`${companyName} image`} className="job-image" />
+            <img
+              src={job.image}
+              alt={`${companyName} image`}
+              className="job-image"
+              style={{
+                width: job.cardImageSize || '100%',
+                height: job.cardImageSize === '100%' ? '230px' : 'auto',
+                maxWidth: '100%'
+              }}
+            />
             <div className="team-size-container">
               <img src={peopleIcon} alt="People icon" className="people-icon" />
               <div className="team-size">{job.teamSize}</div>
