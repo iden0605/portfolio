@@ -1,6 +1,7 @@
 import '../../App.css';
 import Profile from './Profile';
 import AboutMe from './AboutMe';
+import Skills from './Skills';
 import EducationAndSkills from './EducationAndSkills';
 
 function Body() {
@@ -14,6 +15,12 @@ function Body() {
       </div>
 
       <AboutMe />
+
+      <div data-aos="fade-up">
+        <hr className="section-divider" />
+      </div>
+
+      <Skills />
 
       <div data-aos="fade-up">
         <hr className="section-divider" />

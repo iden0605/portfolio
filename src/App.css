@@ -324,3 +324,9 @@
     max-width: 1100px;
   }
 }
+
+/* Increased specificity to override default section paragraph styles for About Me section */
+.aboutme-container p.about-me-text {
+  font-size: clamp(1.13rem, 4vw, 1.3em) !important;
+  line-height: 1.7;
+}

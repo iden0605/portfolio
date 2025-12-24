@@ -45,6 +45,73 @@
   flex-direction: column;
 }
 
+.project-header-content .subtitle,
+.image-description-section .subtitle {
+    font-size: clamp(1.3rem, 4vw, 1.5rem) !important;
+}
+
+.project-header-title {
+  text-align: center;
+}
+
+.project-header-video {
+  margin: 20px auto;
+}
+
+.project-header-type-box {
+  text-align: center;
+  margin: 0 auto 20px auto;
+}
+
+.project-header-links {
+  text-align: center;
+  margin: 0 auto 20px auto;
+}
+
+.project-header-link-icon {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.project-header-overview {
+  text-align: left;
+}
+
+.project-header-description {
+  margin-bottom: 20px;
+  font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
+}
+
+.project-header-details {
+  text-align: left;
+}
+
+.project-header-details p {
+  font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
+}
+
+.project-header-responsibilities {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.project-header-responsibilities-list {
+  text-align: left;
+  margin-top: -10px;
+}
+
+.project-header-responsibilities-list li {
+  color: #444;
+  margin-bottom: 5px;
+  font-size: clamp(1.1rem, 4vw, 1.25rem);
+}
+
+.project-detail-container .description p {
+    font-size: clamp(1.1rem, 4vw, 1.25rem) !important ;
+}
+
 @media (max-width: 768px) {
   .project-detail-container {
     max-width: 95%;

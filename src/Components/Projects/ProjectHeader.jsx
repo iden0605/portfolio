@@ -15,10 +15,10 @@ function ProjectHeader({ projectName }) {
   return (
     <section className="section" data-aos="fade-up">
       <div className="project-header-content">
-        <h2 style={{ textAlign: 'center' }}>{projectName}</h2>
+        <h2 className="project-header-title">{projectName}</h2>
 
         {project.liveLink && project.liveLink.includes('youtube.com') && (
-          <div className="video-container" style={{ margin: '20px auto' }}>
+          <div className="video-container project-header-video">
             <iframe
               src={`https://www.youtube.com/embed/${project.liveLink.split('v=')[1].split('&')[0]}`}
               frameBorder="0"
@@ -29,33 +29,32 @@ function ProjectHeader({ projectName }) {
           </div>
         )}
 
-        <div className="project-type-box" style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>{project.type}</div>
+        <div className="project-type-box project-header-type-box">{project.type}</div>
 
-        <div style={{ textAlign: 'center', margin: '0 auto 20px auto' }}>
+        <div className="project-header-links">
           {project.githubLink && project.githubLink !== "" && (
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-              <img src="/assets/logo/Github-black-logo.png" alt="GitHub Link" style={{ width: '45px', height: '45px' }} />
+              <img src="/assets/logo/Github-black-logo.png" alt="GitHub Link" className="project-header-link-icon" />
             </a>
           )}
           {project.itchLink && project.itchLink !== "" && (
-            <a href={project.itchLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '20px' }}>
-              <img src="/assets/logo/Itch-logo.png" alt="Itch.io Link" style={{ width: '45px', height: '45px' }} />
+            <a href={project.itchLink} target="_blank" rel="noopener noreferrer">
+              <img src="/assets/logo/Itch-logo.png" alt="Itch.io Link" className="project-header-link-icon" />
             </a>
           )}
           {project.wwwLink && project.wwwLink !== "" && (
-            <a href={project.wwwLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '20px' }}>
-              <img src={wwwIcon} alt="WWW Link" style={{ width: '45px', height: '45px' }} />
+            <a href={project.wwwLink} target="_blank" rel="noopener noreferrer">
+              <img src={wwwIcon} alt="WWW Link" className="project-header-link-icon" />
             </a>
           )}
         </div>
 
-        <div style={{ textAlign: 'left' }}>
+        <div className="project-header-overview">
           <h3><span className="subtitle">Overview</span></h3>
-
-          <p style={{ marginBottom: '20px' }}>{project.description}</p>
+          <p className="project-header-description">{project.description}</p>
         </div>
 
-        <div className="project-details project-details-vertical" style={{ textAlign: 'left' }}>
+        <div className="project-details project-details-vertical project-header-details">
           <p><strong>Status:</strong>&nbsp;&nbsp;{project.status}</p>
           <p><strong>Project Time:</strong>&nbsp;&nbsp;{project.projectTime}</p>
           {project.technologies && project.technologies.length > 0 && (
@@ -64,12 +63,12 @@ function ProjectHeader({ projectName }) {
         </div>
 
         {project.keyResponsibilities?.length > 0 && (
-          <div className="project-details project-details-vertical" style={{ textAlign: 'left', marginTop: '20px' }}>
+          <div className="project-details project-details-vertical project-header-responsibilities">
             <h3><span className="subtitle">Key Responsibilities</span></h3>
-            <div style={{ textAlign: 'left', marginTop: '-10px' }}>
+            <div className="project-header-responsibilities-list">
               <ul>
                 {project.keyResponsibilities && project.keyResponsibilities.map((responsibility, index) => (
-                  <li key={index} style={{ color: '#444', marginBottom: '5px' }}>{responsibility}</li>
+                  <li key={index}>{responsibility}</li>
                 ))}
               </ul>
             </div>

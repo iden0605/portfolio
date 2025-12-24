@@ -11,26 +11,27 @@ function AboutMe() {
       <div className="aboutme-container">
         <h2>{title}</h2>
 
-        <p>
+        <p className="about-me-text">
           Hi! I'm <strong>Iden</strong>, a Computer Science student at the University of Melbourne
-          with a strong focus on AI and web development. I'm passionate about building full-stack
-          applications that are meaningful and user-focused.
+          focused on <strong>full-stack development</strong> and <strong>DevOps engineering</strong>. I enjoy building scalable,
+          user-focused applications and automating build, test, and deployment workflows using
+          CI/CD and cloud technologies.
         </p>
 
-        <p>
-          I primarily work with <strong>React (JavaScript/Typescript)</strong> for frontend development,
-          <strong> Flask (Python)</strong> or <strong>Node (JavaScript)</strong> for backend development,
-          and <strong>MongoDB</strong> for data storage.
+        <p className="about-me-text">
+          I work across the full stack using a range of modern frameworks and technologies,
+          with experience building frontend applications, backend services, and data-driven systems.
+          I adapt quickly to new tools and choose technologies based on the problem being solved.
         </p>
 
-        <p>
-          Outside of my personal projects, I have experience in tutoring and freelance web development,
-          including co-founding the business <strong>BookingsMadeEasy</strong>. Through this, I've strengthened
-          my ability to communicate technical ideas clearly, manage real-world client needs, and collaborate
-          effectively in small teams.
+        <p className="about-me-text">
+          I’ve worked as a DevOps Engineering Intern at <strong>Kewpump</strong>, where I contributed to cloud-based CI/CD integration for a production
+          application, implemented authentication workflows, built GitHub Actions pipelines,
+          and application testing. I also have experience in tutoring
+          and freelance web development, including co-founding <strong>BookingsMadeEasy</strong>.
         </p>
 
-        <p>
+        <p className="about-me-text">
           Check out my <Link to="/projects" className="about-me-link">projects</Link> and <Link to="/work-experience" className="about-me-link">work experiences</Link>!
         </p>
       </div>

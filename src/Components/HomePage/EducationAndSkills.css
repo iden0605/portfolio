@@ -1,53 +1,158 @@
-.skills-list {
-  list-style: disc; /* Ensure bullet points are visible */
-  text-align: left; /* Align text to the left */
-  padding-left: 20px; /* Add some padding to the left for bullet points */
+/* Main Section Styling */
+.education-section {
+  padding-top: 2rem;
 }
 
-.education-table {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns for institution and qualification */
-  gap: 1rem; /* Space between columns */
-  text-align: left; /* Align text to the left */
-  margin-top: 1.5rem; /* Space above the table */
-  padding: 0 20px; /* Add horizontal padding for alignment */
-  border-bottom: 1px solid #ccc; /* Add a fine bottom border */
-  padding-bottom: 1.5rem; /* Add padding below the border */
+/* Main Title "Education" */
+.main-title {
+  color: #444444;
+  font-size: clamp(30px, 4.2vw, 38px); /* Increased sizes */
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #6A7FDA;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+  margin-bottom: 40px;
 }
 
-.table-header {
-  font-weight: bold;
-  border-bottom: 1px solid #ccc; /* Separator line for header */
-  padding-bottom: 0.5rem; /* Space below header */
-  grid-column: span 2; /* Span across both columns */
-  display: grid; /* Use grid for header content alignment */
-  grid-template-columns: inherit; /* Inherit column structure from parent */
+/* Education Cards Container */
+.education-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.table-header > div {
-  padding: 0 0.5rem; /* Padding for header cells */
+/* Individual Education Card */
+.education-card {
+  background-color: #F9F8F6; /* Warm off-white */
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle lift */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.table-row {
-  grid-column: span 2; /* Span across both columns */
-  display: grid; /* Use grid for row content alignment */
-  grid-template-columns: inherit; /* Inherit column structure from parent */
-  border-bottom: 1px dashed #eee; /* Dashed line between rows */
-  padding: 0.5rem 0; /* Padding for rows */
+.education-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.table-row > div {
-   padding: 0 0.5rem; /* Padding for row cells */
+/* Institution Name */
+.institution-name {
+  color: #6A7FDA; /* Blue */
+  font-size: 20px; /* Increased from 18px */
+  font-weight: 600;
+  margin-right: 8px;
 }
 
-.table-row:last-child {
-  border-bottom: none; /* No border for the last row */
+/* Dates */
+.education-period {
+  color: #666666;
+  font-size: 16px; /* Increased from 14px */
+  font-weight: 400;
+  display: inline-block;
 }
 
-.skills-languages-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2 columns */
-  gap: 2rem; /* Space between columns and rows */
-  margin-top: 2rem; /* Space above the container */
-  padding: 0 20px; /* Add horizontal padding for alignment */
+/* Header Container (Institution + Date) */
+.education-header {
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+/* Qualification Text */
+.qualification-text {
+  color: #444444;
+  font-size: 17px; /* Increased from 15px */
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Languages Section Title */
+.languages-title {
+  color: #444444;
+  font-size: clamp(1.3rem, 4vw, 1.5rem) !important; /* Increased from 24px */
+  font-weight: 600;
+  margin-top: 10px !important; /* Moved down significantly */
+  margin-bottom: 24px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: #6A7FDA;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Language List Container */
+.languages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Language List (Badges/Cards) */
+.language-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Language Items */
+.language-item {
+  font-size: 17px; /* Increased from 15px */
+  background-color: #F5F3EA; /* Cream, matching skills items */
+  color: #444444;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.8;
+  transition: all 0.2s ease;
+}
+
+.language-item:hover {
+  transform: scale(1.05);
+  background-color: #6A7FDA;
+  color: #ffffff;
+  border-color: #6A7FDA;
+}
+
+.language-item:hover .language-name,
+.language-item:hover .language-level {
+  color: #ffffff;
+}
+
+.language-name {
+  font-weight: 600;
+  color: #444444;
+}
+
+.language-level {
+  font-weight: 400;
+  color: #666666;
+  margin-left: 4px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .education-card {
+    padding: 24px;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .languages-title {
+    margin-top: 36px;
+  }
 }

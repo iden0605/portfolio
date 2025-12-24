@@ -1,0 +1,41 @@
+export const skills = {
+  "Programming Languages": [
+    "Python",
+    "Java",
+    "C#",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+  ],
+  "Frontend Development": [
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "React",
+    "Next.js",
+    "Blazor",
+  ],
+  "Databases": ["PostgreSQL", "MongoDB", "Google Cloud SQL", "MySQL", "SQLite"],
+  "Backend Development": [
+    "Node.js",
+    "Express.js",
+    "ASP.NET Core",
+    "Flask",
+    "Supabase",
+    "Firebase",
+  ],
+  "Cloud & DevOps": [
+    "Google Cloud Platform (GCP)",
+    "Docker",
+    "CI/CD",
+    "Git & GitHub",
+  ],
+  "Platforms & Software": [
+    "Notion",
+    "Squarespace",
+    "Unity",
+    "GoHighLevel",
+    "GitHub Actions",
+    "Tailscale",
+  ],
+};

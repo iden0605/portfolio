@@ -18,9 +18,9 @@ function WorkExperienceHeader({ companyName }) {
   return (
     <section className="section" data-aos="fade-up">
       <div className="work-experience-header-content">
-        <h2 style={{ textAlign: 'center', marginBottom: '8px' }}>{companyName}</h2>
+        <h2 className="work-experience-company-name">{companyName}</h2>
 
-        <div style={{ textAlign: 'center', margin: '0 0', fontStyle: 'italic', fontSize: '1.15em' }}>
+        <div className="work-experience-job-title">
           {job.jobTitle}
         </div>
 
@@ -43,22 +43,22 @@ function WorkExperienceHeader({ companyName }) {
         <div className="work-experience-overview">
           <h3><span className="subtitle">Overview</span></h3>
           {job.description && (
-            <p style={{ textAlign: 'left' }}>{job.description}</p>
+            <p className="work-experience-overview-description">{job.description}</p>
           )}
         </div>
 
-        <div className="work-experience-details work-experience-details-vertical" style={{ textAlign: 'left' }}>
+        <div className="work-experience-details work-experience-details-vertical">
           <p><strong>Time in Role:</strong>&nbsp;&nbsp;{months} Months {isOngoing && '(Ongoing)'}</p>
           {job.technologies && <p><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
         </div>
 
         {job.keyResponsibilities?.length > 0 && (
-          <div className="work-experience-details work-experience-details-vertical" style={{ textAlign: 'left', marginTop: '20px' }}>
+          <div className="work-experience-details work-experience-details-vertical work-experience-responsibilities">
             <h3><span className="subtitle">Key Responsibilities</span></h3>
-            <div style={{ textAlign: 'left', marginTop: '-10px' }}>
+            <div className="work-experience-responsibilities-list">
               <ul>
                 {job.keyResponsibilities && job.keyResponsibilities.map((responsibility, index) => (
-                  <li key={index} style={{ color: '#444', marginBottom: '5px', textAlign: 'left' }}>{responsibility}</li>
+                  <li key={index}>{responsibility}</li>
                 ))}
               </ul>
             </div>

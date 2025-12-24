@@ -4,70 +4,49 @@ function EducationAndSkills() {
   // education data
   const education = [
     {
-      institution: "University of Melbourne (2024–2026)",
+      institution: "University of Melbourne",
+      period: "2024–2026",
       qualification: "Bachelor of Science in Computing and Software Systems | WAM 86"
     },
     {
-      institution: "Xceleration Education (2022–2023)",
+      institution: "Xceleration Education",
+      period: "2022–2023",
       qualification: "International A-Levels: Mathematics, Further Mathematics, Physics | A* A* A*"
     }
   ];
 
   // language proficiency data
   const languages = [
-    <><strong>English:</strong> Native</>,
-    <><strong>Cantonese:</strong> Proficient</>,
-    <><strong>Mandarin:</strong> Intermediate Proficiency</>
+    { name: "English", level: "Native" },
+    { name: "Cantonese", level: "Proficient" },
+    { name: "Mandarin", level: "Intermediate" }
   ];
-
-  // skills data
-  const skills = {
-    "Programming Languages": ["Python", "Java", "C#", "Javascript", "Typescript", "C", "SQL"],
-    "Frameworks & Libraries": ["Next.js", "React", "Flask", "Pandas", "Seaborn", "Scikit-learn"],
-    "Databases": ["SQL", "MongoDB"],
-    "Tools & Technologies": ["Github", "Unity", "Docker", "Firebase"]
-  };
-
 
   // render education and skills section
   return (
-    <section className="section" data-aos="fade-up">
-      <h2>Education and Skills</h2>
+    <section className="section education-section" data-aos="fade-up">
+      <h2 className="main-title">Education</h2>
 
-      <h3>Education</h3>
-      <div className="education-table">
-        <div className="table-header">
-          <div>Institution</div>
-          <div>Qualification</div>
-        </div>
+      <div className="education-cards-container">
         {education.map((item, index) => (
-          <div className="table-row" key={index}>
-            <div>{item.institution}</div>
-            <div>{item.qualification}</div>
+          <div className="education-card" key={index}>
+            <div className="education-header">
+              <span className="institution-name">{item.institution}</span>
+              <span className="education-period">({item.period})</span>
+            </div>
+            <div className="qualification-text">{item.qualification}</div>
           </div>
         ))}
       </div>
 
-      <div className="skills-languages-container">
-        <div>
-          <h3>Skills</h3>
-          <ul className="skills-list">
-            {Object.entries(skills).map(([category, items], index) => (
-              <li key={index}>
-                <strong>{category}:</strong> {items.join(', ')}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3>Languages</h3>
-          <ul className="skills-list">
-            {languages.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
+      <div className="languages-container">
+        <ul className="language-list">
+          {languages.map((lang, index) => (
+            <li className="language-item" key={index}>
+              <span className="language-name">{lang.name}:</span> <span className="language-level">{lang.level}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
