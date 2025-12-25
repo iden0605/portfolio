@@ -13,6 +13,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iden McElhone</title>
+    <script type="text/javascript">
+      // This script is a workaround for GitHub Pages' lack of server-side routing.
+      // It captures the intended path from sessionStorage (set by 404.html),
+      // and uses the History API to update the URL before React Router loads.
+      (function() {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preload" as="image" href="/iden_image.jpg">
     <link rel="preload" as="video" href="/OverGrown-hover.mp4">
