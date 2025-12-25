@@ -1,6 +1,6 @@
 // data for work experience section
 const jobExperienceData = {
-  "KewPump": {
+  "Kewpump": {
     tokenizedName: "kewpump",
     jobTitle: "Intern DevOps Engineer",
     cardImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",

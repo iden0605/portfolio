@@ -4,9 +4,9 @@ import ScrollToTop from '../Utilities/ScrollToTop';
 import WorkExperienceHeader from './WorkExperienceHeader';
 import jobExperienceData from '../../Data/jobExperienceData';
 
-function KewPumpDetail() {
-  // get job experience data for KewPump
-  const job = jobExperienceData["KewPump"];
+function KewpumpDetail() {
+  // get job experience data for Kewpump
+  const job = jobExperienceData["Kewpump"];
 
   // handle case where job data is not found
   if (!job) {
@@ -17,7 +17,7 @@ function KewPumpDetail() {
   return (
     <>
       <ScrollToTop />
-      <WorkExperienceHeader companyName="KewPump" />
+      <WorkExperienceHeader companyName="Kewpump" />
       <section className="section" data-aos="fade-up">
         <div className="image-description-section">
           <div className="image-description-block">
@@ -43,4 +43,4 @@ function KewPumpDetail() {
   );
 }
 
-export default KewPumpDetail;
+export default KewpumpDetail;
