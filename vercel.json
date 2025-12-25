@@ -9,6 +9,10 @@
       "src": "/api/send-email",
       "dest": "api/send-email.js",
       "methods": ["POST"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
