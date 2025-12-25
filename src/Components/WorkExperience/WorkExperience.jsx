@@ -44,7 +44,10 @@ function WorkExperience() {
             </div>
             <div className="job-date">
               <div>{job.date}</div>
-              <div>{calculateMonthsInRole(job.date).months} Months</div>
+              <div>
+                {calculateMonthsInRole(job.date).months} Months
+                {calculateMonthsInRole(job.date).isOngoing && " (Ongoing)"}
+              </div>
             </div>
           </div>
           </Link>
