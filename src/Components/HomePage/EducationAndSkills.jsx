@@ -4,14 +4,16 @@ function EducationAndSkills() {
   // education data
   const education = [
     {
-      institution: "University of Melbourne",
+      institution: "University of Melbourne | WAM 85",
       period: "2024–2026",
-      qualification: "Bachelor of Science in Computing and Software Systems | WAM 86"
+      qualification: "Bachelor of Science in Computing and Software Systems",
+      awards: "Melbourne International Undergraduate Scholarship (Excellence Award)"
     },
     {
-      institution: "Xceleration Education",
+      institution: "Xceleration Education | A* A* A*",
       period: "2022–2023",
-      qualification: "International A-Levels: Mathematics, Further Mathematics, Physics | A* A* A*"
+      qualification: "International A-Levels — Mathematics, Further Mathematics, Physics",
+      awards: "Pearson Certificate of Excellence"
     }
   ];
 
@@ -34,7 +36,8 @@ function EducationAndSkills() {
               <span className="institution-name">{item.institution}</span>
               <span className="education-period">({item.period})</span>
             </div>
-            <div className="qualification-text">{item.qualification}</div>
+            <div className="qualification-text"><strong>Qualification: </strong>{item.qualification}</div>
+            <div className="qualification-text"><strong>Awards: </strong>{item.awards}</div>
           </div>
         ))}
       </div>

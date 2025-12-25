@@ -4,9 +4,9 @@ import ScrollToTop from '../Utilities/ScrollToTop';
 import WorkExperienceHeader from './WorkExperienceHeader';
 import jobExperienceData from '../../Data/jobExperienceData';
 
-function KewPumpDetail() {
-  // get job experience data for KewPump
-  const job = jobExperienceData["KewPump"];
+function KewpumpDetail() {
+  // get job experience data for Kewpump
+  const job = jobExperienceData["Kewpump"];
 
   // handle case where job data is not found
   if (!job) {
@@ -17,7 +17,7 @@ function KewPumpDetail() {
   return (
     <>
       <ScrollToTop />
-      <WorkExperienceHeader companyName="KewPump" />
+      <WorkExperienceHeader companyName="Kewpump" />
       <section className="section" data-aos="fade-up">
         <div className="image-description-section">
           <div className="image-description-block">
@@ -33,7 +33,7 @@ function KewPumpDetail() {
                 This included containerising the application stack and creating branch-oriented CI/CD workflows using GitHub Actions, where development changes triggered staged deployments and testing, while main branch updates deployed directly to production. I also implemented automated testing to validate frontend availability, backend API endpoints, and database operations after each deployment.
               </p>
               <p style={{ textAlign: 'left' }}>
-                In addition, I configured secure cloud infrastructure such as private VPC networking, Cloud SQL (PostgreSQL), and service-to-service connectivity, while ensuring production reliability through environment-based configuration and automatic service restarts. To support team scalability, I documented the deployment process and created reusable workflow guides to standardise deployments across the organisation.
+                In addition, configuration of secure cloud infrastructure is within my job scope. This includes private VPC networking, Cloud SQL (PostgreSQL), and service-to-service connectivity, while ensuring production reliability through environment-based configuration and automatic service restarts. To support team scalability, I documented the deployment process and created reusable workflow guides to standardise deployments across the organisation.
               </p>
             </div>
           </div>
@@ -43,4 +43,4 @@ function KewPumpDetail() {
   );
 }
 
-export default KewPumpDetail;
+export default KewpumpDetail;
