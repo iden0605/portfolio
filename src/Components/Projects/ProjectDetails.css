@@ -5,6 +5,10 @@
   color: #f0f0f0;
 }
 
+.move-overview {
+  margin-right: 100px !important;
+}
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;

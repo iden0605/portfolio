@@ -49,8 +49,11 @@ function ProjectHeader({ projectName }) {
           )}
         </div>
 
-        <div className="project-header-overview">
+        <div className="project-header-overview move-overview">
           <h3><span className="subtitle">Overview</span></h3>
+        </div>
+
+        <div className="project-header-overview">  
           <p className="project-header-description">{project.description}</p>
           <div className="project-details project-details-vertical">
             <p><strong>Status:</strong>&nbsp;&nbsp;{project.status}</p>
