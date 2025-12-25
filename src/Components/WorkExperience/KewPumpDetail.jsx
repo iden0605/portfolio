@@ -33,7 +33,7 @@ function KewpumpDetail() {
                 This included containerising the application stack and creating branch-oriented CI/CD workflows using GitHub Actions, where development changes triggered staged deployments and testing, while main branch updates deployed directly to production. I also implemented automated testing to validate frontend availability, backend API endpoints, and database operations after each deployment.
               </p>
               <p style={{ textAlign: 'left' }}>
-                In addition, I configured secure cloud infrastructure such as private VPC networking, Cloud SQL (PostgreSQL), and service-to-service connectivity, while ensuring production reliability through environment-based configuration and automatic service restarts. To support team scalability, I documented the deployment process and created reusable workflow guides to standardise deployments across the organisation.
+                In addition, configuration of secure cloud infrastructure is within my job scope. This includes private VPC networking, Cloud SQL (PostgreSQL), and service-to-service connectivity, while ensuring production reliability through environment-based configuration and automatic service restarts. To support team scalability, I documented the deployment process and created reusable workflow guides to standardise deployments across the organisation.
               </p>
             </div>
           </div>

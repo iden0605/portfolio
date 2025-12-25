@@ -27,8 +27,7 @@ function MomuDetail() {
             </div>
             <div className="description" style={{ textAlign: 'left' }}>
               <p style={{ textAlign: 'left' }}>
-                Ensuring that the <a href="https://www.momumomu.org/" target="_blank" rel="noopener noreferrer" className="about-me-link">MoMU website</a> is maintained and updated, as well as making UI and UX imporvements and fixes. Also reporting
-                social media analytics to the club's publicity team.
+                Responsibilities include maintaining and updating the <a href="https://www.momumomu.org/" target="_blank" rel="noopener noreferrer" className="about-me-link">MoMU website</a>, implementing UI/UX improvements, and reporting social media analytics to the club's publicity team.
               </p>
             </div>
           </div>

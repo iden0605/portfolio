@@ -29,13 +29,13 @@ function AcademicPerformanceDetail() {
                 <img src="/assets/project/PredictiveModels/PredictiveModels-desc-2.png" alt="PredictiveModels Description 2" style={{ width: '600px' }} />
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
-                <p> I merged Two student datasets, retaining key family-related features. Then normalized and categorized final grades into "Low", "Medium", and "High" as a new variable, <i>grades_grouped</i>. </p>
+                <p>Two student datasets were merged, retaining key family-related features. Final grades were then normalized and categorized into "Low," "Medium," and "High" as a new variable, <i>grades_grouped</i>.</p>
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
-                <p> I convereted categorical and ordinal features to numerical format using one-hot encoding, enabling models to process non-numeric data without implying order. </p>
+                <p>Categorical and ordinal features were converted to a numerical format using one-hot encoding, enabling models to process non-numeric data without implying an order.</p>
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
-                <p> I split the data into training and testing sets (70:30) using a fixed random state to ensure reproducibility and diverse model evaluation. </p>
+                <p>The data was split into training and testing sets (70:30) using a fixed random state to ensure reproducibility and diverse model evaluation.</p>
               </div>
               <div className="section-divider-subtle"></div>
             </div>
@@ -50,7 +50,7 @@ function AcademicPerformanceDetail() {
                 <img src="/assets/project/PredictiveModels/PredictiveModels-desc-4.png" alt="PredictiveModels Description 4" style={{ width: '600px' }} />
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
-                <p> To identify key predictors of student performance, I used Normalised Mutual Information (NMI) to measure relationships between family-related categorical variables and academic outcomes. Unlike Pearson’s correlation, NMI captures non-linear associations without assuming specific data distributions, making it ideal for categorical data. </p>
+                <p>To identify key predictors of student performance, Normalised Mutual Information (NMI) was used to measure relationships between family-related categorical variables and academic outcomes. Unlike Pearson’s correlation, NMI captures non-linear associations without assuming specific data distributions, making it ideal for this type of data.</p>
               </div>
               <div className="section-divider-subtle"></div>
             </div>
@@ -65,7 +65,7 @@ function AcademicPerformanceDetail() {
                 <img src="/assets/project/PredictiveModels/PredictiveModels-desc-6.png" alt="Predictive Models Description 6" style={{ width: '800px' }} />
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
-                <p> I implemented K-Nearest Neighbors (k=3) and a Decision Tree (entropy criterion) to classify students into performance groups. Models were trained on preprocessed data and evaluated on a testing set, with accuracy results stored in a DataFrame for comparison. </p>
+                <p>A K-Nearest Neighbors (k=3) and a Decision Tree (entropy criterion) model were implemented to classify students into performance groups. These models were trained on the preprocessed data and evaluated on a testing set, with accuracy results stored in a DataFrame for comparison.</p>
               </div>
               <div className="description" style={{ textAlign: 'left' }}>
                 <p> KNN (45.5%) and Decision Tree (43.0%) outperformed random guessing, but accuracy was limited, reflecting weak feature correlations and suggesting other factors like motivation or mental health may play a larger role. </p>

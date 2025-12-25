@@ -26,10 +26,10 @@ function UMGMCDetail() {
               <p className="date-text"><i>{job.date}</i></p>
             </div>
             <div className="description" style={{ textAlign: 'left' }}>
-              <p style={{ textAlign: 'left' }}>On the club website, recently finished parsing committee data from the notion backend for committee page rendering. Further work includes implementing the committee webpage from the designs given and making minor improvements to improve user experience.</p>
+              <p style={{ textAlign: 'left' }}>For the club website, committee data from the Notion backend has been parsed for page rendering. The next steps involve implementing the committee webpage based on the provided designs and making minor UX improvements.</p>
             </div>
             <div className="description" style={{ textAlign: 'left' }}>
-              <p style={{ textAlign: 'left' }}>On the product division website, recently completed typing on the team and team members of the product division, currently implementing the team member page to display each member's profile and experience. Further work includes improving user experience, such as a dynamic header.</p>
+              <p style={{ textAlign: 'left' }}>On the Product Division website, the team and team member data structure has been finalized. Currently implementing the team member page to display profiles and experience. Future work includes UX enhancements, such as a dynamic header.</p>
             </div>
           </div>
         </div>

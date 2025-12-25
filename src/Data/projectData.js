@@ -2,9 +2,7 @@
 const projectData = {
   "EchoAI": {
     tokenizedName: "echoai",
-    description: `Echo is an innovative, AI-powered web application designed to transform conversations 
-    into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, 
-    flashcards, and notes directly from your chat interactions. MelbourneHack 2025 Education Track Winner.`,
+    description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
     date: "MelbourneHack 2025 Winner",
     type: "Hackathon",
     teamSize: 2,
@@ -23,19 +21,13 @@ const projectData = {
       "Designed and developed the chat interface.",
       "Created and coded the right-split-screen calling logic.",
       "Implemented Multiple-choice quiz, Blanks quiz, Flashcards and Notes UI.",
-      "Responsible for ensuring the backend and frontend connected smoothly.",
-      "Deployed the website at www.echoai.academy."]
+      "Ensured seamless connectivity between the backend and frontend.",
+      "Deployed the application to www.echoai.academy."]
   },
   "PebbleTask": {
     tokenizedName: "pebbletask",
     description: `
-    Pebble Task is a simple and flexible task manager designed to keep you organized without
-    cluttering your workspace. You can easily move and resize the widget, manage tasks by adding,
-    editing, deleting, or reordering them, and your progress is saved automatically. It offers
-    customizable themes like Light, Dark, and Matcha to suit your preferences, and allows you to
-    highlight important tasks for better focus. With smooth transitions and convenient right-click
-    controls, the experience remains clean and efficient. And when you complete all your tasks,
-    you're rewarded with a fun confetti celebration.
+    Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.
     `,
     date: "HackMelbourne Hackiethon 2025",
     type: "Hackathon",
@@ -63,12 +55,7 @@ const projectData = {
   "OverGrown": {
     tokenizedName: "overgrown",
     description: `
-    In this game, a town has been taken over by Cyborg Lumberjacks, and it’s up to
-    Mother Nature to bring it back to life. With the help of a small nature fairy, you uncover
-    her story and face the challenges caused by the damage to the environment. Along the way,
-    you free a companion who joins you on your journey as you work together to clean up the town
-    and find what was lost—your heart. The game focuses on simple exploration, with themes of
-    healing, friendship, and the fight between nature and machines.
+    A town has been overrun by Cyborg Lumberjacks, and Mother Nature must restore it. Playing as a nature fairy, you uncover her story, confront environmental damage, and free a companion to help heal the land. This exploration-focused game emphasizes themes of healing, friendship, and the conflict between nature and machine.
     `,
     date: "CISSA x GMC Game Jam 2025",
     type: "Game Jam",
@@ -99,15 +86,7 @@ const projectData = {
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
     description: `
-    For a university project, I investigated the question: "How well can predictive models estimate 
-    student academic performance based on family-related factors?" To address this, I began by 
-    conducting a correlation analysis using Normalized Mutual Information (NMI) to identify the 
-    most relevant features. Based on this analysis, I trained two predictive models: a Decision 
-    Tree classifier and a K-Nearest Neighbours (KNN) classifier. I evaluated and compared their 
-    performance using various metrics and visualizations, employing tools and methods from the 
-    scikit-learn, Matplotlib, and Seaborn libraries. The project combined statistical analysis 
-    with machine learning techniques to explore the extent to which family background influences 
-    student academic outcomes.
+    This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.
     `,
     date: "June 2025 - July 2025",
     type: "University Project",
@@ -123,20 +102,17 @@ const projectData = {
     status: "Completed",
     projectTime: "2 weeks",
     keyResponsibilities: [
-      "Wrote Python code to preprocess and clean the dataset.",
+      "Preprocessed and cleaned the dataset using Python.",
       "Conducted correlation analysis using Normalised Mutual Information (NMI).",
-      "Plotted bar charts and confusion matrices using MatPlotLib and Seaborn for visualisation.",
-      "Wrote Python code to train, test and evaluate the predictive models.",
-      "Analysed and compared the performance of the predictive models.",
-      "Wrote and structured the report based on findings using Jupyter Notebook and Quarto."
+      "Visualized data with bar charts and confusion matrices using MatPlotLib and Seaborn.",
+      "Trained, tested, and evaluated predictive models using Python.",
+      "Analysed and compared the performance of the deployed models.",
+      "Authored and structured a report of the findings using Jupyter Notebook and Quarto."
     ]
   },
   "MindBack": {
     tokenizedName: "mindback",
-    description: `MindBack is a web application designed to help you reconnect with your past self
-    or friends by interacting with your digital memories through a conversational AI. Upload your
-    personal data archives (from WhatsApp and Instagram), and MindBack will process them, allowing
-    you to chat with an AI persona based on the communication style and content from a specific year.`,
+    description: `MindBack is a web application that allows users to reconnect with their past selves or friends through a conversational AI. By uploading personal data archives from platforms like WhatsApp and Instagram, users can interact with an AI persona that emulates communication styles from a specific year.`,
     date: "April 2025 - May 2025",
     type: "Hackathon",
     teamSize: 2,
@@ -160,9 +136,7 @@ const projectData = {
   },
   "Lunarly": {
     tokenizedName: "lunarly",
-    description: `A conversational companion chatbot that builds a closer friendship with users
-    over time. The more you chat, the more the bond grows — creating a personalized and engaging
-    experience.`,
+    description: `A conversational chatbot designed to build a personal connection with users over time. As the conversation progresses, the bond strengthens, creating a unique and engaging experience.`,
     date: "May 2025 - Present",
     type: "Long Term Project",
     teamSize: 2,

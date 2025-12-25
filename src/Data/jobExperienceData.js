@@ -7,8 +7,7 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     cardImageSize: "210px",
     headerImageSize: "280px",
-    description: `Working as a DevOps Engineer responsible for architecting automated CI/CD pipelines,
-    cloud infrastructure, and production deployments for a manufacturing monitoring platform on Google Cloud.`,
+    description: `Responsible for architecting automated CI/CD pipelines, cloud infrastructure, and production deployments for a manufacturing monitoring platform on Google Cloud.`,
     date: "Dec 2025 - Present",
     teamSize: 20,
     timeInRole: "Ongoing",
@@ -29,14 +28,13 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
     cardImageSize: "220px",
     headerImageSize: "300px",
-    description: `Working as the sole IT and Analytics officer under the publicity team in the Malaysians of Melbourne University club.
-    Responsible for maintenence and improvement on the club's website and collecting and analysing the club's social media analytics.`,
+    description: `Serving as the sole IT and Analytics Officer for the Malaysians of Melbourne University club, responsible for the maintenance and improvement of the club's website, alongside collecting and analyzing social media analytics to guide outreach strategies.`,
     date: "Oct 2025 - Present",
     teamSize: 25,
     timeInRole: "Ongoing",
     keyResponsibilities: [
-      "Club website maintenence and enhancement.",
-      "Social media anlytics, including use of Instagram API and Notion.",
+      "Club website maintenance and enhancement.",
+      "Social media analytics, including use of Instagram API and Notion.",
       "Collecting and reporting social media performance metrics to the publicity team."
     ],
     technologies: "HTML, Vanilla CSS, Javascript, Google Sheets, Squarespace, Notion"
@@ -48,9 +46,7 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
     cardImageSize: "275px",
     headerImageSize: "300px",
-    description: `Working as a technical officer under the techincal committee in the University of Melbourne
-    GameMakers club. Responsible for fullstack development on the club's website and frontend development in the
-    Product Division website. Working with around 8 desginers and web developers in total.`,
+    description: `Technical Officer in the University of Melbourne GameMakers club, responsibilities include full-stack development for the club's main website and contributing to the frontend development of the Product Division's site in a team of 8 designers and developers.`,
     date: "Aug 2025 - Present",
     teamSize: 20,
     timeInRole: "Ongoing",
@@ -68,9 +64,7 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
     cardImageSize: "320px",
     headerImageSize: "420px",
-    description: `Self-founded a web development service based in Kota Kinabalu, Malaysia, focused
-    on building custom websites for hotels and Airbnb hosts. As co-founder and lead developer,
-    I design and maintain client-facing platforms.`,
+    description: `Co-founded a web development service based in Kota Kinabalu, Malaysia, specializing in creating custom websites for hotels and Airbnb hosts. As co-founder and lead developer, responsibilities included designing and maintaining client-facing platforms.`,
     date: "Nov 2024 - Jun 2025",
     teamSize: 2,
     timeInRole: "8 Months",
@@ -88,8 +82,7 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/Tutoring/Tutoring-image.png",
     cardImageSize: "310px",
     headerImageSize: "400px",
-    description: `Tutored in Mathematics and Programming (Python and C) through private
-    and group sessions, using tailored strategies such as practice questions and past papers.`,
+    description: `Provided tutoring in Mathematics and Programming through private and group sessions, employing tailored strategies such as creating practice questions and reviewing past papers to enhance student learning.`,
     date: "Mar 2024 - Oct 2024",
     teamSize: 1,
     timeInRole: "6 Months",

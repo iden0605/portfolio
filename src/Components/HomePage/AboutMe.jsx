@@ -13,10 +13,7 @@ function AboutMe() {
 
        <div className="about-me-content">
         <p className="about-me-text">
-          Hi! I'm <strong>Iden</strong>, a Computer Science student at the University of Melbourne
-          with a focus on <strong>full-stack development</strong> and <strong>DevOps engineering</strong>.
-          Building scalable, user-focused applications and automating build, test, and deployment
-          workflows using CI/CD and cloud technologies are areas of particular interest.
+          Hi! I'm <strong>Iden</strong>, a Computer Science student at the University of Melbourne specializing in <strong>full-stack development</strong> and <strong>DevOps engineering</strong>. Passionate about building scalable, user-focused applications and automating workflows using CI/CD and cloud technologies.
         </p>
 
         <p className="about-me-text">
