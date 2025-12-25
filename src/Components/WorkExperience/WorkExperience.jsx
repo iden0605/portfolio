@@ -53,7 +53,7 @@ function WorkExperience() {
 
             <div className="team-size-container">
                <img src={peopleIcon} alt="People icon" className="people-icon" />
-               <span className="team-size-text">{job.teamSize}</span>
+               <span className="team-size-text">{job.teamSize} Colleagues</span>
             </div>
           </div>
           </Link>

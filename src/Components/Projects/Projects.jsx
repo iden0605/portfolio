@@ -42,7 +42,7 @@ function Projects() {
               <div className="project-role">{project.role}</div> 
               <div>{project.date}</div>
               <div className="project-footer">
-                <span className="team-size"><img src={peopleIcon} alt="team size icon" className="team-icon"/> {project.teamSize}</span>
+                <span className="team-size"><img src={peopleIcon} alt="team size icon" className="team-icon"/> {project.teamSize} Contributors</span>
               </div>
             </div>
           </Link>
