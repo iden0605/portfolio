@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Page Apps for GitHub Pages</title>
+    <script type="text/javascript">
+      // This script is a workaround for GitHub Pages' lack of server-side routing.
+      // It captures the full path of the URL that triggered the 404,
+      // stores it in sessionStorage, and then redirects to the root of the site.
+      (function() {
+        // The base path of the repository is needed for the redirect.
+        // It can be obtained from the pathname of the current location.
+        // For a custom domain, the base path is simply "/"
+        sessionStorage.redirect = location.href;
+        location.href = '/';
+      })();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
