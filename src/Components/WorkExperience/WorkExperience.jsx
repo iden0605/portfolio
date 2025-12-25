@@ -23,31 +23,37 @@ function WorkExperience() {
             key={companyName}
           >
           <div className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>
-            <div className="company-name">{companyName}</div>
-            <div className="job-title">{job.jobTitle}</div>
-            <img
-              src={job.image}
-              alt={`${companyName} image`}
-              className="job-image"
-              style={{
-                width: job.cardImageSize || '100%',
-                height: job.cardImageSize === '100%' ? '230px' : 'auto',
-                maxWidth: '100%'
-              }}
-            />
-            <div className="team-size-container">
-              <img src={peopleIcon} alt="People icon" className="people-icon" />
-              <div className="team-size">{job.teamSize}</div>
+            {/* Left Column: Logo */}
+            <div className="job-left-column">
+              <img
+                src={job.cardImage}
+                alt={`${companyName} image`}
+                className="job-image"
+              />
             </div>
-            <div className="bottom-right-content">
-              <div className="job-description">{job.description}</div>
-            </div>
-            <div className="job-date">
-              <div>{job.date}</div>
-              <div>
-                {calculateMonthsInRole(job.date).months} Months
-                {calculateMonthsInRole(job.date).isOngoing && " (Ongoing)"}
+
+            {/* Right Column: Text Content */}
+            <div className="job-right-column">
+              <div className="job-header">
+                <div className="company-name">{companyName}</div>
+                <div className="job-title">{job.jobTitle}</div>
               </div>
+              
+              <div className="job-description">{job.description}</div>
+              
+              <div className="job-metadata">
+                <span className="metadata-item">{job.date}</span>
+                <span className="metadata-separator">•</span>
+                <span className="metadata-item">
+                  {calculateMonthsInRole(job.date).months} Months
+                  {calculateMonthsInRole(job.date).isOngoing && " (Ongoing)"}
+                </span>
+              </div>
+            </div>
+
+            <div className="team-size-container">
+               <img src={peopleIcon} alt="People icon" className="people-icon" />
+               <span className="team-size-text">{job.teamSize}</span>
             </div>
           </div>
           </Link>

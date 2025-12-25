@@ -52,14 +52,13 @@ function ProjectHeader({ projectName }) {
         <div className="project-header-overview">
           <h3><span className="subtitle">Overview</span></h3>
           <p className="project-header-description">{project.description}</p>
-        </div>
-
-        <div className="project-details project-details-vertical project-header-details">
-          <p><strong>Status:</strong>&nbsp;&nbsp;{project.status}</p>
-          <p><strong>Project Time:</strong>&nbsp;&nbsp;{project.projectTime}</p>
-          {project.technologies && project.technologies.length > 0 && (
-              <p><strong>Technologies:</strong>&nbsp;&nbsp;{project.technologies.join(', ')}</p>
-          )}
+          <div className="project-details project-details-vertical">
+            <p><strong>Status:</strong>&nbsp;&nbsp;{project.status}</p>
+            <p><strong>Project Time:</strong>&nbsp;&nbsp;{project.projectTime}</p>
+            {project.technologies && project.technologies.length > 0 && (
+                <p><strong>Technologies:</strong>&nbsp;&nbsp;{project.technologies.join(', ')}</p>
+            )}
+          </div>
         </div>
 
         {project.keyResponsibilities?.length > 0 && (

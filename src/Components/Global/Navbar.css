@@ -21,7 +21,7 @@
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced gap from 1.5rem */
   font-size: 1.1em;
   padding: 0;
 }
@@ -50,14 +50,14 @@
 }
 
 .contact-button {
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.5em 1em; /* Slightly smaller padding */
+  font-size: 0.95em; /* Slightly smaller font */
   font-weight: 500;
   font-family: inherit;
   background-color: var(--subtle-accent);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.25s ease-in-out;
 }

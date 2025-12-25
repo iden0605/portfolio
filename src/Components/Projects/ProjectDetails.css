@@ -1,5 +1,5 @@
 .project-detail-container {
-  max-width: 80%;
+  max-width: 1000px; /* Fixed max-width instead of % */
   margin: 0 auto;
   padding: 40px 20px;
   color: #f0f0f0;
@@ -10,9 +10,11 @@
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  max-width: 800px;
+  max-width: 750px; /* Slightly reduced */
   margin: 20px auto;
   background: #000;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .video-container iframe,
@@ -77,19 +79,32 @@
 
 .project-header-overview {
   text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-header-description,
+.project-header-details p {
+  text-align: left;
+  font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  border-left: 4px solid #9bace0 !important; /* Standardized styling with !important */
+  padding-left: 1.5rem !important; /* Standardized styling with !important */
+  margin-bottom: 5px; /* Unified margin */
 }
 
 .project-header-description {
-  margin-bottom: 20px;
-  font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
+    margin-bottom: 20px !important;
 }
 
 .project-header-details {
   text-align: left;
-}
-
-.project-header-details p {
-  font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-header-responsibilities {

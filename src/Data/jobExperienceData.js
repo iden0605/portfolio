@@ -3,7 +3,8 @@ const jobExperienceData = {
   "KewPump": {
     tokenizedName: "kewpump",
     jobTitle: "Intern DevOps Engineer",
-    image: "/assets/WorkExperience/KewPump/KewPump-image.png",
+    cardImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
+    headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     cardImageSize: "210px",
     headerImageSize: "280px",
     description: `Working as a DevOps Engineer responsible for architecting automated CI/CD pipelines,
@@ -24,7 +25,8 @@ const jobExperienceData = {
   "Unimelb MoMU Club": {
     tokenizedName: "momu",
     jobTitle: "IT and Analytics Officer",
-    image: "/assets/WorkExperience/Momu/Momu-image.png",
+    cardImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
+    headerImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
     cardImageSize: "220px",
     headerImageSize: "300px",
     description: `Working as the sole IT and Analytics officer under the publicity team in the Malaysians of Melbourne University club.
@@ -42,7 +44,8 @@ const jobExperienceData = {
   "Unimelb GameMakers Club": {
     tokenizedName: "umgmc",
     jobTitle: "Technical Officer | Website Developer",
-    image: "/assets/WorkExperience/UMGMC/UMGMC-image.png",
+    cardImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
+    headerImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
     cardImageSize: "275px",
     headerImageSize: "300px",
     description: `Working as a technical officer under the techincal committee in the University of Melbourne
@@ -61,7 +64,8 @@ const jobExperienceData = {
   "Bookings Made Easy": {
     tokenizedName: "bookings-made-easy",
     jobTitle: "Co-founder | Software/Web Developer",
-    image: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.png",
+    cardImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
+    headerImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
     cardImageSize: "320px",
     headerImageSize: "420px",
     description: `Self-founded a web development service based in Kota Kinabalu, Malaysia, focused
@@ -80,7 +84,8 @@ const jobExperienceData = {
   "Iden McElhone (Freelance)": {
     tokenizedName: "iden-mcelhone-freelance",
     jobTitle: "Tutor",
-    image: "/assets/WorkExperience/Tutoring/Tutoring-image.png",
+    cardImage: "/assets/WorkExperience/Tutoring/Tutoring-image.jpg",
+    headerImage: "/assets/WorkExperience/Tutoring/Tutoring-image.png",
     cardImageSize: "310px",
     headerImageSize: "400px",
     description: `Tutored in Mathematics and Programming (Python and C) through private

@@ -26,7 +26,7 @@
   padding: 2rem;
   color: var(--text-color);
   flex-grow: 1;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   margin-bottom: 0.5rem;
@@ -34,18 +34,18 @@
 
 .section {
   margin-bottom: 4rem;
-  padding: 2rem;
+  padding: 3rem;
   background-color: #F5F3EA;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 2rem auto;
   border-bottom: 1px solid #ccc;
 }
 
 .section h2 {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 700;
   color: var(--primary-color);
   margin-top: 0;
@@ -73,7 +73,7 @@
   background-color: #e0e0e0;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   margin-bottom: 0;
   transition: transform 0.2s ease-in-out;
   position: relative;
@@ -150,9 +150,9 @@
 }
 
 .cta-button {
-  padding: 0.8em 1.5em;
+  padding: 0.6em 1.2em;
   margin-top: 1rem;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
   font-family: inherit;
   background-color: var(--subtle-accent);
@@ -326,7 +326,25 @@
 }
 
 /* Increased specificity to override default section paragraph styles for About Me section */
-.aboutme-container p.about-me-text {
-  font-size: clamp(1.13rem, 4vw, 1.3em) !important;
-  line-height: 1.7;
+.aboutme-container .about-me-text {
+  font-size: clamp(1.1rem, 4vw, 1.25em) !important;
+  line-height: 1.8;
+  /* Re-apply default section styling but with controlled application */
+  margin-top: 1rem;
+  /* Ensure these match the .section > div:not(.project-details) p styles if they were being overridden */
+  border-left: 4px solid #9bace0 !important;
+  padding-left: 1.5rem !important;
+}
+
+.about-me-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Center the "Check out my projects..." text separately */
+.aboutme-container > .about-me-text:last-child {
+    text-align: center;
+    border-left: none !important;
+    padding-left: 0 !important;
 }

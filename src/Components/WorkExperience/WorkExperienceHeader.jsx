@@ -25,31 +25,25 @@ function WorkExperienceHeader({ companyName }) {
         </div>
 
          <div className="work-experience-image-container">
-           {job.image && (
+           {job.headerImage && (
              <img
-                src={job.image}
+                src={job.headerImage}
                 alt={`${companyName} image`}
                 className="work-experience-image"
-                style={{
-                  maxWidth: '100%',
-                  width: job.headerImageSize || '700px',
-                  margin: '0 auto'
-                }}
               />
            )}
          </div>
 
 
-        <div className="work-experience-overview">
+        <div className="work-experience-responsibilities">
           <h3><span className="subtitle">Overview</span></h3>
           {job.description && (
-            <p className="work-experience-overview-description">{job.description}</p>
+            <p className="work-experience-responsibilities-list work-desc">{job.description}</p>
           )}
-        </div>
-
-        <div className="work-experience-details work-experience-details-vertical">
-          <p><strong>Time in Role:</strong>&nbsp;&nbsp;{months} Months {isOngoing && '(Ongoing)'}</p>
-          {job.technologies && <p><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
+          <div>
+            <p className="work-desc"><strong>Time in Role:</strong>&nbsp;&nbsp;{months} Months {isOngoing && '(Ongoing)'}</p>
+            {job.technologies && <p className="work-desc"><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
+          </div>
         </div>
 
         {job.keyResponsibilities?.length > 0 && (
