@@ -6,7 +6,7 @@ import jobExperienceData from '../../Data/jobExperienceData';
 
 function KewPumpDetail() {
   // get job experience data for KewPump
-  const job = jobExperienceData["KewPump"];
+  const job = jobExperienceData["Kewpump"];
 
   // handle case where job data is not found
   if (!job) {
@@ -17,7 +17,7 @@ function KewPumpDetail() {
   return (
     <>
       <ScrollToTop />
-      <WorkExperienceHeader companyName="KewPump" />
+      <WorkExperienceHeader companyName="Kewpump" />
       <section className="section" data-aos="fade-up">
         <div className="image-description-section">
           <div className="image-description-block">
