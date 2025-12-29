@@ -15,7 +15,7 @@ function MomuDetail() {
 
   // render the job experience detail page
   return (
-    <>
+    <main className="main-content">
       <ScrollToTop />
       <WorkExperienceHeader companyName="Unimelb MoMU Club" />
       <section className="section" data-aos="fade-up">
@@ -33,7 +33,7 @@ function MomuDetail() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

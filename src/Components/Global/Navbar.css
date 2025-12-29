@@ -3,14 +3,22 @@
   position: fixed;
   top: 0;
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.1rem 2rem;
+  justify-content: center;
+  padding: 0.5rem 2rem;
   background-color: var(--primary-color);
   color: white;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  height: 70px;
+}
+
+.navbar-content {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-hidden {
@@ -18,12 +26,33 @@
   transform: translateY(-100%);
 }
 
-.navbar ul {
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 1.5em;
+  background: linear-gradient(135deg, #6a7fda, #c2c9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.profile-link:hover {
+  text-decoration: none;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem; /* Reduced gap from 1.5rem */
-  font-size: 1.1em;
+  gap: 4rem;
+  font-size: 1.2em;
   padding: 0;
+  margin: 0;
 }
 
 .navbar a {
@@ -32,7 +61,7 @@
   display: inline-block;
 }
 
-.navbar a:hover {
+.nav-links a:hover {
   color: var(--subtle-accent);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -40,18 +69,23 @@
   transform: translateY(-2px);
 }
 
-.navbar a.active {
+.nav-links a.active {
   font-weight: bold;
   border-bottom: 2px solid var(--subtle-accent);
 }
 
-.navbar a.active:hover {
+.nav-links a.active:hover {
   text-decoration: none;
 }
 
-.contact-button {
-  padding: 0.5em 1em; /* Slightly smaller padding */
-  font-size: 0.95em; /* Slightly smaller font */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.contact-button-desktop {
+  padding: 0.5em 1em;
+  font-size: 0.95em;
   font-weight: 500;
   font-family: inherit;
   background-color: var(--subtle-accent);
@@ -62,81 +96,100 @@
   transition: background-color 0.25s ease-in-out;
 }
 
-  .contact-button:hover {
-    background-color: #5a6fca;
-  }
+.contact-button-desktop:hover {
+  background-color: #5a6fca;
+}
 
-  .hamburger-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
+.hamburger-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 1rem;
+}
 
-  .hamburger-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-    transition: 0.4s;
-  }
+.hamburger-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
 
+.contact-button-container {
+  display: none;
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Mobile styles */
 @media (max-width: 768px) {
-  .navbar-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.5rem 0.5rem;
+  .navbar {
+    padding: 0.5rem 1rem;
   }
-
-  .hamburger-icon {
-    display: flex;
-  }
-
-  .navbar ul {
-    display: flex;
+  
+  .nav-links {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 60px; /* Position below the navbar */
+    right: 1rem;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 0.5rem;
     flex-direction: column;
-    gap: 0.3rem;
-    margin-right: 0;
-    margin-top: 0;
-    text-align: center;
-    overflow: hidden;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Animation */
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.15s ease-in-out, opacity 0.15s ease-in-out;
-    font-size: 0.9em;
-
-    position: absolute;
-    top: 50px;
-    left: 0;
-    background-color: #333;
-    padding: 0.5rem;
-    width: 120px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    font-size: 1em;
+    gap: 0.5rem;
   }
 
-  .navbar ul.open {
+  .nav-links.open {
     display: flex;
     max-height: 300px;
     opacity: 1;
   }
 
-  .navbar a {
-    padding: 0.3rem 0;
+  .hamburger-icon {
+    display: flex;
   }
 
-  .contact-button {
-    margin-top: 0;
+  .contact-button-desktop {
+    display: none;
+  }
+
+  .navbar-right {
+    margin-left: auto;
+  }
+
+  /* contact me link in dropdown */
+  .contact-button-container {
+    display: block;
+  }
+  .contact-button-container a {
+    all: unset;
+    cursor: pointer;
+  }
+
+  .contact-button-container a:hover {
+    color: var(--subtle-accent);
   }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0.5rem;
-  }
-
-  .navbar ul {
-    margin-top: 0.5rem;
+  .profile-name {
+    font-size: 1.3em;
   }
 }

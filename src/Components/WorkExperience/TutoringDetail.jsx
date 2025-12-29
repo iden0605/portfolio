@@ -15,7 +15,7 @@ function TutoringDetail() {
 
   // render the job experience detail page
   return (
-    <>
+    <main className="main-content">
       <ScrollToTop />
       <WorkExperienceHeader companyName="Iden McElhone (Freelance)" />
       <section className="section" data-aos="fade-up">
@@ -31,7 +31,7 @@ function TutoringDetail() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

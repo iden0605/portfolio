@@ -325,6 +325,12 @@
   }
 }
 
+@media (max-width: 1460px) {
+  .main-content {
+    width: 99%;
+  }
+}
+
 /* Increased specificity to override default section paragraph styles for About Me section */
 .aboutme-container .about-me-text {
   font-size: clamp(1.1rem, 4vw, 1.25em) !important;

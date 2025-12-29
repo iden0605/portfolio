@@ -9,46 +9,48 @@ function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
   return (
-    <section className="section" data-aos="fade-up">
-      <h2>Projects</h2>
-      <div className="projects-grid">
-        {Object.entries(projectData).map(([projectName, project]) => (
-          <Link
-            to={`/projects/${project.tokenizedName}`}
-            key={projectName}
-            onMouseEnter={() => setHoveredProject(projectName)}
-            onMouseLeave={() => setHoveredProject(null)}
-          >
-            <div className="content-card">
-            <h3>{projectName}</h3>
-            {/* conditional rendering for video or image */}
-            {hoveredProject === projectName && project.previewVid ? (
-              <video
-                src={project.previewVid}
-                alt={`${projectName} image`}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="project-preview-video"
-              />
-            ) : (
-              <img
-                src={project.thumbnail}
-                alt={`${projectName} image`}
-              />
-            )}
-            <div className="project-type-box">{project.type}</div> 
-              <div className="project-role">{project.role}</div> 
-              <div>{project.date}</div>
-              <div className="project-footer">
-                <span className="team-size"><img src={peopleIcon} alt="team size icon" className="team-icon"/> {project.teamSize} Contributors</span>
+    <main className="main-content">
+      <section className="section" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div className="projects-grid">
+          {Object.entries(projectData).map(([projectName, project]) => (
+            <Link
+              to={`/projects/${project.tokenizedName}`}
+              key={projectName}
+              onMouseEnter={() => setHoveredProject(projectName)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              <div className="content-card">
+              <h3>{projectName}</h3>
+              {/* conditional rendering for video or image */}
+              {hoveredProject === projectName && project.previewVid ? (
+                <video
+                  src={project.previewVid}
+                  alt={`${projectName} image`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="project-preview-video"
+                />
+              ) : (
+                <img
+                  src={project.thumbnail}
+                  alt={`${projectName} image`}
+                />
+              )}
+              <div className="project-type-box">{project.type}</div>
+                <div className="project-role">{project.role}</div>
+                <div>{project.date}</div>
+                <div className="project-footer">
+                  <span className="team-size"><img src={peopleIcon} alt="team size icon" className="team-icon"/> {project.teamSize} Contributors</span>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 

@@ -65,18 +65,25 @@ function Navbar({ onContactClick }) {
   // render the navbar
   return (
     <nav className={navbarClasses}>
-      <ul className={isMenuOpen ? 'open' : ''}>
-        <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMenu}>Home</Link></li>
-        <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeMenu}>Work Experience</Link></li>
-        <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={closeMenu}>Projects</Link></li>
-      </ul>
-      <div className="navbar-top-row">
-        <div className="hamburger-icon" onClick={toggleMenu}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+      <div className="navbar-content">
+        <Link to="/" className="profile-link" onClick={closeMenu}>
+          <span className="profile-name">I.M.</span>
+        </Link>
+
+        <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+          <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeMenu}>Work Experience</Link></li>
+          <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={closeMenu}>Projects</Link></li>
+          <li className="contact-button-container"><Link to="/contact" onClick={closeMenu}>Contact Me</Link></li>
+        </ul>
+
+        <div className="navbar-right">
+          <button className="contact-button-desktop" onClick={onContactClick}>Contact Me</button>
+          <div className="hamburger-icon" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
         </div>
-        <button className="contact-button" onClick={onContactClick}>Contact Me</button>
       </div>
     </nav>
   );

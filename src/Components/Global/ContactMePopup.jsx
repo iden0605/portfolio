@@ -259,7 +259,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
   return (
     <div className={overlayClassName}>
       <div className={contentClassName}>
-        <h2><span className="subtitle">Contact Me</span></h2>
+        <h2><span className="subtitle">Drop me a message!</span></h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name: <span className="required-asterisk">*</span></label>

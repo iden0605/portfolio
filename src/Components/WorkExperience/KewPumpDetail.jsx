@@ -15,7 +15,7 @@ function KewPumpDetail() {
 
   // render the job experience detail page
   return (
-    <>
+    <main className="main-content">
       <ScrollToTop />
       <WorkExperienceHeader companyName="Kewpump" />
       <section className="section" data-aos="fade-up">
@@ -39,7 +39,7 @@ function KewPumpDetail() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

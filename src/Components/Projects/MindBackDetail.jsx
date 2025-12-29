@@ -13,9 +13,11 @@ function MindBackDetail() {
 
   // render the project detail page
   return (
-    <div className="project-detail-container">
-      <ProjectHeader projectName="MindBack" />
-    </div>
+    <main className="main-content">
+      <div className="project-detail-container">
+        <ProjectHeader projectName="MindBack" />
+      </div>
+    </main>
   );
 }
 

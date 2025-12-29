@@ -15,7 +15,7 @@ function UMGMCDetail() {
 
   // render the job experience detail page
   return (
-    <>
+    <main className="main-content">
       <ScrollToTop />
       <WorkExperienceHeader companyName="Unimelb GameMakers Club" />
       <section className="section" data-aos="fade-up">
@@ -34,7 +34,7 @@ function UMGMCDetail() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

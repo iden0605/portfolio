@@ -13,9 +13,11 @@ function LunarlyDetail() {
 
   // render the project detail page
   return (
-    <div className="project-detail-container">
-      <ProjectHeader projectName="Lunarly" />
-    </div>
+    <main className="main-content">
+      <div className="project-detail-container">
+        <ProjectHeader projectName="Lunarly" />
+      </div>
+    </main>
   );
 }
 
