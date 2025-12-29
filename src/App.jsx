@@ -45,26 +45,28 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Navbar onContactClick={handleOpenPopup} />
-      <main className="page-content">
-        <Routes>
-          <Route path="/" element={<Body />} />
-          <Route path="/work-experience" element={<WorkExperience />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/pebbletask" element={<PebbleTaskDetail />} />
-          <Route path="/projects/mindback" element={<MindBackDetail />} />
-          <Route path="/projects/lunarly" element={<LunarlyDetail />} />
-          <Route path="/projects/overgrown" element={<OverGrownDetail />} />
-          <Route path="/work-experience/bookings-made-easy" element={<BookingsMadeEasyDetail />} />
-          <Route path="/work-experience/iden-mcelhone-freelance" element={<TutoringDetail />} />
-          <Route path="/work-experience/umgmc" element={<UMGMCDetail />} />
-          <Route path="/work-experience/momu" element={<MomuDetail />} />
-          <Route path="/work-experience/kewpump" element={<KewpumpDetail />} />
-          <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
-          <Route path="/projects/echoai" element={<EchoAIDetail />} />
-          <Route path="/contact" element={<ContactMePage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <div className="app-container">
+        <main className="page-content">
+          <Routes>
+            <Route path="/" element={<Body />} />
+            <Route path="/work-experience" element={<WorkExperience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/pebbletask" element={<PebbleTaskDetail />} />
+            <Route path="/projects/mindback" element={<MindBackDetail />} />
+            <Route path="/projects/lunarly" element={<LunarlyDetail />} />
+            <Route path="/projects/overgrown" element={<OverGrownDetail />} />
+            <Route path="/work-experience/bookings-made-easy" element={<BookingsMadeEasyDetail />} />
+            <Route path="/work-experience/iden-mcelhone-freelance" element={<TutoringDetail />} />
+            <Route path="/work-experience/umgmc" element={<UMGMCDetail />} />
+            <Route path="/work-experience/momu" element={<MomuDetail />} />
+            <Route path="/work-experience/kewpump" element={<KewpumpDetail />} />
+            <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
+            <Route path="/projects/echoai" element={<EchoAIDetail />} />
+            <Route path="/contact" element={<ContactMePage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
       <ContactMePopup isOpen={isPopupOpen} onClose={handleClosePopup} />
       <ToastContainer />
     </BrowserRouter>

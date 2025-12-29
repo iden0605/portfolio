@@ -1,7 +1,10 @@
 .contact-me-page {
   padding: 6rem 2rem 2rem;
   background-color: transparent;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .contact-popup-content {
@@ -94,7 +97,9 @@
 
 @media (max-width: 768px) {
   .contact-me-page {
-    padding: 5rem 1rem 1rem;
+    padding: 4rem 1rem 1rem;
+    align-items: flex-start;
+    flex-grow: 0;
   }
 
   .contact-popup-content {
@@ -117,6 +122,7 @@
     font-size: 0.9em;
   }
 }
+
 
 .required-asterisk {
   position: absolute;

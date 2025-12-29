@@ -1,9 +1,21 @@
+.app-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+}
+
+body.sidebar-open .app-container {
+  transform: translateX(-60vw);
+}
+
 * {
   box-sizing: border-box;
 }
 
 #root {
   width: 100%;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -171,6 +183,7 @@
 }
 
 .page-content {
+  flex-grow: 1;
   margin-bottom: 0.5rem;
   padding-top: var(--navbar-height); /* Add padding to account for the fixed navbar */
 }
