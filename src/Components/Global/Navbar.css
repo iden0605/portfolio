@@ -53,6 +53,7 @@
   font-size: 1.2em;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 
 .navbar a {
@@ -63,7 +64,6 @@
 
 .nav-links a:hover {
   color: var(--subtle-accent);
-  text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out;
   transform: translateY(-2px);
@@ -71,7 +71,8 @@
 
 .nav-links a.active {
   font-weight: bold;
-  border-bottom: 2px solid var(--subtle-accent);
+  /* border-bottom is now handled by the sliding underline */
+  border-bottom: none;
 }
 
 .nav-links a.active:hover {
@@ -190,6 +191,14 @@
   height: 100%;
 }
 
+.nav-underline {
+  position: absolute;
+  bottom: -4px;
+  height: 2px;
+  background: linear-gradient(135deg, #6a7fda, #b8bff0);
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
 .contact-button-container {
   display: none;
 }
@@ -235,9 +244,6 @@
 }
 
 @media (max-width: 480px) {
-  .profile-name {
-    font-size: 1.8rem;
-  }
   .hamburger-icon {
     display: flex;
     font-size: 1.4rem;

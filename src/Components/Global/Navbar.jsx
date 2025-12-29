@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
@@ -8,6 +8,12 @@ function Navbar({ onContactClick }) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [underlineStyle, setUnderlineStyle] = useState({});
+
+  const navLinksRef = useRef(null);
+  const homeLinkRef = useRef(null);
+  const workLinkRef = useRef(null);
+  const projectsLinkRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -77,6 +83,38 @@ function Navbar({ onContactClick }) {
     };
   }, [lastScrollY, isSidebarOpen]);
 
+  // Effect for the sliding underline
+  useEffect(() => {
+    const calculateUnderline = () => {
+      let activeRef;
+      if (location.pathname === '/') {
+        activeRef = homeLinkRef;
+      } else if (location.pathname.startsWith('/work-experience')) {
+        activeRef = workLinkRef;
+      } else if (location.pathname.startsWith('/projects')) {
+        activeRef = projectsLinkRef;
+      }
+
+      if (activeRef && activeRef.current) {
+        setUnderlineStyle({
+          left: activeRef.current.offsetLeft,
+          width: activeRef.current.offsetWidth,
+        });
+      }
+    };
+
+    // Calculate on initial render and location change
+    calculateUnderline();
+
+    // Recalculate on window resize
+    window.addEventListener('resize', calculateUnderline);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', calculateUnderline);
+    };
+  }, [location]);
+
   // Get navbar classes
   const navbarClasses = `navbar ${isVisible ? '' : 'navbar-hidden'}`;
 
@@ -86,14 +124,15 @@ function Navbar({ onContactClick }) {
       <nav className={navbarClasses}>
         <div className="navbar-content">
           <Link to="/" className="profile-link" onClick={closeSidebar}>
-            <span className="profile-name">I.M.</span>
+            <span className="profile-name">I.M</span>
           </Link>
 
-          <ul className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
-            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeSidebar}>Home</Link></li>
-            <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
-            <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
+          <ul ref={navLinksRef} className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
+            <li ref={homeLinkRef}><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeSidebar}>Home</Link></li>
+            <li ref={workLinkRef}><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
+            <li ref={projectsLinkRef}><Link to="/projects" className={location.pathname.startsWith('/projects') ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
             <li className="contact-button-container"><Link to="/contact" onClick={closeSidebar}>Contact Me</Link></li>
+            <div className="nav-underline" style={underlineStyle}></div>
           </ul>
 
           <div className="navbar-right">
@@ -110,8 +149,8 @@ function Navbar({ onContactClick }) {
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
           <ul>
             <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeSidebar}>Home</Link></li>
-            <li><Link to="/work-experience" className={location.pathname === '/work-experience' ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
-            <li><Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
+            <li><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
+            <li><Link to="/projects" className={location.pathname.startsWith('/projects') ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
             <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={closeSidebar}>Contact</Link></li>
           </ul>
         </div>,
