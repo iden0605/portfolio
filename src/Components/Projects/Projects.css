@@ -125,7 +125,8 @@
     align-items: center;
   }
 
-  .content-card img {
+  .content-card img,
+  .project-preview-video {
     width: 100%;
     height: auto;
     max-width: 400px;
@@ -147,7 +148,8 @@
     align-items: center;
   }
 
-  .content-card img {
+  .content-card img,
+  .project-preview-video {
     width: 100%;
     height: auto;
     max-width: 400px;
@@ -169,7 +171,8 @@
     align-items: center;
   }
 
-  .content-card img {
+  .content-card img,
+  .project-preview-video {
     width: 100%;
     height: auto;
     max-width: 400px;
