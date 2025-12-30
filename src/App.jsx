@@ -21,11 +21,23 @@ import EchoAIDetail from './Components/Projects/EchoAIDetail';
 import ContactMePopup from './Components/Global/ContactMePopup';
 import ContactMePage from './Components/Global/ContactMePage';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   // disable browser's default scroll restoration
   window.history.scrollRestoration = 'manual';
+
+  useEffect(() => {
+    if (!document.body.classList.contains('aos-initialized')) {
+      AOS.init({
+        offset: 100,
+        duration: 500,
+        once: true,
+      });
+    }
+  }, []);
 
   // state to manage the contact me popup visibility
   const [isPopupOpen, setIsPopupOpen] = useState(false);

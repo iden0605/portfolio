@@ -208,7 +208,7 @@ const ContactMePopup = ({ isOpen, onClose }) => {
             theme: "colored",
             style: { backgroundColor: '#6a7fda' },
         });
-        setCooldown(60);
+        setCooldown(120);
         onClose();
     }, (error) => {
         console.error('Error sending message:', error);

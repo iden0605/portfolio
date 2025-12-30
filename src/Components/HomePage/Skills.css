@@ -166,7 +166,7 @@
   .skills-wrapper {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.5s ease-out;
+    transition: grid-template-rows 0.3s ease-out;
     margin: 0;
     padding: 0;
     overflow: hidden; /* Ensure content is clipped when collapsed */
@@ -183,7 +183,7 @@
     padding-top: 0;
     border-top: 0 solid transparent;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out, padding-top 0.5s ease-in-out, border-top-color 0.5s ease-in-out;
+    transition: opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding-top 0.3s ease-in-out, border-top-color 0.3s ease-in-out;
   }
 
   .skill-category.open .skills-list {
