@@ -6,7 +6,7 @@
 }
 
 body.sidebar-open .app-container {
-  transform: translateX(-60vw);
+  transform: translateX(-0vw);
 }
 
 * {

@@ -124,12 +124,12 @@ function Navbar({ onContactClick }) {
       <nav className={navbarClasses}>
         <div className="navbar-content">
           <Link to="/" className="profile-link" onClick={closeSidebar}>
-            <span className="profile-name">I.M</span>
+            <span className="profile-name">Iden</span>
           </Link>
 
           <ul ref={navLinksRef} className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
             <li ref={homeLinkRef}><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeSidebar}>Home</Link></li>
-            <li ref={workLinkRef}><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
+            <li ref={workLinkRef}><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Experience</Link></li>
             <li ref={projectsLinkRef}><Link to="/projects" className={location.pathname.startsWith('/projects') ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
             <li className="contact-button-container"><Link to="/contact" onClick={closeSidebar}>Contact Me</Link></li>
             <div className="nav-underline" style={underlineStyle}></div>
@@ -149,7 +149,7 @@ function Navbar({ onContactClick }) {
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
           <ul>
             <li><Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeSidebar}>Home</Link></li>
-            <li><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Work Experience</Link></li>
+            <li><Link to="/work-experience" className={location.pathname.startsWith('/work-experience') ? 'active' : ''} onClick={closeSidebar}>Experience</Link></li>
             <li><Link to="/projects" className={location.pathname.startsWith('/projects') ? 'active' : ''} onClick={closeSidebar}>Projects</Link></li>
             <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={closeSidebar}>Contact</Link></li>
           </ul>
