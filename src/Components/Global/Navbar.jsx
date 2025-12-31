@@ -31,6 +31,21 @@ function Navbar({ onContactClick }) {
     }
   }, [isSidebarOpen]);
 
+  // Effect to handle closing the sidebar on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isSidebarOpen) {
+        closeSidebar();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isSidebarOpen]);
+
   // Effect to handle navbar visibility on scroll
   useEffect(() => {
     const SCROLL_THRESHOLD = 100; // Pixels

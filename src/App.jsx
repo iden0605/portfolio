@@ -52,6 +52,20 @@ function App() {
     setIsPopupOpen(false);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768 && isPopupOpen) {
+        handleClosePopup();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isPopupOpen]);
+
   // this is the main app structure with routing
   return (
     <BrowserRouter>

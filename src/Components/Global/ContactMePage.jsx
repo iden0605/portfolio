@@ -1,9 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import './ContactMePage.css';
 import { toast } from 'react-toastify';
 
 function ContactMePage() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                navigate('/');
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Check on initial render as well
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [navigate]);
     const [formData, setFormData] = useState({
         from_name: '',
         reply_to: '',
