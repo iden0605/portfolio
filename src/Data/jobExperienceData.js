@@ -7,19 +7,20 @@ const jobExperienceData = {
     headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     cardImageSize: "210px",
     headerImageSize: "280px",
-    description: `Responsible for architecting automated CI/CD pipelines, cloud infrastructure, and production deployments for a manufacturing monitoring platform on Google Cloud.`,
-    date: "Dec 2025 - Present",
+    description: `Responsible for architecting automated CI/CD pipelines, cloud infrastructure, and production deployments for a manufacturing monitoring platform on Google Cloud. Designed and implemented robust, scalable, and secure cloud solutions, enhancing system reliability and developer efficiency.`,
+    date: "Nov 2025 - Present",
     teamSize: 20,
     timeInRole: "Ongoing",
     keyResponsibilities: [
-      "Designed and maintained a cloud-native deployment architecture for a production manufacturing web application.",
-      "Built automated CI/CD pipelines using GitHub Actions for staged and production deployments.",
-      "Containerised application services and deployed them to Google Cloud.",
-      "Configured cloud infrastructure, networking, and managed Cloud SQL (PostgreSQL).",
-      "Implemented automated testing and health checks for deployed applications.",
-      "Documented deployment workflows and created reusable guides for other engineers."
+      "Designed and implemented robust, scalable, and secure cloud infrastructure for a manufacturing monitoring platform on Google Cloud, improving system reliability and performance.",
+      "Architected and deployed automated CI/CD pipelines using GitHub Actions, streamlining staged and production deployments.",
+      "Developed and managed containerized application services, orchestrating their deployment to Google Cloud using Docker.",
+      "Configured and optimized Google Cloud infrastructure, including VPC networking, Compute Engine, and Cloud SQL (PostgreSQL).",
+      "Implemented automated testing and health checks for staged and deployed applications.",
+      "Led the documentation of deployment workflows and created reusable guides.",
+      "Implemented role-based access control (RBAC) for secure access management.",
     ],
-    technologies: "Google Cloud Platform (GCP), Docker, GitHub Actions, CI/CD, Cloud SQL (PostgreSQL), Compute Engine, VPC Networking, ASP.NET Core"
+    technologies: "Google Cloud Platform (GCP), Docker, GitHub Actions, CI/CD, Cloud SQL (PostgreSQL), Compute Engine, VPC Networking, Role-based access control (RBAC) ASP.NET Core"
   },
   "Unimelb MoMU Club": {
     tokenizedName: "momu",
