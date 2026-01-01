@@ -1,8 +1,5 @@
 .project-detail-container {
-  max-width: 1000px; /* Fixed max-width instead of % */
-  margin: 0 auto;
-  padding: 40px 20px;
-  color: #f0f0f0;
+  width: 100%;
 }
 
 .move-overview {
@@ -14,7 +11,7 @@
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  max-width: 750px; /* Slightly reduced */
+  max-width: 100%;
   margin: 20px auto;
   background: #000;
   border-radius: 8px; /* Rounded corners */
@@ -83,7 +80,7 @@
 
 .project-header-overview {
   text-align: left;
-  max-width: 800px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -92,7 +89,7 @@
 .project-header-details p {
   text-align: left;
   font-size: clamp(1.1rem, 4vw, 1.25rem) !important;
-  max-width: 800px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.8;
@@ -133,8 +130,8 @@
 
 @media (max-width: 768px) {
   .project-detail-container {
-    max-width: 95%;
-    padding: 20px 10px;
+    width: 100%;
+    padding: 0;
   }
 
   .project-title {
@@ -167,8 +164,8 @@
 
 @media (max-width: 480px) {
   .project-detail-container {
-    max-width: 100%;
-    padding: 15px 5px;
+    width: 100%;
+    padding: 0;
   }
 
   .project-title {
@@ -216,6 +213,6 @@
 
 @media (max-width: 1024px) {
   .project-detail-container {
-    max-width: 100%;
+    width: 100%;
   }
 }
