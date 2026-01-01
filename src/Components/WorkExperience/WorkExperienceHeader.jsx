@@ -59,6 +59,7 @@ function WorkExperienceHeader({ companyName }) {
           </div>
           )}
       </div>
+
     </section>
   );
 }

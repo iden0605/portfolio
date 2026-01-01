@@ -216,3 +216,8 @@
     width: 100%;
   }
 }
+
+/* Cursor style for clickable images within project details */
+.project-detail-image-wrapper img {
+  cursor: zoom-in;
+}

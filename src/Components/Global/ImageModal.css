@@ -1,0 +1,64 @@
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Shadowed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw; /* Max width relative to viewport width */
+  max-height: 90vh; /* Max height relative to viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expanded-image {
+  max-width: 100%; /* Image fills its container */
+  max-height: 100%; /* Image fills its container */
+  object-fit: contain; /* Ensures the image is fully visible without cropping */
+  border-radius: 8px; /* Optional: subtle rounded corners for the image */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px !important;
+  right: 10px !important;
+  background: none;
+  border: none;
+  color: #6a7fda !important;
+  font-size: 2rem !important;
+  cursor: pointer;
+  padding: 5px 10px !important;
+  line-height: 1 !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
+  outline: none !important; /* Remove the outline that appears on click/focus */
+}
+
+.close-button:hover {
+  color: #4B5BB8 !important; /* Slightly darker shade of #007bff */
+}
+
+/* Media queries for further responsiveness if needed */
+@media (max-width: 768px) {
+  .close-button {
+    font-size: 2rem !important;
+    top: 5px !important;
+    right: 5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-button {
+    font-size: 1.8rem !important;
+    top: 2px !important;
+    right: 2px !important;
+  }
+}

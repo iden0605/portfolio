@@ -22,7 +22,49 @@ const projectData = {
       "Created and coded the right-split-screen calling logic.",
       "Implemented Multiple-choice quiz, Blanks quiz, Flashcards and Notes UI.",
       "Ensured seamless connectivity between the backend and frontend.",
-      "Deployed the application to www.echoai.academy."]
+      "Deployed the application to www.echoai.academy."],
+    details: [
+      {
+        title: "Message Pairing and Structuring",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-1.png", width: "800px" },
+          { type: "text", text: "The conversation flow is organised by pairing user messages with their corresponding AI responses." },
+          { type: "text", text: "To ensure the chat interface feels expansive and does not feel cramped on larger screens, the \"MessageInstance.jsx\" component dynamically calculates a minimum height. This calculation is based on the height of the input box at the bottom and the header at the top, effectively making the chat log fill the available vertical space." }
+        ]
+      },
+      {
+        title: "Chat Rendering",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-2.png", width: "700px" },
+          { type: "text", text: "Once the messages are paired, \"ChatInterface.jsx\" renders the conversation. It maps over the \"messagePairs\" array and passes each pair to a \"MessageInstance\" component." },
+          { type: "text", text: "This modular approach keeps the code clean; \"ChatInterface\" handles the overall structure, while \"MessageInstance\" manages the detailed presentation of each user-AI exchange, including animations and interaction options like editing." }
+        ]
+      },
+      {
+        title: "Right Split Screen Logic",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-3.png", width: "900px" },
+          { type: "text", text: "1. Intent Classification (AI Model 1): When a user sends a message, the first AI model classifies the request, determining whether it is a simple text response or a request for a specific learning tool (e.g., flashcard, quiz, or notes)." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-4.png", width: "700px" },
+          { type: "text", text: "2. Content Generation (AI Model 2): If a learning tool is requested, a second AI model is invoked. This model uses function declarations that define the data structure for each quiz type to generate and format the content (questions, answers, descriptions) as required by the function triggered by the first AI." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-5.png", width: "700px" },
+          { type: "text", text: "3. Frontend Rendering: The final data object, containing a \"type\" and \"content,\" is sent to the frontend. The \"RightSplit.jsx\" component receives this data and uses a switch statement on the \"type\" property to render the appropriate React component, passing the generated content as props." }
+        ]
+      },
+      {
+        title: "The future of EchoAi",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-6.png", width: "700px" },
+          { type: "text", text: "The future vision for EchoAI is to become a seamless blend of Obsidian, GoodNotes, and Google Docs, integrating features like handwritten notes, note linking, collaboration, and advanced organization." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-7.png", width: "800px" },
+          { type: "text", text: "Additional quiz options are also planned, including true/false, short answer, matching, and diagram labeling." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-8.png", width: "800px" },
+          { type: "text", text: "AI enhancements will include automated marking for short answer questions, content regeneration, and image generation." },
+          { type: "text", text: "A sneak peek of the potential future interface:" },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-9.png", width: "900px" }
+        ]
+      }
+    ]
   },
   "PebbleTask": {
     tokenizedName: "pebbletask",

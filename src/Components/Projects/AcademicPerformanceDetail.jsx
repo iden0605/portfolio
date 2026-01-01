@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import projectData from '../../Data/projectData';
 import ProjectHeader from './ProjectHeader';
 import './ProjectDetails.css';
+import ImageModal from '../Global/ImageModal';
 
 function AcademicPerformanceDetail() {
   // get project data for Academic Performance Predictive Models
@@ -10,6 +12,19 @@ function AcademicPerformanceDetail() {
   if (!project) {
     return <div>Project not found.</div>;
   }
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+
+  const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedImage('');
+  };
 
   // render the project detail page
   return (
@@ -23,11 +38,11 @@ function AcademicPerformanceDetail() {
                 <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
                   <h3><span className="subtitle">Data Preprocessing</span></h3>
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-1.png" alt="PredictiveModels Description 1" style={{ width: '600px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-1.png" alt="PredictiveModels Description 1" style={{ width: '600px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-1.png")} />
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-2.png" alt="PredictiveModels Description 2" style={{ width: '600px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-2.png" alt="PredictiveModels Description 2" style={{ width: '600px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-2.png")} />
                 </div>
                 <div className="description" style={{ textAlign: 'left' }}>
                   <p>Two student datasets were merged, retaining key family-related features. Final grades were then normalized and categorized into "Low," "Medium," and "High" as a new variable, <i>grades_grouped</i>.</p>
@@ -44,11 +59,11 @@ function AcademicPerformanceDetail() {
                 <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
                   <h3><span className="subtitle">Correlation Analysis</span></h3>
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-3.png" alt="PredictiveModels Description 3" style={{ width: '600px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-3.png" alt="PredictiveModels Description 3" style={{ width: '600px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-3.png")} />
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-4.png" alt="PredictiveModels Description 4" style={{ width: '600px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-4.png" alt="PredictiveModels Description 4" style={{ width: '600px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-4.png")} />
                 </div>
                 <div className="description" style={{ textAlign: 'left' }}>
                   <p>To identify key predictors of student performance, Normalised Mutual Information (NMI) was used to measure relationships between family-related categorical variables and academic outcomes. Unlike Pearson’s correlation, NMI captures non-linear associations without assuming specific data distributions, making it ideal for this type of data.</p>
@@ -59,11 +74,11 @@ function AcademicPerformanceDetail() {
                 <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
                   <h3><span className="subtitle">Predictive Model training and testing</span></h3>
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-5.png" alt="Predictive Models Description 5" style={{ width: '800px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-5.png" alt="Predictive Models Description 5" style={{ width: '800px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-5.png")} />
                 </div>
-                <div className="desc-image">
-                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-6.png" alt="Predictive Models Description 6" style={{ width: '800px' }} />
+                <div className="desc-image project-detail-image-wrapper">
+                  <img src="/assets/project/PredictiveModels/PredictiveModels-desc-6.png" alt="Predictive Models Description 6" style={{ width: '800px' }} onClick={() => handleImageClick("/assets/project/PredictiveModels/PredictiveModels-desc-6.png")} />
                 </div>
                 <div className="description" style={{ textAlign: 'left' }}>
                   <p>A K-Nearest Neighbors (k=3) and a Decision Tree (entropy criterion) model were implemented to classify students into performance groups. These models were trained on the preprocessed data and evaluated on a testing set, with accuracy results stored in a DataFrame for comparison.</p>
@@ -77,6 +92,14 @@ function AcademicPerformanceDetail() {
           </div>
         </section>
       </div>
+
+      {modalOpen && (
+        <ImageModal
+          src={selectedImage}
+          alt={`Expanded image for Academic Predictive Models`}
+          onClose={closeModal}
+        />
+      )}
     </main>
   );
 }
