@@ -13,16 +13,11 @@
 
 .image-modal-content {
   position: relative;
-  max-width: 90vw; /* Max width relative to viewport width */
-  max-height: 90vh; /* Max height relative to viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .expanded-image {
-  max-width: 100%; /* Image fills its container */
-  max-height: 100%; /* Image fills its container */
+  max-width: 80vw; /* Max width relative to viewport width */
+  max-height: 80vh; /* Max height relative to viewport height */
   object-fit: contain; /* Ensures the image is fully visible without cropping */
   border-radius: 8px; /* Optional: subtle rounded corners for the image */
 }
