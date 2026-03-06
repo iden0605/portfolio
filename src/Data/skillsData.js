@@ -29,6 +29,7 @@ export const skills = {
     "Docker",
     "CI/CD",
     "Git & GitHub",
+    "DigitalOcean",
   ],
   "Platforms & Software": [
     "Notion",

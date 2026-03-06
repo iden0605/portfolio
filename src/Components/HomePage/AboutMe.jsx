@@ -11,24 +11,19 @@ function AboutMe() {
       <div className="aboutme-container">
         <h2>{title}</h2>
 
-       <div className="about-me-content">
-        <p className="about-me-text">
-          Hi! I'm <strong>Iden</strong>, a Computer Science student at the University of Melbourne specializing in <strong>full-stack development</strong> and <strong>DevOps engineering</strong>. Passionate about building scalable, user-focused applications and automating workflows using CI/CD and cloud technologies.
-        </p>
+        <div className="about-me-content">
+          <p className="about-me-text">
+            Hi! I'm <strong>Iden</strong>, a Computing & Software Systems student at the University of Melbourne with a focus on <strong>system architecture</strong> and <strong>DevOps engineering</strong>. I’m passionate about designing scalable, reliable, and automated systems, leveraging containerization, CI/CD pipelines, and cloud infrastructure.
+          </p>
 
-        <p className="about-me-text">
-          My work covers frontend applications, backend services, and data-driven systems,
-          using a range of modern frameworks and technologies. New tools are picked up
-          quickly, with technical decisions guided by the problem being solved.
-        </p>
+          <p className="about-me-text">
+            My work spans infrastructure design, deployment automation, and maintaining full-stack applications. I thrive on building efficient workflows and making technical decisions that balance performance, security, and maintainability, all while adopting modern tools and technologies.
+          </p>
 
-        <p className="about-me-text">
-          Professional experience includes working as a DevOps Engineering Intern at
-          <strong> Kewpump</strong>, as well as tutoring and freelance web development,
-          including the co-founding of <strong>BookingsMadeEasy</strong>.
-        </p>
-      </div>
-
+          <p className="about-me-text">
+            Professional experience includes working as a DevOps Engineering Intern and Junior Software Developer at <strong>Kewpump</strong>, where I managed containerized applications, implemented GitHub Actions pipelines, and maintained scalable cloud and local deployments. I have also contributed to tutoring and freelance web development, including co-founding <strong>BookingsMadeEasy</strong>.
+          </p>
+        </div>
         <p className="about-me-text">
           Check out my <Link to="/projects" className="about-me-link">projects</Link> and <Link to="/work-experience" className="about-me-link">work experiences</Link>!
         </p>

@@ -175,26 +175,6 @@ const projectData = {
       "Implemented file uploads and data processing to handle social media input.",
       "Optimised data parsing of Whatsapp, Instagram and Discord chat files."
     ]
-  },
-  "Lunarly": {
-    tokenizedName: "lunarly",
-    description: `A conversational chatbot designed to build a personal connection with users over time. As the conversation progresses, the bond strengthens, creating a unique and engaging experience.`,
-    date: "May 2025 - Present",
-    type: "Long Term Project",
-    teamSize: 2,
-    role: "Frontend Developer",
-    thumbnail: "/assets/project/Lunarly/Lunarly-image.png",
-    images: [
-
-    ],
-    technologies: ["React (Javascript)", "Flask (Python)"],
-    liveLink: "https://example.com/project3",
-    githubLink: "https://github.com/yourusername/project3",
-    itchLink: "",
-    wwwLink: "",
-    status: "In Progress",
-    projectTime: "Ongoing",
-    keyResponsibilities: []
   }
 };
 

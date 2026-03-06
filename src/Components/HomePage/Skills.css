@@ -1,5 +1,8 @@
 .skills-section {
-  background-color: #F5F3EA; /* Cream */
+  background-color: #F5F3EA;
+  /* Cream */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .skills-title {
@@ -19,12 +22,13 @@
 
 @media (max-width: 900px) and (min-width: 600px) {
   .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .skill-category {
-  background-color: #F9F8F6; /* Off-white */
+  background-color: #F9F8F6;
+  /* Off-white */
   border: 1px solid #E0E0E0;
   border-radius: 10px;
   padding: 0.2rem 2rem;
@@ -43,8 +47,10 @@
 
 .skill-category h3 {
   font-size: clamp(1.1rem, 4vw, 1.3rem);
-  color: #444444; /* Dark gray */
-  padding-bottom: 0.5rem; /* Space for divider */
+  color: #444444;
+  /* Dark gray */
+  padding-bottom: 0.5rem;
+  /* Space for divider */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,14 +62,16 @@
 }
 
 .skill-category h3 .arrow {
-  display: none; /* Hidden on desktop */
+  display: none;
+  /* Hidden on desktop */
 }
 
 /* Divider (Blue Line) - Global */
 .skill-category h3::after {
   content: '';
   position: absolute;
-  bottom: -5px; /* Move divider down */
+  bottom: -5px;
+  /* Move divider down */
   left: 50%;
   width: 0;
   height: 2px;
@@ -92,7 +100,8 @@
   opacity: 1;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: none; /* Remove faint grey divider */
+  border-top: none;
+  /* Remove faint grey divider */
 }
 
 @keyframes fadeIn {
@@ -100,6 +109,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -108,19 +118,23 @@
 
 .skill-category .skills-list li {
   font-size: clamp(1rem, 4vw, 1.1rem);
-  background-color: #F5F3EA; /* Cream */
-  color: #444444; /* Dark gray */
+  background-color: #F5F3EA;
+  /* Cream */
+  color: #444444;
+  /* Dark gray */
   border: 1px solid #E0E0E0;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
-  opacity: 1; /* Always visible on desktop */
+  opacity: 1;
+  /* Always visible on desktop */
 }
 
 .skill-category .skills-list li:hover {
   transform: scale(1.05);
-  background-color: #6A7FDA; /* Blue accent on hover */
+  background-color: #6A7FDA;
+  /* Blue accent on hover */
   color: #ffffff;
   border-color: #6A7FDA;
 }
@@ -130,11 +144,13 @@
   .skills-grid {
     grid-template-columns: 1fr;
     padding: 0 1rem;
-    gap: 1.6rem; /* Reduce vertical gap between containers */
+    gap: 1.6rem;
+    /* Reduce vertical gap between containers */
   }
 
   .skill-category {
-    padding: 1.3rem 2rem; /* Slimmer padding for collapsible state */
+    padding: 1.3rem 2rem;
+    /* Slimmer padding for collapsible state */
   }
 
   .skill-category h3 {
@@ -169,7 +185,8 @@
     transition: grid-template-rows 0.3s ease-out;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Ensure content is clipped when collapsed */
+    overflow: hidden;
+    /* Ensure content is clipped when collapsed */
   }
 
   .skill-category.open .skills-wrapper {
@@ -178,8 +195,10 @@
 
   .skill-category .skills-list {
     overflow: hidden;
-    min-height: 0; /* Required for grid transition */
-    margin: 0; /* Reset all margins */
+    min-height: 0;
+    /* Required for grid transition */
+    margin: 0;
+    /* Reset all margins */
     padding-top: 0;
     border-top: 0 solid transparent;
     opacity: 0;
@@ -194,10 +213,12 @@
   }
 
   .skill-category .skills-list li {
-    opacity: 1; /* Keep visible so ul transition handles fade out */
+    opacity: 1;
+    /* Keep visible so ul transition handles fade out */
   }
 
   .skill-category.open .skills-list li {
-    animation: fadeIn 0.2s ease-out both; /* 'both' handles initial opacity: 0 */
+    animation: fadeIn 0.2s ease-out both;
+    /* 'both' handles initial opacity: 0 */
   }
 }
