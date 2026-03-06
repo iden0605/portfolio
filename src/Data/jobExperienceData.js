@@ -2,7 +2,7 @@
 const jobExperienceData = {
   "Kewpump": {
     tokenizedName: "kewpump",
-    jobTitle: "Junior Devops Engineer | Software Developer",
+    jobTitle: "Junior DevOps Engineer | Software Developer",
     cardImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     cardImageSize: "210px",
