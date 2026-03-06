@@ -26,10 +26,15 @@ function UMGMCDetail() {
               <p className="date-text"><i>{job.date}</i></p>
             </div>
             <div className="description" style={{ textAlign: 'left' }}>
-              <p style={{ textAlign: 'left' }}>For the club website, committee data from the Notion backend has been parsed for page rendering. The next steps involve implementing the committee webpage based on the provided designs and making minor UX improvements.</p>
+              <p style={{ textAlign: 'left' }}>
+                For the <a href="https://www.gamemakersclub.org/" target="_blank" rel="noopener noreferrer">club website</a>, committee data from the Notion backend was parsed and integrated to dynamically render committee information. The committee webpage was implemented based on the provided designs, along with several UX improvements to improve navigation and usability.
+              </p>
             </div>
+
             <div className="description" style={{ textAlign: 'left' }}>
-              <p style={{ textAlign: 'left' }}>On the Product Division website, the team and team member data structure has been finalized. Currently implementing the team member page to display profiles and experience. Future work includes UX enhancements, such as a dynamic header.</p>
+              <p style={{ textAlign: 'left' }}>
+                On the <a href="https://stegostudios.gamemakersclub.org/" target="_blank" rel="noopener noreferrer">Product Division website</a>, the team and team member data structure was designed and implemented to support structured profile data. The team member pages were developed to showcase member profiles and experience, alongside UX enhancements such as a dynamic header for improved visual presentation.
+              </p>
             </div>
           </div>
         </div>

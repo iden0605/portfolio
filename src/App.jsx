@@ -10,7 +10,8 @@ import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasy
 import TutoringDetail from './Components/WorkExperience/TutoringDetail';
 import UMGMCDetail from './Components/WorkExperience/UMGMCDetail';
 import MomuDetail from './Components/WorkExperience/MomuDetail';
-import KewpumpDetail from './Components/WorkExperience/KewpumpDetail';
+import KewpumpDetail from './Components/WorkExperience/KewPumpDetail';
+import StegoStudiosDetail from './Components/WorkExperience/StegoStudiosDetail';
 import Projects from './Components/Projects/Projects';
 import PebbleTaskDetail from './Components/Projects/PebbleTaskDetail';
 import MindBackDetail from './Components/Projects/MindBackDetail';
@@ -86,6 +87,7 @@ function App() {
             <Route path="/work-experience/umgmc" element={<UMGMCDetail />} />
             <Route path="/work-experience/momu" element={<MomuDetail />} />
             <Route path="/work-experience/kewpump" element={<KewpumpDetail />} />
+            <Route path="/work-experience/stego-studios" element={<StegoStudiosDetail />} />
             <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
             <Route path="/projects/echoai" element={<EchoAIDetail />} />
             <Route path="/contact" element={<ContactMePage />} />
