@@ -1,4 +1,5 @@
 import '../../App.css';
+import './ProjectDetails.css';
 import projectData from '../../Data/projectData';
 import wwwIcon from '/assets/icon/WWW-icon.png';
 
@@ -17,10 +18,10 @@ function ProjectHeader({ projectName }) {
       <div className="project-header-content">
         <h2 className="project-header-title">{projectName}</h2>
 
-        {project.liveLink && project.liveLink.includes('youtube.com') && (
+        {project.liveLink && (project.liveLink.includes('youtube.com') || project.liveLink.includes('youtu.be')) && (
           <div className="video-container project-header-video">
             <iframe
-              src={`https://www.youtube.com/embed/${project.liveLink.split('v=')[1].split('&')[0]}`}
+              src={`https://www.youtube.com/embed/${project.liveLink.includes('youtu.be') ? project.liveLink.split('youtu.be/')[1].split('?')[0] : project.liveLink.split('v=')[1].split('&')[0]}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -31,23 +32,28 @@ function ProjectHeader({ projectName }) {
 
         <div className="project-type-box project-header-type-box">{project.type}</div>
 
-        <div className="project-header-links">
-          {project.githubLink && project.githubLink !== "" && (
-            <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-              <img src="/assets/logo/Github-black-logo.png" alt="GitHub Link" className="project-header-link-icon" />
-            </a>
-          )}
-          {project.itchLink && project.itchLink !== "" && (
-            <a href={project.itchLink} target="_blank" rel="noopener noreferrer">
-              <img src="/assets/logo/Itch-logo.png" alt="Itch.io Link" className="project-header-link-icon" />
-            </a>
-          )}
-          {project.wwwLink && project.wwwLink !== "" && (
-            <a href={project.wwwLink} target="_blank" rel="noopener noreferrer">
-              <img src={wwwIcon} alt="WWW Link" className="project-header-link-icon" />
-            </a>
-          )}
-        </div>
+        {(project.githubLink || project.itchLink || project.wwwLink) && (
+          <div className="project-links-bar">
+            {project.githubLink && project.githubLink !== "" && (
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                <img src="/assets/logo/Github-black-logo.png" alt="GitHub" className="project-link-btn-icon" />
+                <span>GitHub</span>
+              </a>
+            )}
+            {project.itchLink && project.itchLink !== "" && (
+              <a href={project.itchLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                <img src="/assets/logo/Itch-logo.png" alt="Itch.io" className="project-link-btn-icon no-filter" />
+                <span>Itch.io</span>
+              </a>
+            )}
+            {project.wwwLink && project.wwwLink !== "" && (
+              <a href={project.wwwLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                <img src={wwwIcon} alt="Website" className="project-link-btn-icon" />
+                <span>Website</span>
+              </a>
+            )}
+          </div>
+        )}
 
         <div className="work-experience-responsibilities move-overview">
           <h3><span className="subtitle">Overview</span></h3>

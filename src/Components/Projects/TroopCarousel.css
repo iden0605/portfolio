@@ -1,0 +1,208 @@
+.troop-carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 8px 0;
+}
+
+/* GIF display panel */
+.troop-gif-panel {
+  width: 100%;
+  background-color: #eceae0;
+  border-radius: 10px;
+  border: 1px solid #d5d0c4;
+  overflow: hidden;
+  transition: opacity 0.15s ease;
+  line-height: 0;
+}
+
+.troop-gif-panel.troop-gif-fading {
+  opacity: 0;
+}
+
+.troop-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.troop-gif-placeholder {
+  color: #aaa;
+  font-size: 0.95rem;
+  font-style: italic;
+  padding: 40px;
+  text-align: center;
+  line-height: normal;
+}
+
+/* Troop name + attack label */
+.troop-info {
+  text-align: center;
+  width: 100%;
+}
+
+.troop-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.troop-name {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.troop-attack-divider {
+  color: #9bace0;
+  font-weight: 400;
+}
+
+.troop-attack-name {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  font-weight: 600;
+  color: #6a7fda;
+}
+
+.troop-description {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* Horizontal scrollable sprite selector row */
+.troop-selector-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  width: 100%;
+  padding: 6px 2px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: #9bace0 #e8e4d9;
+  -webkit-overflow-scrolling: touch;
+}
+
+.troop-selector-row::-webkit-scrollbar {
+  height: 4px;
+  border-radius: 2px;
+}
+
+.troop-selector-row::-webkit-scrollbar-track {
+  background: #e8e4d9;
+  border-radius: 2px;
+}
+
+.troop-selector-row::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #9bace0, #6a7fda);
+  border-radius: 2px;
+}
+
+.troop-selector-row::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #8099d6, #5a6ec8);
+}
+
+/* Sliding highlight pill */
+.troop-selector-highlight {
+  position: absolute;
+  background-color: #dde3f5;
+  border: 2px solid #9bace0;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px rgba(106, 127, 218, 0.18);
+  pointer-events: none;
+  z-index: 0;
+  transition: left 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              top 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.troop-selector {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 8px 6px 6px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 90px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.troop-selector:hover:not(.troop-selector--active) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.troop-selector--active {
+  /* highlight handled by sliding pill */
+}
+
+.troop-sprite-wrapper {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.troop-sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.troop-selector-name {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  line-height: 1.25;
+  width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .troop-selector {
+    width: 74px;
+    padding: 6px 4px;
+  }
+
+  .troop-sprite-wrapper {
+    width: 52px;
+    height: 52px;
+  }
+
+  .troop-selector-name {
+    font-size: 0.62rem;
+  }
+
+  .troop-selector-row {
+    gap: 6px;
+  }
+}

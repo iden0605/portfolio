@@ -1,10 +1,196 @@
 // data for project section
 const projectData = {
+  "Afloat": {
+    tokenizedName: "afloat",
+    description: `Afloat is a tactical tower defense game where players build a nature-powered defense force to hold back waves of creeping enemies and plastic pollution threatening a fragile ecosystem. Deploy a roster of unique creatures — from ants that dash into melee, to koi that fire piercing laser beams — each with their own attack behaviour, upgrade path, and evolution form.`,
+    date: "Click & Claw 2026 Finalist",
+    type: "Game Jam",
+    award: "Finalist",
+    teamSize: 3,
+    role: "Game Programmer | Animator | Artist",
+    thumbnail: "/assets/project/Afloat/Afloat-image.png",
+    previewVid: "/Afloat-hover.mp4",
+    images: [],
+    technologies: ["Unity (C#)", "Unity Particle System", "Unity UI Toolkit", "Pixel Studio"],
+    liveLink: "https://youtu.be/LgwHPMVk6FU",
+    githubLink: "https://github.com/iden0605/Afloat",
+    itchLink: "https://elytride.itch.io/afloat",
+    wwwLink: "",
+    status: "Released",
+    projectTime: "4 Days",
+    keyResponsibilities: [
+      "Designed and implemented the core tower defense architecture — TroopBehavior, TroopInstance, WaveManager, and GoldManager.",
+      "Built a scalable upgrade and evolution system: a consistent framework for adding new troops and progression paths.",
+      "Implemented unique attack behaviours and procedural VFX for 10+ troops using Unity's Particle System and runtime LineRenderers.",
+      "Developed all troop status effect logic — burn, poison, freeze, stun, and daze — as well as conditional and proximity-based damage buffs.",
+      "Created the in-game UI, including the troop drag-and-drop sidebar with placement zone validation and live range indicators.",
+      "Implemented map masking and layering to handle troop placement restrictions and enemy pathing collisions."
+    ],
+    details: [
+      {
+        title: "The World of Afloat",
+        content: [
+          { type: "image", src: "/assets/project/Afloat/Afloat-desc-1.png", width: "900px" },
+          { type: "text", text: "Afloat is set in a threatened natural ecosystem. Waves of enemies — carrying plastic pollution and other hazards — advance along predetermined paths toward the exit. Players must deploy troops strategically, manage their gold economy, and time their upgrades and evolutions to withstand escalating pressure." },
+          { type: "text", text: "Troops are selected and placed through a drag-and-drop sidebar built with Unity UI Toolkit. Dragging a troop card spawns a ghost icon that follows the cursor; on release, TroopDragController validates the drop position against placement zone masks — water zone, land zone, or path-only (for the Anchovy swarm)." },
+        ]
+      },
+      {
+        title: "Normal Troops",
+        content: [
+          {
+            type: "troop-carousel",
+            items: [
+              {
+                name: "Aquatic Worm",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/aquatic_worm.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/aquaticworm-attack.gif",
+                attackName: "Lunge Strike",
+                description: "Swims directly to its target and bites for melee damage — immediately chains to the next enemy in range without returning home, sustaining relentless pressure across multiple targets."
+              },
+              {
+                name: "Centipede",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/centipede.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/centipede-attack.gif",
+                attackName: "Acid Spit",
+                description: "Spits a travelling acid projectile at the target; at upgrade tier 3 the projectile pierces through 2 enemies before dissolving."
+              },
+              {
+                name: "Beetle",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/beetle.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/beetle-attack.gif",
+                attackName: "Ground Pound",
+                description: "Winds up with a cartoonish scale-up, then slams down launching an expanding shockwave ring that deals splash damage and stuns every enemy it sweeps through."
+              },
+              {
+                name: "Anchovies",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/anchovy.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/anchovy-attack.gif",
+                attackName: "Swarm Sweep",
+                description: "Deployed on the enemy path; the school charges perpendicular to the path in a wide sweep, dealing damage to every enemy caught in the rectangular strike zone."
+              },
+              {
+                name: "Praying Mantis",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/praying_mantis.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/mantis-attack.gif",
+                attackName: "Predator Leap",
+                description: "Leaps to the primary target with an arcing jump; if 2+ enemies are in range, leaps to a second enemy before returning — gains a War Frenzy damage buff the more enemies are in range."
+              },
+              {
+                name: "DragonFly",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/dragon_fly.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/dragonfly-attack.gif",
+                attackName: "Egg Bomb",
+                description: "Orbits its placement in a continuous figure-8 flight path, dropping timed egg bombs that flicker as they burn — each explodes in a splash radius, hitting all enemies nearby."
+              },
+              {
+                name: "Ant",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/ant.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/ant-attack.gif",
+                attackName: "Bite Rush",
+                description: "Lunges to melee range, bites once, and dashes back to its home tile — re-engages immediately if the cooldown expires before it returns."
+              },
+              {
+                name: "Axolotl",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/axolotl.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/axolotl-attack.gif",
+                attackName: "Water Ball",
+                description: "Charges up a spinning Saturn-ring orb, then launches it — the ball ricochets between up to 3 enemies (more with upgrades), slowing each hit target to 45% speed for 1.5 seconds."
+              },
+              {
+                name: "Frog",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/frog.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/frog-attack.gif",
+                attackName: "Tongue Snap",
+                description: "Fires a procedural fleshy tongue at the target; at upgrade tier 3, the hit spawns two concentric water-ripple rings that slow enemies to 45% speed for 1.8 seconds as they expand outward."
+              },
+              {
+                name: "Eagle",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/eagle.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/eagle-attack.gif",
+                attackName: "Dive Bomb",
+                description: "Ascends to altitude (scale-up trick), locks onto a target, then plunges full speed — slamming the ground with a particle burst and an expanding golden shockwave ring on impact."
+              },
+              {
+                name: "Koi",
+                sprite: "/assets/project/Afloat/Troops/Normal/pngs/koi.png",
+                gif: "/assets/project/Afloat/Troops/Normal/gifs/koi-attack.gif",
+                attackName: "Laser Beam",
+                description: "Charges up with crackling blue particles, then fires a 5-layer neon laser beam that pierces every enemy in its path simultaneously in a single shot."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Evolved Troops",
+        content: [
+          {
+            type: "troop-carousel",
+            items: [
+              {
+                name: "Fire Ant",
+                sprite: "/assets/project/Afloat/Troops/Evolved/pngs/fire_ant.png",
+                gif: "/assets/project/Afloat/Troops/Evolved/gifs/fireant-attack.gif",
+                attackName: "Fire Bite",
+                description: "Same melee lunge-and-bite attack, now with fiery orange-red impact VFX; radiates a growing ember aura when nearby Ant allies are present, boosting allied damage and speed."
+              },
+              {
+                name: "Bullet Ant",
+                sprite: "/assets/project/Afloat/Troops/Evolved/pngs/bullet_ant.png",
+                gif: "/assets/project/Afloat/Troops/Evolved/gifs/bulletant-attack.gif",
+                attackName: "Kinetic Sting",
+                description: "Powerful melee sting with cyan-white shockwave impact; colony aura scales visually with the number of nearby same-type allies — the larger the colony, the stronger the aura buff."
+              },
+              {
+                name: "Giant Mantis",
+                sprite: "/assets/project/Afloat/Troops/Evolved/pngs/giant_praying_mantis.png",
+                gif: "/assets/project/Afloat/Troops/Evolved/gifs/giantmantis-attack.gif",
+                attackName: "Devastator Leap",
+                description: "Enhanced double-leap attack; radiates a crimson War Frenzy fire aura (damage scales with enemies in range) and a red/blue Rampage aura (damage doubles per consecutive hit, up to 3 stacks)."
+              },
+              {
+                name: "Poison Frog",
+                sprite: "/assets/project/Afloat/Troops/Evolved/pngs/poison_frog.png",
+                gif: "/assets/project/Afloat/Troops/Evolved/gifs/poisonfrog-attack.gif",
+                attackName: "Poison Tongue",
+                description: "Tongue attack now poisons enemies on hit, dealing damage over time; passively drips purple poison drool from its mouth — drool intensity increases with further upgrades."
+              },
+              {
+                name: "Megalotl",
+                sprite: "/assets/project/Afloat/Troops/Evolved/pngs/megalotl.png",
+                gif: "/assets/project/Afloat/Troops/Evolved/gifs/megalotl-attack.gif",
+                attackName: "Void Orb",
+                description: "Violet-blue Saturn-ring orb ricochets between 5 enemies, slowing and dazing each hit; at high upgrades, chains feedback lightning arcs to nearby dazed enemies and triggers a Mind Shatter burst (5-second strong slow) when the daze expires."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Evolution Animation",
+        content: [
+          { type: "video", src: "/assets/project/Afloat/Afloat-evolve.mp4", width: "900px" },
+          { type: "text", text: "The evolution sequence is fully procedural — no pre-baked clips. The troop's sprite spins with accelerating rotation while flipping orientation mid-turn to simulate a 3D tumble. At peak spin the old GameObject swaps for the evolved prefab in-place, transferring all accumulated state invisibly." },
+          { type: "text", text: "A CameraShake coroutine fires simultaneously, applying randomised positional offsets scaled per evolution tier. The background pulses between two complementary colours tied to the troop's palette, giving each evolution a distinct visual signature." }
+        ]
+      },
+      {
+        title: "Wave System & Map Architecture",
+        content: [
+          { type: "image", src: "/assets/project/Afloat/Afloat-desc-2.png", width: "900px" },
+          { type: "text", text: "The enemy path is defined by a series of waypoints. Each enemy's EnemyMovement component follows the chain while TroopBehavior uses waypoint index as a targeting priority key — always directing fire at the enemy closest to the exit. EnemyInstance handles health, applies incoming attack-type modifiers (melee immunity, damage reduction, speed burst), and notifies WaveManager on death." },
+          { type: "text", text: "Troop placement uses layered Physics2D colliders to define valid zones: a water mask, an enemy-path mask for path-only troops, and land platforms. Troops are sorted by Y position each frame to produce correct depth ordering over the tiled map art, ensuring troops always appear to stand on the correct layer." }
+        ]
+      }
+    ]
+  },
   "EchoAI": {
     tokenizedName: "echoai",
     description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
     date: "MelbourneHack 2025 Winner",
     type: "Hackathon",
+    award: "Winner",
     teamSize: 2,
     role: "Fullstack Developer",
     thumbnail: "/assets/project/EchoAi/EchoAi-image.png",
@@ -24,22 +210,6 @@ const projectData = {
       "Ensured seamless connectivity between the backend and frontend.",
       "Deployed the application to www.echoai.academy."],
     details: [
-      {
-        title: "Message Pairing and Structuring",
-        content: [
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-1.png", width: "800px" },
-          { type: "text", text: "The conversation flow is organised by pairing user messages with their corresponding AI responses." },
-          { type: "text", text: "To ensure the chat interface feels expansive and does not feel cramped on larger screens, the \"MessageInstance.jsx\" component dynamically calculates a minimum height. This calculation is based on the height of the input box at the bottom and the header at the top, effectively making the chat log fill the available vertical space." }
-        ]
-      },
-      {
-        title: "Chat Rendering",
-        content: [
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-2.png", width: "700px" },
-          { type: "text", text: "Once the messages are paired, \"ChatInterface.jsx\" renders the conversation. It maps over the \"messagePairs\" array and passes each pair to a \"MessageInstance\" component." },
-          { type: "text", text: "This modular approach keeps the code clean; \"ChatInterface\" handles the overall structure, while \"MessageInstance\" manages the detailed presentation of each user-AI exchange, including animations and interaction options like editing." }
-        ]
-      },
       {
         title: "Right Split Screen Logic",
         content: [

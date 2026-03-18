@@ -260,6 +260,17 @@ const ContactMePopup = ({ isOpen, onClose }) => {
             {buttonText}
           </button>
         </form>
+        <div className="popup-socials">
+          <a href="mailto:iden0605@gmail.com" target="_blank" rel="noopener noreferrer" className="popup-social-link">
+            <img src="/assets/logo/Gmail-logo.png" alt="Gmail" className="popup-social-icon" />
+          </a>
+          <a href="https://github.com/iden0605" target="_blank" rel="noopener noreferrer" className="popup-social-link">
+            <img src="/assets/logo/Github-black-logo.png" alt="GitHub" className="popup-social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/iden-mcelhone-8a6983354/" target="_blank" rel="noopener noreferrer" className="popup-social-link">
+            <img src="/assets/logo/LinkedIn-logo.png" alt="LinkedIn" className="popup-social-icon" />
+          </a>
+        </div>
         <button className="close-button" onClick={onClose}>&times;</button>
       </div>
     </div>

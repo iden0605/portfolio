@@ -13,6 +13,11 @@ body.sidebar-open .app-container {
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: rgba(106, 127, 218, 0.25);
+  color: inherit;
+}
+
 #root {
   width: 100%;
   overflow-x: hidden;
@@ -96,7 +101,7 @@ body.sidebar-open .app-container {
   transform: scale(1.02);
 }
 
-.content-card img {
+.content-card img:not(.people-icon) {
   width: 100%;
   max-width: 400px;
   height: auto;
@@ -290,7 +295,7 @@ body.sidebar-open .app-container {
     gap: 1.5rem;
   }
 
-  .content-card img {
+  .content-card img:not(.people-icon) {
     max-width: 100%;
     height: auto;
   }

@@ -18,6 +18,7 @@ import MindBackDetail from './Components/Projects/MindBackDetail';
 import OverGrownDetail from './Components/Projects/OverGrownDetail';
 import AcademicPerformanceDetail from './Components/Projects/AcademicPerformanceDetail';
 import EchoAIDetail from './Components/Projects/EchoAIDetail';
+import AfloatDetail from './Components/Projects/AfloatDetail';
 import ContactMePopup from './Components/Global/ContactMePopup';
 import ContactMePage from './Components/Global/ContactMePage';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
@@ -88,6 +89,7 @@ function App() {
             <Route path="/work-experience/stego-studios" element={<StegoStudiosDetail />} />
             <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
             <Route path="/projects/echoai" element={<EchoAIDetail />} />
+            <Route path="/projects/afloat" element={<AfloatDetail />} />
             <Route path="/contact" element={<ContactMePage />} />
           </Routes>
         </main>

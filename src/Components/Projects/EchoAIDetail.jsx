@@ -36,36 +36,6 @@ function EchoAIDetail() {
             <div className="image-description-section">
               <div className="image-description-block">
                 <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
-                  <h3><span className="subtitle">Message Pairing and Structuring</span></h3>
-                </div>
-                <div className="desc-image project-detail-image-wrapper">
-                  <img src="/assets/project/EchoAi/EchoAi-desc-1.png" alt="EchoAI Description 1" style={{ width: '800px' }} onClick={() => handleImageClick("/assets/project/EchoAi/EchoAi-desc-1.png")} />
-                </div>
-                <div className="description" style={{ textAlign: 'left' }}>
-                  <p>The conversation flow is organised by pairing user messages with their corresponding AI responses.</p>
-                </div>
-                <div className="description" style={{ textAlign: 'left' }}>
-                  <p>To ensure the chat interface feels expansive and does not feel cramped on larger screens, the "MessageInstance.jsx" component dynamically calculates a minimum height. This calculation is based on the height of the input box at the bottom and the header at the top, effectively making the chat log fill the available vertical space.</p>
-                </div>
-                <div className="section-divider-subtle"></div>
-              </div>
-              <div className="image-description-block">
-                <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
-                  <h3><span className="subtitle">Chat Rendering</span></h3>
-                </div>
-                <div className="desc-image project-detail-image-wrapper">
-                  <img src="/assets/project/EchoAi/EchoAi-desc-2.png" alt="EchoAI Description 2" style={{ width: '700px' }} onClick={() => handleImageClick("/assets/project/EchoAi/EchoAi-desc-2.png")} />
-                </div>
-                <div className="description" style={{ textAlign: 'left' }}>
-                  <p>Once the messages are paired, "ChatInterface.jsx" renders the conversation. It maps over the "messagePairs" array and passes each pair to a "MessageInstance" component.</p>
-                </div>
-                <div className="description" style={{ textAlign: 'left' }}>
-                  <p>This modular approach keeps the code clean; "ChatInterface" handles the overall structure, while "MessageInstance" manages the detailed presentation of each user-AI exchange, including animations and interaction options like editing.</p>
-                </div>
-                <div className="section-divider-subtle"></div>
-              </div>
-              <div className="image-description-block">
-                <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
                   <h3><span className="subtitle">Right Split Screen Logic</span></h3>
                 </div>
                 <div className="desc-image project-detail-image-wrapper">
@@ -88,7 +58,7 @@ function EchoAIDetail() {
                 </div>
                 <div className="section-divider-subtle"></div>
               </div>
- 
+
               <div className="image-description-block">
                 <div style={{ textAlign: 'left', alignSelf: 'flex-start', marginTop: '-20px' }}>
                   <h3><span className="subtitle">The future of EchoAi</span></h3>

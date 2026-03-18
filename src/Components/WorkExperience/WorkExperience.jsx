@@ -52,6 +52,16 @@ function WorkExperience() {
                 </div>
               </div>
 
+              {calculateMonthsInRole(job.date).isOngoing && (
+                <div className="ongoing-badge">
+                  <span className="ongoing-dot-wrap">
+                    <span className="ongoing-dot-ring" />
+                    <span className="ongoing-dot" />
+                  </span>
+                  Ongoing
+                </div>
+              )}
+
               <div className="team-size-container">
                  <img src={peopleIcon} alt="People icon" className="people-icon" />
                  <span className="team-size-text">{job.teamSize} Colleagues</span>
