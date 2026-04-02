@@ -56,12 +56,23 @@ function TroopCarousel({ items }) {
     <div className="troop-carousel">
       <div className={`troop-gif-panel${fading ? ' troop-gif-fading' : ''}`}>
         {current.gif ? (
-          <img
-            src={current.gif}
-            alt={`${current.name} attack`}
-            loading="lazy"
-            className="troop-gif"
-          />
+          current.gif.endsWith('.mp4') ? (
+            <video
+              src={current.gif}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="troop-gif"
+            />
+          ) : (
+            <img
+              src={current.gif}
+              alt={`${current.name} attack`}
+              loading="lazy"
+              className="troop-gif"
+            />
+          )
         ) : (
           <div className="troop-gif-placeholder">GIF coming soon</div>
         )}

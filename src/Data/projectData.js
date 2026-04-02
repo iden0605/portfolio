@@ -1,5 +1,143 @@
 // data for project section
 const projectData = {
+  "Everchanging Grimoire": {
+    tokenizedName: "everchanging-grimoire",
+    description: `Everchanging Grimoire is a 2D top-down roguelite dungeon crawler built in 3 days at HackMelbourne Hackiethon 2026. Winner among 50 submissions, awarded "Most Entertaining Game". The dungeon is a sentient, hungry book. After every floor, the Gemini API reads your playstyle, spells, and damage taken to generate the next floor's theme, enemies, and a new spell designed to counter you. Spells are composed from a vocabulary of around 60 behaviour tags, letting the LLM create emergent, never-repeating combinations without any runtime code generation.`,
+    date: "HackMelbourne Hackiethon 2026 Winner",
+    type: "Game Jam",
+    award: "Winner",
+    teamSize: 2,
+    role: "Game Developer | Game Designer",
+    thumbnail: "/assets/project/EverchangingGrimoire/everchanging-grimoire-image-1.png",
+    previewVid: "/everchanging-grimoire-hover.mp4",
+    images: [],
+    technologies: ["Unity (C#)", "Gemini API", "Google AI Function Calling", "PixelLab", "Python"],
+    liveLink: "https://www.youtube.com/watch?v=GSL-hCWdvF8&t=1s",
+    githubLink: "https://github.com/IJ-hackies/MelbourneHack-Hackiethon-2026",
+    itchLink: "https://elytride.itch.io/everchanging-grimoire",
+    wwwLink: "",
+    status: "Completed",
+    projectTime: "3 Days",
+    keyResponsibilities: [
+      "Implemented A* pathfinding, attack behaviour, and frame-by-frame attack animations for all enemy types.",
+      "Designed and implemented Unity 2D lighting, proximity-based spatial audio, and all sound effects across the game.",
+      "Configured and managed TilemapCollider2D and CompositeCollider2D across all tileset chambers, and physics colliders for all in-game entities.",
+      "Built all player movement mechanics and spell-casting attack systems, including quickswap between 3 active loadout slots.",
+      "Authored the full ~60-tag spell behaviour vocabulary used by Gemini to compose unique spells each run; covering movement types, trajectory modifiers, on-impact effects, status effects, and corruption tags.",
+      "Implemented Gemini-driven environmental item placement, using structured LLM output to populate each floor with context-aware props and hazards.",
+      "Created the introduction cutscene using Unity's Timeline and Animator systems.",
+      "Designed and built the Player HUD, including health display, active spell hotbar, and spell quickswap indicators.",
+      "Implemented the tutorial section, guiding new players through movement, spell casting, and the Grimoire system.",
+    ],
+    details: [
+      {
+        title: "Introduction Cutscene",
+        content: [
+          { type: "video", src: "/assets/project/EverchangingGrimoire/everchanging-grimoire-1.mp4", width: "900px" },
+          { type: "text", text: "The introduction cutscene is built using Unity's Timeline and Animator systems. A CutscenePlayer component sequences timed tracks: dialogue panels fade in and out using CanvasGroup alpha tweens, sprite animations play in lockstep with narration text, and the camera drifts with a slow lerp to establish the Grimoire's world before the player takes control." },
+        ]
+      },
+      {
+        title: "Gemini-Driven Floor Generation",
+        content: [
+          { type: "video", src: "/assets/project/EverchangingGrimoire/everchanging-grimoire-2.mp4", width: "900px" },
+          { type: "text", text: "At the end of every floor, SessionLogger assembles a payload capturing combat style, dominant element, damage sources, HP, time spent, and full spell loadout details. This is sent to Gemini via function calling, enforcing a strict generate_floor schema. The manifest drives the next floor's tileset, enemy spawns with modifier flags, a new spell, player HP scaling, and a stage_message written in the Chronicle's voice, taunting the player directly about how they played." },
+        ]
+      },
+      {
+        title: "Spell Composition System",
+        content: [
+          { type: "video", src: "/assets/project/EverchangingGrimoire/everchanging-grimoire-spells.mp4", width: "900px" },
+          { type: "text", text: "Spells are pure data, no runtime code generation. SpellExecutor composes behaviour at cast time from ~60 registered tag handlers covering movement types, trajectory modifiers, on-impact effects, status effects, and corruption tags. A Merge Ritual fuses 2–3 spells into one that fires all components simultaneously, inheriting every tag." },
+        ]
+      },
+      {
+        title: "Spell Merging",
+        content: [
+          { type: "video", src: "/assets/project/EverchangingGrimoire/everchanging-grimoire-merge.mp4", width: "900px" },
+          { type: "text", text: "This is the merge ritual, where the player selects 2 or 3 spells from their Grimoire to fuse into a single spell that fires all components simultaneously, inheriting every tag from every source. The merged spell's name and flavor text are generated by a separate Gemini call, framing the fusion as an act of defiance against the Grimoire. Source spells are consumed on merge, and merged spells cannot be merged further." },
+        ]
+      },
+      {
+        title: "All Enemies",
+        content: [
+          {
+            type: "troop-carousel",
+            items: [
+              { name: "Alien", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Alien.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Alien.mp4", attackName: "Corrosive Spit", description: "Launches a glob of toxic goo at the player. On hit, the poison seeps in — leaving them vulnerable and taking 10% increased damage from all sources for the duration." },
+              { name: "Bear", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Bear.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Bear.mp4", attackName: "Savage Mauling", description: "Lunges forward with a ferocious bite that tears through defences. The wound bleeds heavily, dealing escalating damage over time." },
+              { name: "Dragon Newt", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/DragonNewt.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/DragonNewt.mp4", attackName: "Leaping Barrage", description: "Launches into the air before crashing down with explosive force. The impact detonates a burst of projectiles in all directions, punishing anyone caught nearby." },
+              { name: "Evil Paladin", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/EvilPaladin.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/EvilPaladin.mp4", attackName: "Wrath Strike", description: "A measured, crushing blow delivered with a corrupted iron fist. Simple but devastating — each hit carries the full weight of a fallen warrior." },
+              { name: "Fire Wizard", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/FireWizard.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/FireWizard.mp4", attackName: "Cinder Bolt", description: "Hurls a blazing bolt of condensed flame. The searing heat lingers on impact, threatening to set the player ablaze." },
+              { name: "Ghost", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Ghost.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Ghost.mp4", attackName: "Haunting Orb", description: "Hurls a spectral ice sphere in a slow arc toward the player. A direct hit deals instant damage — but a miss shatters it on the ground, leaving a lingering chill zone that slows anyone who passes through." },
+              { name: "Ice Wizard", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/IceWizard.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/IceWizard.mp4", attackName: "Frost Shard", description: "Fires a razor-sharp ice shard with precision. On hit, the intense cold slows the player's movement — making escape, and retaliation, far more difficult." },
+              { name: "Skeleton", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Skeleton.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Skeleton.mp4", attackName: "Rattling Kick", description: "Winds up with a telegraphed spinning kick, bones rattling on the swing. Deceptively fast for an undead creature — the impact carries surprising force behind those brittle limbs." },
+              { name: "Vampire", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Vampire.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Vampire.mp4", attackName: "Sanguine Beam", description: "Draws power inward with a brief charge before unleashing a concentrated beam of pressurised blood, dealing sustained damage to anything caught in its crimson path." },
+              { name: "Zombie", sprite: "/assets/project/EverchangingGrimoire/Enemies/pngs/Zombie.png", gif: "/assets/project/EverchangingGrimoire/Enemies/mp4s/Zombie.mp4", attackName: "Lurching Punch", description: "A slow, lumbering punch that telegraphs every move — but hits surprisingly hard. What the Zombie lacks in speed, it makes up for in relentless persistence." },
+            ]
+          }
+        ]
+      },
+      {
+        title: "The Chronicle's Verdict",
+        content: [
+          { type: "image", src: "/assets/project/EverchangingGrimoire/everchanging-grimoire-death.png", width: "900px" },
+          { type: "text", text: "On death, the full run's session history is sent to Gemini for a final performance analysis — the Chronicle delivers a personalised post-mortem in its taunting voice, reflecting on the player's combat style, spell choices, floors reached, and what ultimately finished them. It's the Grimoire's closing statement on the Seeker it just collected." },
+        ]
+      },
+    ]
+  },
+  "EchoAI": {
+    tokenizedName: "echoai",
+    description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
+    date: "MelbourneHack 2025 Winner",
+    type: "Hackathon",
+    award: "Winner",
+    teamSize: 2,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/EchoAi/EchoAi-image.png",
+    previewVid: "/EchoAi-hover.mp4",
+    images: [],
+    technologies: ["React (Javascript)", "Python", "Gemini API", "Tailwind CSS"],
+    liveLink: "https://www.youtube.com/watch?v=RlUeeHvd93g",
+    githubLink: "https://github.com/iden0605/Echo",
+    itchLink: "",
+    wwwLink: "https://echoai.academy/",
+    status: "Released",
+    projectTime: "4 Days",
+    keyResponsibilities: [
+      "Designed and developed the chat interface.",
+      "Created and coded the right-split-screen calling logic.",
+      "Implemented Multiple-choice quiz, Blanks quiz, Flashcards and Notes UI.",
+      "Ensured seamless connectivity between the backend and frontend.",
+      "Deployed the application to www.echoai.academy."],
+    details: [
+      {
+        title: "Right Split Screen Logic",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-3.png", width: "900px" },
+          { type: "text", text: "1. Intent Classification (AI Model 1): When a user sends a message, the first AI model classifies the request, determining whether it is a simple text response or a request for a specific learning tool (e.g., flashcard, quiz, or notes)." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-4.png", width: "700px" },
+          { type: "text", text: "2. Content Generation (AI Model 2): If a learning tool is requested, a second AI model is invoked. This model uses function declarations that define the data structure for each quiz type to generate and format the content (questions, answers, descriptions) as required by the function triggered by the first AI." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-5.png", width: "700px" },
+          { type: "text", text: "3. Frontend Rendering: The final data object, containing a \"type\" and \"content,\" is sent to the frontend. The \"RightSplit.jsx\" component receives this data and uses a switch statement on the \"type\" property to render the appropriate React component, passing the generated content as props." }
+        ]
+      },
+      {
+        title: "The future of EchoAi",
+        content: [
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-6.png", width: "700px" },
+          { type: "text", text: "The future vision for EchoAI is to become a seamless blend of Obsidian, GoodNotes, and Google Docs, integrating features like handwritten notes, note linking, collaboration, and advanced organization." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-7.png", width: "800px" },
+          { type: "text", text: "Additional quiz options are also planned, including true/false, short answer, matching, and diagram labeling." },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-8.png", width: "800px" },
+          { type: "text", text: "AI enhancements will include automated marking for short answer questions, content regeneration, and image generation." },
+          { type: "text", text: "A sneak peek of the potential future interface:" },
+          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-9.png", width: "900px" }
+        ]
+      }
+    ]
+  },
   "Afloat": {
     tokenizedName: "afloat",
     description: `Afloat is a tactical tower defense game where players build a nature-powered defense force to hold back waves of creeping enemies and plastic pollution threatening a fragile ecosystem. Deploy a roster of unique creatures — from ants that dash into melee, to koi that fire piercing laser beams — each with their own attack behaviour, upgrade path, and evolution form.`,
@@ -185,85 +323,6 @@ const projectData = {
       }
     ]
   },
-  "EchoAI": {
-    tokenizedName: "echoai",
-    description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
-    date: "MelbourneHack 2025 Winner",
-    type: "Hackathon",
-    award: "Winner",
-    teamSize: 2,
-    role: "Fullstack Developer",
-    thumbnail: "/assets/project/EchoAi/EchoAi-image.png",
-    previewVid: "/EchoAi-hover.mp4",
-    images: [],
-    technologies: ["React (Javascript)", "Python", "Gemini API", "Tailwind CSS"],
-    liveLink: "https://www.youtube.com/watch?v=RlUeeHvd93g",
-    githubLink: "https://github.com/iden0605/Echo",
-    itchLink: "",
-    wwwLink: "https://echoai.academy/",
-    status: "Released",
-    projectTime: "4 Days",
-    keyResponsibilities: [
-      "Designed and developed the chat interface.",
-      "Created and coded the right-split-screen calling logic.",
-      "Implemented Multiple-choice quiz, Blanks quiz, Flashcards and Notes UI.",
-      "Ensured seamless connectivity between the backend and frontend.",
-      "Deployed the application to www.echoai.academy."],
-    details: [
-      {
-        title: "Right Split Screen Logic",
-        content: [
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-3.png", width: "900px" },
-          { type: "text", text: "1. Intent Classification (AI Model 1): When a user sends a message, the first AI model classifies the request, determining whether it is a simple text response or a request for a specific learning tool (e.g., flashcard, quiz, or notes)." },
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-4.png", width: "700px" },
-          { type: "text", text: "2. Content Generation (AI Model 2): If a learning tool is requested, a second AI model is invoked. This model uses function declarations that define the data structure for each quiz type to generate and format the content (questions, answers, descriptions) as required by the function triggered by the first AI." },
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-5.png", width: "700px" },
-          { type: "text", text: "3. Frontend Rendering: The final data object, containing a \"type\" and \"content,\" is sent to the frontend. The \"RightSplit.jsx\" component receives this data and uses a switch statement on the \"type\" property to render the appropriate React component, passing the generated content as props." }
-        ]
-      },
-      {
-        title: "The future of EchoAi",
-        content: [
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-6.png", width: "700px" },
-          { type: "text", text: "The future vision for EchoAI is to become a seamless blend of Obsidian, GoodNotes, and Google Docs, integrating features like handwritten notes, note linking, collaboration, and advanced organization." },
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-7.png", width: "800px" },
-          { type: "text", text: "Additional quiz options are also planned, including true/false, short answer, matching, and diagram labeling." },
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-8.png", width: "800px" },
-          { type: "text", text: "AI enhancements will include automated marking for short answer questions, content regeneration, and image generation." },
-          { type: "text", text: "A sneak peek of the potential future interface:" },
-          { type: "image", src: "/assets/project/EchoAi/EchoAi-desc-9.png", width: "900px" }
-        ]
-      }
-    ]
-  },
-  "PebbleTask": {
-    tokenizedName: "pebbletask",
-    description: `
-    Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.
-    `,
-    date: "HackMelbourne Hackiethon 2025",
-    type: "Hackathon",
-    teamSize: 1,
-    role: "Frontend Developer",
-    thumbnail: "/assets/project/PebbleTask/PebbleTask-image.png",
-    images: [
-
-    ],
-    technologies: ["React (Javascript)"],
-    liveLink: "https://www.youtube.com/watch?v=S6Kpp-MXBes&ab_channel=IdenMcElhone",
-    githubLink: "https://github.com/iden0605/PebbleTask",
-    itchLink: "",
-    wwwLink: "https://iden0605.github.io/PebbleTask/",
-    previewVid: "/PebbleTask-hover.mp4",
-    status: "Released",
-    projectTime: "2 Days",
-    keyResponsibilities: [
-      "Designed and developed the task manager.",
-      "Built a draggable, resizable, and responsive user interface.",
-      "Implemented task creation, prioritization, and persistence.",
-      "Added theme switching and smooth user-friendly animations.",
-      "Managed state and styling using modern tools."]
-  },
   "OverGrown": {
     tokenizedName: "overgrown",
     description: `
@@ -295,6 +354,58 @@ const projectData = {
       "Managed and organised project assets and code structure."
     ]
   },
+  "PebbleTask": {
+    tokenizedName: "pebbletask",
+    description: `
+    Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.
+    `,
+    date: "HackMelbourne Hackiethon 2025",
+    type: "Hackathon",
+    teamSize: 1,
+    role: "Frontend Developer",
+    thumbnail: "/assets/project/PebbleTask/PebbleTask-image.png",
+    images: [
+
+    ],
+    technologies: ["React (Javascript)"],
+    liveLink: "https://www.youtube.com/watch?v=S6Kpp-MXBes&ab_channel=IdenMcElhone",
+    githubLink: "https://github.com/iden0605/PebbleTask",
+    itchLink: "",
+    wwwLink: "https://iden0605.github.io/PebbleTask/",
+    previewVid: "/PebbleTask-hover.mp4",
+    status: "Released",
+    projectTime: "2 Days",
+    keyResponsibilities: [
+      "Designed and developed the task manager.",
+      "Built a draggable, resizable, and responsive user interface.",
+      "Implemented task creation, prioritization, and persistence.",
+      "Added theme switching and smooth user-friendly animations.",
+      "Managed state and styling using modern tools."]
+  },
+  "MindBack": {
+    tokenizedName: "mindback",
+    description: `MindBack is a web application that allows users to reconnect with their past selves or friends through a conversational AI. By uploading personal data archives from platforms like WhatsApp and Instagram, users can interact with an AI persona that emulates communication styles from a specific year.`,
+    date: "April 2025 - May 2025",
+    type: "Hackathon",
+    teamSize: 2,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/MindBack/MindBack-image.png",
+    images: [
+
+    ],
+    technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/MindBack",
+    itchLink: "",
+    wwwLink: "",
+    status: "Completed",
+    projectTime: "1 week",
+    keyResponsibilities: [
+      "Designed and developed the home page and chat interface.",
+      "Implemented file uploads and data processing to handle social media input.",
+      "Optimised data parsing of Whatsapp, Instagram and Discord chat files."
+    ]
+  },
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
     description: `
@@ -322,30 +433,6 @@ const projectData = {
       "Authored and structured a report of the findings using Jupyter Notebook and Quarto."
     ]
   },
-  "MindBack": {
-    tokenizedName: "mindback",
-    description: `MindBack is a web application that allows users to reconnect with their past selves or friends through a conversational AI. By uploading personal data archives from platforms like WhatsApp and Instagram, users can interact with an AI persona that emulates communication styles from a specific year.`,
-    date: "April 2025 - May 2025",
-    type: "Hackathon",
-    teamSize: 2,
-    role: "Fullstack Developer",
-    thumbnail: "/assets/project/MindBack/MindBack-image.png",
-    images: [
-
-    ],
-    technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/MindBack",
-    itchLink: "",
-    wwwLink: "",
-    status: "Completed",
-    projectTime: "1 week",
-    keyResponsibilities: [
-      "Designed and developed the home page and chat interface.",
-      "Implemented file uploads and data processing to handle social media input.",
-      "Optimised data parsing of Whatsapp, Instagram and Discord chat files."
-    ]
-  }
 };
 
 export default projectData;
