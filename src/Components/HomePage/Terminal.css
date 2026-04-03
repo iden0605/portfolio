@@ -82,7 +82,7 @@
 
 .terminal-tab {
   padding: 8px 22px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.95rem;
   font-weight: 600;
   color: #8aadf4;
@@ -158,8 +158,8 @@
     to bottom,
     transparent 0px,
     transparent 5px,
-    rgba(0, 0, 0, 0.045) 5px,
-    rgba(0, 0, 0, 0.045) 6px
+    rgba(0, 0, 0, 0.04) 5px,
+    rgba(0, 0, 0, 0.04) 6px
   );
   pointer-events: none;
   z-index: 2;
@@ -413,8 +413,8 @@
 }
 
 .edu-institution { font-weight: bold; }
-.edu-grade       { color: #ed8796; margin-right: 12px; font-family: 'Courier New', Courier, monospace; font-weight: 700; }
-.edu-period      { color: #a5adcb; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; margin-left: auto; }
+.edu-grade       { color: #ed8796; margin-right: 12px; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-weight: 700; }
+.edu-period      { color: #a5adcb; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-size: 0.9rem; margin-left: auto; }
 
 .edu-detail,
 .edu-award {

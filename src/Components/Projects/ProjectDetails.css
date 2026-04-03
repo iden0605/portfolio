@@ -58,7 +58,7 @@
 
 .detail-title-text {
   color: #cad3f5;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
@@ -106,7 +106,7 @@
 
 .detail-tab {
   padding: 8px 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
   color: #8aadf4;
@@ -169,7 +169,7 @@
 /* ── Prompt line ─────────────────────────────────────── */
 
 .detail-prompt-line {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   display: flex;
   flex-wrap: wrap;
@@ -235,7 +235,7 @@
 }
 
 .detail-meta-row {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.88rem, 1.8vw, 0.98rem);
   font-weight: 600;
   display: flex;

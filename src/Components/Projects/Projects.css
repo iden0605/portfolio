@@ -39,7 +39,7 @@
 
 .proj-title-text {
   color: #cad3f5;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
@@ -87,8 +87,8 @@
     to bottom,
     transparent 0px,
     transparent 5px,
-    rgba(0, 0, 0, 0.045) 5px,
-    rgba(0, 0, 0, 0.045) 6px
+    rgba(0, 0, 0, 0.04) 5px,
+    rgba(0, 0, 0, 0.04) 6px
   );
   pointer-events: none;
   z-index: 0;
@@ -103,7 +103,7 @@
 /* ── Prompt ───────────────────────────────────────────── */
 
 .proj-prompt-line {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.88rem, 2vw, 1rem);
   margin-bottom: 28px;
   display: flex;
