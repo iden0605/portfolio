@@ -87,8 +87,8 @@
     to bottom,
     transparent 0px,
     transparent 5px,
-    rgba(0, 0, 0, 0.08) 5px,
-    rgba(0, 0, 0, 0.08) 6px
+    rgba(0, 0, 0, 0.045) 5px,
+    rgba(0, 0, 0, 0.045) 6px
   );
   pointer-events: none;
   z-index: 0;
@@ -183,7 +183,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   padding: 4px 10px 4px 8px;
@@ -267,7 +267,7 @@
 }
 
 .proj-card-name {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.95rem, 2vw, 1.08rem);
   font-weight: 700;
   color: #eef0fc;
@@ -275,7 +275,7 @@
 }
 
 .proj-card-type {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #8aadf4;
@@ -288,7 +288,7 @@
 }
 
 .proj-card-role {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.78rem, 1.6vw, 0.88rem);
   color: #ed8796;
   font-weight: 600;
@@ -297,14 +297,14 @@
 }
 
 .proj-card-date {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.82rem, 1.6vw, 0.92rem);
   font-weight: 600;
   color: #b8c0e0;
 }
 
 .proj-card-team {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: #a5adcb;

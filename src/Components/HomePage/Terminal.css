@@ -62,7 +62,7 @@
 
 .terminal-title-text {
   color: #cad3f5;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
@@ -82,7 +82,7 @@
 
 .terminal-tab {
   padding: 8px 22px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: #8aadf4;
@@ -90,7 +90,7 @@
   border: none;
   border-bottom: 2px solid transparent;
   background: transparent;
-  transition: color 0.18s ease, background 0.18s ease;
+  transition: color 0.25s ease, background 0.25s ease, border-bottom-color 0.25s ease;
   border-radius: 4px 4px 0 0;
   margin-bottom: -1px;
   white-space: nowrap;
@@ -102,7 +102,7 @@
 .terminal-tab.active {
   color: #eef0fc;
   font-weight: 700;
-  background: #24273a;
+  background: rgba(138, 173, 244, 0.08);
   border-bottom: 2px solid #8aadf4;
 }
 
@@ -158,8 +158,8 @@
     to bottom,
     transparent 0px,
     transparent 5px,
-    rgba(0, 0, 0, 0.08) 5px,
-    rgba(0, 0, 0, 0.08) 6px
+    rgba(0, 0, 0, 0.045) 5px,
+    rgba(0, 0, 0, 0.045) 6px
   );
   pointer-events: none;
   z-index: 2;
@@ -173,7 +173,7 @@
 /* ── Shared prompt ───────────────────────────────────── */
 
 .prompt-line {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.82rem, 1.6vw, 0.92rem);
   margin-bottom: 24px;
   display: flex;
@@ -239,20 +239,20 @@
 }
 
 .about-paragraph {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   color: #eef0fc;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.85;
   margin-bottom: 18px;
-  max-width: 860px;
+  max-width: 700px;
 }
 
 .about-links {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
   color: #eef0fc;
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 6px;
   user-select: text;
   -webkit-user-select: text;
@@ -282,7 +282,7 @@
   display: flex;
   gap: 32px;
   padding-left: 2px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
 }
 
@@ -311,7 +311,7 @@
 }
 
 .skills-category-label {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   color: #a6da95;
   font-weight: bold;
@@ -327,7 +327,7 @@
 }
 
 .skill-row {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.88rem, 1.8vw, 1.02rem);
   color: #8aadf4;
   font-weight: 600;
@@ -405,8 +405,8 @@
 }
 
 .edu-header {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -418,10 +418,10 @@
 
 .edu-detail,
 .edu-award {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(0.86rem, 1.6vw, 0.98rem);
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
   color: #cad3f5;
-  font-weight: 600;
+  font-weight: 400;
   padding-left: 16px;
   line-height: 1.65;
 }
@@ -433,7 +433,7 @@
 }
 
 .edu-lang-header {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   color: #a6da95;
   font-weight: bold;
@@ -441,10 +441,10 @@
 }
 
 .edu-lang-list {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(0.88rem, 1.8vw, 1.0rem);
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
   color: #eef0fc;
-  font-weight: 600;
+  font-weight: 400;
   padding-left: 16px;
   display: flex;
   flex-wrap: wrap;

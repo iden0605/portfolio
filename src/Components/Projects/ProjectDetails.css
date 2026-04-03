@@ -106,7 +106,7 @@
 
 .detail-tab {
   padding: 8px 20px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: #8aadf4;
@@ -114,7 +114,7 @@
   border: none;
   border-bottom: 2px solid transparent;
   background: transparent;
-  transition: color 0.18s ease, background 0.18s ease;
+  transition: color 0.25s ease, background 0.25s ease, border-bottom-color 0.25s ease, font-weight 0.15s ease;
   border-radius: 4px 4px 0 0;
   margin-bottom: -1px;
   white-space: nowrap;
@@ -127,7 +127,7 @@
 .detail-tab.active {
   color: #eef0fc;
   font-weight: 700;
-  background: #24273a;
+  background: rgba(138, 173, 244, 0.08);
   border-bottom: 2px solid #8aadf4;
 }
 
@@ -215,7 +215,7 @@
 }
 
 .detail-body-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.88rem, 2.5vw, 1.1rem) !important;
   color: #eef0fc !important;
   font-weight: 500;
@@ -253,7 +253,8 @@
 
 .detail-meta-val {
   color: #cad3f5;
-  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
   flex: 1;
   word-break: break-word;
 }
@@ -267,7 +268,7 @@
 }
 
 .detail-resp-list li {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.85rem, 2.5vw, 1.05rem) !important;
   font-weight: 500;
   color: #cad3f5 !important;
@@ -325,7 +326,7 @@
   padding: 3px 16px;
   border: 1px solid #494d64;
   border-radius: 12px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #8aadf4;
@@ -356,7 +357,7 @@
   color: #8aadf4;
   font-size: 0.95em;
   font-weight: 500;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -464,6 +465,7 @@
 .project-header-description,
 .project-header-details p {
   text-align: left;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.88rem, 3vw, 1.15rem) !important;
   max-width: 100%;
   margin-left: auto;
@@ -497,6 +499,7 @@
 
 .project-header-responsibilities-list li {
   color: #cad3f5;
+  font-family: 'Nunito', sans-serif;
   margin-bottom: 6px;
   font-size: clamp(1rem, 3vw, 1.1rem);
   line-height: 1.7;

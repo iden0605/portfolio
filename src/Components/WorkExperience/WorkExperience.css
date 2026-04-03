@@ -87,8 +87,8 @@
     to bottom,
     transparent 0px,
     transparent 5px,
-    rgba(0, 0, 0, 0.08) 5px,
-    rgba(0, 0, 0, 0.08) 6px
+    rgba(0, 0, 0, 0.045) 5px,
+    rgba(0, 0, 0, 0.045) 6px
   );
   pointer-events: none;
   z-index: 0;
@@ -180,7 +180,7 @@
 /* ── Directory name ───────────────────────────────────── */
 
 .work-dir-name {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.92rem, 1.8vw, 1rem);
   font-weight: 700;
   color: #eef0fc;
@@ -198,7 +198,7 @@
 /* ── Job title ────────────────────────────────────────── */
 
 .work-job-title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.86rem, 1.6vw, 0.94rem);
   color: #ed8796;
   font-weight: 600;
@@ -210,7 +210,7 @@
 /* ── Date ─────────────────────────────────────────────── */
 
 .work-date {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.82rem, 1.4vw, 0.85rem);
   color: #a5adcb;
   white-space: nowrap;
@@ -220,7 +220,7 @@
 /* ── Duration ─────────────────────────────────────────── */
 
 .work-duration {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: clamp(0.82rem, 1.4vw, 0.85rem);
   color: #a5adcb;
   white-space: nowrap;
@@ -354,7 +354,7 @@
     display: block;
     grid-column: 2;
     grid-row: 1;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Nunito', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     color: #eef0fc;

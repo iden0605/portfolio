@@ -55,7 +55,7 @@
     font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
     color: #a6da95 !important;
     text-decoration-color: #8aadf4 !important;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Nunito', sans-serif;
 }
 
 .image-description-block {
@@ -86,6 +86,7 @@
 .work-experience-job-title {
     text-align: center;
     margin: 0 0;
+    font-family: 'Nunito', sans-serif;
     font-style: italic;
     font-size: clamp(0.9rem, 2.5vw, 1.05rem);
     color: #ed8796;
@@ -100,6 +101,7 @@
 .work-experience-header-content .work-experience-overview-description,
 .work-experience-header-content .work-experience-details-vertical p {
     text-align: left;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(1.05rem, 3vw, 1.15rem) !important;
     max-width: 800px;
     margin-left: auto;
@@ -131,6 +133,7 @@
 
 .work-experience-header-content .work-experience-responsibilities-list li {
     color: #cad3f5;
+    font-family: 'Nunito', sans-serif;
     margin-bottom: 10px;
     text-align: left;
     font-size: clamp(1rem, 3vw, 1.1rem);
@@ -144,6 +147,7 @@
 }
 
 .image-description-section .image-description-block .description p {
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(0.88rem, 3vw, 1.15rem);
     color: #cad3f5;
     border-left: 3px solid #494d64 !important;
