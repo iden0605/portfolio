@@ -91,7 +91,7 @@
     rgba(0, 0, 0, 0.08) 6px
   );
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 .proj-screen-inner {
