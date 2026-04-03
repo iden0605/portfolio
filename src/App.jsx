@@ -34,8 +34,9 @@ function App() {
   useEffect(() => {
     if (!document.body.classList.contains('aos-initialized')) {
       AOS.init({
-        offset: 100,
-        duration: 500,
+        offset: -150,
+        duration: 700,
+        easing: 'ease-out',
         once: true,
       });
     }

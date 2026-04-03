@@ -15,15 +15,20 @@ function WorkExperience() {
   // render work experience section
   return (
     <main className="main-content">
-      <section className="section" data-aos="fade-up">
+      <section className="section">
         <h2>Work Experience</h2>
         <div className="work-experience-container">
-          {Object.entries(jobExperienceData).map(([companyName, job]) => (
+          {Object.entries(jobExperienceData).map(([companyName, job], index) => (
             <Link
               to={`/work-experience/${job.tokenizedName}`}
               key={companyName}
             >
-            <div className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`} key={job.id}>
+            <div
+              className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`}
+              key={job.id}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               {/* Left Column: Logo */}
               <div className="job-left-column">
                 <img

@@ -7,7 +7,7 @@ function AboutMe() {
 
   // render the about me section
   return (
-    <section className="section" data-aos="fade-up" data-aos-offset="50">
+    <section className="section" data-aos="fade-up" data-aos-offset="-150">
       <div className="aboutme-container">
         <h2>{title}</h2>
 
