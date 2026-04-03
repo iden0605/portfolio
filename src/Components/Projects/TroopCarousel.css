@@ -10,9 +10,9 @@
 /* GIF display panel */
 .troop-gif-panel {
   width: 100%;
-  background-color: #eceae0;
+  background-color: #1e2030;
   border-radius: 10px;
-  border: 1px solid #d5d0c4;
+  border: 1px solid #363a4f;
   overflow: hidden;
   transition: opacity 0.15s ease;
   line-height: 0;
@@ -22,6 +22,14 @@
   opacity: 0;
 }
 
+.troop-gif-slide {
+  display: none;
+}
+
+.troop-gif-slide.active {
+  display: block;
+}
+
 .troop-gif {
   width: 100%;
   height: auto;
@@ -29,8 +37,16 @@
   image-rendering: pixelated;
 }
 
+.troop-info {
+  transition: opacity 0.15s ease;
+}
+
+.troop-info.troop-gif-fading {
+  opacity: 0;
+}
+
 .troop-gif-placeholder {
-  color: #aaa;
+  color: #6e738d;
   font-size: 0.95rem;
   font-style: italic;
   padding: 40px;
@@ -56,26 +72,27 @@
 .troop-name {
   font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
-  color: #1a1a1a;
+  color: #a6da95;
 }
 
 .troop-attack-divider {
-  color: #9bace0;
+  color: #494d64;
   font-weight: 400;
 }
 
 .troop-attack-name {
   font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   font-weight: 600;
-  color: #6a7fda;
+  color: #8aadf4;
 }
 
 .troop-description {
   font-size: clamp(0.875rem, 2.5vw, 1rem);
-  color: #444;
+  color: #cad3f5;
   line-height: 1.6;
   margin: 0;
   padding: 0 4px;
+  border-left: none !important;
 }
 
 /* Horizontal scrollable sprite selector row */
@@ -88,7 +105,7 @@
   width: 100%;
   padding: 6px 2px 18px;
   scrollbar-width: thin;
-  scrollbar-color: #9bace0 #e8e4d9;
+  scrollbar-color: #494d64 #24273a;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -98,26 +115,26 @@
 }
 
 .troop-selector-row::-webkit-scrollbar-track {
-  background: #e8e4d9;
+  background: #24273a;
   border-radius: 2px;
 }
 
 .troop-selector-row::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #9bace0, #6a7fda);
+  background: linear-gradient(to right, #494d64, #8aadf4);
   border-radius: 2px;
 }
 
 .troop-selector-row::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to right, #8099d6, #5a6ec8);
+  background: linear-gradient(to right, #5b6078, #b7bdf8);
 }
 
 /* Sliding highlight pill */
 .troop-selector-highlight {
   position: absolute;
-  background-color: #dde3f5;
-  border: 2px solid #9bace0;
+  background-color: rgba(138, 173, 244, 0.1);
+  border: 1.5px solid #8aadf4;
   border-radius: 10px;
-  box-shadow: 0 0 0 3px rgba(106, 127, 218, 0.18);
+  box-shadow: 0 0 8px rgba(138, 173, 244, 0.2);
   pointer-events: none;
   z-index: 0;
   transition: left 0.22s cubic-bezier(0.4, 0, 0.2, 1),
@@ -145,7 +162,7 @@
 }
 
 .troop-selector:hover:not(.troop-selector--active) {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(138, 173, 244, 0.06);
 }
 
 .troop-selector--active {
@@ -177,7 +194,7 @@
 .troop-selector-name {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #333;
+  color: #a5adcb;
   text-align: center;
   line-height: 1.25;
   width: 100%;

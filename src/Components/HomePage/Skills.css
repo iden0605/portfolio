@@ -1,224 +1,254 @@
+/* Catppuccin Macchiato
+   base:    #24273a
+   surface: #363a4f
+   text:    #cad3f5
+   green:   #a6da95
+   blue:    #8aadf4
+*/
+
 .skills-section {
-  background-color: #F5F3EA;
-  /* Cream */
   user-select: none;
   -webkit-user-select: none;
 }
 
-.skills-title {
-  color: #444444;
-  text-decoration: underline;
-  text-decoration-color: #6A7FDA;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.3em;
+/* ── Monitor wrapper ──────────────────────────────────── */
+
+.monitor-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 16px; /* room for the badge overhang */
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 900px) and (min-width: 600px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.skill-category {
-  background-color: #F9F8F6;
-  /* Off-white */
-  border: 1px solid #E0E0E0;
-  border-radius: 10px;
-  padding: 0.2rem 2rem;
-  padding-top: 1.2rem;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  /* Default desktop behavior (always open) */
-  height: auto;
-}
-
-.skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.skill-category h3 {
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
-  color: #444444;
-  /* Dark gray */
-  padding-bottom: 0.5rem;
-  /* Space for divider */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+.monitor-body {
+  background-color: #d0d0d0;
+  border: 3px solid #a8a8a8;
+  border-radius: 6px;
+  padding: 14px 14px 14px;
   position: relative;
-  margin: 0;
-  width: 100%;
-  line-height: 1.2;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    inset 1px 0 0 rgba(255, 255, 255, 0.5),
+    inset -1px 0 0 rgba(0, 0, 0, 0.12),
+    0 6px 24px rgba(0, 0, 0, 0.18);
 }
 
-.skill-category h3 .arrow {
-  display: none;
-  /* Hidden on desktop */
-}
+/* ── Skills badge on the top bezel edge ──────────────── */
 
-/* Divider (Blue Line) - Global */
-.skill-category h3::after {
-  content: '';
+.monitor-label {
   position: absolute;
-  bottom: -5px;
-  /* Move divider down */
+  top: -15px;
   left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: #6A7FDA;
-  transition: all 0.4s ease;
+  transform: translateX(-50%);
+  background: #d8d8d8;
+  border: 2px solid #a8a8a8;
+  border-radius: 3px;
+  padding: 2px 16px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #555;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 1px 4px rgba(0, 0, 0, 0.18);
 }
 
-.skill-category.open h3::after {
-  width: 100%;
-  left: 0;
+/* ── Screen ───────────────────────────────────────────── */
+
+.monitor-screen {
+  background-color: #24273a;
+  border: 2px solid #686868;
+  border-radius: 3px;
+  padding: 20px 26px 26px;
+  min-height: 190px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 8px rgba(138, 173, 244, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
-/* Wrapper for grid animation */
-.skills-wrapper {
-  display: block;
-  height: auto;
+/* Scan lines */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 2px;
 }
 
-.skill-category .skills-list {
-  list-style: none;
-  padding: 0;
+.screen-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Prompt line ──────────────────────────────────────── */
+
+.prompt-line {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.82rem, 2vw, 0.98rem);
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  overflow: visible;
-  opacity: 1;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: none;
-  /* Remove faint grey divider */
+  align-items: baseline;
+  gap: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+.prompt-user   { color: #a6da95; font-weight: bold; }
+.prompt-at     { color: #cad3f5; }
+.prompt-host   { color: #8aadf4; font-weight: bold; }
+.prompt-path   { color: #cad3f5; margin-right: 7px; }
+.prompt-cmd    { color: #cad3f5; }
+
+.prompt-cursor {
+  color: #cad3f5;
+  margin-left: 2px;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Two-column skill list ────────────────────────────── */
+
+.skills-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3rem;
+}
+
+.skill-row {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.8rem, 1.8vw, 0.94rem);
+  color: #8aadf4;
+  padding: 3px 0;
+  line-height: 1.65;
+  white-space: nowrap;
+}
+
+/* ── Navigation bar ──────────────────────────────────── */
+
+.monitor-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 13px;
+  padding: 2px 0 0;
+}
+
+/* Win95-style pixel button */
+.nav-btn {
+  width: 28px;
+  height: 24px;
+  background: #d0d0d0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #707070;
+  border-bottom: 2px solid #707070;
+  color: #333;
+  font-size: 0.62rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+  image-rendering: pixelated;
+  transition: none;
+  line-height: 1;
+}
+
+.nav-btn:active {
+  border-top: 2px solid #707070;
+  border-left: 2px solid #707070;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Category dots */
+.nav-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a0a0a0;
+  cursor: pointer;
+  display: block;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-dot.active {
+  background: #8aadf4;
+  box-shadow: 0 0 5px rgba(138, 173, 244, 0.65);
+}
+
+.nav-dot:hover:not(.active) {
+  background: #c0c0c0;
+}
+
+/* ── CRT glitch ──────────────────────────────────────── */
+
+.monitor-screen.glitch {
+  animation: crt-glitch 0.38s ease-out forwards;
+}
+
+@keyframes crt-glitch {
+  0%   { opacity: 1;    transform: translateX(0);    filter: none; }
+  10%  { opacity: 0.6;  transform: translateX(-3px); filter: saturate(0.4); }
+  22%  { opacity: 0.15; transform: translateX(4px);  filter: saturate(0) brightness(1.9); }
+  36%  { opacity: 0;    transform: translateX(0);    filter: saturate(0); }
+  48%  { opacity: 0.08; transform: translateX(-2px); filter: saturate(0) brightness(2.2); }
+  60%  { opacity: 0.45; transform: translateX(3px);  filter: saturate(0.35); }
+  72%  { opacity: 0.72; transform: translateX(-1px); filter: saturate(0.7); }
+  86%  { opacity: 0.92; transform: translateX(0);    filter: none; }
+  100% { opacity: 1;    transform: translateX(0);    filter: none; }
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 740px) {
+  .monitor-wrapper {
+    padding: 16px 0.5rem 0;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .monitor-screen {
+    padding: 16px 18px 20px;
+    min-height: 170px;
+  }
+
+  .skills-columns {
+    gap: 0 1.5rem;
+  }
+
+  .skill-row {
+    white-space: normal;
   }
 }
 
-.skill-category .skills-list li {
-  font-size: clamp(1rem, 4vw, 1.1rem);
-  background-color: #F5F3EA;
-  /* Cream */
-  color: #444444;
-  /* Dark gray */
-  border: 1px solid #E0E0E0;
-  border-radius: 6px;
-  padding: 0.6rem 1.2rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-  opacity: 1;
-  /* Always visible on desktop */
-}
-
-.skill-category .skills-list li:hover {
-  transform: scale(1.05);
-  background-color: #6A7FDA;
-  /* Blue accent on hover */
-  color: #ffffff;
-  border-color: #6A7FDA;
-}
-
-/* Tablet & Mobile styles (< 962px) */
-@media (max-width: 962px) {
-  .skills-grid {
+@media (max-width: 420px) {
+  .skills-columns {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
-    gap: 1.6rem;
-    /* Reduce vertical gap between containers */
-  }
-
-  .skill-category {
-    padding: 1.3rem 2rem;
-    /* Slimmer padding for collapsible state */
-  }
-
-  .skill-category h3 {
-    cursor: pointer;
-    padding-bottom: 0;
-    transition: padding-bottom 0.3s ease;
-  }
-
-  .skill-category.open h3 {
-    padding-bottom: 0.5rem;
-  }
-
-  .skill-category h3 .arrow {
-    display: inline-block;
-    font-size: 0.9rem;
-    transition: transform 0.4s ease;
-    position: absolute;
-    right: -1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .skill-category.open h3 .arrow {
-    transform: translateY(-50%) rotate(180deg);
-  }
-
-
-  /* Collapsible Grid Animation */
-  .skills-wrapper {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease-out;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    /* Ensure content is clipped when collapsed */
-  }
-
-  .skill-category.open .skills-wrapper {
-    grid-template-rows: 1fr;
-  }
-
-  .skill-category .skills-list {
-    overflow: hidden;
-    min-height: 0;
-    /* Required for grid transition */
-    margin: 0;
-    /* Reset all margins */
-    padding-top: 0;
-    border-top: 0 solid transparent;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding-top 0.3s ease-in-out, border-top-color 0.3s ease-in-out;
-  }
-
-  .skill-category.open .skills-list {
-    opacity: 1;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
-    border-top: none;
-  }
-
-  .skill-category .skills-list li {
-    opacity: 1;
-    /* Keep visible so ul transition handles fade out */
-  }
-
-  .skill-category.open .skills-list li {
-    animation: fadeIn 0.2s ease-out both;
-    /* 'both' handles initial opacity: 0 */
+    gap: 0;
   }
 }

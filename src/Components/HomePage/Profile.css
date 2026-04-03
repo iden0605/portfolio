@@ -3,6 +3,54 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  background-color: #2b2f47 !important;
+  border-color: #494d64 !important;
+  position: relative;
+}
+
+.profile-prompt-line {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .profile-prompt-line {
+    display: none;
+  }
+}
+
+.profile-prompt-arrow { color: #a6da95; font-weight: 700; margin-right: 8px; }
+.profile-prompt-cmd   {
+  color: #a6da95;
+  font-weight: 600;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+  animation: cmd-type 2.4s steps(50, end) 0.2s forwards;
+}
+
+.profile-prompt-cmd::after {
+  content: '▌';
+  color: #cad3f5;
+  font-weight: 400;
+  margin-left: 1px;
+  animation: cmd-blink 1.12s step-end calc(0.2s + var(--cmd-len, 15) * 0.048s) infinite;
+}
+
+@keyframes cmd-type {
+  to { max-width: 50ch; }
+}
+
+@keyframes cmd-blink {
+  50% { opacity: 0; }
 }
 
 .profile-section {
@@ -12,17 +60,22 @@
   gap: 0;
   overflow: hidden;
   margin-top: 0.5rem;
+  margin-bottom: 1.7rem !important;
 }
 
 .profile-section h1 {
   margin-bottom: 0.2rem;
-  font-size: clamp(2rem, 5vw, 2.2rem);
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  color: #eef0fc;
 }
 
 .profile-section p {
   font-size: clamp(1.1rem, 4vw, 1.3rem);
   margin-top: 0;
   margin-bottom: 0.2rem;
+  color: #a5adcb;
+  border-left: none !important;
+  padding-left: 0 !important;
 }
 
 .profile-picture {
@@ -31,5 +84,24 @@
   background-color: var(--subtle-accent);
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid #363a4f;
+}
+
+@media (max-width: 480px) {
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Pause typing until scrolled into view */
+.profile-prompt-cmd,
+.profile-prompt-cmd::after {
+  animation-play-state: paused;
+}
+
+.aos-animate .profile-prompt-cmd,
+.aos-animate .profile-prompt-cmd::after {
+  animation-play-state: running;
 }

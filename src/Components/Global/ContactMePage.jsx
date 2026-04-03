@@ -142,6 +142,10 @@ function ContactMePage() {
     return (
         <div className="contact-me-page">
             <div className="contact-popup-content">
+                <div className="contact-popup-prompt-line">
+                  <span className="contact-popup-prompt-arrow">❯</span>
+                  <span className="contact-popup-prompt-cmd" style={{ '--cmd-len': 16 }}> cat contact.md</span>
+                </div>
                 <h2>Drop me a message!</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">

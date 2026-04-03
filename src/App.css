@@ -13,6 +13,12 @@ body.sidebar-open .app-container {
   box-sizing: border-box;
 }
 
+body, html {
+  background-color: #1e2030;
+  margin: 0;
+  padding: 0;
+}
+
 ::selection {
   background-color: rgba(106, 127, 218, 0.25);
   color: inherit;
@@ -52,19 +58,19 @@ body.sidebar-open .app-container {
 .section {
   margin-bottom: 4rem;
   padding: 3rem;
-  background-color: #F5F3EA;
+  background-color: #24273a;
   border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
   width: 100%;
   max-width: 1100px;
   margin: 2rem auto;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #363a4f;
 }
 
 .section h2 {
   font-size: 1.8em;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #a6da95;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -72,15 +78,15 @@ body.sidebar-open .app-container {
 .section-divider {
   border: 0;
   height: 1px;
-  background: #ccc;
+  background: rgba(255, 255, 255, 0.08);
   margin: 3rem 0;
   transition: all 0.5s ease-in-out;
 }
 
 .section-divider-subtle {
-  height: 2px;
+  height: 1px;
   width: 100%;
-  background: linear-gradient(to right, transparent, #ccc, transparent);
+  background: linear-gradient(to right, transparent, #494d64, transparent);
   margin: 1.5rem 0;
   display: block;
   border: none;
@@ -145,14 +151,14 @@ body.sidebar-open .app-container {
   font-family: 'Poppins', sans-serif;
   font-size: 2.8em;
   font-weight: 600;
-  color: var(--primary-color);
+  color: #eef0fc;
 }
 
 .main-content p {
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #444;
+  color: #cad3f5;
 }
 
 
@@ -199,7 +205,7 @@ body.sidebar-open .app-container {
 .section h3 {
   font-size: 1.4em;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #8aadf4;
   margin-top: 0;
   margin-bottom: 0.4rem;
 }
@@ -214,7 +220,7 @@ body.sidebar-open .app-container {
 
 .subtitle {
   text-decoration-line: underline;
-  text-decoration-color: #9bace0;
+  text-decoration-color: #8aadf4;
   text-underline-offset: 0.1em;
   display: inline-block;
   margin-bottom: 0;
@@ -224,18 +230,18 @@ body.sidebar-open .app-container {
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 2rem;
   text-decoration: underline;
-  text-decoration-color: #9bace0;
+  text-decoration-color: #8aadf4;
   text-underline-offset: 0.3em;
 }
 
 .section > div:not(.project-details) p {
   line-height: 1.8;
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 0.8rem;
-  border-left: 4px solid #9bace0;
+  border-left: 3px solid #494d64;
   padding-left: 1.5rem;
-  color: #444;
+  color: #cad3f5;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   font-family: 'Inter', sans-serif;
@@ -356,7 +362,7 @@ body.sidebar-open .app-container {
   /* Re-apply default section styling but with controlled application */
   margin-top: 1rem;
   /* Ensure these match the .section > div:not(.project-details) p styles if they were being overridden */
-  border-left: 4px solid #9bace0 !important;
+  border-left: 3px solid #494d64 !important;
   padding-left: 1.5rem !important;
 }
 

@@ -55,30 +55,33 @@ function TroopCarousel({ items }) {
   return (
     <div className="troop-carousel">
       <div className={`troop-gif-panel${fading ? ' troop-gif-fading' : ''}`}>
-        {current.gif ? (
-          current.gif.endsWith('.mp4') ? (
-            <video
-              src={current.gif}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="troop-gif"
-            />
-          ) : (
-            <img
-              src={current.gif}
-              alt={`${current.name} attack`}
-              loading="lazy"
-              className="troop-gif"
-            />
-          )
-        ) : (
-          <div className="troop-gif-placeholder">GIF coming soon</div>
-        )}
+        {items.map((item, i) => (
+          <div key={item.name} className={`troop-gif-slide${i === displayIndex ? ' active' : ''}`}>
+            {item.gif ? (
+              item.gif.endsWith('.mp4') ? (
+                <video
+                  src={item.gif}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="troop-gif"
+                />
+              ) : (
+                <img
+                  src={item.gif}
+                  alt={`${item.name} attack`}
+                  className="troop-gif"
+                />
+              )
+            ) : (
+              <div className="troop-gif-placeholder">GIF coming soon</div>
+            )}
+          </div>
+        ))}
       </div>
 
-      <div className="troop-info">
+      <div className={`troop-info${fading ? ' troop-gif-fading' : ''}`}>
         <div className="troop-label">
           <span className="troop-name">{current.name}</span>
           <span className="troop-attack-divider">—</span>

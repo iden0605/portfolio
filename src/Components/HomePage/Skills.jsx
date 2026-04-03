@@ -1,63 +1,87 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import { skills } from '../../Data/skillsData';
-import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import './Skills.css';
 
+const categories = Object.entries(skills);
+
 function Skills() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 962);
-  const [openCategories, setOpenCategories] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isGlitching, setIsGlitching] = useState(false);
+  const timers = useRef([]);
 
-  const handleResize = useCallback(() => {
-    setIsMobile(window.innerWidth < 962);
-  }, []);
+  const triggerGlitch = (newIndex) => {
+    if (isGlitching) return;
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [handleResize]);
+    setIsGlitching(true);
 
-  const toggleCategory = (category) => {
-    if (isMobile) {
-      setOpenCategories((prevState) => ({
-        ...prevState,
-        [category]: !prevState[category],
-      }));
-    }
+    // Change content at peak distortion
+    timers.current.push(setTimeout(() => {
+      setCurrentIndex(newIndex);
+    }, 150));
+
+    // End glitch
+    timers.current.push(setTimeout(() => {
+      setIsGlitching(false);
+    }, 380));
   };
+
+  const goNext = () => triggerGlitch((currentIndex + 1) % categories.length);
+  const goPrev = () => triggerGlitch((currentIndex - 1 + categories.length) % categories.length);
+
+  const [category, items] = categories[currentIndex];
+  const mid = Math.ceil(items.length / 2);
+  const col1 = items.slice(0, mid);
+  const col2 = items.slice(mid);
 
   return (
     <section className="section skills-section" data-aos="fade-up">
-      <h2 className="skills-title">Skills</h2>
-      <div className="skills-grid">
-        {Object.entries(skills).map(([category, items], index) => {
-          const isOpen = !isMobile || !!openCategories[category];
-          return (
-            <div className={`skill-category ${isOpen ? 'open' : ''}`} key={index}>
-              <h3 onClick={() => toggleCategory(category)}>
-                <span className="category-title">{category}</span>
-                {isMobile && (
-                  <span className="arrow">
-                    {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-                  </span>
-                )}
-              </h3>
-              <div className="skills-wrapper">
-                <ul className="skills-list">
-                  {items.map((skill, i) => (
-                    <li
-                      key={i}
-                      style={isMobile ? { animationDelay: `${i * 0.05}s` } : {}}
-                    >
-                      {skill}
-                    </li>
+      <div className="monitor-wrapper">
+        <div className="monitor-body">
+          <div className="monitor-label">SKILLS</div>
+
+          <div className={`monitor-screen${isGlitching ? ' glitch' : ''}`}>
+            <div className="scanlines" />
+            <div className="screen-content">
+              <div className="prompt-line">
+                <span className="prompt-user">iden</span>
+                <span className="prompt-at">@</span>
+                <span className="prompt-host">portfolio</span>
+                <span className="prompt-path">:~$</span>
+                <span className="prompt-cmd"> {category}</span>
+                <span className="prompt-cursor">▌</span>
+              </div>
+              <div className="skills-columns">
+                <div className="skills-col">
+                  {col1.map((skill, i) => (
+                    <div key={i} className="skill-row">- {skill}</div>
                   ))}
-                </ul>
+                </div>
+                <div className="skills-col">
+                  {col2.map((skill, i) => (
+                    <div key={i} className="skill-row">- {skill}</div>
+                  ))}
+                </div>
               </div>
             </div>
-          );
-        })}
+          </div>
+
+          <div className="monitor-nav">
+            <button className="nav-btn" onClick={goPrev} aria-label="Previous category">◀</button>
+            <div className="nav-dots">
+              {categories.map((_, i) => (
+                <span
+                  key={i}
+                  className={`nav-dot${i === currentIndex ? ' active' : ''}`}
+                  onClick={() => i !== currentIndex && triggerGlitch(i)}
+                  aria-label={`Go to ${categories[i][0]}`}
+                />
+              ))}
+            </div>
+            <button className="nav-btn" onClick={goNext} aria-label="Next category">▶</button>
+          </div>
+        </div>
       </div>
     </section>
   );

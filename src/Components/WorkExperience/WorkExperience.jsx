@@ -1,81 +1,80 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.css';
 import './WorkExperience.css';
 import jobExperienceData from '../../Data/jobExperienceData';
-import peopleIcon from '/assets/icon/people-icon.png';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
 
 function WorkExperience() {
-    // scroll to top on component mount
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  // render work experience section
   return (
     <main className="main-content">
-      <section className="section">
-        <h2>Work Experience</h2>
-        <div className="work-experience-container">
-          {Object.entries(jobExperienceData).map(([companyName, job], index) => (
-            <Link
-              to={`/work-experience/${job.tokenizedName}`}
-              key={companyName}
-            >
-            <div
-              className={`job-card ${job.tokenizedName} ${companyName.length > 13 ? 'two-line-company-name' : ''}`}
-              key={job.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              {/* Left Column: Logo */}
-              <div className="job-left-column">
-                <img
-                  src={job.cardImage}
-                  alt={`${companyName} image`}
-                  className="job-image"
-                />
-              </div>
+      <div className="work-terminal" data-aos="fade-up">
 
-              {/* Right Column: Text Content */}
-              <div className="job-right-column">
-                <div className="job-header">
-                  <div className="company-name">{companyName}</div>
-                  <div className="job-title">{job.jobTitle}</div>
-                </div>
-                
-                <div className="job-description">{job.description}</div>
-                
-                <div className="job-metadata">
-                  <span className="metadata-item">{job.date}</span>
-                  <span className="metadata-separator">•</span>
-                  <span className="metadata-item">
-                    {calculateMonthsInRole(job.date).months} Months
-                    {calculateMonthsInRole(job.date).isOngoing && " (Ongoing)"}
-                  </span>
-                </div>
-              </div>
-
-              {calculateMonthsInRole(job.date).isOngoing && (
-                <div className="ongoing-badge">
-                  <span className="ongoing-dot-wrap">
-                    <span className="ongoing-dot-ring" />
-                    <span className="ongoing-dot" />
-                  </span>
-                  Ongoing
-                </div>
-              )}
-
-              <div className="team-size-container">
-                 <img src={peopleIcon} alt="People icon" className="people-icon" />
-                 <span className="team-size-text">{job.teamSize} Colleagues</span>
-              </div>
-            </div>
-            </Link>
-          ))}
+        {/* Title bar */}
+        <div className="work-titlebar">
+          <span className="work-title-text">~/work</span>
+          <div className="window-dots">
+            <span className="window-dot window-dot--red" />
+            <span className="window-dot window-dot--yellow" />
+            <span className="window-dot window-dot--green" />
+          </div>
         </div>
-      </section>
+
+        {/* Screen */}
+        <div className="work-screen">
+          <div className="work-scanlines" />
+          <div className="work-screen-inner">
+
+            {/* Prompt */}
+            <div className="work-prompt-line">
+              <span className="work-prompt-arrow">❯</span>
+              <span className="work-prompt-cmd" style={{ '--cmd-len': 7 }}> ls -la</span>
+            </div>
+
+            {/* Table */}
+            <div className="work-table">
+              {Object.entries(jobExperienceData).map(([companyName, job], index) => {
+                const { months, isOngoing } = calculateMonthsInRole(job.date);
+                const dirName = companyName.toLowerCase().replace(/\s+/g, '-') + '/';
+
+                return (
+                  <Link
+                    to={`/work-experience/${job.tokenizedName}`}
+                    key={companyName}
+                    className="work-row"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 60}
+                  >
+                    <img
+                      src={job.cardImage}
+                      alt={companyName}
+                      className="work-logo"
+                    />
+                    <span className="work-dir-name">{dirName}</span>
+                    <span className="work-company-name">{companyName}</span>
+                    <span className="work-job-title">{job.jobTitle}</span>
+                    <span className="work-date">{job.date}</span>
+                    <span className={`work-duration${isOngoing ? ' work-duration--ongoing' : ''}`}>
+                      {isOngoing && (
+                        <span className="work-ongoing-dot-wrap">
+                          <span className="work-ongoing-ring" />
+                          <span className="work-ongoing-dot" />
+                        </span>
+                      )}
+                      {isOngoing ? 'Ongoing' : `${months} months`}
+                    </span>
+                    <span className="work-arrow">→</span>
+                  </Link>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

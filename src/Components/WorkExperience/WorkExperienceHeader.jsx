@@ -1,65 +1,129 @@
+import { useState, useRef, useCallback, useLayoutEffect } from 'react';
 import '../../App.css';
 import './WorkExperienceDetail.css';
+import '../Projects/ProjectDetails.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
 
 function WorkExperienceHeader({ companyName }) {
-  // get job experience data based on company name
   const job = jobExperienceData[companyName];
 
-  // return null if job data is not found
-  if (!job) {
-    return null;
-  }
+  if (!job) return null;
 
   const { months, isOngoing } = calculateMonthsInRole(job.date);
 
-  // render the work experience header section
+  const tabs = [
+    'overview.md',
+    ...(job.keyResponsibilities?.length > 0 ? ['responsibilities.txt'] : []),
+  ];
+
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [isGlitching, setIsGlitching] = useState(false);
+  const glitchTimers = useRef([]);
+  const screenRef = useRef(null);
+  const innerRef = useRef(null);
+
+  const syncHeight = useCallback(() => {
+    if (screenRef.current && innerRef.current) {
+      screenRef.current.style.height = `${innerRef.current.offsetHeight}px`;
+    }
+  }, []);
+
+  useLayoutEffect(() => { syncHeight(); }, [activeTab, syncHeight]);
+  useLayoutEffect(() => {
+    if (!innerRef.current) return;
+    const ro = new ResizeObserver(syncHeight);
+    ro.observe(innerRef.current);
+    return () => ro.disconnect();
+  }, [syncHeight]);
+
+  const switchTab = (tab) => {
+    if (tab === activeTab || isGlitching) return;
+    glitchTimers.current.forEach(clearTimeout);
+    setIsGlitching(true);
+    glitchTimers.current = [
+      setTimeout(() => setActiveTab(tab), 150),
+      setTimeout(() => setIsGlitching(false), 380),
+    ];
+  };
+
+  const slug = companyName.toLowerCase().replace(/\s+/g, '-');
+
   return (
-    <section className="section" data-aos="fade-up">
-      <div className="work-experience-header-content">
-        <h2 className="work-experience-company-name">{companyName}</h2>
+    <section className="section detail-terminal-section" data-aos="fade-up">
 
-        <div className="work-experience-job-title">
-          {job.jobTitle}
+      <div className="detail-titlebar">
+        <span className="detail-title-text">~/work/{slug} $ ls</span>
+        <div className="window-dots">
+          <span className="window-dot window-dot--red" />
+          <span className="window-dot window-dot--yellow" />
+          <span className="window-dot window-dot--green" />
         </div>
+      </div>
 
-         <div className="work-experience-image-container">
-           {job.headerImage && (
-             <img
-                src={job.headerImage}
-                alt={`${companyName} image`}
-                className="work-experience-image"
-              />
-           )}
-         </div>
+      <div className="detail-tabs">
+        {tabs.map(tab => (
+          <button
+            key={tab}
+            className={`detail-tab${activeTab === tab ? ' active' : ''}`}
+            onClick={() => switchTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
 
+      <div ref={screenRef} className={`detail-screen${isGlitching ? ' glitch' : ''}`}>
+        <div ref={innerRef} className="detail-screen-inner">
 
-        <div className="work-experience-responsibilities">
-          <h3><span className="subtitle">Overview</span></h3>
-          {job.description && (
-            <p className="work-experience-responsibilities-list work-desc">{job.description}</p>
-          )}
-          <div>
-            <p className="work-desc"><strong>Time in Role:</strong>&nbsp;&nbsp;{months} Months {isOngoing && '(Ongoing)'}</p>
-            {job.technologies && <p className="work-desc"><strong>Technologies:</strong>&nbsp;&nbsp;{job.technologies}</p>}
+          <div className="detail-prompt-line" key={activeTab}>
+            <span className="dp-arrow">❯</span>
+            <span className="dp-cmd" style={{ '--cmd-len': activeTab.length + 5 }}> cat {activeTab}</span>
           </div>
-        </div>
 
-        {job.keyResponsibilities?.length > 0 && (
-          <div className="work-experience-details work-experience-details-vertical work-experience-responsibilities">
-            <h3><span className="subtitle">Key Responsibilities</span></h3>
-            <div className="work-experience-responsibilities-list">
-              <ul>
-                {job.keyResponsibilities && job.keyResponsibilities.map((responsibility, index) => (
-                  <li key={index}>{responsibility}</li>
+          {activeTab === 'overview.md' && (
+            <div className="detail-cat-content">
+              {job.headerImage && (
+                <div className="work-experience-image-container">
+                  <img
+                    src={job.headerImage}
+                    alt={`${companyName} image`}
+                    className="work-experience-image"
+                  />
+                </div>
+              )}
+              <h2 className="work-experience-company-name">{companyName}</h2>
+              <div className="work-experience-job-title">{job.jobTitle}</div>
+              {job.description && (
+                <p className="detail-body-text">{job.description}</p>
+              )}
+              <div className="detail-meta-grid">
+                <div className="detail-meta-row">
+                  <span className="detail-meta-key">time_in_role</span>
+                  <span className="detail-meta-val">{months} months{isOngoing ? ' (ongoing)' : ''}</span>
+                </div>
+                {job.technologies && (
+                  <div className="detail-meta-row">
+                    <span className="detail-meta-key">technologies</span>
+                    <span className="detail-meta-val">{job.technologies}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'responsibilities.txt' && (
+            <div className="detail-cat-content">
+              <ul className="detail-resp-list">
+                {job.keyResponsibilities.map((r, i) => (
+                  <li key={i}>{r}</li>
                 ))}
               </ul>
             </div>
-          </div>
           )}
-      </div>
 
+        </div>
+      </div>
     </section>
   );
 }
