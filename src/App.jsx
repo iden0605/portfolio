@@ -20,6 +20,7 @@ import AcademicPerformanceDetail from './Components/Projects/AcademicPerformance
 import EchoAIDetail from './Components/Projects/EchoAIDetail';
 import AfloatDetail from './Components/Projects/AfloatDetail';
 import EverchangingGrimoireDetail from './Components/Projects/EverchangingGrimoireDetail';
+import StellaTacoDetail from './Components/Projects/StellaTacoDetail';
 import ContactMePopup from './Components/Global/ContactMePopup';
 import ContactMePage from './Components/Global/ContactMePage';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
@@ -93,6 +94,7 @@ function App() {
             <Route path="/projects/echoai" element={<EchoAIDetail />} />
             <Route path="/projects/afloat" element={<AfloatDetail />} />
             <Route path="/projects/everchanging-grimoire" element={<EverchangingGrimoireDetail />} />
+            <Route path="/projects/stella-taco" element={<StellaTacoDetail />} />
             <Route path="/contact" element={<ContactMePage />} />
           </Routes>
         </main>

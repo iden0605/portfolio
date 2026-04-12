@@ -69,8 +69,8 @@ function ProjectDetailTabSection({ details, projectName }) {
         );
       case 'video':
         return (
-          <div className="video-container" key={key} style={{ maxWidth: item.width || '900px', margin: '0 auto 1rem' }}>
-            <video src={item.src} autoPlay loop muted playsInline style={{ width: '100%', borderRadius: '8px' }} />
+          <div key={key} style={{ maxWidth: item.width || '900px', margin: '0 auto 1rem' }}>
+            <video src={item.src} autoPlay loop muted playsInline style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} />
           </div>
         );
       case 'troop-carousel':

@@ -5,6 +5,29 @@ img {
   user-select: none;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e2030;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b4261;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8aadf4;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b4261 #1e2030;
+}
+
 :root {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;700&display=swap');
 

@@ -5,44 +5,53 @@ import projectData from '../../Data/projectData';
 
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [mobileVideoProjects, setMobileVideoProjects] = useState(new Set());
+  const [activeMobileProject, setActiveMobileProject] = useState(null);
   const cardRefs = useRef({});
-  const timersRef = useRef({});
+  const videoRefs = useRef({});
+  const ratioMap = useRef({});
   const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     if (!isMobile) return;
 
+    const pickMostProminent = () => {
+      let bestName = null;
+      let bestRatio = 0;
+      Object.entries(ratioMap.current).forEach(([name, ratio]) => {
+        if (ratio > bestRatio) { bestRatio = ratio; bestName = name; }
+      });
+      setActiveMobileProject(bestRatio > 0.2 ? bestName : null);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const name = entry.target.dataset.project;
-          if (entry.isIntersecting) {
-            timersRef.current[name] = setTimeout(() => {
-              setMobileVideoProjects(prev => new Set([...prev, name]));
-            }, 1000);
-          } else {
-            clearTimeout(timersRef.current[name]);
-            setMobileVideoProjects(prev => {
-              const next = new Set(prev);
-              next.delete(name);
-              return next;
-            });
-          }
+          ratioMap.current[entry.target.dataset.project] = entry.intersectionRatio;
         });
+        pickMostProminent();
       },
-      { threshold: 0.5 }
+      { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
     );
 
     Object.entries(cardRefs.current).forEach(([, el]) => {
       if (el) observer.observe(el);
     });
 
-    return () => {
-      observer.disconnect();
-      Object.values(timersRef.current).forEach(clearTimeout);
-    };
+    return () => observer.disconnect();
   }, [isMobile]);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    Object.entries(videoRefs.current).forEach(([name, video]) => {
+      if (!video) return;
+      if (name === activeMobileProject) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activeMobileProject, isMobile]);
 
   return (
     <main className="main-content">
@@ -73,7 +82,7 @@ function Projects() {
             <div className="projects-grid">
               {Object.entries(projectData).map(([projectName, project], index) => {
                 const showVideo = isMobile
-                  ? mobileVideoProjects.has(projectName) && project.previewVid
+                  ? activeMobileProject === projectName && project.previewVid
                   : hoveredProject === projectName && project.previewVid;
 
                 return (
@@ -110,8 +119,9 @@ function Projects() {
                         <img src={project.thumbnail} alt={`${projectName} thumbnail`} />
                         {project.previewVid && (
                           <video
+                            ref={el => { videoRefs.current[projectName] = el; }}
                             src={project.previewVid}
-                            autoPlay
+                            autoPlay={!isMobile}
                             loop
                             muted
                             playsInline
