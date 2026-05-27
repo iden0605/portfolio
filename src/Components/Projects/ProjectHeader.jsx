@@ -52,6 +52,11 @@ function ProjectHeader({ projectName }) {
         : project.liveLink.split('v=')[1].split('&')[0])
     : null;
 
+  const isInstagram = project.instagramLink && project.instagramLink.includes('instagram.com');
+  const igShortcode = isInstagram
+    ? project.instagramLink.split('/p/')[1]?.split('/')[0]?.split('?')[0]
+    : null;
+
   const slug = projectName.toLowerCase().replace(/\s+/g, '-');
 
   return (
@@ -101,7 +106,7 @@ function ProjectHeader({ projectName }) {
               )}
               <h2 className="project-header-title">{projectName}</h2>
               <div className="project-type-box project-header-type-box">{project.type}</div>
-              {(project.githubLink || project.itchLink || project.wwwLink) && (
+              {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink) && (
                 <div className="project-links-bar">
                   {project.githubLink && project.githubLink !== "" && (
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
@@ -129,6 +134,16 @@ function ProjectHeader({ projectName }) {
                         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                       </svg>
                       <span>Website</span>
+                    </a>
+                  )}
+                  {project.instagramLink && project.instagramLink !== "" && (
+                    <a href={project.instagramLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                      </svg>
+                      <span>Instagram</span>
                     </a>
                   )}
                 </div>

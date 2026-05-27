@@ -138,6 +138,78 @@ const projectData = {
       }
     ]
   },
+  "Git Gud Coach": {
+    tokenizedName: "git-gud-coach",
+    description: `Git Gud Coach is a VS Code extension that watches your Git behaviour and roasts you for it like a toxic esports coach. Every commit, push, and merge is scored across a Bronze-to-Diamond rank ladder with AI-generated roasts powered by 5 providers, 20 achievements, and a Weekly Hygiene Report quantifying how unhinged your week actually was. Built at Trendhacker 2026 by team Trend Hackers.`,
+    date: "Trendhacker 2026",
+    type: "Hackathon",
+    teamSize: 3,
+    role: "Fullstack Extension Developer",
+    thumbnail: "/assets/project/GitGud/git-gud-image.png",
+    previewVid: "",
+    images: [],
+    technologies: ["TypeScript", "VS Code Extension API", "Node.js", "Next.js", "React", "Gemini API"],
+    liveLink: "",
+    instagramLink: "https://www.instagram.com/p/DX4QxVyiTJe-xHEW-OICwsUxRRHvPIl84w3umU0/?hl=en",
+    githubLink: "https://github.com/IJ-hackies/HackMelbourne-Trend-Hackers",
+    itchLink: "",
+    wwwLink: "https://git-gud-extension.app/",
+    status: "Released",
+    projectTime: "4 Days",
+    keyResponsibilities: [
+      "Designed and implemented the Git Gud Coach landing page, including layout, copy, and deployment to GitHub Pages.",
+      "Built the Git event pipeline — a filesystem watcher that captures commits, pushes, file diffs, and merge activity in real time.",
+      "Implemented the AI coaching pipeline: structured prompt construction from raw Git event data, fed into the Gemini API using a prompt-engineered system prompt tuned for toxic esports coach tone.",
+      "Developed live merge conflict resolution assistance, detecting active conflict state via the Git pipeline and triggering per-block roasts through the same parsing and AI flow.",
+      "Curated and implemented the meme and reaction image library, including the tag taxonomy and verdict bridge that scopes which meme categories the AI can draw from per offense.",
+      "Improved the VS Code extension sidebar UI, including layout, card structure, and visual polish across the Rank, Latest Roast, and Settings cards.",
+      "Packaged and published the extension to the VS Code Marketplace, handling build configuration and the publishing workflow.",
+    ],
+    details: [
+      {
+        title: "Source Control & Commit UI",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-1.png", width: "900px" },
+          { type: "text", text: "The in-sidebar Source Control card connects directly to the VS Code Git API. A branch dropdown lists all local and remote branches, and switching prompts for confirmation before checkout. The AI Generate button constructs a prompt from the staged diff and fires a Gemini request, returning a commit message in either clean (Conventional Commits) or savage (toxic-coach) tone based on the active toggle. The Commit and Push button auto-stages changes before committing and auto-sets the upstream remote on first push." },
+        ]
+      },
+      {
+        title: "Roast & Tip History",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-2.png", width: "900px" },
+          { type: "text", text: "Every Git event produces a scored verdict that feeds the AI coaching pipeline. A structured prompt is built from the event type, file diff summary, and a scoped subset of meme tags matched to the offense category. Gemini returns a roast and a coaching tip as a paired response. The Recent Offenses card renders these pairs in sequence, newest first, with the roast styled in the extension's hot-pink accent and the tip in muted text below." },
+        ]
+      },
+      {
+        title: "VS Code Notifications",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-3.png", width: "900px" },
+          { type: "text", text: "Git Gud surfaces feedback as native VS Code notifications immediately after each scored event. Positive deltas trigger hype messages while negative deltas trigger roasts. Each notification fires from the extension host using the VS Code notifications API, keeping feedback in the editor flow without requiring the sidebar to be open." },
+        ]
+      },
+      {
+        title: "Achievements",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-4.png", width: "900px" },
+          { type: "text", text: "Twenty achievements unlock from real Git behaviour tracked across the session, including clean streaks, force-push counts, late-night commits, and merge conflict volume. Each achievement has a threshold condition evaluated against the running stats object. Unlocking one fires a notification and appends it to the Achievements card with the unlock timestamp." },
+        ]
+      },
+      {
+        title: "Weekly Hygiene Report",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-5.png", width: "900px" },
+          { type: "text", text: "The Weekly Hygiene Report is a webview panel that aggregates 7 days of Git activity into a structured metrics summary. It tracks total commits, force-pushes, pushes to main, merge conflicts, branch switches, average commit size, score delta, savage roast rate, and clean streak. Each metric is paired with a roast caption generated from the week's data, and the panel opens via the Weekly Hygiene Report command." },
+        ]
+      },
+      {
+        title: "Rank Card",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-6.png", width: "900px" },
+          { type: "text", text: "The rank card is a 1200x630 SVG generated from the current session stats, displaying rank tier, personality archetype, and top offenses as a shareable rap sheet. It is constructed entirely in memory from the stats object and exported via the Export Rank Card command, ready to post directly to X." },
+        ]
+      },
+    ]
+  },
   "Afloat": {
     tokenizedName: "afloat",
     description: `Afloat is a tactical tower defense game where players build a nature-powered defense force to hold back waves of creeping enemies and plastic pollution threatening a fragile ecosystem. Deploy a roster of unique creatures — from ants that dash into melee, to koi that fire piercing laser beams — each with their own attack behaviour, upgrade path, and evolution form.`,
