@@ -68,7 +68,11 @@ function Skills() {
           </div>
 
           <div className="monitor-nav">
-            <button className="nav-btn" onClick={goPrev} aria-label="Previous category">◀</button>
+            <button className="nav-btn" onClick={goPrev} aria-label="Previous category">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="7,0 1,4 7,8" />
+              </svg>
+            </button>
             <div className="nav-dots">
               {categories.map((_, i) => (
                 <span
@@ -79,7 +83,11 @@ function Skills() {
                 />
               ))}
             </div>
-            <button className="nav-btn" onClick={goNext} aria-label="Next category">▶</button>
+            <button className="nav-btn" onClick={goNext} aria-label="Next category">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="1,0 7,4 1,8" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
