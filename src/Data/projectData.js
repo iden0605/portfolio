@@ -561,30 +561,6 @@ const projectData = {
       },
     ]
   },
-  "MindBack": {
-    tokenizedName: "mindback",
-    description: `MindBack is a web application that allows users to reconnect with their past selves or friends through a conversational AI. By uploading personal data archives from platforms like WhatsApp and Instagram, users can interact with an AI persona that emulates communication styles from a specific year.`,
-    date: "April 2025 - May 2025",
-    type: "Hackathon",
-    teamSize: 2,
-    role: "Fullstack Developer",
-    thumbnail: "/assets/project/MindBack/MindBack-image.png",
-    images: [
-
-    ],
-    technologies: ["React (Javascript)", "Flask (Python)", "Google Gemini API", "Beautiful Soup"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/MindBack",
-    itchLink: "",
-    wwwLink: "",
-    status: "Completed",
-    projectTime: "1 week",
-    keyResponsibilities: [
-      "Designed and developed the home page and chat interface.",
-      "Implemented file uploads and data processing to handle social media input.",
-      "Optimised data parsing of Whatsapp, Instagram and Discord chat files."
-    ]
-  },
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
     description: `This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.`,
