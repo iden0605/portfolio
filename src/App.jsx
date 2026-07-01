@@ -2,36 +2,25 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Navbar from './Components/Global/Navbar';
 import Body from './Components/HomePage/Body';
 import Footer from './Components/Global/Footer';
 import WorkExperience from './Components/WorkExperience/WorkExperience';
-import BookingsMadeEasyDetail from './Components/WorkExperience/BookingsMadeEasyDetail';
-import TutoringDetail from './Components/WorkExperience/TutoringDetail';
-import UMGMCDetail from './Components/WorkExperience/UMGMCDetail';
-import MomuDetail from './Components/WorkExperience/MomuDetail';
-import KewpumpDetail from './Components/WorkExperience/KewPumpDetail';
-import StegoStudiosDetail from './Components/WorkExperience/StegoStudiosDetail';
+import WorkExperienceDetailPage from './Components/WorkExperience/WorkExperienceDetailPage';
 import Projects from './Components/Projects/Projects';
-import PebbleTaskDetail from './Components/Projects/PebbleTaskDetail';
-import MindBackDetail from './Components/Projects/MindBackDetail';
-import OverGrownDetail from './Components/Projects/OverGrownDetail';
-import AcademicPerformanceDetail from './Components/Projects/AcademicPerformanceDetail';
-import EchoAIDetail from './Components/Projects/EchoAIDetail';
-import AfloatDetail from './Components/Projects/AfloatDetail';
-import EverchangingGrimoireDetail from './Components/Projects/EverchangingGrimoireDetail';
-import StellaTacoDetail from './Components/Projects/StellaTacoDetail';
-import GitGudCoachDetail from './Components/Projects/GitGudCoachDetail';
+import ProjectDetail from './Components/Projects/ProjectDetail';
 import ContactMePopup from './Components/Global/ContactMePopup';
 import ContactMePage from './Components/Global/ContactMePage';
+import NotFound from './Components/Global/NotFound';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
-import { useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function App() {
-  // disable browser's default scroll restoration
-  window.history.scrollRestoration = 'manual';
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
 
   useEffect(() => {
     if (!document.body.classList.contains('aos-initialized')) {
@@ -44,34 +33,19 @@ function App() {
     }
   }, []);
 
-  // state to manage the contact me popup visibility
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // function to open the popup
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  // function to close the popup
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
+  const handleOpenPopup = () => setIsPopupOpen(true);
+  const handleClosePopup = () => setIsPopupOpen(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768 && isPopupOpen) {
-        handleClosePopup();
-      }
+      if (window.innerWidth <= 768 && isPopupOpen) handleClosePopup();
     };
-
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, [isPopupOpen]);
 
-  // this is the main app structure with routing
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -81,23 +55,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Body />} />
             <Route path="/work-experience" element={<WorkExperience />} />
+            <Route path="/work-experience/:slug" element={<WorkExperienceDetailPage />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/pebbletask" element={<PebbleTaskDetail />} />
-            <Route path="/projects/mindback" element={<MindBackDetail />} />
-            <Route path="/projects/overgrown" element={<OverGrownDetail />} />
-            <Route path="/work-experience/bookings-made-easy" element={<BookingsMadeEasyDetail />} />
-            <Route path="/work-experience/iden-mcelhone-freelance" element={<TutoringDetail />} />
-            <Route path="/work-experience/umgmc" element={<UMGMCDetail />} />
-            <Route path="/work-experience/momu" element={<MomuDetail />} />
-            <Route path="/work-experience/kewpump" element={<KewpumpDetail />} />
-            <Route path="/work-experience/stego-studios" element={<StegoStudiosDetail />} />
-            <Route path="/projects/academic-predictive-models" element={<AcademicPerformanceDetail />} />
-            <Route path="/projects/echoai" element={<EchoAIDetail />} />
-            <Route path="/projects/afloat" element={<AfloatDetail />} />
-            <Route path="/projects/everchanging-grimoire" element={<EverchangingGrimoireDetail />} />
-            <Route path="/projects/stella-taco" element={<StellaTacoDetail />} />
-            <Route path="/projects/git-gud-coach" element={<GitGudCoachDetail />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/contact" element={<ContactMePage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

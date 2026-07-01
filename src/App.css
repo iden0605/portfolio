@@ -5,9 +5,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-body.sidebar-open .app-container {
-  transform: translateX(-0vw);
-}
 
 * {
   box-sizing: border-box;

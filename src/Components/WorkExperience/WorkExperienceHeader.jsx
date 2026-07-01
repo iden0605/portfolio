@@ -105,7 +105,7 @@ function WorkExperienceHeader({ companyName }) {
                 {job.technologies && (
                   <div className="detail-meta-row">
                     <span className="detail-meta-key">technologies</span>
-                    <span className="detail-meta-val">{job.technologies}</span>
+                    <span className="detail-meta-val">{Array.isArray(job.technologies) ? job.technologies.join(', ') : job.technologies}</span>
                   </div>
                 )}
               </div>

@@ -460,9 +460,7 @@ const projectData = {
   },
   "OverGrown": {
     tokenizedName: "overgrown",
-    description: `
-    A town has been overrun by Cyborg Lumberjacks, and Mother Nature must restore it. Playing as a nature fairy, you uncover her story, confront environmental damage, and free a companion to help heal the land. This exploration-focused game emphasizes themes of healing, friendship, and the conflict between nature and machine.
-    `,
+    description: `A town has been overrun by Cyborg Lumberjacks, and Mother Nature must restore it. Playing as a nature fairy, you uncover her story, confront environmental damage, and free a companion to help heal the land. This exploration-focused game emphasizes themes of healing, friendship, and the conflict between nature and machine.`,
     date: "CISSA x GMC Game Jam 2025",
     type: "Game Jam",
     teamSize: 4,
@@ -473,7 +471,7 @@ const projectData = {
     ],
     technologies: ["Unity (C#)"],
     liveLink: "https://www.youtube.com/watch?v=KPQG4P6r2QU",
-    githubLink: "https://github.com/yourusername/project4",
+    githubLink: "https://github.com/iden0605/OverGrown",
     itchLink: "https://iden0605.itch.io/overgrown",
     wwwLink: "",
     previewVid: "/OverGrown-hover.mp4",
@@ -523,9 +521,7 @@ const projectData = {
   },
   "PebbleTask": {
     tokenizedName: "pebbletask",
-    description: `
-    Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.
-    `,
+    description: `Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.`,
     date: "HackMelbourne Hackiethon 2025",
     type: "Hackathon",
     teamSize: 1,
@@ -591,9 +587,7 @@ const projectData = {
   },
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
-    description: `
-    This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.
-    `,
+    description: `This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.`,
     date: "June 2025 - July 2025",
     type: "University Project",
     teamSize: 1,

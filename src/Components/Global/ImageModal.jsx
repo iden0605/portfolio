@@ -1,42 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './ImageModal.css';
 
 const ImageModal = ({ src, alt, onClose }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
   useEffect(() => {
-    const handleResize = () => {
-      const newIsMobile = window.innerWidth <= 768;
-      if (isMobile === false && newIsMobile === true) { // If it was desktop and now it's mobile
-        onClose(); // Close the modal
-      }
-      setIsMobile(newIsMobile);
-    };
-
+    document.body.style.overflow = 'hidden';
+    const handleResize = () => { if (window.innerWidth <= 768) onClose(); };
     window.addEventListener('resize', handleResize);
-
-    // Disable scrolling on the body when the modal is open, only if not mobile
-    if (!isMobile) {
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Re-enable scrolling when the component unmounts
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
       window.removeEventListener('resize', handleResize);
     };
-  }, [isMobile]);
+  }, [onClose]);
 
   const handleClick = (e) => {
-    // Close the modal only if clicking on the overlay, not the image itself
-    if (e.target.classList.contains('image-modal-overlay')) {
-      onClose();
-    }
+    if (e.target.classList.contains('image-modal-overlay')) onClose();
   };
-
-  if (isMobile) {
-    return null; // Don't render modal on mobile
-  }
 
   return (
     <div className="image-modal-overlay" onClick={handleClick}>
