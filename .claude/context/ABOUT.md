@@ -1,6 +1,6 @@
 # About
 
-_Last updated: 2026-07-01 (session 2)_
+_Last updated: 2026-08-17 (session 3)_
 
 ## What It Is
 
@@ -44,6 +44,7 @@ public/
 | `src/Data/projectData.js` | Single source of truth for all projects — add new entries here |
 | `src/Data/jobExperienceData.js` | Work experience entries |
 | `src/App.jsx` | All routes — add new project/work-experience routes here |
+| `src/Components/Projects/ProjectDetail.jsx` | Generic detail page — resolves `:slug` route param against `tokenizedName` in `projectData.js`, renders `ProjectHeader` + `ProjectDetailTabSection` |
 | `src/Components/Projects/ProjectHeader.jsx` | Terminal-style header for every project detail page |
 | `src/Components/Projects/ProjectDetailTabSection.jsx` | Tab-based detail section (image/text/video/carousel blocks) |
 | `.github/workflows/deploy.yml` | CI deploy — runs `npm run deploy` with EmailJS secrets injected |
@@ -51,7 +52,7 @@ public/
 
 ## Common Tasks
 
-- **Add a new project:** Add entry to `projectData.js`, create `{Name}Detail.jsx` using `ProjectHeader` + `ProjectDetailTabSection`, add route in `App.jsx` — use `/update-portfolio-project` skill for guided flow
+- **Add a new project:** Add entry to `projectData.js` as the first key (routing is fully dynamic via `/projects/:slug` → `ProjectDetail.jsx`; no per-project component or `App.jsx` edit needed) — use `/update-portfolio-project` skill for guided flow
 - **Add work experience:** Add entry to `jobExperienceData.js`, create detail component, add route in `App.jsx`
 - **Run locally:** `npm run dev`
 - **Deploy:** Push to `master` — GitHub Actions runs `npm run deploy` automatically; also runnable locally with `npm run deploy`

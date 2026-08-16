@@ -1,5 +1,76 @@
 // data for project section
 const projectData = {
+  "NAUT": {
+    tokenizedName: "naut",
+    description: `NAUT is a third-person wave-survival game set on a fully traversable, tiny spherical planet, winner of MAC Game Jam 2026. Players fend off escalating enemy waves and arena boss contracts while upgrading their suit and pistol between runs, with movement, combat, and gravity all following the planet's curved surface. Built alongside one teammate in 2 days.`,
+    date: "MAC Game Jam 2026 Winner",
+    type: "Game Jam",
+    award: "Winner",
+    teamSize: 2,
+    role: "Game Programmer | Animator | SFX Engineer",
+    thumbnail: "/assets/project/NAUT/naut-image-1.png",
+    previewVid: "/naut-hover.mp4",
+    technologies: ["Unity (C#)", "Universal Render Pipeline", "Unity Visual Effect Graph", "Unity Input System", "Unity UI"],
+    liveLink: "https://www.youtube.com/watch?v=mfNldfKpMiU",
+    githubLink: "https://github.com/IJ-hackies/mac-hackathon-2026",
+    itchLink: "https://iden0605.itch.io/naut",
+    wwwLink: "",
+    status: "Released",
+    projectTime: "2 Days",
+    keyResponsibilities: [
+      "Implemented planet-relative player movement and a stable third-person camera across the spherical world's curved surface.",
+      "Designed and integrated all sound effects and audio for combat, movement, and environmental feedback.",
+      "Built enemy and player attack systems, including projectile and melee logic paired with custom VFX for impacts and abilities.",
+      "Authored the guided tutorial sequence teaching movement, combat, pickups, and base interaction.",
+      "Developed the leaderboard system end-to-end, including backend score submission and the in-game UI.",
+      "Implemented the run-scoped scoring system tied to wave survival and gold economy.",
+      "Built out the explorable landing zone and world, including base layout, arenas, and environmental dressing.",
+    ],
+    details: [
+      {
+        title: "Planet Traversal",
+        content: [
+          { type: "video", src: "/assets/project/NAUT/naut-1.mp4", width: "900px" },
+          { type: "text", text: "Movement, gravity, and camera orientation all follow the curved surface of the planet. The player's controller reorients itself to the local surface normal each frame, applying radial gravity that pulls toward the planet's center, while the third-person camera stays stable relative to the player's up axis as they circumnavigate the globe." },
+        ]
+      },
+      {
+        title: "Combat & VFX",
+        content: [
+          { type: "video", src: "/assets/project/NAUT/naut-2.mp4", width: "900px" },
+          { type: "text", text: "The astronaut's pistol fires projectiles with a reloadable magazine and reserve ammunition, backed by a targeted secondary melee attack. Enemy and player attacks trigger custom VFX built with Unity's Visual Effect Graph, layered with hit-reaction feedback and enemy dissolve effects on death." },
+        ]
+      },
+      {
+        title: "Boss Fight",
+        content: [
+          { type: "video", src: "/assets/project/NAUT/naut-3.mp4", width: "900px" },
+          { type: "text", text: "Every tenth wave culminates in an untimed, two-stage arena encounter against Barbara the Bee. The fight escalates across both stages with distinct attack patterns, testing the player's build against a single high-pressure threat rather than a swarm." },
+        ]
+      },
+      {
+        title: "Leaderboard",
+        content: [
+          { type: "image", src: "/assets/project/NAUT/naut-4.png", width: "900px" },
+          { type: "text", text: "The leaderboard tracks both highest score and furthest wave reached, backed by a persistent backend for submission and retrieval. Podium and paginated table views highlight top runs, with medal tiers awarded based on rank." },
+        ]
+      },
+      {
+        title: "Skills & Upgrades",
+        content: [
+          { type: "image", src: "/assets/project/NAUT/naut-5.png", width: "900px" },
+          { type: "text", text: "Gold earned during a run is spent at three base stations: Supply for healing and ammunition, Archive for ten-level stat upgrades across health, speed, fire rate, and damage, and Special for one-time build-defining skills like Hold to Fire, Fortune, and Med Kit. Progression resets at the start of each new run." },
+        ]
+      },
+      {
+        title: "Mech Ultimate",
+        content: [
+          { type: "video", src: "/assets/project/NAUT/naut-6.mp4", width: "900px" },
+          { type: "text", text: "The 20-second Thunder Ultimate transforms the astronaut into a Mech with infinite ammunition, electric attacks, slowing bolts, and a damage-blocking shield — a temporary power spike for cutting through dense wave pressure." },
+        ]
+      },
+    ]
+  },
   "Everchanging Grimoire": {
     tokenizedName: "everchanging-grimoire",
     description: `Everchanging Grimoire is a 2D top-down roguelite dungeon crawler built in 3 days at HackMelbourne Hackiethon 2026. Winner among 50 submissions, awarded "Most Entertaining Game". The dungeon is a sentient, hungry book. After every floor, the Gemini API reads your playstyle, spells, and damage taken to generate the next floor's theme, enemies, and a new spell designed to counter you. Spells are composed from a vocabulary of around 60 behaviour tags, letting the LLM create emergent, never-repeating combinations without any runtime code generation.`,
