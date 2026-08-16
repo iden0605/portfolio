@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Components/Global/Navbar';
@@ -12,7 +12,6 @@ import WorkExperience from './Components/WorkExperience/WorkExperience';
 import WorkExperienceDetailPage from './Components/WorkExperience/WorkExperienceDetailPage';
 import Projects from './Components/Projects/Projects';
 import ProjectDetail from './Components/Projects/ProjectDetail';
-import ContactMePopup from './Components/Global/ContactMePopup';
 import ContactMePage from './Components/Global/ContactMePage';
 import NotFound from './Components/Global/NotFound';
 import ScrollToTop from './Components/Utilities/ScrollToTop';
@@ -33,23 +32,10 @@ function App() {
     }
   }, []);
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const handleOpenPopup = () => setIsPopupOpen(true);
-  const handleClosePopup = () => setIsPopupOpen(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768 && isPopupOpen) handleClosePopup();
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isPopupOpen]);
-
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Navbar onContactClick={handleOpenPopup} />
+      <Navbar />
       <div className="app-container">
         <main className="page-content">
           <Routes>
@@ -64,7 +50,6 @@ function App() {
         </main>
         <Footer />
       </div>
-      <ContactMePopup isOpen={isPopupOpen} onClose={handleClosePopup} />
       <ToastContainer />
     </BrowserRouter>
   );

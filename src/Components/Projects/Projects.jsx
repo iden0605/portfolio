@@ -4,13 +4,6 @@ import { LuFileCode2, LuGitFork } from 'react-icons/lu';
 import './Projects.css';
 import projectData from '../../Data/projectData';
 
-const FILTERS = [
-  { key: 'all', label: 'All' },
-  { key: 'hackathons', label: 'Hackathons' },
-  { key: 'university', label: 'University' },
-  { key: 'personal', label: 'Personal' },
-];
-
 const CATEGORY_DOT_CLASS = {
   hackathons: 'proj-dot--hackathons',
   university: 'proj-dot--university',
@@ -20,12 +13,9 @@ const CATEGORY_DOT_CLASS = {
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [activeMobileProject, setActiveMobileProject] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [pillStyle, setPillStyle] = useState({});
   const cardRefs = useRef({});
   const videoRefs = useRef({});
   const ratioMap = useRef({});
-  const filterRefs = useRef({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -33,13 +23,6 @@ function Projects() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  useEffect(() => {
-    const el = filterRefs.current[activeFilter];
-    if (el) {
-      setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
-    }
-  }, [activeFilter, isMobile]);
 
   useEffect(() => {
     if (!isMobile) return;
@@ -68,7 +51,7 @@ function Projects() {
     });
 
     return () => observer.disconnect();
-  }, [isMobile, activeFilter]);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!isMobile) return;
@@ -84,13 +67,6 @@ function Projects() {
   }, [activeMobileProject, isMobile]);
 
   const allEntries = Object.entries(projectData);
-  const filterCounts = FILTERS.reduce((acc, { key }) => {
-    acc[key] = key === 'all' ? allEntries.length : allEntries.filter(([, p]) => p.category === key).length;
-    return acc;
-  }, {});
-  const visibleEntries = activeFilter === 'all'
-    ? allEntries
-    : allEntries.filter(([, project]) => project.category === activeFilter);
 
   return (
     <main className="main-content">
@@ -113,29 +89,12 @@ function Projects() {
 
             <div className="proj-repo-count">
               <LuGitFork size={14} />
-              <span>{filterCounts.all} pinned repositories</span>
-            </div>
-
-            {/* Filters */}
-            <div className="proj-filters">
-              <span className="proj-filter-pill" style={pillStyle} />
-              {FILTERS.map(({ key, label }) => (
-                <button
-                  key={key}
-                  ref={(el) => { filterRefs.current[key] = el; }}
-                  className={`proj-filter${activeFilter === key ? ' active' : ''}`}
-                  onClick={() => setActiveFilter(key)}
-                >
-                  {label}
-                  <span className="proj-filter-count">{filterCounts[key]}</span>
-                </button>
-              ))}
+              <span>{allEntries.length} pinned repositories</span>
             </div>
 
             {/* Grid */}
-            {visibleEntries.length > 0 ? (
-              <div className="projects-grid">
-                {visibleEntries.map(([projectName, project], index) => {
+            <div className="projects-grid">
+              {allEntries.map(([projectName, project], index) => {
                   const showVideo = isMobile
                     ? activeMobileProject === projectName && project.previewVid
                     : hoveredProject === projectName && project.previewVid;
@@ -207,13 +166,8 @@ function Projects() {
                       </div>
                     </Link>
                   );
-                })}
-              </div>
-            ) : (
-              <div className="proj-empty-state">
-                <span className="proj-empty-prompt">❯</span> no repositories found in this category yet
-              </div>
-            )}
+              })}
+            </div>
 
           </div>
         </div>

@@ -1,18 +1,8 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './ContactMePage.css';
 import { useContactForm } from '../../hooks/useContactForm';
 
 function ContactMePage() {
-  const navigate = useNavigate();
   const { formData, isSending, cooldown, handleChange, handleSubmit, buttonText } = useContactForm();
-
-  useEffect(() => {
-    const handleResize = () => { if (window.innerWidth > 768) navigate('/'); };
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, [navigate]);
 
   return (
     <div className="contact-me-page">

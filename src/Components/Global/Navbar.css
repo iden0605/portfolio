@@ -84,24 +84,44 @@
 .navbar-right {
   display: flex;
   align-items: center;
+  gap: 1.1rem;
 }
 
-.contact-button-desktop {
-  padding: 0.5em 1em;
-  font-size: 0.95em;
+.navbar-resume-link {
+  font-size: 1.05em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: transparent;
-  color: #8aadf4;
-  border: 1px solid #8aadf4;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  color: #cad3f5;
+  transition: color 0.1s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.contact-button-desktop:hover {
-  background-color: #8aadf4;
-  color: #1e2030;
+.navbar-resume-link:hover {
+  color: #eef0fc;
+  transform: translateY(-2px);
+}
+
+.navbar-separator {
+  color: #494d64;
+  font-size: 1.1em;
+}
+
+.navbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.navbar-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e738d;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-social-icon:hover {
+  color: #8aadf4;
+  transform: translateY(-2px);
 }
 
 .hamburger-icon {
@@ -194,16 +214,27 @@
   height: 100%;
 }
 
+.sidebar-socials {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.sidebar-socials .navbar-social-icon {
+  color: #6e738d;
+}
+
 .nav-underline {
   position: absolute;
   bottom: -4px;
   height: 2px;
   background: linear-gradient(135deg, #8aadf4, #b7bdf8);
   transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-}
-
-.contact-button-container {
-  display: none;
 }
 
 /* Desktop styles */
@@ -230,7 +261,9 @@
     display: flex;
   }
 
-  .contact-button-desktop {
+  .navbar-resume-link,
+  .navbar-separator,
+  .navbar-socials {
     display: none;
   }
 
@@ -238,9 +271,6 @@
     margin-left: auto;
   }
 
-  .contact-button-container {
-    display: none;
-  }
   .profile-name {
     font-size: 1.8rem;
   }
