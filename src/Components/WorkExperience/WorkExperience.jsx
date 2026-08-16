@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { LuBriefcase, LuUsers } from 'react-icons/lu';
 import './WorkExperience.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
@@ -9,13 +10,17 @@ function WorkExperience() {
     window.scrollTo(0, 0);
   }, []);
 
+  const entries = Object.entries(jobExperienceData);
+  const professional = entries.filter(([, job]) => job.category !== 'club');
+  const clubs = entries.filter(([, job]) => job.category === 'club');
+
   return (
     <main className="main-content">
       <div className="work-terminal" data-aos="fade-up">
 
         {/* Title bar */}
         <div className="work-titlebar">
-          <span className="work-title-text">~/work</span>
+          <span className="work-title-text">~/work $ ls -la</span>
           <div className="window-dots">
             <span className="window-dot window-dot--red" />
             <span className="window-dot window-dot--yellow" />
@@ -28,15 +33,14 @@ function WorkExperience() {
           <div className="work-scanlines" />
           <div className="work-screen-inner">
 
-            {/* Prompt */}
-            <div className="work-prompt-line">
-              <span className="work-prompt-arrow">❯</span>
-              <span className="work-prompt-cmd" style={{ '--cmd-len': 7 }}> ls -la</span>
+            {/* Professional experience */}
+            <div className="work-section-label">
+              <LuBriefcase size={14} />
+              <span># professional experience</span>
             </div>
 
-            {/* Table */}
             <div className="work-table">
-              {Object.entries(jobExperienceData).map(([companyName, job], index) => {
+              {professional.map(([companyName, job], index) => {
                 const { months, isOngoing } = calculateMonthsInRole(job.date);
                 const dirName = companyName.toLowerCase().replace(/\s+/g, '-') + '/';
 
@@ -71,6 +75,40 @@ function WorkExperience() {
                 );
               })}
             </div>
+
+            {/* Involvement & societies */}
+            {clubs.length > 0 && (
+              <>
+                <div className="work-section-label work-section-label--clubs">
+                  <LuUsers size={14} />
+                  <span># involvement &amp; societies</span>
+                </div>
+
+                <div className="work-club-list">
+                  {clubs.map(([companyName, job], index) => (
+                    <Link
+                      to={`/work-experience/${job.tokenizedName}`}
+                      key={companyName}
+                      className="work-club-row"
+                      data-aos="fade-up"
+                      data-aos-delay={index * 60}
+                    >
+                      <img
+                        src={job.cardImage}
+                        alt={companyName}
+                        className="work-club-logo"
+                      />
+                      <div className="work-club-text">
+                        <span className="work-club-role">{job.jobTitle}</span>
+                        <span className="work-club-sep">—</span>
+                        <span className="work-club-company">{companyName.toLowerCase().replace(/\s+/g, '-')}</span>
+                      </div>
+                      <span className="work-club-date">{job.date}</span>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
 
           </div>
         </div>

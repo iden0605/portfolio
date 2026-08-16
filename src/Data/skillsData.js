@@ -6,14 +6,17 @@ export const skills = {
     "JavaScript",
     "TypeScript",
     "SQL",
+    "Rust",
   ],
   "Frontend Development": [
     "HTML",
     "CSS",
     "Tailwind CSS",
     "React",
+    "Vue",
     "Next.js",
     "Blazor",
+    "Expo",
   ],
   "Databases": ["PostgreSQL", "MongoDB", "Google Cloud SQL", "MySQL", "SQLite"],
   "Backend Development": [
@@ -38,5 +41,6 @@ export const skills = {
     "GoHighLevel",
     "GitHub Actions",
     "Tailscale",
+    "Expo Go",
   ],
 };

@@ -2,6 +2,7 @@
 const jobExperienceData = {
   "Kewpump": {
     tokenizedName: "kewpump",
+    category: "professional",
     jobTitle: "Junior DevOps Engineer | Software Developer",
     cardImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
@@ -47,6 +48,7 @@ const jobExperienceData = {
 
   "Stego Studios": {
     tokenizedName: "stego-studios",
+    category: "club",
     jobTitle: "Game Developer (Programmer)",
     cardImage: "/assets/WorkExperience/StegoStudios/StegoStudios-image.jpg",
     headerImage: "/assets/WorkExperience/StegoStudios/StegoStudios-image.jpg",
@@ -79,6 +81,7 @@ const jobExperienceData = {
 
   "Unimelb MoMU Club": {
     tokenizedName: "momu",
+    category: "club",
     jobTitle: "IT and Analytics Officer",
     cardImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
     headerImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
@@ -104,6 +107,7 @@ const jobExperienceData = {
 
   "Unimelb GameMakers Club": {
     tokenizedName: "umgmc",
+    category: "club",
     jobTitle: "Technical Officer | Full-stack Developer",
     cardImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
     headerImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
@@ -131,6 +135,7 @@ const jobExperienceData = {
 
   "Bookings Made Easy": {
     tokenizedName: "bookings-made-easy",
+    category: "professional",
     jobTitle: "Co-founder | Software/Web Developer",
     cardImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
     headerImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
@@ -156,6 +161,7 @@ const jobExperienceData = {
 
   "Iden McElhone (Freelance)": {
     tokenizedName: "iden-mcelhone-freelance",
+    category: "professional",
     jobTitle: "Tutor",
     cardImage: "/assets/WorkExperience/Tutoring/Tutoring-image.jpg",
     headerImage: "/assets/WorkExperience/Tutoring/Tutoring-image.png",

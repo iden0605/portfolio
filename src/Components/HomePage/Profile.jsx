@@ -1,3 +1,4 @@
+import StatsStrip from './StatsStrip';
 import './Profile.css';
 
 function Profile() {
@@ -12,12 +13,18 @@ function Profile() {
         <span className="profile-prompt-arrow">❯</span>
         <span className="profile-prompt-cmd" style={{ '--cmd-len': 12 }}> cat bio.md</span>
       </div>
-      <img src="/iden_image.jpg" alt="Iden McElhone's profile picture" className="profile-picture" />
+      <div className="profile-picture-wrap">
+        <img src="/iden_image.jpg" alt="Iden McElhone's profile picture" className="profile-picture" />
+        <span className="profile-status-dot" aria-hidden="true" />
+      </div>
       <h1>{name}</h1>
       <p>{tagline}</p>
       <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
         <button className="cta-button">View Resume</button>
       </a>
+
+      <div className="profile-divider" />
+      <StatsStrip />
     </section>
   );
 }

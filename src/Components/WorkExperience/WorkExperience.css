@@ -138,6 +138,23 @@
   50% { opacity: 0; }
 }
 
+/* ── Section labels ───────────────────────────────────── */
+
+.work-section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: clamp(0.82rem, 1.6vw, 0.92rem);
+  font-weight: 700;
+  color: #8aadf4;
+  margin-bottom: 14px;
+}
+
+.work-section-label--clubs {
+  margin-top: 36px;
+}
+
 /* ── Table ────────────────────────────────────────────── */
 
 .work-table {
@@ -150,7 +167,7 @@
 
 .work-row {
   display: grid;
-  grid-template-columns: 48px 280px 1fr auto auto 28px;
+  grid-template-columns: 48px 280px 1fr 150px 110px 28px;
   align-items: center;
   gap: 0 20px;
   padding: 10px 14px;
@@ -214,7 +231,7 @@
   font-size: clamp(0.82rem, 1.4vw, 0.85rem);
   color: #a5adcb;
   white-space: nowrap;
-  text-align: right;
+  text-align: left;
 }
 
 /* ── Duration ─────────────────────────────────────────── */
@@ -283,6 +300,74 @@
   transform: translateX(3px);
 }
 
+/* ── Club / involvement list ──────────────────────────── */
+
+.work-club-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.work-club-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.work-club-row:hover {
+  background: rgba(138, 173, 244, 0.07);
+  border-color: rgba(138, 173, 244, 0.25);
+}
+
+.work-club-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #363a4f;
+  flex-shrink: 0;
+}
+
+.work-club-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.work-club-role {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.9rem, 1.7vw, 0.98rem);
+  font-weight: 700;
+  color: #eef0fc;
+}
+
+.work-club-sep {
+  color: #494d64;
+}
+
+.work-club-company {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: clamp(0.8rem, 1.5vw, 0.88rem);
+  color: #a5adcb;
+}
+
+.work-club-date {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.8rem, 1.4vw, 0.85rem);
+  color: #a5adcb;
+  flex-shrink: 0;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -326,6 +411,16 @@
     grid-column: 4;
     grid-row: 1 / 3;
     align-self: center;
+  }
+
+  .work-club-row {
+    flex-wrap: wrap;
+  }
+
+  .work-club-date {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 48px;
   }
 }
 

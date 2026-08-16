@@ -1,21 +1,29 @@
 import { useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { LuCode, LuLayoutTemplate, LuDatabase, LuServer, LuCloud, LuWrench } from 'react-icons/lu';
 import { skills } from '../../Data/skillsData';
 import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
-import GithubActivity from './GithubActivity';
 import './Terminal.css';
 
-const TABS = ['about.md', 'skills.sh', 'education.md', 'github.sh'];
+const TABS = ['about.md', 'skills.sh', 'education.md'];
 const skillCategories = Object.entries(skills);
+
+const SKILL_CATEGORY_META = {
+  'Programming Languages': { icon: LuCode, className: 'skills-group--blue' },
+  'Frontend Development':  { icon: LuLayoutTemplate, className: 'skills-group--lavender' },
+  'Databases':              { icon: LuDatabase, className: 'skills-group--yellow' },
+  'Backend Development':   { icon: LuServer, className: 'skills-group--pink' },
+  'Cloud & DevOps':         { icon: LuCloud, className: 'skills-group--green' },
+  'Platforms & Software':  { icon: LuWrench, className: 'skills-group--blue' },
+};
+
+const slugify = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 function Terminal() {
   const [activeTab, setActiveTab] = useState('about.md');
   const [isTabGlitching, setIsTabGlitching] = useState(false);
-  const [skillIndex, setSkillIndex] = useState(0);
-  const [isSkillGlitching, setIsSkillGlitching] = useState(false);
 
   const tabTimers = useRef([]);
-  const skillTimers = useRef([]);
   const tabsRef = useRef(null);
 
   // Height transition: measure inner content, drive outer height via inline style
@@ -56,29 +64,10 @@ function Terminal() {
     onChange: (index) => switchTab(TABS[index]),
   });
 
-  const cycleSkill = (newIndex) => {
-    if (isSkillGlitching) return;
-    skillTimers.current.forEach(clearTimeout);
-    setIsSkillGlitching(true);
-    skillTimers.current = [
-      setTimeout(() => setSkillIndex(newIndex), 150),
-      setTimeout(() => setIsSkillGlitching(false), 380),
-    ];
-  };
-
-  const skillNext = () => cycleSkill((skillIndex + 1) % skillCategories.length);
-  const skillPrev = () => cycleSkill((skillIndex - 1 + skillCategories.length) % skillCategories.length);
-
-  const [category, items] = skillCategories[skillIndex];
-  const mid = Math.ceil(items.length / 2);
-  const col1 = items.slice(0, mid);
-  const col2 = items.slice(mid);
-
   const promptCmd = {
     'about.md': 'cat about.md',
     'skills.sh': 'bash skills.sh',
     'education.md': 'cat education.txt',
-    'github.sh': 'bash github.sh --stats',
   };
 
   return (
@@ -163,34 +152,24 @@ function Terminal() {
                 <span className="prompt-arrow">❯</span>
                 <span className="prompt-cmd" style={{ '--cmd-len': promptCmd['skills.sh'].length + 1 }}> {promptCmd['skills.sh']}</span>
               </div>
-              <div className={`skills-output${isSkillGlitching ? ' glitch' : ''}`}>
-                <div className="skills-category-label"># {category}</div>
-                <div className="skills-columns">
-                  <div className="skills-col">
-                    {col1.map((skill, i) => (
-                      <div key={i} className="skill-row">- {skill}</div>
-                    ))}
-                  </div>
-                  <div className="skills-col">
-                    {col2.map((skill, i) => (
-                      <div key={i} className="skill-row">- {skill}</div>
-                    ))}
-                  </div>
-                </div>
-                <div className="skills-nav">
-                  <button className="skill-nav-btn" onClick={skillPrev} aria-label="Previous category">◀</button>
-                  <div className="skill-nav-dots">
-                    {skillCategories.map((_, i) => (
-                      <span
-                        key={i}
-                        className={`skill-nav-dot${i === skillIndex ? ' active' : ''}`}
-                        onClick={() => i !== skillIndex && cycleSkill(i)}
-                        aria-label={`Go to ${skillCategories[i][0]}`}
-                      />
-                    ))}
-                  </div>
-                  <button className="skill-nav-btn" onClick={skillNext} aria-label="Next category">▶</button>
-                </div>
+              <div className="skills-groups">
+                {skillCategories.map(([category, items]) => {
+                  const meta = SKILL_CATEGORY_META[category] || { icon: LuCode, className: 'skills-group--blue' };
+                  const Icon = meta.icon;
+                  return (
+                    <div className="skills-group" key={category}>
+                      <div className={`skills-group-label ${meta.className}`}>
+                        <Icon size={13} />
+                        <span># {slugify(category)}</span>
+                      </div>
+                      <div className="skills-chip-row">
+                        {items.map((skill) => (
+                          <span className="skill-chip" key={skill}>{skill}</span>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -240,17 +219,6 @@ function Terminal() {
                 </div>
 
               </div>
-            </div>
-          )}
-
-          {/* ── github.sh ── */}
-          {activeTab === 'github.sh' && (
-            <div className="term-content" key="github">
-              <div className="prompt-line">
-                <span className="prompt-arrow">❯</span>
-                <span className="prompt-cmd" style={{ '--cmd-len': promptCmd['github.sh'].length + 1 }}> {promptCmd['github.sh']}</span>
-              </div>
-              <GithubActivity />
             </div>
           )}
         </div> {/* screen-inner */}

@@ -3,12 +3,8 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  max-width: 720px;
-  margin: 0 auto 2rem;
-  background-color: #24273a;
-  border: 1px solid #363a4f;
-  border-radius: 8px;
-  padding: 0.6rem 0.5rem;
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .stat-chip {

@@ -2,6 +2,7 @@
 const projectData = {
   "NAUT": {
     tokenizedName: "naut",
+    category: "hackathons",
     description: `NAUT is a third-person wave-survival game set on a fully traversable, tiny spherical planet, winner of MAC Game Jam 2026. Players fend off escalating enemy waves and arena boss contracts while upgrading their suit and pistol between runs, with movement, combat, and gravity all following the planet's curved surface. Built alongside one teammate in 2 days.`,
     date: "MAC Game Jam 2026 Winner",
     type: "Game Jam",
@@ -73,6 +74,7 @@ const projectData = {
   },
   "Everchanging Grimoire": {
     tokenizedName: "everchanging-grimoire",
+    category: "hackathons",
     description: `Everchanging Grimoire is a 2D top-down roguelite dungeon crawler built in 3 days at HackMelbourne Hackiethon 2026. Winner among 50 submissions, awarded "Most Entertaining Game". The dungeon is a sentient, hungry book. After every floor, the Gemini API reads your playstyle, spells, and damage taken to generate the next floor's theme, enemies, and a new spell designed to counter you. Spells are composed from a vocabulary of around 60 behaviour tags, letting the LLM create emergent, never-repeating combinations without any runtime code generation.`,
     date: "HackMelbourne Hackiethon 2026 Winner",
     type: "Game Jam",
@@ -160,6 +162,7 @@ const projectData = {
   },
   "EchoAI": {
     tokenizedName: "echoai",
+    category: "hackathons",
     description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
     date: "MelbourneHack 2025 Winner",
     type: "Hackathon",
@@ -211,6 +214,7 @@ const projectData = {
   },
   "Git Gud Coach": {
     tokenizedName: "git-gud-coach",
+    category: "hackathons",
     description: `Git Gud Coach is a VS Code extension that watches your Git behaviour and roasts you for it like a toxic esports coach. Every commit, push, and merge is scored across a Bronze-to-Diamond rank ladder with AI-generated roasts powered by 5 providers, 20 achievements, and a Weekly Hygiene Report quantifying how unhinged your week actually was. Built at Trendhacker 2026 by team Trend Hackers.`,
     date: "Trendhacker 2026",
     type: "Hackathon",
@@ -283,6 +287,7 @@ const projectData = {
   },
   "Afloat": {
     tokenizedName: "afloat",
+    category: "hackathons",
     description: `Afloat is a tactical tower defense game where players build a nature-powered defense force to hold back waves of creeping enemies and plastic pollution threatening a fragile ecosystem. Deploy a roster of unique creatures — from ants that dash into melee, to koi that fire piercing laser beams — each with their own attack behaviour, upgrade path, and evolution form.`,
     date: "Click & Claw 2026 Finalist",
     type: "Game Jam",
@@ -468,6 +473,7 @@ const projectData = {
   },
   "Stella Taco": {
     tokenizedName: "stella-taco",
+    category: "hackathons",
     description: `Stella Taco is an AI-powered platform that transforms any uploaded content (PDFs, lecture notes, journals, and transcripts)into a navigable 3D galaxy. A Gemini-powered pipeline breaks the material into solar systems, planets, and concepts, then weaves long-form character-driven stories through them. The result is rendered as an interactive Three.js space where knowledge becomes a cosmos to explore, complete with a public discovery feed where anyone can browse and share their galaxies.`,
     date: "CISSA CodeBrew 2026",
     type: "Hackathon",
@@ -531,6 +537,7 @@ const projectData = {
   },
   "OverGrown": {
     tokenizedName: "overgrown",
+    category: "hackathons",
     description: `A town has been overrun by Cyborg Lumberjacks, and Mother Nature must restore it. Playing as a nature fairy, you uncover her story, confront environmental damage, and free a companion to help heal the land. This exploration-focused game emphasizes themes of healing, friendship, and the conflict between nature and machine.`,
     date: "CISSA x GMC Game Jam 2025",
     type: "Game Jam",
@@ -592,6 +599,7 @@ const projectData = {
   },
   "PebbleTask": {
     tokenizedName: "pebbletask",
+    category: "hackathons",
     description: `Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.`,
     date: "HackMelbourne Hackiethon 2025",
     type: "Hackathon",
@@ -634,6 +642,7 @@ const projectData = {
   },
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
+    category: "university",
     description: `This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.`,
     date: "June 2025 - July 2025",
     type: "University Project",

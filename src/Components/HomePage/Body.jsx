@@ -1,6 +1,6 @@
 import '../../App.css';
 import Profile from './Profile';
-import StatsStrip from './StatsStrip';
+import GithubSection from './GithubSection';
 import Terminal from './Terminal';
 
 function Body() {
@@ -8,8 +8,8 @@ function Body() {
   return (
     <main className="main-content">
       <Profile />
-      <StatsStrip />
       <Terminal />
+      <GithubSection />
     </main>
   );
 }
