@@ -1,9 +1,11 @@
 import { useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { skills } from '../../Data/skillsData';
+import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
+import GithubActivity from './GithubActivity';
 import './Terminal.css';
 
-const TABS = ['about.md', 'skills.sh', 'education.md'];
+const TABS = ['about.md', 'skills.sh', 'education.md', 'github.sh'];
 const skillCategories = Object.entries(skills);
 
 function Terminal() {
@@ -14,6 +16,7 @@ function Terminal() {
 
   const tabTimers = useRef([]);
   const skillTimers = useRef([]);
+  const tabsRef = useRef(null);
 
   // Height transition: measure inner content, drive outer height via inline style
   const screenRef = useRef(null);
@@ -46,6 +49,13 @@ function Terminal() {
     ];
   };
 
+  const { isOverflowing, goPrev, goNext, onTouchStart, onTouchEnd } = useOverflowTabNav({
+    tabsRef,
+    activeIndex: TABS.indexOf(activeTab),
+    count: TABS.length,
+    onChange: (index) => switchTab(TABS[index]),
+  });
+
   const cycleSkill = (newIndex) => {
     if (isSkillGlitching) return;
     skillTimers.current.forEach(clearTimeout);
@@ -68,6 +78,7 @@ function Terminal() {
     'about.md':       'cat about.md',
     'skills.sh':      'bash skills.sh',
     'education.md':  'cat education.txt',
+    'github.sh':      'bash github.sh --stats',
   };
 
   return (
@@ -84,20 +95,33 @@ function Terminal() {
       </div>
 
       {/* Tabs */}
-      <div className="terminal-tabs">
-        {TABS.map(tab => (
-          <button
-            key={tab}
-            className={`terminal-tab${activeTab === tab ? ' active' : ''}`}
-            onClick={() => switchTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
+      <div className={`terminal-tabs-wrapper${isOverflowing ? ' overflowing' : ''}`}>
+        {isOverflowing && (
+          <button className="terminal-tabs-arrow" onClick={goPrev} aria-label="Previous tab">‹</button>
+        )}
+        <div ref={tabsRef} className="terminal-tabs">
+          {TABS.map(tab => (
+            <button
+              key={tab}
+              className={`terminal-tab${activeTab === tab ? ' active' : ''}`}
+              onClick={() => switchTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        {isOverflowing && (
+          <button className="terminal-tabs-arrow" onClick={goNext} aria-label="Next tab">›</button>
+        )}
       </div>
 
       {/* Screen */}
-      <div ref={screenRef} className={`terminal-screen${isTabGlitching ? ' glitch' : ''}`}>
+      <div
+        ref={screenRef}
+        className={`terminal-screen${isTabGlitching ? ' glitch' : ''}`}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="scanlines" />
         <div ref={innerRef} className="screen-inner">
 
@@ -216,6 +240,17 @@ function Terminal() {
               </div>
 
             </div>
+          </div>
+        )}
+
+        {/* ── github.sh ── */}
+        {activeTab === 'github.sh' && (
+          <div className="term-content" key="github">
+            <div className="prompt-line">
+              <span className="prompt-arrow">❯</span>
+              <span className="prompt-cmd" style={{ '--cmd-len': promptCmd['github.sh'].length + 1 }}> {promptCmd['github.sh']}</span>
+            </div>
+            <GithubActivity />
           </div>
         )}
         </div> {/* screen-inner */}

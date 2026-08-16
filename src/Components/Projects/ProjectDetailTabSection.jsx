@@ -11,10 +11,10 @@ function ProjectDetailTabSection({ details, projectName }) {
   const glitchTimers = useRef([]);
   const screenRef = useRef(null);
   const innerRef = useRef(null);
-  const tabsRef = useRef(null);
 
   const slug = projectName.toLowerCase().replace(/\s+/g, '-');
-  const tabSlug = (title) => title.toLowerCase().replace(/\s+/g, '-') + '.txt';
+  const fileSlug = (title) => title.toLowerCase().replace(/\s+/g, '-') + '.txt';
+  const hexTag = (index) => `0x${String(index + 1).padStart(2, '0')}`;
 
   const syncHeight = useCallback(() => {
     if (screenRef.current && innerRef.current) {
@@ -32,7 +32,7 @@ function ProjectDetailTabSection({ details, projectName }) {
 
   if (!details || details.length === 0) return null;
 
-  const switchTab = (index) => {
+  const selectFile = (index) => {
     if (index === activeIndex || isGlitching) return;
     glitchTimers.current.forEach(clearTimeout);
     setIsGlitching(true);
@@ -40,12 +40,6 @@ function ProjectDetailTabSection({ details, projectName }) {
       setTimeout(() => setActiveIndex(index), 150),
       setTimeout(() => setIsGlitching(false), 380),
     ];
-  };
-
-  const scrollTabs = (dir) => {
-    if (tabsRef.current) {
-      tabsRef.current.scrollBy({ left: dir * 160, behavior: 'smooth' });
-    }
   };
 
   const renderContentBlock = (item, key) => {
@@ -95,30 +89,36 @@ function ProjectDetailTabSection({ details, projectName }) {
           </div>
         </div>
 
-        <div className="detail-tabs-wrapper">
-          <button className="detail-tabs-arrow" onClick={() => scrollTabs(-1)} aria-label="Scroll tabs left">‹</button>
-          <div ref={tabsRef} className="detail-tabs">
-            {details.map((block, i) => (
-              <button
-                key={i}
-                className={`detail-tab${i === activeIndex ? ' active' : ''}`}
-                onClick={() => switchTab(i)}
-              >
-                {tabSlug(block.title)}
-              </button>
-            ))}
-          </div>
-          <button className="detail-tabs-arrow" onClick={() => scrollTabs(1)} aria-label="Scroll tabs right">›</button>
-        </div>
-
-        <div ref={screenRef} className={`detail-screen${isGlitching ? ' glitch' : ''}`}>
-          <div ref={innerRef} className="detail-screen-inner">
-            <div className="detail-prompt-line" key={activeIndex}>
-              <span className="dp-arrow">❯</span>
-              <span className="dp-cmd" style={{ '--cmd-len': tabSlug(active.title).length + 5 }}> cat {tabSlug(active.title)}</span>
+        <div className="explorer-layout">
+          <div className="explorer-sidebar">
+            <div className="explorer-sidebar-label">Explorer</div>
+            <div className="explorer-folder-row">
+              <span className="explorer-folder-caret">▾</span>
+              <span className="explorer-folder-name">{slug}/</span>
             </div>
-            <div className="detail-cat-content">
-              {active.content.map((item, i) => renderContentBlock(item, i))}
+            <div className="explorer-file-list">
+              {details.map((block, i) => (
+                <button
+                  key={i}
+                  className={`explorer-file${i === activeIndex ? ' active' : ''}`}
+                  onClick={() => selectFile(i)}
+                >
+                  <span className="explorer-file-hex">{hexTag(i)}</span>
+                  <span className="explorer-file-name">{fileSlug(block.title)}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div ref={screenRef} className={`detail-screen explorer-content${isGlitching ? ' glitch' : ''}`}>
+            <div ref={innerRef} className="detail-screen-inner">
+              <div className="detail-prompt-line" key={activeIndex}>
+                <span className="dp-arrow">❯</span>
+                <span className="dp-cmd" style={{ '--cmd-len': fileSlug(active.title).length + 5 }}> cat {fileSlug(active.title)}</span>
+              </div>
+              <div className="detail-cat-content">
+                {active.content.map((item, i) => renderContentBlock(item, i))}
+              </div>
             </div>
           </div>
         </div>

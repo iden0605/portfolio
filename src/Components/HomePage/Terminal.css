@@ -72,13 +72,50 @@
 
 /* ── Tab bar ─────────────────────────────────────────── */
 
+.terminal-tabs-wrapper {
+  background: #1e2030;
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #181926;
+}
+
+.terminal-tabs-arrow {
+  display: none;
+  flex-shrink: 0;
+  background: #1e2030;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: #6e738d;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  outline: none;
+  margin-bottom: -1px;
+}
+.terminal-tabs-arrow:focus { outline: none; }
+.terminal-tabs-arrow:hover { color: #8aadf4; }
+
+@media (max-width: 768px) {
+  .terminal-tabs-arrow {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .terminal-tabs {
   background: #1e2030;
   display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   border-bottom: 1px solid #181926;
   padding: 0 6px;
   gap: 2px;
 }
+.terminal-tabs::-webkit-scrollbar { display: none; }
 
 .terminal-tab {
   padding: 8px 22px;
@@ -94,6 +131,7 @@
   border-radius: 4px 4px 0 0;
   margin-bottom: -1px;
   white-space: nowrap;
+  flex-shrink: 0;
   outline: none;
 }
 
@@ -453,6 +491,199 @@
 }
 
 .edu-lang-sep { color: #494d64; }
+
+/* ── GitHub content ──────────────────────────────────── */
+
+.github-output {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: relative;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.github-error {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  color: #a5adcb;
+}
+
+.github-stat-row {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.github-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.github-stat-value {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  font-weight: 700;
+  color: #a6da95;
+  line-height: 1.1;
+}
+
+.github-stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+  color: #a5adcb;
+  font-weight: 600;
+}
+
+.github-graph-wrap {
+  border: 1px solid #363a4f;
+  border-radius: 8px;
+  background: #1e2030;
+  padding: 16px;
+}
+
+.github-graph-scroll {
+  overflow-x: auto;
+}
+
+.github-graph {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.github-graph-months {
+  position: relative;
+  height: 14px;
+  margin-left: 31px;
+}
+
+.github-month-label {
+  position: absolute;
+  top: 0;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.68rem;
+  color: #a5adcb;
+  white-space: nowrap;
+}
+
+.github-graph-body {
+  display: flex;
+  gap: 4px;
+}
+
+.github-graph-day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.github-day-label {
+  height: 13px;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.62rem;
+  color: #a5adcb;
+  line-height: 13px;
+}
+
+.github-graph-grid {
+  display: flex;
+  gap: 4px;
+}
+
+.github-graph-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.github-cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  background: #363a4f;
+}
+
+.github-cell--empty {
+  background: transparent;
+}
+
+.github-cell.level-0 { background: #333752; }
+.github-cell.level-1 { background: #23492e; }
+.github-cell.level-2 { background: #2f6b3c; }
+.github-cell.level-3 { background: #4c9950; }
+.github-cell.level-4 { background: #a6da95; }
+
+.github-cell:not(.github-cell--empty):hover {
+  outline: 1px solid #cad3f5;
+  outline-offset: 1px;
+  cursor: pointer;
+}
+
+.github-cell.pinned {
+  outline: 1px solid #a6da95;
+  outline-offset: 1px;
+}
+
+.github-graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 31px;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.68rem;
+  color: #a5adcb;
+}
+
+.github-graph-legend .github-cell {
+  width: 13px;
+  height: 13px;
+}
+
+.github-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 8px));
+  background: #181926;
+  color: #eef0fc;
+  border: 1px solid #363a4f;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.github-profile-link {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: clamp(0.85rem, 1.7vw, 0.95rem);
+}
+
+.github-footer-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.github-disclaimer {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: #a5adcb;
+}
+
+@media (max-width: 480px) {
+  .github-stat-row {
+    gap: 1.5rem;
+  }
+}
 
 /* ── CRT glitch keyframes ────────────────────────────── */
 

@@ -76,6 +76,7 @@
 }
 
 .detail-tabs-arrow {
+  display: none;
   flex-shrink: 0;
   background: #1e2030;
   border: none;
@@ -92,6 +93,13 @@
 .detail-tabs-arrow:focus { outline: none; }
 .detail-tabs-arrow:focus-visible { outline: none; }
 .detail-tabs-arrow:hover { color: #8aadf4; }
+
+@media (max-width: 768px) {
+  .detail-tabs-arrow {
+    display: flex;
+    align-items: center;
+  }
+}
 
 .detail-tabs {
   flex: 1;
@@ -208,6 +216,17 @@
   50% { opacity: 0; }
 }
 
+/* Pause typing until scrolled into view */
+.dp-cmd,
+.dp-cmd::after {
+  animation-play-state: paused;
+}
+
+.aos-animate .dp-cmd,
+.aos-animate .dp-cmd::after {
+  animation-play-state: running;
+}
+
 /* ── Cat content ─────────────────────────────────────── */
 
 .detail-cat-content {
@@ -275,6 +294,109 @@
   line-height: 1.7;
 }
 
+/* ── Project detail file explorer ────────────────────── */
+
+.explorer-layout {
+  display: flex;
+  align-items: stretch;
+  min-height: 340px;
+}
+
+.explorer-sidebar {
+  flex-shrink: 0;
+  width: 240px;
+  background: #1e2030;
+  border-right: 1px solid #181926;
+  padding: 14px 0;
+}
+
+.explorer-sidebar-label {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6e738d;
+  padding: 0 18px 10px;
+}
+
+.explorer-folder-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 18px 10px;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #a6da95;
+}
+
+.explorer-folder-caret {
+  font-size: 0.7rem;
+  color: #6e738d;
+}
+
+.explorer-file-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.explorer-file {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 18px 8px 30px;
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  outline: none;
+}
+
+.explorer-file:focus,
+.explorer-file:focus-visible {
+  outline: none;
+}
+
+.explorer-file:hover:not(.active) {
+  background: rgba(36, 39, 58, 0.6);
+  border-left-color: transparent;
+}
+
+.explorer-file.active {
+  background: rgba(138, 173, 244, 0.1);
+  border-left-color: #8aadf4;
+}
+
+.explorer-file-hex {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #eed49f;
+  flex-shrink: 0;
+}
+
+.explorer-file-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8aadf4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.explorer-file.active .explorer-file-name {
+  color: #eef0fc;
+}
+
+.explorer-content {
+  flex: 1;
+  min-width: 0;
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 768px) {
@@ -284,6 +406,35 @@
   .detail-tab {
     padding: 8px 14px;
     font-size: 0.78rem;
+  }
+  .explorer-layout {
+    flex-direction: column;
+  }
+  .explorer-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #181926;
+    padding: 10px 0;
+  }
+  .explorer-file-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 0 12px;
+  }
+  .explorer-file {
+    padding: 7px 12px;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 4px 4px 0 0;
+  }
+  .explorer-file.active {
+    border-left: none;
+    border-bottom-color: #8aadf4;
+  }
+  .explorer-folder-row,
+  .explorer-sidebar-label {
+    padding-left: 12px;
   }
 }
 

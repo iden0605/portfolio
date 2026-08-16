@@ -4,6 +4,7 @@ import './WorkExperienceDetail.css';
 import '../Projects/ProjectDetails.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
+import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
 
 function WorkExperienceHeader({ companyName }) {
   const job = jobExperienceData[companyName];
@@ -22,6 +23,7 @@ function WorkExperienceHeader({ companyName }) {
   const glitchTimers = useRef([]);
   const screenRef = useRef(null);
   const innerRef = useRef(null);
+  const tabsRef = useRef(null);
 
   const syncHeight = useCallback(() => {
     if (screenRef.current && innerRef.current) {
@@ -47,6 +49,13 @@ function WorkExperienceHeader({ companyName }) {
     ];
   };
 
+  const { isOverflowing, goPrev, goNext, onTouchStart, onTouchEnd } = useOverflowTabNav({
+    tabsRef,
+    activeIndex: tabs.indexOf(activeTab),
+    count: tabs.length,
+    onChange: (index) => switchTab(tabs[index]),
+  });
+
   const slug = companyName.toLowerCase().replace(/\s+/g, '-');
 
   return (
@@ -61,19 +70,32 @@ function WorkExperienceHeader({ companyName }) {
         </div>
       </div>
 
-      <div className="detail-tabs">
-        {tabs.map(tab => (
-          <button
-            key={tab}
-            className={`detail-tab${activeTab === tab ? ' active' : ''}`}
-            onClick={() => switchTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
+      <div className={`detail-tabs-wrapper${isOverflowing ? ' overflowing' : ''}`}>
+        {isOverflowing && (
+          <button className="detail-tabs-arrow" onClick={goPrev} aria-label="Previous tab">‹</button>
+        )}
+        <div ref={tabsRef} className="detail-tabs">
+          {tabs.map(tab => (
+            <button
+              key={tab}
+              className={`detail-tab${activeTab === tab ? ' active' : ''}`}
+              onClick={() => switchTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+        {isOverflowing && (
+          <button className="detail-tabs-arrow" onClick={goNext} aria-label="Next tab">›</button>
+        )}
       </div>
 
-      <div ref={screenRef} className={`detail-screen${isGlitching ? ' glitch' : ''}`}>
+      <div
+        ref={screenRef}
+        className={`detail-screen${isGlitching ? ' glitch' : ''}`}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div ref={innerRef} className="detail-screen-inner">
 
           <div className="detail-prompt-line" key={activeTab}>
