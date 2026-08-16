@@ -1,46 +1,42 @@
-import { useState, useRef, useCallback, useLayoutEffect } from 'react';
+import { useState } from 'react';
+import {
+  LuChevronDown,
+  LuGitBranch,
+  LuGitMerge,
+  LuSparkles,
+  LuClapperboard,
+  LuBookOpen,
+} from 'react-icons/lu';
 import './ProjectDetails.css';
 import ImageModal from '../Global/ImageModal';
 import TroopCarousel from './TroopCarousel';
 
+const TYPE_META = {
+  demo:    { icon: LuClapperboard, label: 'demo',    className: 'commit-type--demo' },
+  system:  { icon: LuGitBranch,    label: 'system',  className: 'commit-type--system' },
+  feature: { icon: LuSparkles,     label: 'feature', className: 'commit-type--feature' },
+  notes:   { icon: LuBookOpen,     label: 'notes',    className: 'commit-type--notes' },
+};
+
+function inferType(content) {
+  if (content.some((item) => item.type === 'video')) return 'demo';
+  if (content.some((item) => item.type === 'troop-carousel')) return 'system';
+  if (content.some((item) => item.type === 'image')) return 'feature';
+  return 'notes';
+}
+
 function ProjectDetailTabSection({ details, projectName }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isGlitching, setIsGlitching] = useState(false);
+  const [openIndex, setOpenIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
-  const glitchTimers = useRef([]);
-  const screenRef = useRef(null);
-  const innerRef = useRef(null);
 
   const slug = projectName.toLowerCase().replace(/\s+/g, '-');
   const fileSlug = (title) => title.toLowerCase().replace(/\s+/g, '-') + '.txt';
   const hexTag = (index) => `0x${String(index + 1).padStart(2, '0')}`;
 
-  const syncHeight = useCallback(() => {
-    if (screenRef.current && innerRef.current) {
-      screenRef.current.style.height = `${innerRef.current.offsetHeight}px`;
-    }
-  }, []);
-
-  useLayoutEffect(() => { syncHeight(); }, [activeIndex, syncHeight]);
-  useLayoutEffect(() => {
-    if (!innerRef.current) return;
-    const ro = new ResizeObserver(syncHeight);
-    ro.observe(innerRef.current);
-    return () => ro.disconnect();
-  }, [syncHeight]);
-
   if (!details || details.length === 0) return null;
 
-  const selectFile = (index) => {
-    if (index === activeIndex || isGlitching) return;
-    glitchTimers.current.forEach(clearTimeout);
-    setIsGlitching(true);
-    glitchTimers.current = [
-      setTimeout(() => setActiveIndex(index), 150),
-      setTimeout(() => setIsGlitching(false), 380),
-    ];
-  };
+  const toggle = (index) => setOpenIndex((current) => (current === index ? null : index));
 
   const renderContentBlock = (item, key) => {
     switch (item.type) {
@@ -74,14 +70,12 @@ function ProjectDetailTabSection({ details, projectName }) {
     }
   };
 
-  const active = details[activeIndex];
-
   return (
     <>
       <section className="section detail-terminal-section" data-aos="fade-up">
 
         <div className="detail-titlebar">
-          <span className="detail-title-text">~/projects/{slug} $ ls</span>
+          <span className="detail-title-text">~/projects/{slug} $ git log --graph</span>
           <div className="window-dots">
             <span className="window-dot window-dot--red" />
             <span className="window-dot window-dot--yellow" />
@@ -89,39 +83,55 @@ function ProjectDetailTabSection({ details, projectName }) {
           </div>
         </div>
 
-        <div className="explorer-layout">
-          <div className="explorer-sidebar">
-            <div className="explorer-sidebar-label">Explorer</div>
-            <div className="explorer-folder-row">
-              <span className="explorer-folder-caret">▾</span>
-              <span className="explorer-folder-name">{slug}/</span>
-            </div>
-            <div className="explorer-file-list">
-              {details.map((block, i) => (
-                <button
-                  key={i}
-                  className={`explorer-file${i === activeIndex ? ' active' : ''}`}
-                  onClick={() => selectFile(i)}
-                >
-                  <span className="explorer-file-hex">{hexTag(i)}</span>
-                  <span className="explorer-file-name">{fileSlug(block.title)}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div ref={screenRef} className={`detail-screen explorer-content${isGlitching ? ' glitch' : ''}`}>
-            <div ref={innerRef} className="detail-screen-inner">
-              <div className="detail-prompt-line" key={activeIndex}>
-                <span className="dp-arrow">❯</span>
-                <span className="dp-cmd" style={{ '--cmd-len': fileSlug(active.title).length + 5 }}> cat {fileSlug(active.title)}</span>
-              </div>
-              <div className="detail-cat-content">
-                {active.content.map((item, i) => renderContentBlock(item, i))}
-              </div>
-            </div>
-          </div>
+        <div className="commit-branch-row">
+          <LuGitMerge size={14} />
+          <span className="commit-branch-name">main</span>
+          <span className="commit-branch-sep">·</span>
+          <span className="commit-branch-count">{details.length} commits</span>
         </div>
+
+        <ul className="commit-log">
+          {details.map((block, i) => {
+            const type = inferType(block.content);
+            const meta = TYPE_META[type];
+            const Icon = meta.icon;
+            const isOpen = openIndex === i;
+            const isLast = i === details.length - 1;
+
+            return (
+              <li className={`commit-row${isLast ? ' commit-row--last' : ''}`} key={i}>
+                <span className={`commit-node ${meta.className}`}>
+                  <span className="commit-node-dot" />
+                </span>
+
+                <button
+                  className="commit-header"
+                  onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="commit-meta-row">
+                    <span className={`commit-type-badge ${meta.className}`}>
+                      <Icon size={11} />
+                      {meta.label}
+                    </span>
+                    <span className="commit-hash">{hexTag(i)}</span>
+                    <span className="commit-scope">{fileSlug(block.title)}</span>
+                    <LuChevronDown size={14} className={`commit-chevron${isOpen ? ' open' : ''}`} />
+                  </div>
+                  <p className="commit-title">{block.title}</p>
+                </button>
+
+                <div className={`commit-body-wrap${isOpen ? ' open' : ''}`}>
+                  <div className="commit-body-clip">
+                    <div className="commit-body detail-cat-content">
+                      {block.content.map((item, j) => renderContentBlock(item, j))}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
 
       </section>
 

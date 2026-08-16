@@ -294,107 +294,209 @@
   line-height: 1.7;
 }
 
-/* ── Project detail file explorer ────────────────────── */
+/* ── Project detail commit log ───────────────────────── */
 
-.explorer-layout {
-  display: flex;
-  align-items: stretch;
-  min-height: 340px;
-}
-
-.explorer-sidebar {
-  flex-shrink: 0;
-  width: 240px;
-  background: #1e2030;
-  border-right: 1px solid #181926;
-  padding: 14px 0;
-}
-
-.explorer-sidebar-label {
-  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #6e738d;
-  padding: 0 18px 10px;
-}
-
-.explorer-folder-row {
+.commit-branch-row {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 18px 10px;
-  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #a6da95;
-}
-
-.explorer-folder-caret {
-  font-size: 0.7rem;
-  color: #6e738d;
-}
-
-.explorer-file-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.explorer-file {
-  display: flex;
-  align-items: baseline;
   gap: 8px;
-  padding: 8px 18px 8px 30px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #181926;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  color: #8aadf4;
+}
+
+.commit-branch-name {
+  font-weight: 700;
+}
+
+.commit-branch-sep {
+  color: #494d64;
+}
+
+.commit-branch-count {
+  color: #a5adcb;
+}
+
+.commit-log {
+  padding: 20px 24px 24px;
+  /* Prevent the browser's scroll-anchoring from fighting the concurrent
+     scrollIntoView animation while a row's height is actively transitioning. */
+  overflow-anchor: none;
+}
+
+.commit-row {
+  position: relative;
+  padding-left: 34px;
+}
+
+.commit-row:not(.commit-row--last)::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 26px;
+  bottom: -8px;
+  width: 2px;
+  background: #363a4f;
+}
+
+.commit-node {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1e2030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px #1e2030;
+}
+
+.commit-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.commit-type--demo    .commit-node-dot { background: #ed8796; }
+.commit-type--system  .commit-node-dot { background: #8aadf4; }
+.commit-type--feature .commit-node-dot { background: #a6da95; }
+.commit-type--notes   .commit-node-dot { background: #eed49f; }
+
+.commit-header {
+  display: block;
+  width: 100%;
   background: transparent;
   border: none;
-  border-left: 2px solid transparent;
-  border-radius: 0;
+  padding: 0;
+  margin: 0 0 20px;
   cursor: pointer;
   text-align: left;
-  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
-  transition: background 0.15s ease, border-color 0.15s ease;
   outline: none;
 }
 
-.explorer-file:focus,
-.explorer-file:focus-visible {
+.commit-row--last .commit-header {
+  margin-bottom: 0;
+}
+
+.commit-header:focus,
+.commit-header:focus-visible {
   outline: none;
 }
 
-.explorer-file:hover:not(.active) {
+.commit-meta-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.commit-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid #363a4f;
   background: rgba(36, 39, 58, 0.6);
-  border-left-color: transparent;
-}
-
-.explorer-file.active {
-  background: rgba(138, 173, 244, 0.1);
-  border-left-color: #8aadf4;
-}
-
-.explorer-file-hex {
-  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.65rem;
   font-weight: 700;
-  color: #eed49f;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   flex-shrink: 0;
 }
 
-.explorer-file-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #8aadf4;
-  white-space: nowrap;
+.commit-type--demo    { color: #ed8796; }
+.commit-type--system  { color: #8aadf4; }
+.commit-type--feature { color: #a6da95; }
+.commit-type--notes   { color: #eed49f; }
+
+.commit-hash {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #b8c0e0;
+  flex-shrink: 0;
+}
+
+.commit-scope {
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  color: #a5adcb;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.explorer-file.active .explorer-file-name {
+.commit-chevron {
+  margin-left: auto;
+  color: #6e738d;
+  transition: transform 0.25s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.commit-chevron.open {
+  transform: rotate(180deg);
+}
+
+.commit-header:hover .commit-chevron {
+  color: #cad3f5;
+}
+
+.commit-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(0.98rem, 2vw, 1.1rem);
+  font-weight: 700;
   color: #eef0fc;
+  margin: 0;
+  line-height: 1.4;
 }
 
-.explorer-content {
-  flex: 1;
-  min-width: 0;
+.commit-body-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease, opacity 0.25s ease;
+  margin-bottom: 0;
+}
+
+.commit-body-wrap.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+.commit-row--last .commit-body-wrap.open {
+  margin-bottom: 0;
+}
+
+.commit-body-clip {
+  overflow: hidden;
+}
+
+.commit-body {
+  padding: 4px 0 0;
+}
+
+/* .commit-log is a <ul>, so it falls outside the global
+   `.section > div:not(.project-details) p` paragraph styling — reapply it here. */
+.commit-body .description p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 0.8rem;
+  border-left: 3px solid #494d64;
+  padding-left: 1.5rem;
+  color: #cad3f5;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  font-family: 'Inter', sans-serif;
 }
 
 /* ── Responsive ──────────────────────────────────────── */
@@ -407,34 +509,27 @@
     padding: 8px 14px;
     font-size: 0.78rem;
   }
-  .explorer-layout {
-    flex-direction: column;
+  .commit-branch-row {
+    padding: 14px 18px;
   }
-  .explorer-sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #181926;
-    padding: 10px 0;
+  .commit-log {
+    padding: 16px 14px 20px;
   }
-  .explorer-file-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2px;
-    padding: 0 12px;
+  .commit-row {
+    padding-left: 22px;
   }
-  .explorer-file {
-    padding: 7px 12px;
-    border-left: none;
-    border-bottom: 2px solid transparent;
-    border-radius: 4px 4px 0 0;
+  .commit-row:not(.commit-row--last)::before {
+    left: 6px;
   }
-  .explorer-file.active {
-    border-left: none;
-    border-bottom-color: #8aadf4;
+  .commit-node {
+    left: -3px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
   }
-  .explorer-folder-row,
-  .explorer-sidebar-label {
-    padding-left: 12px;
+  .commit-body .description p {
+    font-size: 1rem;
+    padding-left: 1.25rem;
   }
 }
 
@@ -462,6 +557,12 @@
   .detail-meta-row {
     flex-direction: column;
     gap: 2px;
+  }
+  .commit-body .description p {
+    font-size: 0.9rem;
+  }
+  .commit-title {
+    font-size: 0.95rem;
   }
 }
 

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import jobExperienceData from '../../Data/jobExperienceData';
 import WorkExperienceHeader from './WorkExperienceHeader';
+import PrevNextNav from '../Global/PrevNextNav';
 import NotFound from '../Global/NotFound';
 import '../../App.css';
 import './WorkExperienceDetail.css';
@@ -8,11 +9,14 @@ import '../Projects/ProjectDetails.css';
 
 function WorkExperienceDetailPage() {
   const { slug } = useParams();
-  const entry = Object.entries(jobExperienceData).find(([, v]) => v.tokenizedName === slug);
+  const entries = Object.entries(jobExperienceData);
+  const currentIndex = entries.findIndex(([, v]) => v.tokenizedName === slug);
 
-  if (!entry) return <NotFound />;
+  if (currentIndex === -1) return <NotFound />;
 
-  const [companyName, job] = entry;
+  const [companyName, job] = entries[currentIndex];
+  const [prevName, prevJob] = entries[(currentIndex - 1 + entries.length) % entries.length];
+  const [nextName, nextJob] = entries[(currentIndex + 1) % entries.length];
 
   return (
     <main className="main-content">
@@ -60,6 +64,13 @@ function WorkExperienceDetailPage() {
           </div>
         </section>
       )}
+
+      <PrevNextNav
+        prevHref={`/work-experience/${prevJob.tokenizedName}`}
+        prevLabel={prevName}
+        nextHref={`/work-experience/${nextJob.tokenizedName}`}
+        nextLabel={nextName}
+      />
     </main>
   );
 }
