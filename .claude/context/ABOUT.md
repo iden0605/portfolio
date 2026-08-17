@@ -1,6 +1,6 @@
 # About
 
-_Last updated: 2026-08-17 (session 8)_
+_Last updated: 2026-08-18 (session 9)_
 
 ## What It Is
 
@@ -11,7 +11,7 @@ Personal portfolio website for Iden McElhone (Systems & Cloud Architect / DevOps
 - **Framework:** React 19 + React Router v7
 - **Language:** JavaScript (JSX)
 - **Build tool:** Vite 6
-- **Styling:** Custom CSS (no Tailwind) — Catppuccin Macchiato terminal dark theme
+- **Styling:** Custom CSS (no Tailwind) — "Paper & Ink" terminal-styled light theme (cream/paper backgrounds, near-black ink text, muted slate/sage/ochre/brick accents); colors are hardcoded hex per component, no CSS custom properties/theme file
 - **Animations:** Framer Motion, plus a custom terminal-styled scroll-reveal system (`src/hooks/useReveal.js` + `src/styles/Reveal.css`) — AOS has been fully removed
 - **Contact:** EmailJS (`@emailjs/browser`)
 - **Deployment:** GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
@@ -73,13 +73,13 @@ public/
 - Optional extra link fields `diagramLink` (e.g. draw.io), `docsLink` (e.g. Google Doc), `datasetLink` (e.g. Kaggle), and `presentationLink` (e.g. Google Slides) are supported by `ProjectHeader.jsx`'s link bar but not required — omit entirely if unused (unlike the core link fields, which use `""`)
 - `previewVid` path: `"/{tokenizedname}-hover.mp4"` — root of `public/`, no subfolder
 - Detail content types: `"image"`, `"text"`, `"video"`, `"troop-carousel"` — handled by `ProjectDetailTabSection`
-- Theme is Catppuccin Macchiato: base `#24273a`, mantle `#1e2030`, green `#a6da95`, blue `#8aadf4`, pink/red `#ed8796`
+- Theme is "Paper & Ink" (light): page bg `#f6f2ea`, panel `#fbf8f2`, panel2 (inset/titlebar) `#efe9dd`, border `#ddd3c0`, ink text `#1c1a17`, dim text `#6f6a5f`, plus muted accents slate `#52586a`/`#6b7186`, sage `#5b6b52`, ochre `#9c8248`, brick `#8a4c3f` — used for commit-type dots, category dots, and status colors. macOS traffic-light dots (`#ff5f57`/`#ffbd2e`/`#28c840`) stay literal regardless of theme. A faint "scanline" texture overlay (repeating-linear-gradient, ~11.5px pitch, `rgba(28,26,23,0.016)`) is layered behind content in terminal-window panels (`Terminal.css` `.scanlines`, `Projects.css` `.proj-scanlines`, `WorkExperience.css` `.work-scanlines`, `ContactMePage.css` `.contact-scanlines`) — content must sit in a `position: relative; z-index: 1` wrapper above it
 - Contact uses a single `ContactMePage` component/route (`/contact`) on both desktop and mobile — there is no popup; the navbar's "Contact" is a normal nav tab
 - Navbar top-right shows a "Resume" link (opens `/Resume.pdf`), a `|` separator, then small GitHub/LinkedIn/Gmail icon links (same SVGs as `Footer.jsx`, rendered smaller) — hidden on mobile in favor of the hamburger sidebar, which shows the same social icons at the bottom of the slide-out menu
-- Projects page (`Projects.jsx`) has no category filter UI — it lists all entries from `projectData.js` directly, but each entry has a `category` (`"hackathons"` | `"university"` | `"personal"`) that colours a small dot on the project card
+- Projects page (`Projects.jsx`) has a language-composition-bar filter: each entry has a `filterGroup` (`"games"` | `"apps"` | `"university"`, independent of the older `category` field which still drives the detail-page dot elsewhere) — a proportional segmented bar + legend chips above the grid filter by this field; card footer dots also use `filterGroup` colors now
 - Project detail sections (`details[]`) render as a `git log --graph` style collapsible commit list (`ProjectDetailTabSection.jsx`), not tabs — each entry's badge (`demo`/`system`/`feature`/`notes`) is auto-inferred from its content block types (video→demo, troop-carousel→system, image→feature, else→notes)
 - EmailJS keys (`VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`) must be set as GitHub Actions secrets — they are gitignored locally and injected into the build via the workflow's `env:` block on the deploy step. Without them, the built bundle gets `undefined` and EmailJS throws "public key required"
 - Contact form logic lives in `src/hooks/useContactForm.js`, used by `ContactMePage`
-- **Scroll-reveal system** (replaces AOS): elements get `className="reveal"` + a ref from `useReveal()`, then `reveal-in` is added once revealed — mirrors AOS's `once: true`. Base effect is a scanline wipe (vertical clip-path sweep + bright leading line); `.reveal-row` swaps it for a horizontal sweep (used for short/wide list rows, e.g. `WorkExperience.jsx` rows); `.reveal-frame` swaps it for a fixed-distance opacity+translateY drop (used for wrappers taller than the viewport, e.g. `Projects.jsx`'s `.proj-terminal`, `Terminal.jsx`, `GithubSection.jsx`). Optional typewriter: wrap text in `<span className="reveal-type-text" style={typeVars(text)}>`.
+- **Scroll-reveal system** (replaces AOS): elements get `className="reveal"` + a ref from `useReveal()`, then `reveal-in` is added once revealed — mirrors AOS's `once: true`. Base effect is a scanline wipe (vertical clip-path sweep + bright leading line); `.reveal-row` swaps it for a horizontal sweep (used for short/wide list rows, e.g. `WorkExperience.jsx` rows); `.reveal-frame` swaps it for a fixed-distance opacity+translateY drop (used for wrappers taller than the viewport, e.g. `Projects.jsx`'s `.proj-terminal`, `Terminal.jsx`, `GithubSection.jsx`). Optional typewriter: wrap text in `<span className="reveal-type-text" style={typeVars(text)}>`. `typeVars(text, extra = 1, speedMultiplier = 1)` takes an optional third arg to speed up/slow down a specific instance without affecting the shared default (e.g. `Projects.jsx` card titles pass `0.65` for a faster type-in than `ProjectHeader.jsx`/`WorkExperienceHeader.jsx`).
 - **IntersectionObserver gotcha:** `threshold` is a fraction of the *element's own total area* that must be visible at once — for any element taller than the viewport (a whole terminal window, a long list) that fraction may never be reachable, so the reveal never fires and the element stays invisible forever. Use `rootMargin` (shrinks the effective viewport) instead of raising `threshold` to require more scroll on large containers. `useReveal()` defaults to `threshold: 0, rootMargin: '0px 0px -10% 0px'`.
 - Pass `immediate: true` to `useReveal()` for elements that should animate in on mount rather than on scroll (used for the homepage's Profile/StatsStrip/Terminal/GithubSection, staggered via inline `--reveal-delay`).
