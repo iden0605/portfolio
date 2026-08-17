@@ -1,5 +1,29 @@
 // data for project section
 const projectData = {
+  "MLFQ Scheduler": {
+    tokenizedName: "mlfq-scheduler",
+    category: "university",
+    description: `MLFQ Scheduler is a Multi-Level Feedback Queue CPU scheduling simulator built in C for COMP30023 (Computer Systems). It models process arrivals, priority-queue demotion, I/O blocking, and periodic priority boosting on a tick-by-tick basis. Given a workload trace and scheduler configuration, it produces a full execution transcript and summary statistics including turnaround time, waiting time, and CPU utilisation.`,
+    date: "COMP30023 - Semester 1 2026",
+    type: "University Project",
+    teamSize: 1,
+    role: "C Systems Programmer",
+    thumbnail: "/assets/project/MLFQ Scheduler/mlfq-scheduler-image-1.png",
+    technologies: ["C", "Makefile", "GitHub Actions"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30023-Project-1",
+    itchLink: "",
+    wwwLink: "",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Designed and implemented the MLFQ simulation core, including tick-by-tick state transitions across arrival, I/O completion, priority boosting, preemption, and dispatch.",
+      "Implemented per-level ready queues with quantum-based demotion and configurable priority boosting on a fixed interval.",
+      "Built I/O burst tracking so processes correctly alternate between CPU and blocked states across multiple bursts.",
+      "Modularised the scheduler into discrete, single-responsibility functions for maintainability and testing.",
+      "Computed and printed per-process and summary statistics (turnaround time, waiting time, CPU utilisation).",
+    ],
+  },
   "Cascade AI": {
     tokenizedName: "cascade-ai",
     category: "university",
