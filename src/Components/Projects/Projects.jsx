@@ -5,11 +5,17 @@ import './Projects.css';
 import projectData from '../../Data/projectData';
 import { useReveal, typeVars } from '../../hooks/useReveal';
 
-const CATEGORY_DOT_CLASS = {
-  hackathons: 'proj-dot--hackathons',
-  university: 'proj-dot--university',
-  personal: 'proj-dot--personal',
+const FILTER_GROUP_DOT_CLASS = {
+  games: 'proj-lang--games',
+  apps: 'proj-lang--apps',
+  university: 'proj-lang--university',
 };
+
+const FILTER_GROUPS = [
+  { key: 'games', label: 'Games', className: 'proj-lang--games' },
+  { key: 'apps', label: 'Apps & Web', className: 'proj-lang--apps' },
+  { key: 'university', label: 'University', className: 'proj-lang--university' },
+];
 
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -18,8 +24,19 @@ function Projects() {
   const videoRefs = useRef({});
   const ratioMap = useRef({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [filterRevealed, setFilterRevealed] = useState(true);
+  const filterRafRef = useRef(null);
   const { ref: terminalRef, revealed: terminalRevealed } = useReveal({ rootMargin: '0px 0px -20% 0px' });
   const { ref: gridRef, revealed: gridRevealed } = useReveal({ rootMargin: '0px 0px -20% 0px' });
+
+  useEffect(() => {
+    setFilterRevealed(false);
+    filterRafRef.current = requestAnimationFrame(() => {
+      filterRafRef.current = requestAnimationFrame(() => setFilterRevealed(true));
+    });
+    return () => cancelAnimationFrame(filterRafRef.current);
+  }, [activeFilter]);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -70,6 +87,13 @@ function Projects() {
   }, [activeMobileProject, isMobile]);
 
   const allEntries = Object.entries(projectData);
+  const groupCounts = FILTER_GROUPS.map(group => ({
+    ...group,
+    count: allEntries.filter(([, project]) => project.filterGroup === group.key).length,
+  }));
+  const visibleEntries = activeFilter === 'all'
+    ? allEntries
+    : allEntries.filter(([, project]) => project.filterGroup === activeFilter);
 
   return (
     <main className="main-content">
@@ -92,12 +116,46 @@ function Projects() {
 
             <div className="proj-repo-count">
               <LuGitFork size={14} />
-              <span>{allEntries.length} pinned repositories</span>
+              <span>{visibleEntries.length} pinned repositories</span>
+            </div>
+
+            <div className="proj-lang-bar" role="group" aria-label="Filter projects by type">
+              {groupCounts.map(group => (
+                <button
+                  key={group.key}
+                  type="button"
+                  className={`proj-lang-seg ${group.className}${activeFilter === group.key ? ' active' : ''}${activeFilter !== 'all' && activeFilter !== group.key ? ' dimmed' : ''}`}
+                  style={{ flexGrow: group.count }}
+                  onClick={() => setActiveFilter(activeFilter === group.key ? 'all' : group.key)}
+                  aria-pressed={activeFilter === group.key}
+                  title={`${group.label} (${group.count})`}
+                />
+              ))}
+            </div>
+            <div className="proj-lang-legend">
+              <button
+                type="button"
+                className={`proj-lang-legend-item proj-lang-legend-item--all${activeFilter === 'all' ? ' selected' : ''}`}
+                onClick={() => setActiveFilter('all')}
+              >
+                All ({allEntries.length})
+              </button>
+              {groupCounts.map(group => (
+                <button
+                  key={group.key}
+                  type="button"
+                  className={`proj-lang-legend-item${activeFilter === group.key ? ' selected' : ''}`}
+                  onClick={() => setActiveFilter(activeFilter === group.key ? 'all' : group.key)}
+                >
+                  <span className={`proj-lang-sw ${group.className}`} />
+                  {group.label} ({group.count})
+                </button>
+              ))}
             </div>
 
             {/* Grid */}
             <div className="projects-grid" ref={gridRef}>
-              {allEntries.map(([projectName, project]) => {
+              {visibleEntries.map(([projectName, project]) => {
                   const showVideo = isMobile
                     ? activeMobileProject === projectName && project.previewVid
                     : hoveredProject === projectName && project.previewVid;
@@ -111,7 +169,7 @@ function Projects() {
                       className="proj-card-link"
                     >
                       <div
-                        className={`project-card reveal${gridRevealed ? ' reveal-in' : ''}`}
+                        className={`project-card reveal${gridRevealed && filterRevealed ? ' reveal-in' : ''}`}
                         ref={el => { cardRefs.current[projectName] = el; }}
                         data-project={projectName}
                       >
@@ -148,16 +206,15 @@ function Projects() {
                         <div className="proj-card-meta">
                           <div className="proj-card-repo-name">
                             <LuFileCode2 size={15} />
-                            <span className="reveal-type-text" style={typeVars(projectName.toLowerCase().replace(/\s+/g, '-'))}>
+                            <span className="reveal-type-text" style={typeVars(projectName.toLowerCase().replace(/\s+/g, '-'), 1, 0.65)}>
                               {projectName.toLowerCase().replace(/\s+/g, '-')}
                             </span>
-                            <span className="proj-card-visibility">Public</span>
                           </div>
                           <div className="proj-card-role">{project.role}</div>
                           <div className="proj-card-date">{project.date}</div>
                           <div className="proj-card-footer">
                             <span className="proj-card-category">
-                              <span className={`proj-dot ${CATEGORY_DOT_CLASS[project.category] || 'proj-dot--personal'}`} />
+                              <span className={`proj-dot ${FILTER_GROUP_DOT_CLASS[project.filterGroup] || 'proj-lang--apps'}`} />
                               {project.type}
                             </span>
                             <span className="proj-card-team">

@@ -14,7 +14,7 @@
   justify-content: center;
   gap: 0.4rem;
   padding: 0.3rem 0.5rem;
-  border-left: 1px solid #363a4f;
+  border-left: 1px solid #ddd3c0;
 }
 
 .stat-chip:first-child {
@@ -25,7 +25,7 @@
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   font-weight: 700;
-  color: #a6da95;
+  color: #5b6b52;
   line-height: 1;
 }
 
@@ -33,7 +33,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.62rem, 1.2vw, 0.72rem);
   font-weight: 600;
-  color: #a5adcb;
+  color: #6f6a5f;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.03em;

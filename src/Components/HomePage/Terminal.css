@@ -1,18 +1,15 @@
-/* Catppuccin Macchiato
-   base:      #24273a
-   mantle:    #1e2030
-   crust:     #181926
-   surface0:  #363a4f
-   surface1:  #494d64
-   surface2:  #5b6078
-   overlay0:  #6e738d
-   subtext1:  #b8c0e0
-   subtext0:  #a5adcb
-   text:      #cad3f5
-   green:     #a6da95
-   blue:      #8aadf4
-   lavender:  #b7bdf8
-   yellow:    #eed49f
+/* Paper & Ink
+   page bg:   #f6f2ea
+   panel:     #fbf8f2
+   panel2:    #efe9dd
+   border:    #ddd3c0
+   dim:       #6f6a5f
+   ink:       #1c1a17
+   sage:      #5b6b52
+   slate:     #52586a
+   slate2:    #6b7186
+   ochre:     #9c8248
+   brick:     #8a4c3f
 */
 
 /* ── Outer shell ─────────────────────────────────────── */
@@ -21,12 +18,12 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.28),
-    0 2px 8px rgba(0, 0, 0, 0.18);
+    0 8px 32px rgba(28, 26, 23, 0.12),
+    0 2px 8px rgba(28, 26, 23, 0.08);
   width: 100%;
   max-width: 1100px;
   margin: 1rem auto 2rem;
-  border: 1px solid #181926;
+  border: 1px solid #ddd3c0;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -34,11 +31,11 @@
 /* ── Title bar ───────────────────────────────────────── */
 
 .terminal-titlebar {
-  background: #1e2030;
+  background: #efe9dd;
   padding: 10px 16px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
   position: relative;
 }
 
@@ -61,7 +58,7 @@
 .tl-green  { background: #28c840; }
 
 .terminal-title-text {
-  color: #cad3f5;
+  color: #1c1a17;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
@@ -73,19 +70,19 @@
 /* ── Tab bar ─────────────────────────────────────────── */
 
 .terminal-tabs-wrapper {
-  background: #1e2030;
+  background: #efe9dd;
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
 }
 
 .terminal-tabs-arrow {
   display: none;
   flex-shrink: 0;
-  background: #1e2030;
+  background: #efe9dd;
   border: none;
   border-bottom: 1px solid transparent;
-  color: #6e738d;
+  color: #6f6a5f;
   font-size: 1.2rem;
   line-height: 1;
   padding: 0 10px;
@@ -95,7 +92,7 @@
   margin-bottom: -1px;
 }
 .terminal-tabs-arrow:focus { outline: none; }
-.terminal-tabs-arrow:hover { color: #8aadf4; }
+.terminal-tabs-arrow:hover { color: #1c1a17; }
 
 @media (max-width: 768px) {
   .terminal-tabs-arrow {
@@ -105,13 +102,13 @@
 }
 
 .terminal-tabs {
-  background: #1e2030;
+  background: #efe9dd;
   display: flex;
   flex: 1;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
   padding: 0 6px;
   gap: 2px;
 }
@@ -122,7 +119,7 @@
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #8aadf4;
+  color: #6f6a5f;
   cursor: pointer;
   border: none;
   border-bottom: 2px solid transparent;
@@ -138,15 +135,15 @@
 .terminal-tab:focus { outline: none; }
 
 .terminal-tab.active {
-  color: #eef0fc;
+  color: #1c1a17;
   font-weight: 700;
-  background: rgba(138, 173, 244, 0.08);
-  border-bottom: 2px solid #8aadf4;
+  background: rgba(28, 26, 23, 0.06);
+  border-bottom: 2px solid #1c1a17;
 }
 
 .terminal-tab:hover:not(.active) {
-  color: #cad3f5;
-  background: rgba(36, 39, 58, 0.6);
+  color: #1c1a17;
+  background: rgba(221, 211, 192, 0.5);
 }
 
 /* Window dots */
@@ -177,7 +174,7 @@
 /* ── Screen ───────────────────────────────────────────── */
 
 .terminal-screen {
-  background-color: #24273a;
+  background-color: #fbf8f2;
   position: relative;
   overflow: hidden;
   text-align: left;
@@ -195,9 +192,9 @@
   background: repeating-linear-gradient(
     to bottom,
     transparent 0px,
-    transparent 5px,
-    rgba(0, 0, 0, 0.04) 5px,
-    rgba(0, 0, 0, 0.04) 6px
+    transparent 11.5px,
+    rgba(28, 26, 23, 0.016) 11.5px,
+    rgba(28, 26, 23, 0.016) 12px
   );
   pointer-events: none;
   z-index: 2;
@@ -219,9 +216,9 @@
   align-items: baseline;
 }
 
-.prompt-arrow { color: #a6da95; font-weight: 700; margin-right: 8px; }
+.prompt-arrow { color: #5b6b52; font-weight: 700; margin-right: 8px; }
 .prompt-cmd   {
-  color: #a6da95;
+  color: #5b6b52;
   font-weight: 600;
   display: inline-block;
   overflow: hidden;
@@ -232,7 +229,7 @@
 
 .prompt-cmd::after {
   content: '▌';
-  color: #cad3f5;
+  color: #1c1a17;
   font-weight: 400;
   margin-left: 1px;
   animation: cmd-blink 1.12s step-end calc(0.2s + var(--cmd-len, 15) * 0.048s) infinite;
@@ -247,7 +244,7 @@
 }
 
 .prompt-cursor {
-  color: #cad3f5;
+  color: #1c1a17;
   margin-left: 2px;
   animation: cursor-blink 1s step-end infinite;
 }
@@ -260,10 +257,10 @@
 /* ── Shared color utilities ──────────────────────────── */
 
 .term-bold   { font-weight: 700; }
-.term-green  { color: #a6da95; }
-.term-blue   { color: #8aadf4; }
-.term-yellow { color: #eed49f; }
-.term-pink   { color: #ed8796; }
+.term-green  { color: #5b6b52; }
+.term-blue   { color: #52586a; }
+.term-yellow { color: #9c8248; }
+.term-pink   { color: #8a4c3f; }
 
 .term-output {
   margin-left: 2px;
@@ -279,7 +276,7 @@
 .about-paragraph {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(1rem, 2vw, 1.15rem);
-  color: #eef0fc;
+  color: #1c1a17;
   font-weight: 400;
   line-height: 1.85;
   margin-bottom: 18px;
@@ -289,7 +286,7 @@
 .about-links {
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-  color: #eef0fc;
+  color: #1c1a17;
   font-weight: 400;
   margin-top: 6px;
   user-select: text;
@@ -297,23 +294,23 @@
 }
 
 .term-link {
-  color: #8aadf4;
+  color: #52586a;
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(138, 173, 244, 0.45);
+  text-decoration-color: rgba(82, 88, 106, 0.45);
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .term-link:hover {
-  color: #b7bdf8;
-  text-decoration-color: #b7bdf8;
+  color: #6b7186;
+  text-decoration-color: #6b7186;
 }
 
 .about-secondary-prompt {
   margin-top: 20px;
   margin-bottom: 12px;
   padding-top: 18px;
-  border-top: 1px solid #363a4f;
+  border-top: 1px solid #ddd3c0;
 }
 
 .ls-output {
@@ -325,7 +322,7 @@
 }
 
 .ls-dir {
-  color: #8aadf4;
+  color: #52586a;
   font-weight: bold;
   transition: color 0.15s ease;
   user-select: text;
@@ -333,7 +330,7 @@
 }
 
 .ls-dir:hover {
-  color: #b7bdf8;
+  color: #6b7186;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -356,11 +353,11 @@
   margin-bottom: 12px;
 }
 
-.skills-group--blue     { color: #8aadf4; }
-.skills-group--green    { color: #a6da95; }
-.skills-group--yellow   { color: #eed49f; }
-.skills-group--pink     { color: #ed8796; }
-.skills-group--lavender { color: #b7bdf8; }
+.skills-group--blue     { color: #52586a; }
+.skills-group--green    { color: #5b6b52; }
+.skills-group--yellow   { color: #9c8248; }
+.skills-group--pink     { color: #8a4c3f; }
+.skills-group--lavender { color: #6b7186; }
 
 .skills-chip-row {
   display: flex;
@@ -372,9 +369,9 @@
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.8rem, 1.6vw, 0.88rem);
   font-weight: 600;
-  color: #cad3f5;
-  background: rgba(36, 39, 58, 0.6);
-  border: 1px solid #363a4f;
+  color: #1c1a17;
+  background: rgba(221, 211, 192, 0.5);
+  border: 1px solid #ddd3c0;
   border-radius: 7px;
   padding: 6px 12px;
   line-height: 1.2;
@@ -405,14 +402,14 @@
 }
 
 .edu-institution { font-weight: bold; }
-.edu-grade       { color: #ed8796; margin-right: 12px; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-weight: 700; }
-.edu-period      { color: #a5adcb; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-size: 0.9rem; margin-left: auto; }
+.edu-grade       { color: #8a4c3f; margin-right: 12px; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-weight: 700; }
+.edu-period      { color: #6f6a5f; font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; font-size: 0.9rem; margin-left: auto; }
 
 .edu-detail,
 .edu-award {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-  color: #cad3f5;
+  color: #1c1a17;
   font-weight: 400;
   padding-left: 16px;
   line-height: 1.65;
@@ -421,13 +418,13 @@
 .edu-languages {
   margin-top: 4px;
   padding-top: 20px;
-  border-top: 1px solid #363a4f;
+  border-top: 1px solid #ddd3c0;
 }
 
 .edu-lang-header {
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(0.92rem, 1.8vw, 1.05rem);
-  color: #a6da95;
+  color: #5b6b52;
   font-weight: bold;
   margin-bottom: 12px;
 }
@@ -435,7 +432,7 @@
 .edu-lang-list {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-  color: #eef0fc;
+  color: #1c1a17;
   font-weight: 400;
   padding-left: 16px;
   display: flex;
@@ -444,7 +441,7 @@
   gap: 8px;
 }
 
-.edu-lang-sep { color: #494d64; }
+.edu-lang-sep { color: #6f6a5f; }
 
 /* ── GitHub content ──────────────────────────────────── */
 
@@ -460,7 +457,7 @@
 .github-error {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-  color: #a5adcb;
+  color: #6f6a5f;
 }
 
 .github-stat-row {
@@ -479,21 +476,21 @@
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: clamp(1.3rem, 2.6vw, 1.6rem);
   font-weight: 700;
-  color: #a6da95;
+  color: #5b6b52;
   line-height: 1.1;
 }
 
 .github-stat-label {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.78rem, 1.6vw, 0.88rem);
-  color: #a5adcb;
+  color: #6f6a5f;
   font-weight: 600;
 }
 
 .github-graph-wrap {
-  border: 1px solid #363a4f;
+  border: 1px solid #ddd3c0;
   border-radius: 8px;
-  background: #1e2030;
+  background: #efe9dd;
   padding: 16px;
 }
 
@@ -520,7 +517,7 @@
   top: 0;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.68rem;
-  color: #a5adcb;
+  color: #6f6a5f;
   white-space: nowrap;
 }
 
@@ -541,7 +538,7 @@
   height: 13px;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.62rem;
-  color: #a5adcb;
+  color: #6f6a5f;
   line-height: 13px;
 }
 
@@ -560,27 +557,27 @@
   width: 13px;
   height: 13px;
   border-radius: 2px;
-  background: #363a4f;
+  background: #ddd3c0;
 }
 
 .github-cell--empty {
   background: transparent;
 }
 
-.github-cell.level-0 { background: #333752; }
-.github-cell.level-1 { background: #23492e; }
-.github-cell.level-2 { background: #2f6b3c; }
-.github-cell.level-3 { background: #4c9950; }
-.github-cell.level-4 { background: #a6da95; }
+.github-cell.level-0 { background: #e3dbc8; }
+.github-cell.level-1 { background: #c9d1bd; }
+.github-cell.level-2 { background: #a3b38e; }
+.github-cell.level-3 { background: #7e9470; }
+.github-cell.level-4 { background: #5b6b52; }
 
 .github-cell:not(.github-cell--empty):hover {
-  outline: 1px solid #cad3f5;
+  outline: 1px solid #1c1a17;
   outline-offset: 1px;
   cursor: pointer;
 }
 
 .github-cell.pinned {
-  outline: 1px solid #a6da95;
+  outline: 1px solid #5b6b52;
   outline-offset: 1px;
 }
 
@@ -591,7 +588,7 @@
   margin-left: 31px;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.68rem;
-  color: #a5adcb;
+  color: #6f6a5f;
 }
 
 .github-graph-legend .github-cell {
@@ -602,9 +599,9 @@
 .github-tooltip {
   position: absolute;
   transform: translate(-50%, calc(-100% - 8px));
-  background: #181926;
-  color: #eef0fc;
-  border: 1px solid #363a4f;
+  background: #fbf8f2;
+  color: #1c1a17;
+  border: 1px solid #ddd3c0;
   border-radius: 6px;
   padding: 6px 10px;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
@@ -612,7 +609,7 @@
   white-space: nowrap;
   pointer-events: none;
   z-index: 20;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 16px rgba(28, 26, 23, 0.18);
 }
 
 .github-profile-link {
@@ -630,7 +627,7 @@
 .github-disclaimer {
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.78rem;
-  color: #a5adcb;
+  color: #6f6a5f;
 }
 
 @media (max-width: 480px) {

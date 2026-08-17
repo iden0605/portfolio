@@ -6,11 +6,11 @@
 }
 
 .detail-titlebar {
-  background: #1e2030;
+  background: #efe9dd;
   padding: 10px 16px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
   position: relative;
 }
 
@@ -57,7 +57,7 @@
 .tl-green  { background: #28c840; }
 
 .detail-title-text {
-  color: #cad3f5;
+  color: #1c1a17;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
@@ -69,19 +69,19 @@
 /* ── Tab bar ─────────────────────────────────────────── */
 
 .detail-tabs-wrapper {
-  background: #1e2030;
+  background: #efe9dd;
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
 }
 
 .detail-tabs-arrow {
   display: none;
   flex-shrink: 0;
-  background: #1e2030;
+  background: #efe9dd;
   border: none;
   border-bottom: 1px solid transparent;
-  color: #6e738d;
+  color: #6f6a5f;
   font-size: 1.2rem;
   line-height: 1;
   padding: 0 10px;
@@ -92,7 +92,7 @@
 }
 .detail-tabs-arrow:focus { outline: none; }
 .detail-tabs-arrow:focus-visible { outline: none; }
-.detail-tabs-arrow:hover { color: #8aadf4; }
+.detail-tabs-arrow:hover { color: #1c1a17; }
 
 @media (max-width: 768px) {
   .detail-tabs-arrow {
@@ -117,7 +117,7 @@
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #8aadf4;
+  color: #6f6a5f;
   cursor: pointer;
   border: none;
   border-bottom: 2px solid transparent;
@@ -133,21 +133,21 @@
 .detail-tab:focus { outline: none; }
 
 .detail-tab.active {
-  color: #eef0fc;
+  color: #1c1a17;
   font-weight: 700;
-  background: rgba(138, 173, 244, 0.08);
-  border-bottom: 2px solid #8aadf4;
+  background: rgba(28, 26, 23, 0.06);
+  border-bottom: 2px solid #1c1a17;
 }
 
 .detail-tab:hover:not(.active) {
-  color: #cad3f5;
-  background: rgba(36, 39, 58, 0.6);
+  color: #1c1a17;
+  background: rgba(221, 211, 192, 0.5);
 }
 
 /* ── Screen ──────────────────────────────────────────── */
 
 .detail-screen {
-  background: #24273a;
+  background: #fbf8f2;
   position: relative;
   overflow: hidden;
   transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -189,9 +189,9 @@
   margin-top: 4px;
 }
 
-.dp-arrow { color: #a6da95; font-weight: 700; margin-right: 8px; }
+.dp-arrow { color: #5b6b52; font-weight: 700; margin-right: 8px; }
 .dp-cmd   {
-  color: #a6da95;
+  color: #5b6b52;
   font-weight: 600;
   display: inline-block;
   overflow: hidden;
@@ -202,7 +202,7 @@
 
 .dp-cmd::after {
   content: '▌';
-  color: #cad3f5;
+  color: #1c1a17;
   font-weight: 400;
   margin-left: 1px;
   animation: cmd-blink 1.12s step-end calc(0.2s + var(--cmd-len, 15) * 0.048s) infinite;
@@ -236,11 +236,11 @@
 .detail-body-text {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.88rem, 2.5vw, 1.1rem) !important;
-  color: #eef0fc !important;
+  color: #1c1a17 !important;
   font-weight: 500;
   line-height: 1.85;
   text-align: left;
-  border-left: 3px solid #494d64 !important;
+  border-left: 3px solid #ddd3c0 !important;
   padding-left: 1.25rem !important;
   margin: 4px 0 16px !important;
 }
@@ -264,14 +264,14 @@
 }
 
 .detail-meta-key {
-  color: #ed8796;
+  color: #8a4c3f;
   min-width: 120px;
   flex-shrink: 0;
 }
 .detail-meta-key::after { content: ':'; }
 
 .detail-meta-val {
-  color: #cad3f5;
+  color: #1c1a17;
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
   flex: 1;
@@ -290,7 +290,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.85rem, 2.5vw, 1.05rem) !important;
   font-weight: 500;
-  color: #cad3f5 !important;
+  color: #1c1a17 !important;
   line-height: 1.7;
 }
 
@@ -301,10 +301,10 @@
   align-items: center;
   gap: 8px;
   padding: 16px 24px;
-  border-bottom: 1px solid #181926;
+  border-bottom: 1px solid #ddd3c0;
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.82rem;
-  color: #8aadf4;
+  color: #52586a;
 }
 
 .commit-branch-name {
@@ -312,11 +312,11 @@
 }
 
 .commit-branch-sep {
-  color: #494d64;
+  color: #ddd3c0;
 }
 
 .commit-branch-count {
-  color: #a5adcb;
+  color: #6f6a5f;
 }
 
 .commit-log {
@@ -338,7 +338,7 @@
   top: 26px;
   bottom: -8px;
   width: 2px;
-  background: #363a4f;
+  background: #ddd3c0;
 }
 
 .commit-node {
@@ -348,11 +348,11 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #1e2030;
+  background: #efe9dd;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 2px #1e2030;
+  box-shadow: 0 0 0 2px #efe9dd;
 }
 
 .commit-node-dot {
@@ -361,10 +361,10 @@
   border-radius: 50%;
 }
 
-.commit-type--demo    .commit-node-dot { background: #ed8796; }
-.commit-type--system  .commit-node-dot { background: #8aadf4; }
-.commit-type--feature .commit-node-dot { background: #a6da95; }
-.commit-type--notes   .commit-node-dot { background: #eed49f; }
+.commit-type--demo    .commit-node-dot { background: #8a4c3f; }
+.commit-type--system  .commit-node-dot { background: #52586a; }
+.commit-type--feature .commit-node-dot { background: #5b6b52; }
+.commit-type--notes   .commit-node-dot { background: #9c8248; }
 
 .commit-header {
   display: block;
@@ -401,8 +401,8 @@
   gap: 4px;
   padding: 2px 7px;
   border-radius: 5px;
-  border: 1px solid #363a4f;
-  background: rgba(36, 39, 58, 0.6);
+  border: 1px solid #ddd3c0;
+  background: rgba(221, 211, 192, 0.5);
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.65rem;
   font-weight: 700;
@@ -411,23 +411,23 @@
   flex-shrink: 0;
 }
 
-.commit-type--demo    { color: #ed8796; }
-.commit-type--system  { color: #8aadf4; }
-.commit-type--feature { color: #a6da95; }
-.commit-type--notes   { color: #eed49f; }
+.commit-type--demo    { color: #8a4c3f; }
+.commit-type--system  { color: #52586a; }
+.commit-type--feature { color: #5b6b52; }
+.commit-type--notes   { color: #9c8248; }
 
 .commit-hash {
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #b8c0e0;
+  color: #6f6a5f;
   flex-shrink: 0;
 }
 
 .commit-scope {
   font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.78rem;
-  color: #a5adcb;
+  color: #6f6a5f;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -436,7 +436,7 @@
 
 .commit-chevron {
   margin-left: auto;
-  color: #6e738d;
+  color: #6f6a5f;
   transition: transform 0.25s ease, color 0.15s ease;
   flex-shrink: 0;
 }
@@ -446,14 +446,14 @@
 }
 
 .commit-header:hover .commit-chevron {
-  color: #cad3f5;
+  color: #1c1a17;
 }
 
 .commit-title {
   font-family: 'Nunito', sans-serif;
   font-size: clamp(0.98rem, 2vw, 1.1rem);
   font-weight: 700;
-  color: #eef0fc;
+  color: #1c1a17;
   margin: 0;
   line-height: 1.4;
 }
@@ -491,9 +491,9 @@
   font-size: 1.1rem;
   font-weight: 400;
   margin-top: 0.8rem;
-  border-left: 3px solid #494d64;
+  border-left: 3px solid #ddd3c0;
   padding-left: 1.5rem;
-  color: #cad3f5;
+  color: #1c1a17;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   font-family: 'Inter', sans-serif;
@@ -576,14 +576,14 @@
 .project-type-box {
   display: inline-block;
   padding: 3px 16px;
-  border: 1px solid #494d64;
+  border: 1px solid #ddd3c0;
   border-radius: 12px;
   font-family: 'Nunito', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #8aadf4;
+  color: #52586a;
   letter-spacing: 0.06em;
-  background: rgba(138, 173, 244, 0.07);
+  background: rgba(82, 88, 106, 0.08);
 }
 
 /* External links bar */
@@ -605,8 +605,8 @@
   border-radius: 16px;
   text-decoration: none;
   background-color: transparent;
-  border: 1.5px solid #8aadf4;
-  color: #8aadf4;
+  border: 1.5px solid #52586a;
+  color: #52586a;
   font-size: 0.95em;
   font-weight: 500;
   font-family: 'Nunito', sans-serif;
@@ -614,8 +614,8 @@
 }
 
 .project-link-btn:hover {
-  background-color: #8aadf4;
-  color: #24273a;
+  background-color: #52586a;
+  color: #fbf8f2;
 }
 
 .project-link-btn svg {
@@ -741,8 +741,8 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.85;
-  color: #eef0fc;
-  border-left: 3px solid #494d64 !important;
+  color: #1c1a17;
+  border-left: 3px solid #ddd3c0 !important;
   padding-left: 1.5rem !important;
   margin-bottom: 5px;
 }
@@ -768,7 +768,7 @@
 }
 
 .project-header-responsibilities-list li {
-  color: #cad3f5;
+  color: #1c1a17;
   font-family: 'Nunito', sans-serif;
   margin-bottom: 6px;
   font-size: clamp(1rem, 3vw, 1.1rem);
@@ -777,7 +777,7 @@
 
 .project-detail-container .description p {
   font-size: clamp(0.88rem, 3vw, 1.15rem) !important;
-  color: #cad3f5;
+  color: #1c1a17;
 }
 
 @media (max-width: 768px) {

@@ -6,11 +6,11 @@ function NotFound() {
     <main className="main-content" style={{ display: 'flex', justifyContent: 'center', paddingTop: '4rem' }}>
       <div className="section" style={{ maxWidth: '480px', textAlign: 'center', padding: '2.5rem 2rem' }}>
         <div style={{ fontFamily: 'monospace', marginBottom: '1rem' }}>
-          <span style={{ color: '#a6da95', fontSize: '1rem' }}>❯ </span>
-          <span style={{ color: '#cad3f5', fontSize: '1rem' }}>cat 404.md</span>
+          <span style={{ color: '#5b6b52', fontSize: '1rem' }}>❯ </span>
+          <span style={{ color: '#1c1a17', fontSize: '1rem' }}>cat 404.md</span>
         </div>
-        <h1 style={{ color: '#a6da95', fontFamily: 'monospace', fontSize: '3rem', margin: '0 0 0.5rem' }}>404</h1>
-        <p style={{ color: '#cad3f5', fontFamily: 'monospace', marginBottom: '2rem' }}>
+        <h1 style={{ color: '#5b6b52', fontFamily: 'monospace', fontSize: '3rem', margin: '0 0 0.5rem' }}>404</h1>
+        <p style={{ color: '#1c1a17', fontFamily: 'monospace', marginBottom: '2rem' }}>
           Page not found.
         </p>
         <Link
@@ -18,9 +18,9 @@ function NotFound() {
           style={{
             display: 'inline-block',
             fontFamily: 'monospace',
-            color: '#8aadf4',
+            color: '#52586a',
             textDecoration: 'none',
-            border: '1px solid #8aadf4',
+            border: '1px solid #52586a',
             padding: '0.5rem 1.25rem',
             borderRadius: '4px',
           }}

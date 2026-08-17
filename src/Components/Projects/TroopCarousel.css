@@ -10,9 +10,9 @@
 /* GIF display panel */
 .troop-gif-panel {
   width: 100%;
-  background-color: #1e2030;
+  background-color: #efe9dd;
   border-radius: 10px;
-  border: 1px solid #363a4f;
+  border: 1px solid #ddd3c0;
   overflow: hidden;
   transition: opacity 0.15s ease;
   line-height: 0;
@@ -46,7 +46,7 @@
 }
 
 .troop-gif-placeholder {
-  color: #6e738d;
+  color: #6f6a5f;
   font-size: 0.95rem;
   font-style: italic;
   padding: 40px;
@@ -72,23 +72,23 @@
 .troop-name {
   font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
-  color: #a6da95;
+  color: #5b6b52;
 }
 
 .troop-attack-divider {
-  color: #494d64;
+  color: #ddd3c0;
   font-weight: 400;
 }
 
 .troop-attack-name {
   font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   font-weight: 600;
-  color: #8aadf4;
+  color: #52586a;
 }
 
 .troop-description {
   font-size: clamp(0.875rem, 2.5vw, 1rem);
-  color: #cad3f5;
+  color: #1c1a17;
   line-height: 1.6;
   margin: 0;
   padding: 0 4px;
@@ -105,7 +105,7 @@
   width: 100%;
   padding: 6px 2px 18px;
   scrollbar-width: thin;
-  scrollbar-color: #494d64 #24273a;
+  scrollbar-color: #ddd3c0 #efe9dd;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -115,26 +115,26 @@
 }
 
 .troop-selector-row::-webkit-scrollbar-track {
-  background: #24273a;
+  background: #efe9dd;
   border-radius: 2px;
 }
 
 .troop-selector-row::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #494d64, #8aadf4);
+  background: linear-gradient(to right, #ddd3c0, #52586a);
   border-radius: 2px;
 }
 
 .troop-selector-row::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to right, #5b6078, #b7bdf8);
+  background: linear-gradient(to right, #c9bfa8, #6b7186);
 }
 
 /* Sliding highlight pill */
 .troop-selector-highlight {
   position: absolute;
-  background-color: rgba(138, 173, 244, 0.1);
-  border: 1.5px solid #8aadf4;
+  background-color: rgba(82, 88, 106, 0.1);
+  border: 1.5px solid #52586a;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(138, 173, 244, 0.2);
+  box-shadow: 0 0 8px rgba(82, 88, 106, 0.18);
   pointer-events: none;
   z-index: 0;
   transition: left 0.22s cubic-bezier(0.4, 0, 0.2, 1),
@@ -162,7 +162,7 @@
 }
 
 .troop-selector:hover:not(.troop-selector--active) {
-  background-color: rgba(138, 173, 244, 0.06);
+  background-color: rgba(82, 88, 106, 0.06);
 }
 
 .troop-selector--active {
@@ -194,7 +194,7 @@
 .troop-selector-name {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #a5adcb;
+  color: #6f6a5f;
   text-align: center;
   line-height: 1.25;
   width: 100%;

@@ -39,11 +39,12 @@ export function useReveal({ threshold = 0, rootMargin = '0px 0px -10% 0px', imme
 }
 
 // Sizes the typewriter effect (steps/width/duration) to the text it reveals.
-export function typeVars(text, extra = 1) {
+// speedMultiplier < 1 plays the animation faster (e.g. 0.6 = 40% faster).
+export function typeVars(text, extra = 1, speedMultiplier = 1) {
   const len = Math.max(String(text).length + extra, 1);
   return {
     '--reveal-type-ch': `${len + 1}ch`,
     '--reveal-type-steps': len,
-    '--reveal-type-duration': `${Math.min(1.6, 0.4 + len * 0.04).toFixed(2)}s`,
+    '--reveal-type-duration': `${(Math.min(1.6, 0.4 + len * 0.04) * speedMultiplier).toFixed(2)}s`,
   };
 }

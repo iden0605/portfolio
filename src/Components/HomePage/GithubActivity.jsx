@@ -100,7 +100,7 @@ function GithubActivity() {
       <div className="github-stat-row">
         <div className="github-stat">
           <span className="github-stat-value">{repoCount ?? '—'}</span>
-          <span className="github-stat-label">Public Repos</span>
+          <span className="github-stat-label">Public Repositories</span>
         </div>
         <div className="github-stat">
           <span className="github-stat-value">{contributions ? contributions.total.lastYear : '—'}</span>
@@ -176,7 +176,7 @@ function GithubActivity() {
         >
           view full profile →
         </a>
-        <span className="github-disclaimer"># public repos only, excludes work account</span>
+        <span className="github-disclaimer"># public repositories only, excludes work account</span>
       </div>
 
       {tooltip && (

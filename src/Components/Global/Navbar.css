@@ -7,9 +7,9 @@
   display: flex;
   justify-content: center;
   padding: 0.5rem 2rem;
-  background-color: #181926;
-  border-bottom: 1px solid #363a4f;
-  color: white;
+  background-color: #f6f2ea;
+  border-bottom: 1px solid #ddd3c0;
+  color: #1c1a17;
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   height: 70px;
 }
@@ -37,7 +37,7 @@
   font-family: "Space Grotesk", "Caveat", "Nunito", "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 500 !important;
   font-size: 2rem !important;
-  background: linear-gradient(135deg, #8aadf4, #b7bdf8);
+  background: linear-gradient(135deg, #52586a, #6b7186);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -60,12 +60,12 @@
 
 .navbar a {
   text-decoration: none;
-  color: #cad3f5;
+  color: #6f6a5f;
   display: inline-block;
 }
 
 .nav-links a:hover {
-  color: #eef0fc;
+  color: #1c1a17;
   text-underline-offset: 4px;
   transition: color 0.1s ease-in-out, text-decoration 0.1s ease-in-out, transform 0.2s ease-in-out;
   transform: translateY(-2px);
@@ -73,7 +73,7 @@
 
 .nav-links a.active {
   font-weight: bold;
-  color: #eef0fc;
+  color: #1c1a17;
   border-bottom: none;
 }
 
@@ -90,17 +90,17 @@
 .navbar-resume-link {
   font-size: 1.05em;
   font-weight: 500;
-  color: #cad3f5;
+  color: #6f6a5f;
   transition: color 0.1s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .navbar-resume-link:hover {
-  color: #eef0fc;
+  color: #1c1a17;
   transform: translateY(-2px);
 }
 
 .navbar-separator {
-  color: #494d64;
+  color: #ddd3c0;
   font-size: 1.1em;
 }
 
@@ -115,12 +115,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6e738d;
+  color: #6f6a5f;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .navbar-social-icon:hover {
-  color: #8aadf4;
+  color: #1c1a17;
   transform: translateY(-2px);
 }
 
@@ -134,7 +134,7 @@
 .hamburger-icon .bar {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: #1c1a17;
   margin: 4px 0;
   transition: 0.4s;
 }
@@ -158,11 +158,11 @@
   z-index: 999;
   top: 0;
   right: 0;
-  background-color: rgba(30, 32, 48, 0.98) !important;
+  background-color: rgba(251, 248, 242, 0.98) !important;
   overflow-x: hidden;
   transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 0 15px rgba(28, 26, 23, 0.15);
 }
 
 .sidebar.open {
@@ -186,7 +186,7 @@
 .sidebar ul li a {
   display: block;
   padding: 1.25rem 2rem;
-  color: white;
+  color: #1c1a17;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 400;
@@ -201,7 +201,7 @@
 .sidebar ul li a.active {
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: #6a7fda;
+  text-decoration-color: #1c1a17;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
@@ -226,14 +226,14 @@
 }
 
 .sidebar-socials .navbar-social-icon {
-  color: #6e738d;
+  color: #6f6a5f;
 }
 
 .nav-underline {
   position: absolute;
   bottom: -4px;
   height: 2px;
-  background: linear-gradient(135deg, #8aadf4, #b7bdf8);
+  background: linear-gradient(135deg, #52586a, #6b7186);
   transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 

@@ -3,6 +3,7 @@ const projectData = {
   "NAUT": {
     tokenizedName: "naut",
     category: "hackathons",
+    filterGroup: "games",
     description: `NAUT is a third-person wave-survival game set on a fully traversable, tiny spherical planet, winner of MAC Game Jam 2026. Players fend off escalating enemy waves and arena boss contracts while upgrading their suit and pistol between runs, with movement, combat, and gravity all following the planet's curved surface. Built alongside one teammate in 2 days.`,
     date: "MAC Game Jam 2026 Winner",
     type: "Game Jam",
@@ -75,6 +76,7 @@ const projectData = {
   "Everchanging Grimoire": {
     tokenizedName: "everchanging-grimoire",
     category: "hackathons",
+    filterGroup: "games",
     description: `Everchanging Grimoire is a 2D top-down roguelite dungeon crawler built in 3 days at HackMelbourne Hackiethon 2026. Winner among 50 submissions, awarded "Most Entertaining Game". The dungeon is a sentient, hungry book. After every floor, the Gemini API reads your playstyle, spells, and damage taken to generate the next floor's theme, enemies, and a new spell designed to counter you. Spells are composed from a vocabulary of around 60 behaviour tags, letting the LLM create emergent, never-repeating combinations without any runtime code generation.`,
     date: "HackMelbourne Hackiethon 2026 Winner",
     type: "Game Jam",
@@ -163,6 +165,7 @@ const projectData = {
   "EchoAI": {
     tokenizedName: "echoai",
     category: "hackathons",
+    filterGroup: "apps",
     description: `An innovative, AI-powered web application designed to transform conversations into interactive learning experiences. Echo dynamically creates educational materials such as quizzes, flashcards, and notes directly from chat interactions. This project was the winner of the Education Track at MelbourneHack 2025.`,
     date: "MelbourneHack 2025 Winner",
     type: "Hackathon",
@@ -215,6 +218,7 @@ const projectData = {
   "Backloggr": {
     tokenizedName: "backloggr",
     category: "personal",
+    filterGroup: "apps",
     description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
     date: "July 2026 - Present",
     type: "Personal Project",
@@ -296,6 +300,7 @@ const projectData = {
   "Git Gud Coach": {
     tokenizedName: "git-gud-coach",
     category: "hackathons",
+    filterGroup: "apps",
     description: `Git Gud Coach is a VS Code extension that watches your Git behaviour and roasts you for it like a toxic esports coach. Every commit, push, and merge is scored across a Bronze-to-Diamond rank ladder with AI-generated roasts powered by 5 providers, 20 achievements, and a Weekly Hygiene Report quantifying how unhinged your week actually was. Built at Trendhacker 2026 by team Trend Hackers.`,
     date: "Trendhacker 2026",
     type: "Hackathon",
@@ -369,6 +374,7 @@ const projectData = {
   "Afloat": {
     tokenizedName: "afloat",
     category: "hackathons",
+    filterGroup: "games",
     description: `Afloat is a tactical tower defense game where players build a nature-powered defense force to hold back waves of creeping enemies and plastic pollution threatening a fragile ecosystem. Deploy a roster of unique creatures — from ants that dash into melee, to koi that fire piercing laser beams — each with their own attack behaviour, upgrade path, and evolution form.`,
     date: "Click & Claw 2026 Finalist",
     type: "Game Jam",
@@ -555,6 +561,7 @@ const projectData = {
   "Stella Taco": {
     tokenizedName: "stella-taco",
     category: "hackathons",
+    filterGroup: "apps",
     description: `Stella Taco is an AI-powered platform that transforms any uploaded content (PDFs, lecture notes, journals, and transcripts)into a navigable 3D galaxy. A Gemini-powered pipeline breaks the material into solar systems, planets, and concepts, then weaves long-form character-driven stories through them. The result is rendered as an interactive Three.js space where knowledge becomes a cosmos to explore, complete with a public discovery feed where anyone can browse and share their galaxies.`,
     date: "CISSA CodeBrew 2026",
     type: "Hackathon",
@@ -619,6 +626,7 @@ const projectData = {
   "GoT Card Game": {
     tokenizedName: "got-card-game",
     category: "university",
+    filterGroup: "university",
     description: `GoT Card Game is a Game-of-Thrones-themed trick-taking card game built for SWEN30006, featuring an AI opponent driven by a utility-based decision system. Rather than scripted logic, the bot weighs "considerations" — attack, defence, and magic value — across both its own team and opponents to choose optimal plays each turn. Built on the jCardGame/jGameGrid framework with a strong emphasis on design patterns (Strategy, Template Method) and test-driven correctness.`,
     date: "SWEN30006 - Sem 1 2026",
     type: "University Project",
@@ -668,6 +676,7 @@ const projectData = {
   "Battleship Server": {
     tokenizedName: "battleship-server",
     category: "university",
+    filterGroup: "university",
     description: `Battleship Server is a networked multiplayer Battleship implementation with a custom binary TCP protocol connecting a C client and thread-per-connection C server. The server pairs clients into concurrent games using mutex-guarded matchmaking and condition variables, supporting many simultaneous matches against a shared game engine. It handles both standard and extended move-result encodings, with robust error handling across malformed messages and socket failures.`,
     date: "COMP30023 2026 - Project 2",
     type: "University Project",
@@ -692,6 +701,7 @@ const projectData = {
   "MLFQ Scheduler": {
     tokenizedName: "mlfq-scheduler",
     category: "university",
+    filterGroup: "university",
     description: `MLFQ Scheduler is a Multi-Level Feedback Queue CPU scheduling simulator built in C for COMP30023 (Computer Systems). It models process arrivals, priority-queue demotion, I/O blocking, and periodic priority boosting on a tick-by-tick basis. Given a workload trace and scheduler configuration, it produces a full execution transcript and summary statistics including turnaround time, waiting time, and CPU utilisation.`,
     date: "COMP30023 2026 - Project 1",
     type: "University Project",
@@ -716,6 +726,7 @@ const projectData = {
   "Cascade AI": {
     tokenizedName: "cascade-ai",
     category: "university",
+    filterGroup: "university",
     description: `Cascade AI is a competitive game-playing agent built for COMP30024 (Artificial Intelligence), implementing alpha-beta pruned minimax search over a custom board representation for the two-player strategy game Cascade. A hand-tuned evaluation function weighs token count, stack height, and capture threats to guide search under strict 180-second CPU and 250MB memory budgets. Tournament-tested against random, greedy, and adversarial-search opponents.`,
     date: "COMP30024 - Semester 1 2026",
     type: "University Project",
@@ -764,6 +775,7 @@ const projectData = {
   "Image Classification Pipeline": {
     tokenizedName: "image-classification-pipeline",
     category: "university",
+    filterGroup: "university",
     description: `Image Classification Pipeline is an image classification system built for a University of Melbourne ML assignment, combining handcrafted computer vision features with transfer-learned ResNet50 embeddings. Three classifiers are benchmarked across two tasks using stratified cross-validation, with feature-group ablation studies isolating which inputs matter most.`,
     date: "COMP30027 2026 - Project 2",
     type: "University Project",
@@ -879,6 +891,7 @@ const projectData = {
   "OverGrown": {
     tokenizedName: "overgrown",
     category: "hackathons",
+    filterGroup: "games",
     description: `A town has been overrun by Cyborg Lumberjacks, and Mother Nature must restore it. Playing as a nature fairy, you uncover her story, confront environmental damage, and free a companion to help heal the land. This exploration-focused game emphasizes themes of healing, friendship, and the conflict between nature and machine.`,
     date: "CISSA x GMC Game Jam 2025",
     type: "Game Jam",
@@ -941,6 +954,7 @@ const projectData = {
   "PebbleTask": {
     tokenizedName: "pebbletask",
     category: "hackathons",
+    filterGroup: "apps",
     description: `Pebble Task is a minimalist and flexible task manager designed for streamlined organization. The widget is movable and resizable, with intuitive controls for adding, editing, and reordering tasks. It features automatic progress saving, customizable themes (Light, Dark, and Matcha), and task highlighting for better focus.`,
     date: "HackMelbourne Hackiethon 2025",
     type: "Hackathon",
@@ -984,6 +998,7 @@ const projectData = {
   "Academic Predictive Models": {
     tokenizedName: "academic-predictive-models",
     category: "university",
+    filterGroup: "university",
     description: `This university project investigates how well predictive models can estimate student academic performance based on family-related factors. The study involved a correlation analysis using Normalized Mutual Information (NMI) to identify relevant features, followed by the training of two predictive models: a Decision Tree classifier and a K-Nearest Neighbours (KNN) classifier. Their performance was evaluated and compared using metrics and visualizations from scikit-learn, Matplotlib, and Seaborn, combining statistical analysis with machine learning to explore the influence of family background on academic outcomes.`,
     date: "June 2025 - July 2025",
     type: "University Project",
@@ -1039,6 +1054,7 @@ const projectData = {
   "Road Accident Injury Analysis": {
     tokenizedName: "eodp-report",
     category: "university",
+    filterGroup: "university",
     description: `Road Accident Injury Analysis is a data science pipeline examining how seatbelt usage, seating position, and vehicle type relate to injury severity in Victorian road accidents. It combines correlation analysis (NMI scoring), K-Means clustering, and supervised learning (KNN and Decision Tree) to identify patterns and predict injury outcomes. Built as part of COMP20008 (Elements of Data Processing).`,
     date: "COMP20008 - Semester 1 2025",
     type: "University Project",

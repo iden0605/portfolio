@@ -11,13 +11,13 @@
 }
 
 body, html {
-  background-color: #1e2030;
+  background-color: #f6f2ea;
   margin: 0;
   padding: 0;
 }
 
 ::selection {
-  background-color: rgba(106, 127, 218, 0.25);
+  background-color: rgba(28, 26, 23, 0.12);
   color: inherit;
 }
 
@@ -31,11 +31,11 @@ body, html {
   display: flex;
   flex-direction: column;
 
-  --primary-color: #1a1a1a;
-  --accent-color: #007bff;
-  --secondary-color: #f5f5f5;
-  --subtle-accent: #6a7fda;
-  --highlight-color: #00b894;
+  --primary-color: #1c1a17;
+  --accent-color: #52586a;
+  --secondary-color: #efe9dd;
+  --subtle-accent: #1c1a17;
+  --highlight-color: #5b6b52;
   --text-color: var(--primary-color);
   --navbar-height: 60px; /* Estimated height of the fixed navbar */
 }
@@ -55,19 +55,19 @@ body, html {
 .section {
   margin-bottom: 4rem;
   padding: 3rem;
-  background-color: #24273a;
+  background-color: #fbf8f2;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 32px rgba(28, 26, 23, 0.10);
   width: 100%;
   max-width: 1100px;
   margin: 2rem auto;
-  border: 1px solid #363a4f;
+  border: 1px solid #ddd3c0;
 }
 
 .section h2 {
   font-size: 1.8em;
   font-weight: 700;
-  color: #a6da95;
+  color: #5b6b52;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -75,7 +75,7 @@ body, html {
 .section-divider {
   border: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(28, 26, 23, 0.08);
   margin: 3rem 0;
   transition: all 0.5s ease-in-out;
 }
@@ -83,17 +83,17 @@ body, html {
 .section-divider-subtle {
   height: 1px;
   width: 100%;
-  background: linear-gradient(to right, transparent, #494d64, transparent);
+  background: linear-gradient(to right, transparent, #ddd3c0, transparent);
   margin: 1.5rem 0;
   display: block;
   border: none;
 }
 
 .content-card {
-  background-color: #e0e0e0;
+  background-color: #efe9dd;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 12px rgba(28, 26, 23, 0.10);
   margin-bottom: 0;
   transition: transform 0.2s ease-in-out;
   position: relative;
@@ -130,7 +130,7 @@ body, html {
 
 .projects-grid .content-card h3 {
   font-size: 1.6em;
-  color: #333;
+  color: #1c1a17;
   font-weight: 700;
   text-align: left;
   padding-left: 0.5rem;
@@ -148,14 +148,14 @@ body, html {
   font-family: 'Poppins', sans-serif;
   font-size: 2.8em;
   font-weight: 600;
-  color: #eef0fc;
+  color: #1c1a17;
 }
 
 .main-content p {
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #cad3f5;
+  color: #6f6a5f;
 }
 
 
@@ -185,7 +185,7 @@ body, html {
 }
 
 .cta-button:hover {
-  background-color: #5a6fca;
+  background-color: #52586a;
   box-shadow: none;
   transform: none;
 }
@@ -202,7 +202,7 @@ body, html {
 .section h3 {
   font-size: 1.4em;
   font-weight: 700;
-  color: #8aadf4;
+  color: #52586a;
   margin-top: 0;
   margin-bottom: 0.4rem;
 }
@@ -217,7 +217,7 @@ body, html {
 
 .subtitle {
   text-decoration-line: underline;
-  text-decoration-color: #8aadf4;
+  text-decoration-color: #52586a;
   text-underline-offset: 0.1em;
   display: inline-block;
   margin-bottom: 0;
@@ -227,7 +227,7 @@ body, html {
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 2rem;
   text-decoration: underline;
-  text-decoration-color: #8aadf4;
+  text-decoration-color: #52586a;
   text-underline-offset: 0.3em;
 }
 
@@ -236,9 +236,9 @@ body, html {
   font-size: 1.1rem;
   font-weight: 400;
   margin-top: 0.8rem;
-  border-left: 3px solid #494d64;
+  border-left: 3px solid #ddd3c0;
   padding-left: 1.5rem;
-  color: #cad3f5;
+  color: #6f6a5f;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   font-family: 'Inter', sans-serif;
@@ -359,7 +359,7 @@ body, html {
   /* Re-apply default section styling but with controlled application */
   margin-top: 1rem;
   /* Ensure these match the .section > div:not(.project-details) p styles if they were being overridden */
-  border-left: 3px solid #494d64 !important;
+  border-left: 3px solid #ddd3c0 !important;
   padding-left: 1.5rem !important;
 }
 

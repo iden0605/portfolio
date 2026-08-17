@@ -1,6 +1,6 @@
 # About
 
-_Last updated: 2026-08-17 (session 7)_
+_Last updated: 2026-08-17 (session 8)_
 
 ## What It Is
 
@@ -12,7 +12,7 @@ Personal portfolio website for Iden McElhone (Systems & Cloud Architect / DevOps
 - **Language:** JavaScript (JSX)
 - **Build tool:** Vite 6
 - **Styling:** Custom CSS (no Tailwind) — Catppuccin Macchiato terminal dark theme
-- **Animations:** Framer Motion, AOS (scroll reveal)
+- **Animations:** Framer Motion, plus a custom terminal-styled scroll-reveal system (`src/hooks/useReveal.js` + `src/styles/Reveal.css`) — AOS has been fully removed
 - **Contact:** EmailJS (`@emailjs/browser`)
 - **Deployment:** GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 
@@ -32,6 +32,13 @@ src/
     projectData.js         # All project entries (object keyed by display name)
     jobExperienceData.js   # Work experience entries
     skillsData.js          # Skills/tech for homepage display
+  hooks/
+    useReveal.js            # Scroll-reveal hook (+ typeVars() typewriter sizing helper) — see Conventions
+    useColumnCount.js        # Tracks live CSS grid column count via matchMedia (used for row-based logic)
+    useContactForm.js        # ContactMePage form state/submit logic
+    useOverflowTabNav.js     # Shared tab-overflow arrow nav for terminal-style tab bars
+  styles/
+    Reveal.css               # Global scroll-reveal keyframes/classes, imported once in App.jsx
 public/
   assets/project/{Name}/  # Project images/videos per project
   {tokenizedname}-hover.mp4  # Card hover preview videos (root of public/)
@@ -73,3 +80,6 @@ public/
 - Project detail sections (`details[]`) render as a `git log --graph` style collapsible commit list (`ProjectDetailTabSection.jsx`), not tabs — each entry's badge (`demo`/`system`/`feature`/`notes`) is auto-inferred from its content block types (video→demo, troop-carousel→system, image→feature, else→notes)
 - EmailJS keys (`VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`) must be set as GitHub Actions secrets — they are gitignored locally and injected into the build via the workflow's `env:` block on the deploy step. Without them, the built bundle gets `undefined` and EmailJS throws "public key required"
 - Contact form logic lives in `src/hooks/useContactForm.js`, used by `ContactMePage`
+- **Scroll-reveal system** (replaces AOS): elements get `className="reveal"` + a ref from `useReveal()`, then `reveal-in` is added once revealed — mirrors AOS's `once: true`. Base effect is a scanline wipe (vertical clip-path sweep + bright leading line); `.reveal-row` swaps it for a horizontal sweep (used for short/wide list rows, e.g. `WorkExperience.jsx` rows); `.reveal-frame` swaps it for a fixed-distance opacity+translateY drop (used for wrappers taller than the viewport, e.g. `Projects.jsx`'s `.proj-terminal`, `Terminal.jsx`, `GithubSection.jsx`). Optional typewriter: wrap text in `<span className="reveal-type-text" style={typeVars(text)}>`.
+- **IntersectionObserver gotcha:** `threshold` is a fraction of the *element's own total area* that must be visible at once — for any element taller than the viewport (a whole terminal window, a long list) that fraction may never be reachable, so the reveal never fires and the element stays invisible forever. Use `rootMargin` (shrinks the effective viewport) instead of raising `threshold` to require more scroll on large containers. `useReveal()` defaults to `threshold: 0, rootMargin: '0px 0px -10% 0px'`.
+- Pass `immediate: true` to `useReveal()` for elements that should animate in on mount rather than on scroll (used for the homepage's Profile/StatsStrip/Terminal/GithubSection, staggered via inline `--reveal-delay`).

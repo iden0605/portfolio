@@ -28,7 +28,7 @@
   right: 10px !important;
   background: none;
   border: none;
-  color: #6a7fda !important;
+  color: #fbf8f2 !important;
   font-size: 2rem !important;
   cursor: pointer;
   padding: 5px 10px !important;
@@ -38,7 +38,7 @@
 }
 
 .close-button:hover {
-  color: #4B5BB8 !important; /* Slightly darker shade of #007bff */
+  color: #ddd3c0 !important; /* dimmer cream on hover */
 }
 
 /* Media queries for further responsiveness if needed */

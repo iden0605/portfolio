@@ -28,7 +28,7 @@
   right: 0;
   top: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--reveal-scan-color, #a6da95), transparent);
+  background: linear-gradient(90deg, transparent, var(--reveal-scan-color, #5b6b52), transparent);
   opacity: 0;
   pointer-events: none;
   z-index: 5;
@@ -66,7 +66,7 @@
   bottom: 0;
   width: 2px;
   height: auto;
-  background: linear-gradient(180deg, transparent, var(--reveal-scan-color, #a6da95), transparent);
+  background: linear-gradient(180deg, transparent, var(--reveal-scan-color, #5b6b52), transparent);
 }
 
 .reveal.reveal-row.reveal-in::before {
