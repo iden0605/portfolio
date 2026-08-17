@@ -1,5 +1,57 @@
 // data for project section
 const projectData = {
+  "Road Accident Injury Analysis": {
+    tokenizedName: "eodp-report",
+    category: "university",
+    description: `Road Accident Injury Analysis is a data science pipeline examining how seatbelt usage, seating position, and vehicle type relate to injury severity in Victorian road accidents. It combines correlation analysis (NMI scoring), K-Means clustering, and supervised learning (KNN and Decision Tree) to identify patterns and predict injury outcomes. Built as part of COMP20008 (Elements of Data Processing).`,
+    date: "COMP20008 - Semester 1 2025",
+    type: "University Project",
+    teamSize: 4,
+    role: "Data Analyst",
+    thumbnail: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-image-1.png",
+    technologies: ["Python", "pandas", "NumPy", "scikit-learn", "Matplotlib", "Seaborn"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/EODP-report",
+    itchLink: "",
+    wwwLink: "",
+    presentationLink: "https://docs.google.com/presentation/d/1UcdcDZ6U2yEj9p7NzXMXi6-1FQsNiiXwY28Xwpdc1aY/edit",
+    status: "Completed",
+    projectTime: "4 Weeks",
+    keyResponsibilities: [
+      "Built a data preprocessing pipeline that merges vehicle and person records on accident number, filters to seatbelt-relevant rows, and removes unknown vehicle types and incomplete seating position data.",
+      "Implemented correlation analysis computing feature distributions and Normalized Mutual Information (NMI) scores between seatbelt usage, seating position, vehicle type, and injury severity, visualised with Seaborn bar charts.",
+      "Developed K-Means clustering on one-hot encoded and scaled features, using the Elbow Method to determine the optimal cluster count and a heatmap to visualise injury severity across clusters.",
+      "Trained and cross-validated KNN and Decision Tree classifiers using scikit-learn to predict injury severity from categorical accident features.",
+      "Evaluated model performance with confusion matrices, classification reports, and a visualised decision tree diagram.",
+      "Authored shared dataframe merging and one-hot encoding utilities used throughout the analysis pipeline.",
+    ],
+    details: [
+      {
+        title: "Correlation Analysis",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-1.png", width: "900px" },
+          { type: "text", text: "Each candidate feature — seatbelt worn, seating position, and vehicle type — is scored against injury level using Normalized Mutual Information (NMI), which captures non-linear dependence without assuming a particular relationship shape. Individually, all three features score below the 0.02 threshold marked on the chart, indicating that no single feature strongly predicts injury severity on its own — motivating a combined, model-based approach instead." },
+        ]
+      },
+      {
+        title: "K-Means Cluster Analysis",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-2.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-3.png", width: "900px" },
+          { type: "text", text: "Categorical features are one-hot encoded and combined with a min-max scaled injury level before clustering. The Elbow Method plots inertia against k to identify the point of diminishing returns, settling on k=3. The resulting heatmap cross-tabulates each cluster against injury severity, revealing groupings that correspond to distinct combinations of seatbelt usage and seating position." },
+        ]
+      },
+      {
+        title: "Supervised Learning & Evaluation",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-4.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-5.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-6.png", width: "900px" },
+          { type: "text", text: "KNN and Decision Tree classifiers are trained on the encoded feature set and evaluated with 5-fold cross-validation for a more reliable accuracy estimate. The decision tree (depth-limited to 2 for visualisation) shows the model's top-level splits, while confusion matrices for both models highlight where predictions diverge from true injury levels — most notably confusion between adjacent severity classes." },
+        ]
+      }
+    ]
+  },
   "Image Classification Pipeline": {
     tokenizedName: "image-classification-pipeline",
     category: "university",

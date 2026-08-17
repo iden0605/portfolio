@@ -1,6 +1,6 @@
 # About
 
-_Last updated: 2026-08-17 (session 6)_
+_Last updated: 2026-08-17 (session 7)_
 
 ## What It Is
 
@@ -63,7 +63,7 @@ public/
 - `projectName` prop passed to both components must exactly match the key string in `projectData.js`
 - `award` key must be omitted entirely (not `""` or `null`) if no award
 - Empty link fields use `""` — all link keys must be present
-- Optional extra link fields `diagramLink` (e.g. draw.io), `docsLink` (e.g. Google Doc), and `datasetLink` (e.g. Kaggle) are supported by `ProjectHeader.jsx`'s link bar but not required — omit entirely if unused (unlike the core link fields, which use `""`)
+- Optional extra link fields `diagramLink` (e.g. draw.io), `docsLink` (e.g. Google Doc), `datasetLink` (e.g. Kaggle), and `presentationLink` (e.g. Google Slides) are supported by `ProjectHeader.jsx`'s link bar but not required — omit entirely if unused (unlike the core link fields, which use `""`)
 - `previewVid` path: `"/{tokenizedname}-hover.mp4"` — root of `public/`, no subfolder
 - Detail content types: `"image"`, `"text"`, `"video"`, `"troop-carousel"` — handled by `ProjectDetailTabSection`
 - Theme is Catppuccin Macchiato: base `#24273a`, mantle `#1e2030`, green `#a6da95`, blue `#8aadf4`, pink/red `#ed8796`

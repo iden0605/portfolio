@@ -128,7 +128,7 @@ function ProjectHeader({ projectName }) {
               )}
               <h2 className="project-header-title">{projectName}</h2>
               <div className="project-type-box project-header-type-box">{project.type}</div>
-              {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink || project.diagramLink || project.docsLink || project.datasetLink) && (
+              {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink || project.diagramLink || project.docsLink || project.datasetLink || project.presentationLink) && (
                 <div className="project-links-bar">
                   {project.githubLink && project.githubLink !== "" && (
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
@@ -198,6 +198,16 @@ function ProjectHeader({ projectName }) {
                         <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
                       </svg>
                       <span>Dataset</span>
+                    </a>
+                  )}
+                  {project.presentationLink && project.presentationLink !== "" && (
+                    <a href={project.presentationLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M2 3h20"/>
+                        <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                        <path d="m7 21 5-5 5 5"/>
+                      </svg>
+                      <span>Slides</span>
                     </a>
                   )}
                 </div>
