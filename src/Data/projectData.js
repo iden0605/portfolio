@@ -1,5 +1,53 @@
 // data for project section
 const projectData = {
+  "Cascade AI": {
+    tokenizedName: "cascade-ai",
+    category: "university",
+    description: `Cascade AI is a competitive game-playing agent built for COMP30024 (Artificial Intelligence), implementing alpha-beta pruned minimax search over a custom board representation for the two-player strategy game Cascade. A hand-tuned evaluation function weighs token count, stack height, and capture threats to guide search under strict 180-second CPU and 250MB memory budgets. Tournament-tested against random, greedy, and adversarial-search opponents.`,
+    date: "COMP30024 - Semester 1 2026",
+    type: "University Project",
+    teamSize: 2,
+    role: "AI Developer",
+    thumbnail: "/assets/project/CascadeAI/cascade-ai-image-1.png",
+    technologies: ["Python", "NumPy", "Alpha-Beta Pruning", "Minimax Search"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30024-Project-Part-B",
+    itchLink: "",
+    wwwLink: "",
+    docsLink: "https://docs.google.com/document/d/1JyB-sj2BHODwKeoOYIb72Fq7gmcDQiLqrVrDhk4LKOk/edit?tab=t.0#heading=h.rh6g02cvm7dz",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Built legal action generation (get_actions, get_place_actions) covering Move, Eat, and Cascade actions across all board states, with placement-adjacency rules enforced.",
+      "Designed and implemented alpha-beta pruned minimax search (alpha_beta, best_action) with move ordering prioritising Eat, then Cascade, then Move actions to maximise pruning efficiency.",
+      "Designed a heuristic evaluation function weighing token count, stack height, and capture-threat differentials to score non-terminal board states.",
+      "Authored the project report detailing search strategy, algorithm design, and evaluation function methodology.",
+    ],
+    details: [
+      {
+        title: "Evaluation Function Design",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-1.png", width: "900px" },
+          { type: "text", text: "The evaluation function scores non-terminal board states as a weighted linear sum of three features: token_diff, height_diff, and threat_diff. token_diff — the difference in summed stack heights — carries the heaviest weight (10) since token count directly determines the win condition. height_diff (weight 3) rewards taller stacks, which unlock more powerful EAT and CASCADE options. threat_diff (weight 2) penalises positions where the opponent can capture our stacks, encouraging safer play." },
+        ]
+      },
+      {
+        title: "Weight Tuning & Tournament Results",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-2.png", width: "900px" },
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-3.png", width: "900px" },
+          { type: "text", text: "Candidate weight configurations were benchmarked against a tokens-only baseline and each other across repeated matches. Configurations with a non-zero height_diff weight consistently outperformed the baseline, while threat_diff contributed smaller but positive gains — validating the (10, 3, 2) weighting used in the final agent." },
+        ]
+      },
+      {
+        title: "Alpha-Beta Search & Move Ordering",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-4.png", width: "900px" },
+          { type: "text", text: "Move selection uses minimax search with alpha-beta pruning to a fixed depth, evaluating the resulting board after each candidate action. Actions are ordered before expansion — Eat first, then Cascade, then Move — since capture and cascade moves are more likely to produce strong cutoffs early, tightening the alpha-beta window and reducing the effective branching factor explored at each depth." },
+        ]
+      },
+    ]
+  },
   "Road Accident Injury Analysis": {
     tokenizedName: "eodp-report",
     category: "university",
