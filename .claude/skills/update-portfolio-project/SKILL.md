@@ -51,7 +51,9 @@ Ask **one round at a time**. Wait for each answer before continuing.
 
 **Round 1 — Identity & Type**
 > "What's the **display name** for this project? (e.g. `'EchoAI'`, `'Afloat'`)
-> And what **type** is it? Options: `Game Jam`, `Hackathon`, `University Project`, `Personal Project`, `Freelance`, or custom."
+> And what **type** is it? Options: `Game Jam`, `Hackathon`, `University Project`, `Personal Project`, `Freelance`, or custom.
+>
+> Which **category** does it fall under (controls the colour dot on the project card): `hackathons`, `university`, or `personal`?"
 
 **Round 2 — Event & Award**
 > "What **event or date** should appear on the card?
@@ -161,7 +163,7 @@ Present proposed sections clearly:
 >
 > Does this structure work? Add, remove, or modify freely."
 
-Each section becomes a **tab** in the terminal-style detail page. Tabs display as filenames (e.g. `introduction-cutscene.txt`, `spell-composition-system.txt`). Keep tab names short and descriptive.
+Each section becomes a collapsible **commit entry** in the `git log --graph` style detail page, with the section title shown as the commit message and a filename-style scope derived from the title (e.g. `introduction-cutscene.txt`, `spell-composition-system.txt`). Keep titles short and descriptive.
 
 If the project is simple with nothing visually interesting to show (e.g. a small script or data analysis), suggest skipping the `details` array entirely — a simple header-only page is fine.
 
@@ -219,6 +221,7 @@ Assemble the complete entry that will be inserted into `projectData.js`:
 ```js
 "Project Name": {
   tokenizedName: "...",
+  category: "...",       // "hackathons" | "university" | "personal" — colours the project card dot
   description: `...`,
   date: "...",
   type: "...",
@@ -268,7 +271,15 @@ When a visitor navigates to `/projects/{tokenizedName}`, a single generic `Proje
 - External link buttons for GitHub, Itch.io, website, Instagram (shown only if field is non-empty)
 - Description, status, project_time, technologies metadata
 
-**ProjectDetailTabSection** renders a second terminal with a tab per `details` entry. Supports four content block types:
+**ProjectDetailTabSection** renders a second terminal styled as `git log --graph` — each `details` entry is a collapsible "commit" in a vertical log (click to expand/collapse), not a tab. Each commit shows a type badge, a hex tag (`0x01`, `0x02`, …), a filename-style scope (`{tab-title-slug}.txt`), and the section title as the commit message. The badge/icon is **auto-inferred** from the block's content types — not something you choose:
+- contains a `video` block → `demo`
+- contains a `troop-carousel` block → `system`
+- contains an `image` block (no video/carousel) → `feature`
+- otherwise (text only) → `notes`
+
+Design section content with this in mind: if you want a section tagged `demo`, give it a `video` block; `system` implies a carousel; plain `image`+`text` sections read as `feature`.
+
+Supports four content block types:
 
 ```js
 { type: "image", src: "/assets/project/...", width: "900px" }
@@ -324,6 +335,7 @@ Assets still needed in the portfolio repo:
 Before writing the file:
 - [ ] `tokenizedName` is kebab-case, no spaces or special characters
 - [ ] `tokenizedName` is unique — does not already exist in `projectData.js`
+- [ ] `category` is one of `"hackathons"`, `"university"`, `"personal"`
 - [ ] `date` format: `"MMM YYYY - MMM YYYY"` or event string like `"MelbourneHack 2025 Winner"`
 - [ ] `technologies` is an **array of strings** (not a comma-separated string)
 - [ ] `award` key is **omitted entirely** if no award — not `""` or `null`

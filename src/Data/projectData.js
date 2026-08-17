@@ -535,6 +535,55 @@ const projectData = {
       },
     ]
   },
+  "GoT Card Game": {
+    tokenizedName: "got-card-game",
+    category: "university",
+    description: `GoT Card Game is a Game-of-Thrones-themed trick-taking card game built for SWEN30006, featuring an AI opponent driven by a utility-based decision system. Rather than scripted logic, the bot weighs "considerations" — attack, defence, and magic value — across both its own team and opponents to choose optimal plays each turn. Built on the jCardGame/jGameGrid framework with a strong emphasis on design patterns (Strategy, Template Method) and test-driven correctness.`,
+    date: "SWEN30006 - Sem 1 2026",
+    type: "University Project",
+    teamSize: 3,
+    role: "AI/Bot Systems Programmer",
+    thumbnail: "/assets/project/GoTCardGame/got-card-game-image-1.png",
+    technologies: ["Java", "jCardGame", "jGameGrid", "JUnit", "Gradle"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/SWEN30006-Project",
+    itchLink: "",
+    wwwLink: "",
+    diagramLink: "https://app.diagrams.net/#G1BVWYMf6pt39tDre5Mqp2IJQipgTEY-Vp#%7B%22pageId%22%3A%22KRCQmE4dGvrjPAfybiek%22%7D",
+    docsLink: "https://docs.google.com/document/d/153oycY4yHrhkKXyIFyI3zxOLeZuUR2ItS5ROYUbh5Dk/edit?tab=t.o46iujvcilzz",
+    status: "Completed",
+    projectTime: "2 Weeks",
+    keyResponsibilities: [
+      "Designed a utility-based decision system for the AI bot, using weighted Consideration classes (attack, defence, magic) scored across team and opponent state via a ConsiderationFactory.",
+      "Implemented SmartBotPlayer and SmartBotMode, selecting optimal moves by evaluating scored considerations against legal plays.",
+      "Refactored the smart bot's decision logic to the Template Method pattern for cleaner extensibility across attack/defence modes.",
+      "Diagnosed and fixed pile calculation and scoring bugs in PileCalculator, correcting test failures in GameTest.",
+      "Authored project documentation, including static/dynamic design diagrams and team specifications.",
+    ],
+    details: [
+      {
+        title: "Trick-Taking Gameplay",
+        content: [
+          { type: "image", src: "/assets/project/GoTCardGame/got-card-game-1.png", width: "900px" },
+          { type: "text", text: "Each round, four players battle across two piles — Attack and Defence — built from Hand objects rendered via jGameGrid. Suits map to distinct mechanics: hearts are played to score, while clubs, diamonds, and spades modify each pile's attack or defence value, prompting the active player to select a valid card and target pile each turn." },
+        ]
+      },
+      {
+        title: "Adaptive Move Selection",
+        content: [
+          { type: "image", src: "/assets/project/GoTCardGame/got-card-game-2.png", width: "900px" },
+          { type: "text", text: "SmartBotPlayer delegates each turn to LegalBotPlayer.selectMove, which first checks for a pending forced pass, then compares the bot's own pile ranks against its opponent's. Based on whether its attack can beat the opponent's defence, it dispatches to either attackingMode or defendingMode — swappable SmartBotMode strategies that each search legal plays for the best-scoring move." },
+        ]
+      },
+      {
+        title: "Consideration Factory Pattern",
+        content: [
+          { type: "image", src: "/assets/project/GoTCardGame/got-card-game-3.png", width: "900px" },
+          { type: "text", text: "Move legality and priority are decided by a chain of Consideration implementations — TeamAttackConsideration, OpponentDefenceConsideration, and similar — each returning PLAY, PASS, or NO_OPINION for a given card and pile. ConsiderationFactory builds the active chain from a config string, and LegalBotPlayer walks it in order, using the first non-NO_OPINION verdict to decide the move." },
+        ]
+      },
+    ]
+  },
   "OverGrown": {
     tokenizedName: "overgrown",
     category: "hackathons",
