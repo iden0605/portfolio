@@ -1,5 +1,86 @@
 // data for project section
 const projectData = {
+  "Backloggr": {
+    tokenizedName: "backloggr",
+    category: "personal",
+    description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
+    date: "July 2026 - Present",
+    type: "Personal Project",
+    teamSize: 1,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/Backloggr/backloggr-image-1.png",
+    technologies: [
+      "Tauri",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "SQLite",
+      "Cloudflare Workers",
+      "Groq",
+      "RAWG API",
+      "FFmpeg",
+      "Vite",
+    ],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/Backloggr",
+    itchLink: "",
+    wwwLink: "https://backloggr.com/",
+    status: "Released",
+    projectTime: "Jul 2026 - Present",
+    keyResponsibilities: [
+      "Built a cross-platform Tauri + Rust desktop app with a React 19/TypeScript/Zustand frontend and a local SQLite library database.",
+      "Implemented automatic playtime tracking by polling running processes and matching them against the library, auto-starting and closing sessions.",
+      "Built a rolling-buffer gameplay clip recorder using FFmpeg's segment muxer, with an always-on-top transparent overlay for save feedback and window-scoped capture that survives alt-tabs.",
+      "Designed \"Shelby,\" an AI recommendation chat that narrows a real candidate pool of named games turn-by-turn via clarifying questions, backed by a Cloudflare Worker proxying Groq (Llama 3.3 70B) and cross-verified against the RAWG API.",
+      "Implemented Steam library import and a dashboard surfacing playtime stats, completion rates, and weekly trends.",
+      "Built and deployed the marketing website (React + Vite + Tailwind, Cloudflare Pages) with a live GitHub Releases-backed download button.",
+    ],
+    details: [
+      {
+        title: "Automatic Playtime Tracking",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-1.png", width: "900px" },
+          {
+            type: "text",
+            text: "A background poller in the Rust process watches running processes every few seconds and matches them against exe names stored in the library — no manual start/stop. Opening a matched game opens a session row; closing it ends the session and rolls the duration into the dashboard's totals. The dashboard surfaces a \"Jump back in\" card for the last-played game alongside a rolling 7-day chart and a most-played-this-week breakdown, computed against a rolling previous-week baseline for the week-over-week delta.",
+          },
+        ],
+      },
+      {
+        title: "Hotkey Clip Capture",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-2.png", width: "900px" },
+          {
+            type: "text",
+            text: "Capture runs continuously for the length of a game session using FFmpeg's segment muxer, writing a fixed-length ring buffer of MPEG-TS segments to disk. MPEG-TS is deliberate — unlike MP4, a segment is readable up to its current write position even while FFmpeg is still appending to it, so a clip can include footage right up to the hotkey press without losing the final few seconds. Pressing the configurable hotkey (Alt+F9 by default) pulls the last 30 seconds from the buffer, re-encodes it, and shows a transparent always-on-top overlay toast for save feedback — the same pattern mainstream clipping tools like ShadowPlay use, since OS notifications get suppressed by fullscreen games.",
+          },
+        ],
+      },
+      {
+        title: "Shelby, the AI Rec Chat",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-4.png", width: "900px" },
+          {
+            type: "text",
+            text: "Shelby is a narrowing conversation, not a one-shot prompt. Each turn, a Cloudflare Worker asks Groq (Llama 3.3 70B) to name a real candidate pool of specific games matching the request so far — the pool's size is reported honestly rather than fabricated. Flow control lives outside the model: if the pool is small enough, results show immediately; otherwise the app asks the one clarifying question that best splits the remaining candidates, capped at four rounds so the conversation can't loop forever. Every candidate is cross-verified against the RAWG API for its real release date, genre, and platform facts before it's shown, and games already in the player's library are filtered out.",
+          },
+        ],
+      },
+      {
+        title: "Steam Library Import",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3a.png", width: "900px" },
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3b.png", width: "900px" },
+          {
+            type: "text",
+            text: "Pulls a player's entire owned Steam library — including games they've never launched — via their profile URL, vanity name, or SteamID64, and lets them pick which ones to add. Each imported title is resolved against RAWG for cover art and genre data, with a progress modal reporting live import counts for large libraries.",
+          },
+        ],
+      },
+    ],
+  },
   "Battleship Server": {
     tokenizedName: "battleship-server",
     category: "university",
