@@ -6,9 +6,11 @@ import NotFound from '../Global/NotFound';
 import '../../App.css';
 import './WorkExperienceDetail.css';
 import '../Projects/ProjectDetails.css';
+import { useReveal } from '../../hooks/useReveal';
 
 function WorkExperienceDetailPage() {
   const { slug } = useParams();
+  const { ref: revealRef, className: revealClassName } = useReveal();
   const entries = Object.entries(jobExperienceData);
   const currentIndex = entries.findIndex(([, v]) => v.tokenizedName === slug);
 
@@ -23,7 +25,7 @@ function WorkExperienceDetailPage() {
       <WorkExperienceHeader companyName={companyName} />
 
       {job.positions?.length > 0 && (
-        <section className="section detail-terminal-section" data-aos="fade-up">
+        <section ref={revealRef} className={`section detail-terminal-section ${revealClassName}`}>
           <div className="detail-titlebar">
             <span className="detail-title-text">~/work/{slug}</span>
             <div className="window-dots">

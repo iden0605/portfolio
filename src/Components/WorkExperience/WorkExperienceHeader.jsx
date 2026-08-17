@@ -5,9 +5,11 @@ import '../Projects/ProjectDetails.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
 import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
+import { useReveal, typeVars } from '../../hooks/useReveal';
 
 function WorkExperienceHeader({ companyName }) {
   const job = jobExperienceData[companyName];
+  const { ref: revealRef, className: revealClassName } = useReveal();
 
   if (!job) return null;
 
@@ -59,7 +61,7 @@ function WorkExperienceHeader({ companyName }) {
   const slug = companyName.toLowerCase().replace(/\s+/g, '-');
 
   return (
-    <section className="section detail-terminal-section" data-aos="fade-up">
+    <section ref={revealRef} className={`section detail-terminal-section ${revealClassName}`}>
 
       <div className="detail-titlebar">
         <span className="detail-title-text">~/work/{slug} $ ls</span>
@@ -114,7 +116,9 @@ function WorkExperienceHeader({ companyName }) {
                   />
                 </div>
               )}
-              <h2 className="work-experience-company-name">{companyName}</h2>
+              <h2 className="work-experience-company-name">
+                <span className="reveal-type-text" style={typeVars(companyName)}>{companyName}</span>
+              </h2>
               <div className="work-experience-job-title">{job.jobTitle}</div>
               {job.description && (
                 <p className="detail-body-text">{job.description}</p>

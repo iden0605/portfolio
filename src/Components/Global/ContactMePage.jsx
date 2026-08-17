@@ -1,12 +1,14 @@
 import './ContactMePage.css';
 import { useContactForm } from '../../hooks/useContactForm';
+import { useReveal } from '../../hooks/useReveal';
 
 function ContactMePage() {
   const { formData, isSending, cooldown, handleChange, handleSubmit, buttonText } = useContactForm();
+  const { ref: revealRef, className: revealClassName } = useReveal();
 
   return (
     <div className="contact-me-page">
-      <div className="contact-popup-content">
+      <div ref={revealRef} className={`contact-popup-content ${revealClassName}`}>
         <div className="contact-popup-prompt-line">
           <span className="contact-popup-prompt-arrow">❯</span>
           <span className="contact-popup-prompt-cmd" style={{ '--cmd-len': 16 }}> cat contact.md</span>

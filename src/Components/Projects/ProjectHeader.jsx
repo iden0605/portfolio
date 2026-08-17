@@ -3,9 +3,11 @@ import '../../App.css';
 import './ProjectDetails.css';
 import projectData from '../../Data/projectData';
 import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
+import { useReveal, typeVars } from '../../hooks/useReveal';
 
 function ProjectHeader({ projectName }) {
   const project = projectData[projectName];
+  const { ref: revealRef, className: revealClassName } = useReveal();
 
   if (!project) return null;
 
@@ -69,7 +71,7 @@ function ProjectHeader({ projectName }) {
   const slug = projectName.toLowerCase().replace(/\s+/g, '-');
 
   return (
-    <section className="section detail-terminal-section" data-aos="fade-up">
+    <section ref={revealRef} className={`section detail-terminal-section ${revealClassName}`}>
 
       <div className="detail-titlebar">
         <span className="detail-title-text">~/projects/{slug} $ ls</span>
@@ -126,7 +128,9 @@ function ProjectHeader({ projectName }) {
                   />
                 </div>
               )}
-              <h2 className="project-header-title">{projectName}</h2>
+              <h2 className="project-header-title">
+                <span className="reveal-type-text" style={typeVars(projectName)}>{projectName}</span>
+              </h2>
               <div className="project-type-box project-header-type-box">{project.type}</div>
               {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink || project.diagramLink || project.docsLink || project.datasetLink || project.presentationLink) && (
                 <div className="project-links-bar">

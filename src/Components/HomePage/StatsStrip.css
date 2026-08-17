@@ -15,23 +15,10 @@
   gap: 0.4rem;
   padding: 0.3rem 0.5rem;
   border-left: 1px solid #363a4f;
-  opacity: 0;
-  transform: translateY(6px);
-  animation: stat-in 0.4s ease forwards;
-  animation-delay: var(--stat-delay, 0ms);
-  animation-play-state: paused;
 }
 
 .stat-chip:first-child {
   border-left: none;
-}
-
-.aos-animate .stat-chip {
-  animation-play-state: running;
-}
-
-@keyframes stat-in {
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .stat-value {

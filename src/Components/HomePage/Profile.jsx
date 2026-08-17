@@ -1,14 +1,16 @@
 import StatsStrip from './StatsStrip';
+import { useReveal } from '../../hooks/useReveal';
 import './Profile.css';
 
 function Profile() {
   // define name and tagline
   const name = "Iden McElhone";
   const tagline = "Systems & Cloud Architect | DevOps Engineer";
+  const { ref, className } = useReveal({ immediate: true });
 
   // render the profile section
   return (
-    <section className="section profile-section" data-aos="fade-up">
+    <section ref={ref} className={`section profile-section ${className}`} style={{ '--reveal-delay': '0ms' }}>
       <div className="profile-prompt-line">
         <span className="profile-prompt-arrow">❯</span>
         <span className="profile-prompt-cmd" style={{ '--cmd-len': 12 }}> cat bio.md</span>

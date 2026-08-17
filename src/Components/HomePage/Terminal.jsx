@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LuCode, LuLayoutTemplate, LuDatabase, LuServer, LuCloud, LuWrench } from 'react-icons/lu';
 import { skills } from '../../Data/skillsData';
 import { useOverflowTabNav } from '../../hooks/useOverflowTabNav';
+import { useReveal } from '../../hooks/useReveal';
 import './Terminal.css';
 
 const TABS = ['about.md', 'skills.sh', 'education.md'];
@@ -20,6 +21,7 @@ const SKILL_CATEGORY_META = {
 const slugify = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 function Terminal() {
+  const { ref: revealRef, revealed: isRevealed } = useReveal({ immediate: true });
   const [activeTab, setActiveTab] = useState('about.md');
   const [isTabGlitching, setIsTabGlitching] = useState(false);
 
@@ -71,7 +73,7 @@ function Terminal() {
   };
 
   return (
-    <div className="terminal-section" data-aos="fade-up" data-aos-offset="-150">
+    <div ref={revealRef} className={`terminal-section reveal reveal-frame${isRevealed ? ' reveal-in' : ''}`} style={{ '--reveal-delay': '450ms' }}>
 
       {/* Title bar */}
       <div className="terminal-titlebar">

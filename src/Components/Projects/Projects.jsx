@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LuFileCode2, LuGitFork } from 'react-icons/lu';
 import './Projects.css';
 import projectData from '../../Data/projectData';
+import { useReveal, typeVars } from '../../hooks/useReveal';
 
 const CATEGORY_DOT_CLASS = {
   hackathons: 'proj-dot--hackathons',
@@ -17,6 +18,8 @@ function Projects() {
   const videoRefs = useRef({});
   const ratioMap = useRef({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const { ref: terminalRef, revealed: terminalRevealed } = useReveal({ rootMargin: '0px 0px -20% 0px' });
+  const { ref: gridRef, revealed: gridRevealed } = useReveal({ rootMargin: '0px 0px -20% 0px' });
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -70,7 +73,7 @@ function Projects() {
 
   return (
     <main className="main-content">
-      <div className="proj-terminal" data-aos="fade-up">
+      <div ref={terminalRef} className={`proj-terminal reveal reveal-frame${terminalRevealed ? ' reveal-in' : ''}`}>
 
         {/* Title bar */}
         <div className="proj-titlebar">
@@ -93,8 +96,8 @@ function Projects() {
             </div>
 
             {/* Grid */}
-            <div className="projects-grid">
-              {allEntries.map(([projectName, project], index) => {
+            <div className="projects-grid" ref={gridRef}>
+              {allEntries.map(([projectName, project]) => {
                   const showVideo = isMobile
                     ? activeMobileProject === projectName && project.previewVid
                     : hoveredProject === projectName && project.previewVid;
@@ -103,14 +106,12 @@ function Projects() {
                     <Link
                       to={`/projects/${project.tokenizedName}`}
                       key={projectName}
-                      data-aos="fade-up"
-                      data-aos-delay={index * 80}
                       onMouseEnter={() => { if (!isMobile) setHoveredProject(projectName); }}
                       onMouseLeave={() => { if (!isMobile) setHoveredProject(null); }}
                       className="proj-card-link"
                     >
                       <div
-                        className="project-card"
+                        className={`project-card reveal${gridRevealed ? ' reveal-in' : ''}`}
                         ref={el => { cardRefs.current[projectName] = el; }}
                         data-project={projectName}
                       >
@@ -147,7 +148,9 @@ function Projects() {
                         <div className="proj-card-meta">
                           <div className="proj-card-repo-name">
                             <LuFileCode2 size={15} />
-                            <span>{projectName.toLowerCase().replace(/\s+/g, '-')}</span>
+                            <span className="reveal-type-text" style={typeVars(projectName.toLowerCase().replace(/\s+/g, '-'))}>
+                              {projectName.toLowerCase().replace(/\s+/g, '-')}
+                            </span>
                             <span className="proj-card-visibility">Public</span>
                           </div>
                           <div className="proj-card-role">{project.role}</div>

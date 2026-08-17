@@ -1,10 +1,9 @@
 import './App.css';
+import './styles/Reveal.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import Navbar from './Components/Global/Navbar';
 import Body from './Components/HomePage/Body';
 import Footer from './Components/Global/Footer';
@@ -19,17 +18,6 @@ import ScrollToTop from './Components/Utilities/ScrollToTop';
 function App() {
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
-  }, []);
-
-  useEffect(() => {
-    if (!document.body.classList.contains('aos-initialized')) {
-      AOS.init({
-        offset: -150,
-        duration: 700,
-        easing: 'ease-out',
-        once: true,
-      });
-    }
   }, []);
 
   return (

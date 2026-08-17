@@ -4,11 +4,16 @@ import { LuBriefcase, LuUsers } from 'react-icons/lu';
 import './WorkExperience.css';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { calculateMonthsInRole } from '../Utilities/DateCalculator';
+import { useReveal } from '../../hooks/useReveal';
 
 function WorkExperience() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const { ref: terminalRef, className: terminalClassName } = useReveal();
+  const { ref: tableRef, revealed: tableRevealed } = useReveal();
+  const { ref: clubsRef, revealed: clubsRevealed } = useReveal();
 
   const entries = Object.entries(jobExperienceData);
   const professional = entries.filter(([, job]) => job.category !== 'club');
@@ -16,7 +21,7 @@ function WorkExperience() {
 
   return (
     <main className="main-content">
-      <div className="work-terminal" data-aos="fade-up">
+      <div ref={terminalRef} className={`work-terminal ${terminalClassName}`}>
 
         {/* Title bar */}
         <div className="work-titlebar">
@@ -39,7 +44,7 @@ function WorkExperience() {
               <span># professional experience</span>
             </div>
 
-            <div className="work-table">
+            <div className="work-table" ref={tableRef}>
               {professional.map(([companyName, job], index) => {
                 const { months, isOngoing } = calculateMonthsInRole(job.date);
                 const dirName = companyName.toLowerCase().replace(/\s+/g, '-') + '/';
@@ -48,9 +53,7 @@ function WorkExperience() {
                   <Link
                     to={`/work-experience/${job.tokenizedName}`}
                     key={companyName}
-                    className="work-row"
-                    data-aos="fade-up"
-                    data-aos-delay={index * 60}
+                    className={`work-row reveal reveal-row${tableRevealed ? ' reveal-in' : ''}`}
                   >
                     <img
                       src={job.cardImage}
@@ -84,14 +87,12 @@ function WorkExperience() {
                   <span># involvement &amp; societies</span>
                 </div>
 
-                <div className="work-club-list">
-                  {clubs.map(([companyName, job], index) => (
+                <div className="work-club-list" ref={clubsRef}>
+                  {clubs.map(([companyName, job]) => (
                     <Link
                       to={`/work-experience/${job.tokenizedName}`}
                       key={companyName}
-                      className="work-club-row"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 60}
+                      className={`work-club-row reveal reveal-row${clubsRevealed ? ' reveal-in' : ''}`}
                     >
                       <img
                         src={job.cardImage}

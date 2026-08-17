@@ -702,7 +702,7 @@
   animation-play-state: paused;
 }
 
-.aos-animate .prompt-cmd,
-.aos-animate .prompt-cmd::after {
+.reveal-in .prompt-cmd,
+.reveal-in .prompt-cmd::after {
   animation-play-state: running;
 }

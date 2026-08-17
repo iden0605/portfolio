@@ -2,6 +2,7 @@ import './StatsStrip.css';
 import projectData from '../../Data/projectData';
 import jobExperienceData from '../../Data/jobExperienceData';
 import { skills } from '../../Data/skillsData';
+import { useReveal } from '../../hooks/useReveal';
 
 const projectCount = Object.keys(projectData).length;
 const awardCount = Object.values(projectData).filter((p) => p.award).length;
@@ -17,10 +18,16 @@ const STATS = [
 ];
 
 function StatsStrip() {
+  const { ref, revealed } = useReveal({ immediate: true });
+
   return (
-    <div className="stats-strip" data-aos="fade-up" data-aos-offset="-150">
+    <div className="stats-strip" ref={ref}>
       {STATS.map((stat, i) => (
-        <div className="stat-chip" key={stat.label} style={{ '--stat-delay': `${i * 90}ms` }}>
+        <div
+          className={`stat-chip reveal${revealed ? ' reveal-in' : ''}`}
+          key={stat.label}
+          style={{ '--reveal-delay': `${300 + i * 90}ms` }}
+        >
           <span className="stat-value">{stat.value}</span>
           <span className="stat-label">{stat.label}</span>
         </div>

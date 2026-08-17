@@ -1,0 +1,157 @@
+/* ── Scroll-reveal: scanline wipe + typewriter ───────────
+   Shared entrance animation replacing AOS fade-up across the site.
+   Usage: element gets `.reveal`, then `.reveal-in` once its
+   IntersectionObserver fires (see hooks/useReveal.js). Delay is set
+   per-instance via the --reveal-delay custom property. */
+
+.reveal {
+  opacity: 0;
+  position: relative;
+}
+
+.reveal.reveal-in {
+  animation: reveal-wipe 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes reveal-wipe {
+  0%   { opacity: 0; clip-path: inset(0 0 100% 0); }
+  1%   { opacity: 1; }
+  100% { opacity: 1; clip-path: inset(0 0 0% 0); }
+}
+
+/* Bright scanline that leads the wipe */
+.reveal::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--reveal-scan-color, #a6da95), transparent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.reveal.reveal-in::before {
+  animation: reveal-scanline 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes reveal-scanline {
+  0%   { top: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Row variant — for short, wide elements (list rows) a vertical wipe barely
+   travels any distance and reads as a flicker. Sweep left-to-right instead. */
+
+.reveal.reveal-row.reveal-in {
+  animation-name: reveal-wipe-row;
+}
+
+@keyframes reveal-wipe-row {
+  0%   { opacity: 0; clip-path: inset(0 100% 0 0); }
+  1%   { opacity: 1; }
+  100% { opacity: 1; clip-path: inset(0 0% 0 0); }
+}
+
+.reveal.reveal-row::before {
+  left: 0;
+  right: auto;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: auto;
+  background: linear-gradient(180deg, transparent, var(--reveal-scan-color, #a6da95), transparent);
+}
+
+.reveal.reveal-row.reveal-in::before {
+  animation-name: reveal-scanline-row;
+}
+
+@keyframes reveal-scanline-row {
+  0%   { left: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Frame variant — for wrappers taller than the viewport (e.g. a card grid's
+   outer window), a clip-path wipe travels at a rate set by the element's
+   TOTAL height, so it crosses the visible slice almost instantly and reads
+   as "no animation". Drop down by a fixed distance instead — same duration
+   and distance no matter how tall the content inside is. */
+
+.reveal.reveal-frame.reveal-in {
+  animation-name: reveal-frame-in;
+  clip-path: none;
+}
+
+@keyframes reveal-frame-in {
+  0%   { opacity: 0; transform: translateY(-22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.reveal.reveal-frame::before {
+  display: none;
+}
+
+/* Optional typewriter pairing — wrap the headline text of a revealed
+   element in .reveal-type-text, sized via the typeVars() helper. */
+
+.reveal-type-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+  vertical-align: bottom;
+}
+
+.reveal-type-text::after {
+  content: '▌';
+  margin-left: 1px;
+  font-weight: 400;
+  opacity: 0;
+}
+
+.reveal-in .reveal-type-text {
+  animation: reveal-type var(--reveal-type-duration, 0.6s) steps(var(--reveal-type-steps, 12), end) forwards;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 0.62s);
+}
+
+.reveal-in .reveal-type-text::after {
+  animation:
+    reveal-type-cursor-in 1ms linear forwards,
+    reveal-blink 1s step-end infinite;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 0.62s), calc(var(--reveal-delay, 0ms) + 0.62s);
+}
+
+@keyframes reveal-type { to { max-width: var(--reveal-type-ch, 20ch); } }
+@keyframes reveal-blink { 50% { opacity: 0; } }
+@keyframes reveal-type-cursor-in { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+  }
+  .reveal.reveal-in {
+    animation: none !important;
+    clip-path: none !important;
+  }
+  .reveal::before,
+  .reveal.reveal-in::before {
+    display: none;
+  }
+  .reveal-type-text {
+    max-width: none !important;
+    animation: none !important;
+    overflow: visible;
+  }
+  .reveal-type-text::after {
+    display: none;
+  }
+}

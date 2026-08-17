@@ -222,8 +222,8 @@
   animation-play-state: paused;
 }
 
-.aos-animate .dp-cmd,
-.aos-animate .dp-cmd::after {
+.reveal-in .dp-cmd,
+.reveal-in .dp-cmd::after {
   animation-play-state: running;
 }
 

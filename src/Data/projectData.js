@@ -1,349 +1,5 @@
 // data for project section
 const projectData = {
-  "Backloggr": {
-    tokenizedName: "backloggr",
-    category: "personal",
-    description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
-    date: "July 2026 - Present",
-    type: "Personal Project",
-    teamSize: 1,
-    role: "Fullstack Developer",
-    thumbnail: "/assets/project/Backloggr/backloggr-image-1.png",
-    technologies: [
-      "Tauri",
-      "Rust",
-      "React",
-      "TypeScript",
-      "Zustand",
-      "Tailwind CSS",
-      "SQLite",
-      "Cloudflare Workers",
-      "Groq",
-      "RAWG API",
-      "FFmpeg",
-      "Vite",
-    ],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/Backloggr",
-    itchLink: "",
-    wwwLink: "https://backloggr.com/",
-    status: "Released",
-    projectTime: "Jul 2026 - Present",
-    keyResponsibilities: [
-      "Built a cross-platform Tauri + Rust desktop app with a React 19/TypeScript/Zustand frontend and a local SQLite library database.",
-      "Implemented automatic playtime tracking by polling running processes and matching them against the library, auto-starting and closing sessions.",
-      "Built a rolling-buffer gameplay clip recorder using FFmpeg's segment muxer, with an always-on-top transparent overlay for save feedback and window-scoped capture that survives alt-tabs.",
-      "Designed \"Shelby,\" an AI recommendation chat that narrows a real candidate pool of named games turn-by-turn via clarifying questions, backed by a Cloudflare Worker proxying Groq (Llama 3.3 70B) and cross-verified against the RAWG API.",
-      "Implemented Steam library import and a dashboard surfacing playtime stats, completion rates, and weekly trends.",
-      "Built and deployed the marketing website (React + Vite + Tailwind, Cloudflare Pages) with a live GitHub Releases-backed download button.",
-    ],
-    details: [
-      {
-        title: "Automatic Playtime Tracking",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-1.png", width: "900px" },
-          {
-            type: "text",
-            text: "A background poller in the Rust process watches running processes every few seconds and matches them against exe names stored in the library — no manual start/stop. Opening a matched game opens a session row; closing it ends the session and rolls the duration into the dashboard's totals. The dashboard surfaces a \"Jump back in\" card for the last-played game alongside a rolling 7-day chart and a most-played-this-week breakdown, computed against a rolling previous-week baseline for the week-over-week delta.",
-          },
-        ],
-      },
-      {
-        title: "Hotkey Clip Capture",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-2.png", width: "900px" },
-          {
-            type: "text",
-            text: "Capture runs continuously for the length of a game session using FFmpeg's segment muxer, writing a fixed-length ring buffer of MPEG-TS segments to disk. MPEG-TS is deliberate — unlike MP4, a segment is readable up to its current write position even while FFmpeg is still appending to it, so a clip can include footage right up to the hotkey press without losing the final few seconds. Pressing the configurable hotkey (Alt+F9 by default) pulls the last 30 seconds from the buffer, re-encodes it, and shows a transparent always-on-top overlay toast for save feedback — the same pattern mainstream clipping tools like ShadowPlay use, since OS notifications get suppressed by fullscreen games.",
-          },
-        ],
-      },
-      {
-        title: "Shelby, the AI Rec Chat",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-4.png", width: "900px" },
-          {
-            type: "text",
-            text: "Shelby is a narrowing conversation, not a one-shot prompt. Each turn, a Cloudflare Worker asks Groq (Llama 3.3 70B) to name a real candidate pool of specific games matching the request so far — the pool's size is reported honestly rather than fabricated. Flow control lives outside the model: if the pool is small enough, results show immediately; otherwise the app asks the one clarifying question that best splits the remaining candidates, capped at four rounds so the conversation can't loop forever. Every candidate is cross-verified against the RAWG API for its real release date, genre, and platform facts before it's shown, and games already in the player's library are filtered out.",
-          },
-        ],
-      },
-      {
-        title: "Steam Library Import",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-3a.png", width: "900px" },
-          { type: "image", src: "/assets/project/Backloggr/backloggr-3b.png", width: "900px" },
-          {
-            type: "text",
-            text: "Pulls a player's entire owned Steam library — including games they've never launched — via their profile URL, vanity name, or SteamID64, and lets them pick which ones to add. Each imported title is resolved against RAWG for cover art and genre data, with a progress modal reporting live import counts for large libraries.",
-          },
-        ],
-      },
-    ],
-  },
-  "Battleship Server": {
-    tokenizedName: "battleship-server",
-    category: "university",
-    description: `Battleship Server is a networked multiplayer Battleship implementation with a custom binary TCP protocol connecting a C client and thread-per-connection C server. The server pairs clients into concurrent games using mutex-guarded matchmaking and condition variables, supporting many simultaneous matches against a shared game engine. It handles both standard and extended move-result encodings, with robust error handling across malformed messages and socket failures.`,
-    date: "COMP30023 2026 - Project 2",
-    type: "University Project",
-    teamSize: 1,
-    role: "Systems Programmer | Backend Developer",
-    thumbnail: "/assets/project/Battleship Server/battleship-server-image-1.png",
-    technologies: ["C", "TCP Sockets", "pthreads", "Makefile"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/COMP30023-Project-2",
-    itchLink: "",
-    wwwLink: "",
-    status: "Completed",
-    projectTime: "3 Weeks",
-    keyResponsibilities: [
-      "Designed and implemented a custom binary TCP protocol (join/ships/move/result message types) with length-prefixed framing.",
-      "Built a thread-per-connection server in C using pthreads, with mutex-protected game registry and condition-variable-based player pairing and matchmaking.",
-      "Implemented concurrent multi-game support, allowing many simultaneous games via a linked list of game entries guarded by a global lock.",
-      "Implemented the client-side game loop handling ship placement, move requests, and both standard and extended move result encodings.",
-      "Handled error paths for malformed messages, socket failures, and invalid engine calls, including setsockopt error handling, player number assignment, and win-condition loop exit.",
-    ],
-  },
-  "MLFQ Scheduler": {
-    tokenizedName: "mlfq-scheduler",
-    category: "university",
-    description: `MLFQ Scheduler is a Multi-Level Feedback Queue CPU scheduling simulator built in C for COMP30023 (Computer Systems). It models process arrivals, priority-queue demotion, I/O blocking, and periodic priority boosting on a tick-by-tick basis. Given a workload trace and scheduler configuration, it produces a full execution transcript and summary statistics including turnaround time, waiting time, and CPU utilisation.`,
-    date: "COMP30023 2026 - Project 1",
-    type: "University Project",
-    teamSize: 1,
-    role: "C Systems Programmer",
-    thumbnail: "/assets/project/MLFQ Scheduler/mlfq-scheduler-image-1.png",
-    technologies: ["C", "Makefile", "GitHub Actions"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/COMP30023-Project-1",
-    itchLink: "",
-    wwwLink: "",
-    status: "Completed",
-    projectTime: "3 Weeks",
-    keyResponsibilities: [
-      "Designed and implemented the MLFQ simulation core, including tick-by-tick state transitions across arrival, I/O completion, priority boosting, preemption, and dispatch.",
-      "Implemented per-level ready queues with quantum-based demotion and configurable priority boosting on a fixed interval.",
-      "Built I/O burst tracking so processes correctly alternate between CPU and blocked states across multiple bursts.",
-      "Modularised the scheduler into discrete, single-responsibility functions for maintainability and testing.",
-      "Computed and printed per-process and summary statistics (turnaround time, waiting time, CPU utilisation).",
-    ],
-  },
-  "Cascade AI": {
-    tokenizedName: "cascade-ai",
-    category: "university",
-    description: `Cascade AI is a competitive game-playing agent built for COMP30024 (Artificial Intelligence), implementing alpha-beta pruned minimax search over a custom board representation for the two-player strategy game Cascade. A hand-tuned evaluation function weighs token count, stack height, and capture threats to guide search under strict 180-second CPU and 250MB memory budgets. Tournament-tested against random, greedy, and adversarial-search opponents.`,
-    date: "COMP30024 - Semester 1 2026",
-    type: "University Project",
-    teamSize: 2,
-    role: "AI Developer",
-    thumbnail: "/assets/project/CascadeAI/cascade-ai-image-1.png",
-    technologies: ["Python", "NumPy", "Alpha-Beta Pruning", "Minimax Search"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/COMP30024-Project-Part-B",
-    itchLink: "",
-    wwwLink: "",
-    docsLink: "https://docs.google.com/document/d/1JyB-sj2BHODwKeoOYIb72Fq7gmcDQiLqrVrDhk4LKOk/edit?tab=t.0#heading=h.rh6g02cvm7dz",
-    status: "Completed",
-    projectTime: "3 Weeks",
-    keyResponsibilities: [
-      "Built legal action generation (get_actions, get_place_actions) covering Move, Eat, and Cascade actions across all board states, with placement-adjacency rules enforced.",
-      "Designed and implemented alpha-beta pruned minimax search (alpha_beta, best_action) with move ordering prioritising Eat, then Cascade, then Move actions to maximise pruning efficiency.",
-      "Designed a heuristic evaluation function weighing token count, stack height, and capture-threat differentials to score non-terminal board states.",
-      "Authored the project report detailing search strategy, algorithm design, and evaluation function methodology.",
-    ],
-    details: [
-      {
-        title: "Evaluation Function Design",
-        content: [
-          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-1.png", width: "900px" },
-          { type: "text", text: "The evaluation function scores non-terminal board states as a weighted linear sum of three features: token_diff, height_diff, and threat_diff. token_diff — the difference in summed stack heights — carries the heaviest weight (10) since token count directly determines the win condition. height_diff (weight 3) rewards taller stacks, which unlock more powerful EAT and CASCADE options. threat_diff (weight 2) penalises positions where the opponent can capture our stacks, encouraging safer play." },
-        ]
-      },
-      {
-        title: "Weight Tuning & Tournament Results",
-        content: [
-          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-2.png", width: "900px" },
-          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-3.png", width: "900px" },
-          { type: "text", text: "Candidate weight configurations were benchmarked against a tokens-only baseline and each other across repeated matches. Configurations with a non-zero height_diff weight consistently outperformed the baseline, while threat_diff contributed smaller but positive gains — validating the (10, 3, 2) weighting used in the final agent." },
-        ]
-      },
-      {
-        title: "Alpha-Beta Search & Move Ordering",
-        content: [
-          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-4.png", width: "900px" },
-          { type: "text", text: "Move selection uses minimax search with alpha-beta pruning to a fixed depth, evaluating the resulting board after each candidate action. Actions are ordered before expansion — Eat first, then Cascade, then Move — since capture and cascade moves are more likely to produce strong cutoffs early, tightening the alpha-beta window and reducing the effective branching factor explored at each depth." },
-        ]
-      },
-    ]
-  },
-  "Road Accident Injury Analysis": {
-    tokenizedName: "eodp-report",
-    category: "university",
-    description: `Road Accident Injury Analysis is a data science pipeline examining how seatbelt usage, seating position, and vehicle type relate to injury severity in Victorian road accidents. It combines correlation analysis (NMI scoring), K-Means clustering, and supervised learning (KNN and Decision Tree) to identify patterns and predict injury outcomes. Built as part of COMP20008 (Elements of Data Processing).`,
-    date: "COMP20008 - Semester 1 2025",
-    type: "University Project",
-    teamSize: 4,
-    role: "Data Analyst",
-    thumbnail: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-image-1.png",
-    technologies: ["Python", "pandas", "NumPy", "scikit-learn", "Matplotlib", "Seaborn"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/EODP-report",
-    itchLink: "",
-    wwwLink: "",
-    presentationLink: "https://docs.google.com/presentation/d/1UcdcDZ6U2yEj9p7NzXMXi6-1FQsNiiXwY28Xwpdc1aY/edit",
-    status: "Completed",
-    projectTime: "4 Weeks",
-    keyResponsibilities: [
-      "Built a data preprocessing pipeline that merges vehicle and person records on accident number, filters to seatbelt-relevant rows, and removes unknown vehicle types and incomplete seating position data.",
-      "Implemented correlation analysis computing feature distributions and Normalized Mutual Information (NMI) scores between seatbelt usage, seating position, vehicle type, and injury severity, visualised with Seaborn bar charts.",
-      "Developed K-Means clustering on one-hot encoded and scaled features, using the Elbow Method to determine the optimal cluster count and a heatmap to visualise injury severity across clusters.",
-      "Trained and cross-validated KNN and Decision Tree classifiers using scikit-learn to predict injury severity from categorical accident features.",
-      "Evaluated model performance with confusion matrices, classification reports, and a visualised decision tree diagram.",
-      "Authored shared dataframe merging and one-hot encoding utilities used throughout the analysis pipeline.",
-    ],
-    details: [
-      {
-        title: "Correlation Analysis",
-        content: [
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-1.png", width: "900px" },
-          { type: "text", text: "Each candidate feature — seatbelt worn, seating position, and vehicle type — is scored against injury level using Normalized Mutual Information (NMI), which captures non-linear dependence without assuming a particular relationship shape. Individually, all three features score below the 0.02 threshold marked on the chart, indicating that no single feature strongly predicts injury severity on its own — motivating a combined, model-based approach instead." },
-        ]
-      },
-      {
-        title: "K-Means Cluster Analysis",
-        content: [
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-2.png", width: "900px" },
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-3.png", width: "900px" },
-          { type: "text", text: "Categorical features are one-hot encoded and combined with a min-max scaled injury level before clustering. The Elbow Method plots inertia against k to identify the point of diminishing returns, settling on k=3. The resulting heatmap cross-tabulates each cluster against injury severity, revealing groupings that correspond to distinct combinations of seatbelt usage and seating position." },
-        ]
-      },
-      {
-        title: "Supervised Learning & Evaluation",
-        content: [
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-4.png", width: "900px" },
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-5.png", width: "900px" },
-          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-6.png", width: "900px" },
-          { type: "text", text: "KNN and Decision Tree classifiers are trained on the encoded feature set and evaluated with 5-fold cross-validation for a more reliable accuracy estimate. The decision tree (depth-limited to 2 for visualisation) shows the model's top-level splits, while confusion matrices for both models highlight where predictions diverge from true injury levels — most notably confusion between adjacent severity classes." },
-        ]
-      }
-    ]
-  },
-  "Image Classification Pipeline": {
-    tokenizedName: "image-classification-pipeline",
-    category: "university",
-    description: `Image Classification Pipeline is an image classification system built for a University of Melbourne ML assignment, combining handcrafted computer vision features with transfer-learned ResNet50 embeddings. Three classifiers are benchmarked across two tasks using stratified cross-validation, with feature-group ablation studies isolating which inputs matter most.`,
-    date: "COMP30027 2026 - Project 2",
-    type: "University Project",
-    teamSize: 1,
-    role: "ML Engineer | Data Scientist",
-    thumbnail: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-image-1.png",
-    technologies: ["Python", "scikit-learn", "PyTorch", "pandas", "NumPy", "Matplotlib", "Seaborn", "Pillow"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/COMP30027-Project-2",
-    itchLink: "",
-    wwwLink: "",
-    datasetLink: "https://www.kaggle.com/datasets/alessiocorrado99/animals10/data",
-    docsLink: "https://docs.google.com/document/d/1FHnPNzXjPvoCEubfBwXmR1OPi7lGqbwQ/edit",
-    status: "Completed",
-    projectTime: "3 Weeks",
-    keyResponsibilities: [
-      "Built a multi-source feature pipeline combining colour histograms, HOG-PCA, and handcrafted features with pretrained ResNet50 embeddings.",
-      "Benchmarked Logistic Regression, RBF-SVM, and Random Forest classifiers via stratified holdout and 5-fold cross-validation.",
-      "Designed a feature-group ablation study to isolate the contribution of each feature source to accuracy.",
-      "Built PCA and confusion matrix diagnostics to analyse class separability and model errors.",
-      "Automated the full pipeline end-to-end, from feature extraction to Kaggle submission generation.",
-    ],
-    details: [
-      {
-        title: "Feature Pipeline Architecture",
-        content: [
-          { type: "text", text: "Each image is represented by concatenating three provided feature groups — a 96-dim colour histogram, a 100-dim HOG-PCA descriptor, and 23 additional handcrafted features — with a 2048-dim embedding extracted from an ImageNet-pretrained ResNet50's penultimate layer. The backbone runs in inference mode only, with extracted embeddings cached to disk so repeat runs skip the forward pass entirely." },
-        ]
-      },
-      {
-        title: "Class Separability via PCA",
-        content: [
-          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-1.png", width: "900px" },
-          { type: "text", text: "Standardised features are projected to two principal components per task, coloured by class label. The resulting scatter reveals how well-separated the classes are in feature space before any classifier is trained, with axis limits clipped to the 1st–99th percentile so outliers don't compress the visible clustering." },
-        ]
-      },
-      {
-        title: "Model Confusion Matrices",
-        content: [
-          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-2.png", width: "900px" },
-          { type: "text", text: "Logistic Regression, RBF-SVM, and Random Forest are each fit on an 80/20 stratified holdout split and evaluated with accuracy, precision, recall, and F1. Logistic Regression came out ahead on both tasks; its confusion matrix here breaks down exactly which classes it confuses most often." },
-        ]
-      },
-      {
-        title: "Feature-Group Ablation",
-        content: [
-          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-3.png", width: "900px" },
-          { type: "text", text: "The best-performing model is retrained on isolated feature subsets — colour only, HOG-PCA only, extra features only, all provided features, ResNet50 only, and everything combined — to quantify how much each source contributes to validation accuracy." },
-        ]
-      },
-    ]
-  },
-  "Mixed Naïve Bayes Classifier": {
-    tokenizedName: "mixed-naive-bayes-classifier",
-    category: "university",
-    description: `Mixed Naïve Bayes Classifier is a from-scratch income prediction system for the UCI Adult Census dataset, combining Gaussian and Categorical Naïve Bayes to classify individuals as earning above or below $50K. Built for COMP30027 Machine Learning, the project extends the base classifier with a semi-supervised label propagation pipeline and rigorously evaluates its impact on accuracy and confidence calibration.`,
-    date: "COMP30027 2026 - Project 1",
-    type: "University Project",
-    teamSize: 1,
-    role: "Machine Learning Developer",
-    thumbnail: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-image-1.png",
-    technologies: ["Python", "scikit-learn", "pandas", "NumPy", "Matplotlib", "Seaborn"],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/COMP30027-Project-1",
-    itchLink: "",
-    wwwLink: "",
-    datasetLink: "https://www.kaggle.com/datasets/uciml/adult-census-income",
-    docsLink: "https://docs.google.com/document/d/1oi-P5k8m5dYgPdkPJjCRMb4uqG7cDPWZnqceAskdUOA/edit?tab=t.0#heading=h.tr61mkxnurdp",
-    status: "Completed",
-    projectTime: "2 Weeks",
-    keyResponsibilities: [
-      "Implemented a Mixed Naïve Bayes classifier from scratch, combining GaussianNB for continuous features and CategoricalNB with Laplace smoothing for categorical features via scikit-learn.",
-      "Built an ordinal encoding pipeline to handle unseen categorical values at test time, mapping out-of-vocabulary entries to a dedicated unknown value.",
-      "Evaluated model performance using accuracy, confusion matrices, and per-class F1 scores, and analysed prediction confidence via posterior probability ratios.",
-      "Designed a two-stage semi-supervised label propagation pipeline that iteratively pseudo-labels unlabelled data above a tuned confidence threshold and retrains the model.",
-      "Diagnosed why label propagation degraded accuracy (81.01% vs 83.07% baseline), tracing the cause to noisy pseudo-labels amplifying class imbalance on the minority (>50K) class.",
-      "Authored a full written report analysing prior probabilities, top predictive features, threshold tuning, and comparative confidence distributions across model variants.",
-    ],
-    details: [
-      {
-        title: "Supervised Model & Top Predictors",
-        content: [
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-1.png", width: "900px" },
-          { type: "text", text: "The classifier splits features by type: continuous attributes (age, hours-per-week, capital gain/loss) are modeled with GaussianNB, while categorical attributes (occupation, education, marital status) use CategoricalNB with Laplace smoothing (α=1.0) to handle zero-frequency categories. Top predictors are identified via the probability ratio R = P(feature value | >50K) / P(feature value | ≤50K), surfacing which categorical values most strongly separate the two income classes." },
-        ]
-      },
-      {
-        title: "Evaluation & Confidence Calibration",
-        content: [
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-2.png", width: "900px" },
-          { type: "text", text: "On the held-out test set, the model achieves 83.07% accuracy, with F1=0.89 for ≤50K and F1=0.61 for >50K — reflecting the class imbalance in the training data. An ordinal encoder maps unseen categorical values at test time to a dedicated unknown-value token rather than failing, and out-of-vocabulary rows are tracked separately to quantify their impact on predictions." },
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-3.png", width: "900px" },
-          { type: "text", text: "Prediction confidence is measured via the log posterior ratio log(P(>50K|x) / P(≤50K|x)). Plotting this distribution across correct and incorrect predictions shows the model is well-calibrated on confident predictions but produces a cluster of low-margin, easily-flipped predictions near the decision boundary — concentrated in the minority >50K class." },
-        ]
-      },
-      {
-        title: "Semi-Supervised Label Propagation",
-        content: [
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-4.png", width: "900px" },
-          { type: "text", text: "To leverage unlabelled data, a two-stage semi-supervised pipeline first trains on the labelled set, then iteratively pseudo-labels unlabelled instances whose posterior ratio exceeds a confidence threshold, retraining on the expanded set. Thresholds from 0.5 to 10.0 are swept to balance how many pseudo-labels get admitted against how noisy they are." },
-        ]
-      },
-      {
-        title: "Supervised vs Semi-Supervised Comparison",
-        content: [
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-5.png", width: "900px" },
-          { type: "text", text: "Despite the additional pseudo-labelled data, the semi-supervised model underperforms the baseline — 81.01% vs 83.07% accuracy. Comparing confusion matrices and Gaussian feature means before and after propagation shows the >50K class (with only 53% recall) generates disproportionately noisy pseudo-labels, which reinforce the model's existing bias toward the majority ≤50K class rather than correcting it." },
-          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-6.png", width: "900px" },
-        ]
-      },
-    ]
-  },
   "NAUT": {
     tokenizedName: "naut",
     category: "hackathons",
@@ -555,6 +211,87 @@ const projectData = {
         ]
       }
     ]
+  },
+  "Backloggr": {
+    tokenizedName: "backloggr",
+    category: "personal",
+    description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
+    date: "July 2026 - Present",
+    type: "Personal Project",
+    teamSize: 1,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/Backloggr/backloggr-image-1.png",
+    technologies: [
+      "Tauri",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "SQLite",
+      "Cloudflare Workers",
+      "Groq",
+      "RAWG API",
+      "FFmpeg",
+      "Vite",
+    ],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/Backloggr",
+    itchLink: "",
+    wwwLink: "https://backloggr.com/",
+    status: "Released",
+    projectTime: "Jul 2026 - Present",
+    keyResponsibilities: [
+      "Built a cross-platform Tauri + Rust desktop app with a React 19/TypeScript/Zustand frontend and a local SQLite library database.",
+      "Implemented automatic playtime tracking by polling running processes and matching them against the library, auto-starting and closing sessions.",
+      "Built a rolling-buffer gameplay clip recorder using FFmpeg's segment muxer, with an always-on-top transparent overlay for save feedback and window-scoped capture that survives alt-tabs.",
+      "Designed \"Shelby,\" an AI recommendation chat that narrows a real candidate pool of named games turn-by-turn via clarifying questions, backed by a Cloudflare Worker proxying Groq (Llama 3.3 70B) and cross-verified against the RAWG API.",
+      "Implemented Steam library import and a dashboard surfacing playtime stats, completion rates, and weekly trends.",
+      "Built and deployed the marketing website (React + Vite + Tailwind, Cloudflare Pages) with a live GitHub Releases-backed download button.",
+    ],
+    details: [
+      {
+        title: "Automatic Playtime Tracking",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-1.png", width: "900px" },
+          {
+            type: "text",
+            text: "A background poller in the Rust process watches running processes every few seconds and matches them against exe names stored in the library — no manual start/stop. Opening a matched game opens a session row; closing it ends the session and rolls the duration into the dashboard's totals. The dashboard surfaces a \"Jump back in\" card for the last-played game alongside a rolling 7-day chart and a most-played-this-week breakdown, computed against a rolling previous-week baseline for the week-over-week delta.",
+          },
+        ],
+      },
+      {
+        title: "Hotkey Clip Capture",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-2.png", width: "900px" },
+          {
+            type: "text",
+            text: "Capture runs continuously for the length of a game session using FFmpeg's segment muxer, writing a fixed-length ring buffer of MPEG-TS segments to disk. MPEG-TS is deliberate — unlike MP4, a segment is readable up to its current write position even while FFmpeg is still appending to it, so a clip can include footage right up to the hotkey press without losing the final few seconds. Pressing the configurable hotkey (Alt+F9 by default) pulls the last 30 seconds from the buffer, re-encodes it, and shows a transparent always-on-top overlay toast for save feedback — the same pattern mainstream clipping tools like ShadowPlay use, since OS notifications get suppressed by fullscreen games.",
+          },
+        ],
+      },
+      {
+        title: "Shelby, the AI Rec Chat",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-4.png", width: "900px" },
+          {
+            type: "text",
+            text: "Shelby is a narrowing conversation, not a one-shot prompt. Each turn, a Cloudflare Worker asks Groq (Llama 3.3 70B) to name a real candidate pool of specific games matching the request so far — the pool's size is reported honestly rather than fabricated. Flow control lives outside the model: if the pool is small enough, results show immediately; otherwise the app asks the one clarifying question that best splits the remaining candidates, capped at four rounds so the conversation can't loop forever. Every candidate is cross-verified against the RAWG API for its real release date, genre, and platform facts before it's shown, and games already in the player's library are filtered out.",
+          },
+        ],
+      },
+      {
+        title: "Steam Library Import",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3a.png", width: "900px" },
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3b.png", width: "900px" },
+          {
+            type: "text",
+            text: "Pulls a player's entire owned Steam library — including games they've never launched — via their profile URL, vanity name, or SteamID64, and lets them pick which ones to add. Each imported title is resolved against RAWG for cover art and genre data, with a progress modal reporting live import counts for large libraries.",
+          },
+        ],
+      },
+    ],
   },
   "Git Gud Coach": {
     tokenizedName: "git-gud-coach",
@@ -928,6 +665,217 @@ const projectData = {
       },
     ]
   },
+  "Battleship Server": {
+    tokenizedName: "battleship-server",
+    category: "university",
+    description: `Battleship Server is a networked multiplayer Battleship implementation with a custom binary TCP protocol connecting a C client and thread-per-connection C server. The server pairs clients into concurrent games using mutex-guarded matchmaking and condition variables, supporting many simultaneous matches against a shared game engine. It handles both standard and extended move-result encodings, with robust error handling across malformed messages and socket failures.`,
+    date: "COMP30023 2026 - Project 2",
+    type: "University Project",
+    teamSize: 1,
+    role: "Systems Programmer | Backend Developer",
+    thumbnail: "/assets/project/Battleship Server/battleship-server-image-1.png",
+    technologies: ["C", "TCP Sockets", "pthreads", "Makefile"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30023-Project-2",
+    itchLink: "",
+    wwwLink: "",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Designed and implemented a custom binary TCP protocol (join/ships/move/result message types) with length-prefixed framing.",
+      "Built a thread-per-connection server in C using pthreads, with mutex-protected game registry and condition-variable-based player pairing and matchmaking.",
+      "Implemented concurrent multi-game support, allowing many simultaneous games via a linked list of game entries guarded by a global lock.",
+      "Implemented the client-side game loop handling ship placement, move requests, and both standard and extended move result encodings.",
+      "Handled error paths for malformed messages, socket failures, and invalid engine calls, including setsockopt error handling, player number assignment, and win-condition loop exit.",
+    ],
+  },
+  "MLFQ Scheduler": {
+    tokenizedName: "mlfq-scheduler",
+    category: "university",
+    description: `MLFQ Scheduler is a Multi-Level Feedback Queue CPU scheduling simulator built in C for COMP30023 (Computer Systems). It models process arrivals, priority-queue demotion, I/O blocking, and periodic priority boosting on a tick-by-tick basis. Given a workload trace and scheduler configuration, it produces a full execution transcript and summary statistics including turnaround time, waiting time, and CPU utilisation.`,
+    date: "COMP30023 2026 - Project 1",
+    type: "University Project",
+    teamSize: 1,
+    role: "C Systems Programmer",
+    thumbnail: "/assets/project/MLFQ Scheduler/mlfq-scheduler-image-1.png",
+    technologies: ["C", "Makefile", "GitHub Actions"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30023-Project-1",
+    itchLink: "",
+    wwwLink: "",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Designed and implemented the MLFQ simulation core, including tick-by-tick state transitions across arrival, I/O completion, priority boosting, preemption, and dispatch.",
+      "Implemented per-level ready queues with quantum-based demotion and configurable priority boosting on a fixed interval.",
+      "Built I/O burst tracking so processes correctly alternate between CPU and blocked states across multiple bursts.",
+      "Modularised the scheduler into discrete, single-responsibility functions for maintainability and testing.",
+      "Computed and printed per-process and summary statistics (turnaround time, waiting time, CPU utilisation).",
+    ],
+  },
+  "Cascade AI": {
+    tokenizedName: "cascade-ai",
+    category: "university",
+    description: `Cascade AI is a competitive game-playing agent built for COMP30024 (Artificial Intelligence), implementing alpha-beta pruned minimax search over a custom board representation for the two-player strategy game Cascade. A hand-tuned evaluation function weighs token count, stack height, and capture threats to guide search under strict 180-second CPU and 250MB memory budgets. Tournament-tested against random, greedy, and adversarial-search opponents.`,
+    date: "COMP30024 - Semester 1 2026",
+    type: "University Project",
+    teamSize: 2,
+    role: "AI Developer",
+    thumbnail: "/assets/project/CascadeAI/cascade-ai-image-1.png",
+    technologies: ["Python", "NumPy", "Alpha-Beta Pruning", "Minimax Search"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30024-Project-Part-B",
+    itchLink: "",
+    wwwLink: "",
+    docsLink: "https://docs.google.com/document/d/1JyB-sj2BHODwKeoOYIb72Fq7gmcDQiLqrVrDhk4LKOk/edit?tab=t.0#heading=h.rh6g02cvm7dz",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Built legal action generation (get_actions, get_place_actions) covering Move, Eat, and Cascade actions across all board states, with placement-adjacency rules enforced.",
+      "Designed and implemented alpha-beta pruned minimax search (alpha_beta, best_action) with move ordering prioritising Eat, then Cascade, then Move actions to maximise pruning efficiency.",
+      "Designed a heuristic evaluation function weighing token count, stack height, and capture-threat differentials to score non-terminal board states.",
+      "Authored the project report detailing search strategy, algorithm design, and evaluation function methodology.",
+    ],
+    details: [
+      {
+        title: "Evaluation Function Design",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-1.png", width: "900px" },
+          { type: "text", text: "The evaluation function scores non-terminal board states as a weighted linear sum of three features: token_diff, height_diff, and threat_diff. token_diff — the difference in summed stack heights — carries the heaviest weight (10) since token count directly determines the win condition. height_diff (weight 3) rewards taller stacks, which unlock more powerful EAT and CASCADE options. threat_diff (weight 2) penalises positions where the opponent can capture our stacks, encouraging safer play." },
+        ]
+      },
+      {
+        title: "Weight Tuning & Tournament Results",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-2.png", width: "900px" },
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-3.png", width: "900px" },
+          { type: "text", text: "Candidate weight configurations were benchmarked against a tokens-only baseline and each other across repeated matches. Configurations with a non-zero height_diff weight consistently outperformed the baseline, while threat_diff contributed smaller but positive gains — validating the (10, 3, 2) weighting used in the final agent." },
+        ]
+      },
+      {
+        title: "Alpha-Beta Search & Move Ordering",
+        content: [
+          { type: "image", src: "/assets/project/CascadeAI/cascade-ai-4.png", width: "900px" },
+          { type: "text", text: "Move selection uses minimax search with alpha-beta pruning to a fixed depth, evaluating the resulting board after each candidate action. Actions are ordered before expansion — Eat first, then Cascade, then Move — since capture and cascade moves are more likely to produce strong cutoffs early, tightening the alpha-beta window and reducing the effective branching factor explored at each depth." },
+        ]
+      },
+    ]
+  },
+  "Image Classification Pipeline": {
+    tokenizedName: "image-classification-pipeline",
+    category: "university",
+    description: `Image Classification Pipeline is an image classification system built for a University of Melbourne ML assignment, combining handcrafted computer vision features with transfer-learned ResNet50 embeddings. Three classifiers are benchmarked across two tasks using stratified cross-validation, with feature-group ablation studies isolating which inputs matter most.`,
+    date: "COMP30027 2026 - Project 2",
+    type: "University Project",
+    teamSize: 1,
+    role: "ML Engineer | Data Scientist",
+    thumbnail: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-image-1.png",
+    technologies: ["Python", "scikit-learn", "PyTorch", "pandas", "NumPy", "Matplotlib", "Seaborn", "Pillow"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30027-Project-2",
+    itchLink: "",
+    wwwLink: "",
+    datasetLink: "https://www.kaggle.com/datasets/alessiocorrado99/animals10/data",
+    docsLink: "https://docs.google.com/document/d/1FHnPNzXjPvoCEubfBwXmR1OPi7lGqbwQ/edit",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Built a multi-source feature pipeline combining colour histograms, HOG-PCA, and handcrafted features with pretrained ResNet50 embeddings.",
+      "Benchmarked Logistic Regression, RBF-SVM, and Random Forest classifiers via stratified holdout and 5-fold cross-validation.",
+      "Designed a feature-group ablation study to isolate the contribution of each feature source to accuracy.",
+      "Built PCA and confusion matrix diagnostics to analyse class separability and model errors.",
+      "Automated the full pipeline end-to-end, from feature extraction to Kaggle submission generation.",
+    ],
+    details: [
+      {
+        title: "Feature Pipeline Architecture",
+        content: [
+          { type: "text", text: "Each image is represented by concatenating three provided feature groups — a 96-dim colour histogram, a 100-dim HOG-PCA descriptor, and 23 additional handcrafted features — with a 2048-dim embedding extracted from an ImageNet-pretrained ResNet50's penultimate layer. The backbone runs in inference mode only, with extracted embeddings cached to disk so repeat runs skip the forward pass entirely." },
+        ]
+      },
+      {
+        title: "Class Separability via PCA",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-1.png", width: "900px" },
+          { type: "text", text: "Standardised features are projected to two principal components per task, coloured by class label. The resulting scatter reveals how well-separated the classes are in feature space before any classifier is trained, with axis limits clipped to the 1st–99th percentile so outliers don't compress the visible clustering." },
+        ]
+      },
+      {
+        title: "Model Confusion Matrices",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-2.png", width: "900px" },
+          { type: "text", text: "Logistic Regression, RBF-SVM, and Random Forest are each fit on an 80/20 stratified holdout split and evaluated with accuracy, precision, recall, and F1. Logistic Regression came out ahead on both tasks; its confusion matrix here breaks down exactly which classes it confuses most often." },
+        ]
+      },
+      {
+        title: "Feature-Group Ablation",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-3.png", width: "900px" },
+          { type: "text", text: "The best-performing model is retrained on isolated feature subsets — colour only, HOG-PCA only, extra features only, all provided features, ResNet50 only, and everything combined — to quantify how much each source contributes to validation accuracy." },
+        ]
+      },
+    ]
+  },
+  "Mixed Naïve Bayes Classifier": {
+    tokenizedName: "mixed-naive-bayes-classifier",
+    category: "university",
+    description: `Mixed Naïve Bayes Classifier is a from-scratch income prediction system for the UCI Adult Census dataset, combining Gaussian and Categorical Naïve Bayes to classify individuals as earning above or below $50K. Built for COMP30027 Machine Learning, the project extends the base classifier with a semi-supervised label propagation pipeline and rigorously evaluates its impact on accuracy and confidence calibration.`,
+    date: "COMP30027 2026 - Project 1",
+    type: "University Project",
+    teamSize: 1,
+    role: "Machine Learning Developer",
+    thumbnail: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-image-1.png",
+    technologies: ["Python", "scikit-learn", "pandas", "NumPy", "Matplotlib", "Seaborn"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30027-Project-1",
+    itchLink: "",
+    wwwLink: "",
+    datasetLink: "https://www.kaggle.com/datasets/uciml/adult-census-income",
+    docsLink: "https://docs.google.com/document/d/1oi-P5k8m5dYgPdkPJjCRMb4uqG7cDPWZnqceAskdUOA/edit?tab=t.0#heading=h.tr61mkxnurdp",
+    status: "Completed",
+    projectTime: "2 Weeks",
+    keyResponsibilities: [
+      "Implemented a Mixed Naïve Bayes classifier from scratch, combining GaussianNB for continuous features and CategoricalNB with Laplace smoothing for categorical features via scikit-learn.",
+      "Built an ordinal encoding pipeline to handle unseen categorical values at test time, mapping out-of-vocabulary entries to a dedicated unknown value.",
+      "Evaluated model performance using accuracy, confusion matrices, and per-class F1 scores, and analysed prediction confidence via posterior probability ratios.",
+      "Designed a two-stage semi-supervised label propagation pipeline that iteratively pseudo-labels unlabelled data above a tuned confidence threshold and retrains the model.",
+      "Diagnosed why label propagation degraded accuracy (81.01% vs 83.07% baseline), tracing the cause to noisy pseudo-labels amplifying class imbalance on the minority (>50K) class.",
+      "Authored a full written report analysing prior probabilities, top predictive features, threshold tuning, and comparative confidence distributions across model variants.",
+    ],
+    details: [
+      {
+        title: "Supervised Model & Top Predictors",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-1.png", width: "900px" },
+          { type: "text", text: "The classifier splits features by type: continuous attributes (age, hours-per-week, capital gain/loss) are modeled with GaussianNB, while categorical attributes (occupation, education, marital status) use CategoricalNB with Laplace smoothing (α=1.0) to handle zero-frequency categories. Top predictors are identified via the probability ratio R = P(feature value | >50K) / P(feature value | ≤50K), surfacing which categorical values most strongly separate the two income classes." },
+        ]
+      },
+      {
+        title: "Evaluation & Confidence Calibration",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-2.png", width: "900px" },
+          { type: "text", text: "On the held-out test set, the model achieves 83.07% accuracy, with F1=0.89 for ≤50K and F1=0.61 for >50K — reflecting the class imbalance in the training data. An ordinal encoder maps unseen categorical values at test time to a dedicated unknown-value token rather than failing, and out-of-vocabulary rows are tracked separately to quantify their impact on predictions." },
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-3.png", width: "900px" },
+          { type: "text", text: "Prediction confidence is measured via the log posterior ratio log(P(>50K|x) / P(≤50K|x)). Plotting this distribution across correct and incorrect predictions shows the model is well-calibrated on confident predictions but produces a cluster of low-margin, easily-flipped predictions near the decision boundary — concentrated in the minority >50K class." },
+        ]
+      },
+      {
+        title: "Semi-Supervised Label Propagation",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-4.png", width: "900px" },
+          { type: "text", text: "To leverage unlabelled data, a two-stage semi-supervised pipeline first trains on the labelled set, then iteratively pseudo-labels unlabelled instances whose posterior ratio exceeds a confidence threshold, retraining on the expanded set. Thresholds from 0.5 to 10.0 are swept to balance how many pseudo-labels get admitted against how noisy they are." },
+        ]
+      },
+      {
+        title: "Supervised vs Semi-Supervised Comparison",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-5.png", width: "900px" },
+          { type: "text", text: "Despite the additional pseudo-labelled data, the semi-supervised model underperforms the baseline — 81.01% vs 83.07% accuracy. Comparing confusion matrices and Gaussian feature means before and after propagation shows the >50K class (with only 53% recall) generates disproportionately noisy pseudo-labels, which reinforce the model's existing bias toward the majority ≤50K class rather than correcting it." },
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-6.png", width: "900px" },
+        ]
+      },
+    ]
+  },
   "OverGrown": {
     tokenizedName: "overgrown",
     category: "hackathons",
@@ -1086,6 +1034,58 @@ const projectData = {
           { type: "text", text: "KNN (45.5%) and Decision Tree (43.0%) outperformed random guessing, but accuracy was limited, reflecting weak feature correlations and suggesting other factors like motivation or mental health may play a larger role." },
         ]
       },
+    ]
+  },
+  "Road Accident Injury Analysis": {
+    tokenizedName: "eodp-report",
+    category: "university",
+    description: `Road Accident Injury Analysis is a data science pipeline examining how seatbelt usage, seating position, and vehicle type relate to injury severity in Victorian road accidents. It combines correlation analysis (NMI scoring), K-Means clustering, and supervised learning (KNN and Decision Tree) to identify patterns and predict injury outcomes. Built as part of COMP20008 (Elements of Data Processing).`,
+    date: "COMP20008 - Semester 1 2025",
+    type: "University Project",
+    teamSize: 4,
+    role: "Data Analyst",
+    thumbnail: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-image-1.png",
+    technologies: ["Python", "pandas", "NumPy", "scikit-learn", "Matplotlib", "Seaborn"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/EODP-report",
+    itchLink: "",
+    wwwLink: "",
+    presentationLink: "https://docs.google.com/presentation/d/1UcdcDZ6U2yEj9p7NzXMXi6-1FQsNiiXwY28Xwpdc1aY/edit",
+    status: "Completed",
+    projectTime: "4 Weeks",
+    keyResponsibilities: [
+      "Built a data preprocessing pipeline that merges vehicle and person records on accident number, filters to seatbelt-relevant rows, and removes unknown vehicle types and incomplete seating position data.",
+      "Implemented correlation analysis computing feature distributions and Normalized Mutual Information (NMI) scores between seatbelt usage, seating position, vehicle type, and injury severity, visualised with Seaborn bar charts.",
+      "Developed K-Means clustering on one-hot encoded and scaled features, using the Elbow Method to determine the optimal cluster count and a heatmap to visualise injury severity across clusters.",
+      "Trained and cross-validated KNN and Decision Tree classifiers using scikit-learn to predict injury severity from categorical accident features.",
+      "Evaluated model performance with confusion matrices, classification reports, and a visualised decision tree diagram.",
+      "Authored shared dataframe merging and one-hot encoding utilities used throughout the analysis pipeline.",
+    ],
+    details: [
+      {
+        title: "Correlation Analysis",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-1.png", width: "900px" },
+          { type: "text", text: "Each candidate feature — seatbelt worn, seating position, and vehicle type — is scored against injury level using Normalized Mutual Information (NMI), which captures non-linear dependence without assuming a particular relationship shape. Individually, all three features score below the 0.02 threshold marked on the chart, indicating that no single feature strongly predicts injury severity on its own — motivating a combined, model-based approach instead." },
+        ]
+      },
+      {
+        title: "K-Means Cluster Analysis",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-2.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-3.png", width: "900px" },
+          { type: "text", text: "Categorical features are one-hot encoded and combined with a min-max scaled injury level before clustering. The Elbow Method plots inertia against k to identify the point of diminishing returns, settling on k=3. The resulting heatmap cross-tabulates each cluster against injury severity, revealing groupings that correspond to distinct combinations of seatbelt usage and seating position." },
+        ]
+      },
+      {
+        title: "Supervised Learning & Evaluation",
+        content: [
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-4.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-5.png", width: "900px" },
+          { type: "image", src: "/assets/project/RoadAccidentInjuryAnalysis/eodp-report-6.png", width: "900px" },
+          { type: "text", text: "KNN and Decision Tree classifiers are trained on the encoded feature set and evaluated with 5-fold cross-validation for a more reliable accuracy estimate. The decision tree (depth-limited to 2 for visualisation) shows the model's top-level splits, while confusion matrices for both models highlight where predictions diverge from true injury levels — most notably confusion between adjacent severity classes." },
+        ]
+      }
     ]
   },
 };

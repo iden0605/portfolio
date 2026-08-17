@@ -1,9 +1,12 @@
 import GithubActivity from './GithubActivity';
+import { useReveal } from '../../hooks/useReveal';
 import './Terminal.css';
 
 function GithubSection() {
+  const { ref, revealed } = useReveal({ immediate: true });
+
   return (
-    <div className="terminal-section" data-aos="fade-up">
+    <div ref={ref} className={`terminal-section reveal reveal-frame${revealed ? ' reveal-in' : ''}`} style={{ '--reveal-delay': '600ms' }}>
       <div className="terminal-titlebar">
         <span className="terminal-title-text">~/profile $ ./github.sh --contributions</span>
         <div className="window-dots">

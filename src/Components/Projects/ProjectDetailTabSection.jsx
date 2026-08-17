@@ -10,6 +10,7 @@ import {
 import './ProjectDetails.css';
 import ImageModal from '../Global/ImageModal';
 import TroopCarousel from './TroopCarousel';
+import { useReveal } from '../../hooks/useReveal';
 
 const TYPE_META = {
   demo:    { icon: LuClapperboard, label: 'demo',    className: 'commit-type--demo' },
@@ -29,6 +30,7 @@ function ProjectDetailTabSection({ details, projectName }) {
   const [openIndex, setOpenIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
+  const { ref: revealRef, className: revealClassName } = useReveal();
 
   const slug = projectName.toLowerCase().replace(/\s+/g, '-');
   const fileSlug = (title) => title.toLowerCase().replace(/\s+/g, '-') + '.txt';
@@ -72,7 +74,7 @@ function ProjectDetailTabSection({ details, projectName }) {
 
   return (
     <>
-      <section className="section detail-terminal-section" data-aos="fade-up">
+      <section ref={revealRef} className={`section detail-terminal-section ${revealClassName}`}>
 
         <div className="detail-titlebar">
           <span className="detail-title-text">~/projects/{slug} $ git log --graph</span>
