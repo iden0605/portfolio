@@ -1,5 +1,120 @@
 // data for project section
 const projectData = {
+  "Image Classification Pipeline": {
+    tokenizedName: "image-classification-pipeline",
+    category: "university",
+    description: `Image Classification Pipeline is an image classification system built for a University of Melbourne ML assignment, combining handcrafted computer vision features with transfer-learned ResNet50 embeddings. Three classifiers are benchmarked across two tasks using stratified cross-validation, with feature-group ablation studies isolating which inputs matter most.`,
+    date: "COMP30027 2026 - Project 2",
+    type: "University Project",
+    teamSize: 1,
+    role: "ML Engineer | Data Scientist",
+    thumbnail: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-image-1.png",
+    technologies: ["Python", "scikit-learn", "PyTorch", "pandas", "NumPy", "Matplotlib", "Seaborn", "Pillow"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30027-Project-2",
+    itchLink: "",
+    wwwLink: "",
+    datasetLink: "https://www.kaggle.com/datasets/alessiocorrado99/animals10/data",
+    docsLink: "https://docs.google.com/document/d/1FHnPNzXjPvoCEubfBwXmR1OPi7lGqbwQ/edit",
+    status: "Completed",
+    projectTime: "3 Weeks",
+    keyResponsibilities: [
+      "Built a multi-source feature pipeline combining colour histograms, HOG-PCA, and handcrafted features with pretrained ResNet50 embeddings.",
+      "Benchmarked Logistic Regression, RBF-SVM, and Random Forest classifiers via stratified holdout and 5-fold cross-validation.",
+      "Designed a feature-group ablation study to isolate the contribution of each feature source to accuracy.",
+      "Built PCA and confusion matrix diagnostics to analyse class separability and model errors.",
+      "Automated the full pipeline end-to-end, from feature extraction to Kaggle submission generation.",
+    ],
+    details: [
+      {
+        title: "Feature Pipeline Architecture",
+        content: [
+          { type: "text", text: "Each image is represented by concatenating three provided feature groups — a 96-dim colour histogram, a 100-dim HOG-PCA descriptor, and 23 additional handcrafted features — with a 2048-dim embedding extracted from an ImageNet-pretrained ResNet50's penultimate layer. The backbone runs in inference mode only, with extracted embeddings cached to disk so repeat runs skip the forward pass entirely." },
+        ]
+      },
+      {
+        title: "Class Separability via PCA",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-1.png", width: "900px" },
+          { type: "text", text: "Standardised features are projected to two principal components per task, coloured by class label. The resulting scatter reveals how well-separated the classes are in feature space before any classifier is trained, with axis limits clipped to the 1st–99th percentile so outliers don't compress the visible clustering." },
+        ]
+      },
+      {
+        title: "Model Confusion Matrices",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-2.png", width: "900px" },
+          { type: "text", text: "Logistic Regression, RBF-SVM, and Random Forest are each fit on an 80/20 stratified holdout split and evaluated with accuracy, precision, recall, and F1. Logistic Regression came out ahead on both tasks; its confusion matrix here breaks down exactly which classes it confuses most often." },
+        ]
+      },
+      {
+        title: "Feature-Group Ablation",
+        content: [
+          { type: "image", src: "/assets/project/ImageClassificationPipeline/image-classification-pipeline-3.png", width: "900px" },
+          { type: "text", text: "The best-performing model is retrained on isolated feature subsets — colour only, HOG-PCA only, extra features only, all provided features, ResNet50 only, and everything combined — to quantify how much each source contributes to validation accuracy." },
+        ]
+      },
+    ]
+  },
+  "Mixed Naïve Bayes Classifier": {
+    tokenizedName: "mixed-naive-bayes-classifier",
+    category: "university",
+    description: `Mixed Naïve Bayes Classifier is a from-scratch income prediction system for the UCI Adult Census dataset, combining Gaussian and Categorical Naïve Bayes to classify individuals as earning above or below $50K. Built for COMP30027 Machine Learning, the project extends the base classifier with a semi-supervised label propagation pipeline and rigorously evaluates its impact on accuracy and confidence calibration.`,
+    date: "COMP30027 2026 - Project 1",
+    type: "University Project",
+    teamSize: 1,
+    role: "Machine Learning Developer",
+    thumbnail: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-image-1.png",
+    technologies: ["Python", "scikit-learn", "pandas", "NumPy", "Matplotlib", "Seaborn"],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/COMP30027-Project-1",
+    itchLink: "",
+    wwwLink: "",
+    datasetLink: "https://www.kaggle.com/datasets/uciml/adult-census-income",
+    docsLink: "https://docs.google.com/document/d/1oi-P5k8m5dYgPdkPJjCRMb4uqG7cDPWZnqceAskdUOA/edit?tab=t.0#heading=h.tr61mkxnurdp",
+    status: "Completed",
+    projectTime: "2 Weeks",
+    keyResponsibilities: [
+      "Implemented a Mixed Naïve Bayes classifier from scratch, combining GaussianNB for continuous features and CategoricalNB with Laplace smoothing for categorical features via scikit-learn.",
+      "Built an ordinal encoding pipeline to handle unseen categorical values at test time, mapping out-of-vocabulary entries to a dedicated unknown value.",
+      "Evaluated model performance using accuracy, confusion matrices, and per-class F1 scores, and analysed prediction confidence via posterior probability ratios.",
+      "Designed a two-stage semi-supervised label propagation pipeline that iteratively pseudo-labels unlabelled data above a tuned confidence threshold and retrains the model.",
+      "Diagnosed why label propagation degraded accuracy (81.01% vs 83.07% baseline), tracing the cause to noisy pseudo-labels amplifying class imbalance on the minority (>50K) class.",
+      "Authored a full written report analysing prior probabilities, top predictive features, threshold tuning, and comparative confidence distributions across model variants.",
+    ],
+    details: [
+      {
+        title: "Supervised Model & Top Predictors",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-1.png", width: "900px" },
+          { type: "text", text: "The classifier splits features by type: continuous attributes (age, hours-per-week, capital gain/loss) are modeled with GaussianNB, while categorical attributes (occupation, education, marital status) use CategoricalNB with Laplace smoothing (α=1.0) to handle zero-frequency categories. Top predictors are identified via the probability ratio R = P(feature value | >50K) / P(feature value | ≤50K), surfacing which categorical values most strongly separate the two income classes." },
+        ]
+      },
+      {
+        title: "Evaluation & Confidence Calibration",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-2.png", width: "900px" },
+          { type: "text", text: "On the held-out test set, the model achieves 83.07% accuracy, with F1=0.89 for ≤50K and F1=0.61 for >50K — reflecting the class imbalance in the training data. An ordinal encoder maps unseen categorical values at test time to a dedicated unknown-value token rather than failing, and out-of-vocabulary rows are tracked separately to quantify their impact on predictions." },
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-3.png", width: "900px" },
+          { type: "text", text: "Prediction confidence is measured via the log posterior ratio log(P(>50K|x) / P(≤50K|x)). Plotting this distribution across correct and incorrect predictions shows the model is well-calibrated on confident predictions but produces a cluster of low-margin, easily-flipped predictions near the decision boundary — concentrated in the minority >50K class." },
+        ]
+      },
+      {
+        title: "Semi-Supervised Label Propagation",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-4.png", width: "900px" },
+          { type: "text", text: "To leverage unlabelled data, a two-stage semi-supervised pipeline first trains on the labelled set, then iteratively pseudo-labels unlabelled instances whose posterior ratio exceeds a confidence threshold, retraining on the expanded set. Thresholds from 0.5 to 10.0 are swept to balance how many pseudo-labels get admitted against how noisy they are." },
+        ]
+      },
+      {
+        title: "Supervised vs Semi-Supervised Comparison",
+        content: [
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-5.png", width: "900px" },
+          { type: "text", text: "Despite the additional pseudo-labelled data, the semi-supervised model underperforms the baseline — 81.01% vs 83.07% accuracy. Comparing confusion matrices and Gaussian feature means before and after propagation shows the >50K class (with only 53% recall) generates disproportionately noisy pseudo-labels, which reinforce the model's existing bias toward the majority ≤50K class rather than correcting it." },
+          { type: "image", src: "/assets/project/MixedNaiveBayesClassifier/mixed-naive-bayes-classifier-6.png", width: "900px" },
+        ]
+      },
+    ]
+  },
   "NAUT": {
     tokenizedName: "naut",
     category: "hackathons",

@@ -128,7 +128,7 @@ function ProjectHeader({ projectName }) {
               )}
               <h2 className="project-header-title">{projectName}</h2>
               <div className="project-type-box project-header-type-box">{project.type}</div>
-              {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink || project.diagramLink || project.docsLink) && (
+              {(project.githubLink || project.itchLink || project.wwwLink || project.instagramLink || project.diagramLink || project.docsLink || project.datasetLink) && (
                 <div className="project-links-bar">
                   {project.githubLink && project.githubLink !== "" && (
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
@@ -188,6 +188,16 @@ function ProjectHeader({ projectName }) {
                         <line x1="8" y1="17" x2="16" y2="17"/>
                       </svg>
                       <span>Docs</span>
+                    </a>
+                  )}
+                  {project.datasetLink && project.datasetLink !== "" && (
+                    <a href={project.datasetLink} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <ellipse cx="12" cy="5" rx="8" ry="3"/>
+                        <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+                        <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                      </svg>
+                      <span>Dataset</span>
                     </a>
                   )}
                 </div>
