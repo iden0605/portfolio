@@ -215,162 +215,6 @@ const projectData = {
       }
     ]
   },
-  "Backloggr": {
-    tokenizedName: "backloggr",
-    category: "personal",
-    filterGroup: "apps",
-    description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
-    date: "July 2026 - Present",
-    type: "Personal Project",
-    teamSize: 1,
-    role: "Fullstack Developer",
-    thumbnail: "/assets/project/Backloggr/backloggr-image-1.png",
-    technologies: [
-      "Tauri",
-      "Rust",
-      "React",
-      "TypeScript",
-      "Zustand",
-      "Tailwind CSS",
-      "SQLite",
-      "Cloudflare Workers",
-      "Groq",
-      "RAWG API",
-      "FFmpeg",
-      "Vite",
-    ],
-    liveLink: "",
-    githubLink: "https://github.com/iden0605/Backloggr",
-    itchLink: "",
-    wwwLink: "https://backloggr.com/",
-    status: "Released",
-    projectTime: "Jul 2026 - Present",
-    keyResponsibilities: [
-      "Built a cross-platform Tauri + Rust desktop app with a React 19/TypeScript/Zustand frontend and a local SQLite library database.",
-      "Implemented automatic playtime tracking by polling running processes and matching them against the library, auto-starting and closing sessions.",
-      "Built a rolling-buffer gameplay clip recorder using FFmpeg's segment muxer, with an always-on-top transparent overlay for save feedback and window-scoped capture that survives alt-tabs.",
-      "Designed \"Shelby,\" an AI recommendation chat that narrows a real candidate pool of named games turn-by-turn via clarifying questions, backed by a Cloudflare Worker proxying Groq (Llama 3.3 70B) and cross-verified against the RAWG API.",
-      "Implemented Steam library import and a dashboard surfacing playtime stats, completion rates, and weekly trends.",
-      "Built and deployed the marketing website (React + Vite + Tailwind, Cloudflare Pages) with a live GitHub Releases-backed download button.",
-    ],
-    details: [
-      {
-        title: "Automatic Playtime Tracking",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-1.png", width: "900px" },
-          {
-            type: "text",
-            text: "A background poller in the Rust process watches running processes every few seconds and matches them against exe names stored in the library — no manual start/stop. Opening a matched game opens a session row; closing it ends the session and rolls the duration into the dashboard's totals. The dashboard surfaces a \"Jump back in\" card for the last-played game alongside a rolling 7-day chart and a most-played-this-week breakdown, computed against a rolling previous-week baseline for the week-over-week delta.",
-          },
-        ],
-      },
-      {
-        title: "Hotkey Clip Capture",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-2.png", width: "900px" },
-          {
-            type: "text",
-            text: "Capture runs continuously for the length of a game session using FFmpeg's segment muxer, writing a fixed-length ring buffer of MPEG-TS segments to disk. MPEG-TS is deliberate — unlike MP4, a segment is readable up to its current write position even while FFmpeg is still appending to it, so a clip can include footage right up to the hotkey press without losing the final few seconds. Pressing the configurable hotkey (Alt+F9 by default) pulls the last 30 seconds from the buffer, re-encodes it, and shows a transparent always-on-top overlay toast for save feedback — the same pattern mainstream clipping tools like ShadowPlay use, since OS notifications get suppressed by fullscreen games.",
-          },
-        ],
-      },
-      {
-        title: "Shelby, the AI Rec Chat",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-4.png", width: "900px" },
-          {
-            type: "text",
-            text: "Shelby is a narrowing conversation, not a one-shot prompt. Each turn, a Cloudflare Worker asks Groq (Llama 3.3 70B) to name a real candidate pool of specific games matching the request so far — the pool's size is reported honestly rather than fabricated. Flow control lives outside the model: if the pool is small enough, results show immediately; otherwise the app asks the one clarifying question that best splits the remaining candidates, capped at four rounds so the conversation can't loop forever. Every candidate is cross-verified against the RAWG API for its real release date, genre, and platform facts before it's shown, and games already in the player's library are filtered out.",
-          },
-        ],
-      },
-      {
-        title: "Steam Library Import",
-        content: [
-          { type: "image", src: "/assets/project/Backloggr/backloggr-3a.png", width: "900px" },
-          { type: "image", src: "/assets/project/Backloggr/backloggr-3b.png", width: "900px" },
-          {
-            type: "text",
-            text: "Pulls a player's entire owned Steam library — including games they've never launched — via their profile URL, vanity name, or SteamID64, and lets them pick which ones to add. Each imported title is resolved against RAWG for cover art and genre data, with a progress modal reporting live import counts for large libraries.",
-          },
-        ],
-      },
-    ],
-  },
-  "Git Gud Coach": {
-    tokenizedName: "git-gud-coach",
-    category: "hackathons",
-    filterGroup: "apps",
-    description: `Git Gud Coach is a VS Code extension that watches your Git behaviour and roasts you for it like a toxic esports coach. Every commit, push, and merge is scored across a Bronze-to-Diamond rank ladder with AI-generated roasts powered by 5 providers, 20 achievements, and a Weekly Hygiene Report quantifying how unhinged your week actually was. Built at Trendhacker 2026 by team Trend Hackers.`,
-    date: "Trendhacker 2026",
-    type: "Hackathon",
-    teamSize: 3,
-    role: "Fullstack Extension Developer",
-    thumbnail: "/assets/project/GitGud/git-gud-image.png",
-    previewVid: "",
-    images: [],
-    technologies: ["TypeScript", "VS Code Extension API", "Node.js", "Next.js", "React", "Gemini API"],
-    liveLink: "",
-    instagramLink: "https://www.instagram.com/p/DX4QxVyiTJe-xHEW-OICwsUxRRHvPIl84w3umU0/?hl=en",
-    githubLink: "https://github.com/IJ-hackies/HackMelbourne-Trend-Hackers",
-    itchLink: "",
-    wwwLink: "https://git-gud-extension.app/",
-    status: "Released",
-    projectTime: "4 Days",
-    keyResponsibilities: [
-      "Designed and implemented the Git Gud Coach landing page, including layout, copy, and deployment to GitHub Pages.",
-      "Built the Git event pipeline — a filesystem watcher that captures commits, pushes, file diffs, and merge activity in real time.",
-      "Implemented the AI coaching pipeline: structured prompt construction from raw Git event data, fed into the Gemini API using a prompt-engineered system prompt tuned for toxic esports coach tone.",
-      "Developed live merge conflict resolution assistance, detecting active conflict state via the Git pipeline and triggering per-block roasts through the same parsing and AI flow.",
-      "Curated and implemented the meme and reaction image library, including the tag taxonomy and verdict bridge that scopes which meme categories the AI can draw from per offense.",
-      "Improved the VS Code extension sidebar UI, including layout, card structure, and visual polish across the Rank, Latest Roast, and Settings cards.",
-      "Packaged and published the extension to the VS Code Marketplace, handling build configuration and the publishing workflow.",
-    ],
-    details: [
-      {
-        title: "Source Control & Commit UI",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-1.png", width: "900px" },
-          { type: "text", text: "The in-sidebar Source Control card connects directly to the VS Code Git API. A branch dropdown lists all local and remote branches, and switching prompts for confirmation before checkout. The AI Generate button constructs a prompt from the staged diff and fires a Gemini request, returning a commit message in either clean (Conventional Commits) or savage (toxic-coach) tone based on the active toggle. The Commit and Push button auto-stages changes before committing and auto-sets the upstream remote on first push." },
-        ]
-      },
-      {
-        title: "Roast & Tip History",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-2.png", width: "900px" },
-          { type: "text", text: "Every Git event produces a scored verdict that feeds the AI coaching pipeline. A structured prompt is built from the event type, file diff summary, and a scoped subset of meme tags matched to the offense category. Gemini returns a roast and a coaching tip as a paired response. The Recent Offenses card renders these pairs in sequence, newest first, with the roast styled in the extension's hot-pink accent and the tip in muted text below." },
-        ]
-      },
-      {
-        title: "VS Code Notifications",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-3.png", width: "900px" },
-          { type: "text", text: "Git Gud surfaces feedback as native VS Code notifications immediately after each scored event. Positive deltas trigger hype messages while negative deltas trigger roasts. Each notification fires from the extension host using the VS Code notifications API, keeping feedback in the editor flow without requiring the sidebar to be open." },
-        ]
-      },
-      {
-        title: "Achievements",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-4.png", width: "900px" },
-          { type: "text", text: "Twenty achievements unlock from real Git behaviour tracked across the session, including clean streaks, force-push counts, late-night commits, and merge conflict volume. Each achievement has a threshold condition evaluated against the running stats object. Unlocking one fires a notification and appends it to the Achievements card with the unlock timestamp." },
-        ]
-      },
-      {
-        title: "Weekly Hygiene Report",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-5.png", width: "900px" },
-          { type: "text", text: "The Weekly Hygiene Report is a webview panel that aggregates 7 days of Git activity into a structured metrics summary. It tracks total commits, force-pushes, pushes to main, merge conflicts, branch switches, average commit size, score delta, savage roast rate, and clean streak. Each metric is paired with a roast caption generated from the week's data, and the panel opens via the Weekly Hygiene Report command." },
-        ]
-      },
-      {
-        title: "Rank Card",
-        content: [
-          { type: "image", src: "/assets/project/GitGud/git-gud-image-6.png", width: "900px" },
-          { type: "text", text: "The rank card is a 1200x630 SVG generated from the current session stats, displaying rank tier, personality archetype, and top offenses as a shareable rap sheet. It is constructed entirely in memory from the stats object and exported via the Export Rank Card command, ready to post directly to X." },
-        ]
-      },
-    ]
-  },
   "Afloat": {
     tokenizedName: "afloat",
     category: "hackathons",
@@ -556,6 +400,162 @@ const projectData = {
           { type: "text", text: "Troop placement uses layered Physics2D colliders to define valid zones: a water mask, an enemy-path mask for path-only troops, and land platforms. Troops are sorted by Y position each frame to produce correct depth ordering over the tiled map art, ensuring troops always appear to stand on the correct layer." }
         ]
       }
+    ]
+  },
+  "Backloggr": {
+    tokenizedName: "backloggr",
+    category: "personal",
+    filterGroup: "apps",
+    description: `Backloggr is a Tauri desktop app for tracking your game library, with playtime automatically logged by watching which processes are running. It saves gameplay clips on a hotkey via a continuous FFmpeg capture buffer, and recommends what to play next through "Shelby," an AI chat that narrows real game candidates via clarifying questions rather than guessing from keywords.`,
+    date: "July 2026 - Present",
+    type: "Personal Project",
+    teamSize: 1,
+    role: "Fullstack Developer",
+    thumbnail: "/assets/project/Backloggr/backloggr-image-1.png",
+    technologies: [
+      "Tauri",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "SQLite",
+      "Cloudflare Workers",
+      "Groq",
+      "RAWG API",
+      "FFmpeg",
+      "Vite",
+    ],
+    liveLink: "",
+    githubLink: "https://github.com/iden0605/Backloggr",
+    itchLink: "",
+    wwwLink: "https://backloggr.com/",
+    status: "Released",
+    projectTime: "Jul 2026 - Present",
+    keyResponsibilities: [
+      "Built a cross-platform Tauri + Rust desktop app with a React 19/TypeScript/Zustand frontend and a local SQLite library database.",
+      "Implemented automatic playtime tracking by polling running processes and matching them against the library, auto-starting and closing sessions.",
+      "Built a rolling-buffer gameplay clip recorder using FFmpeg's segment muxer, with an always-on-top transparent overlay for save feedback and window-scoped capture that survives alt-tabs.",
+      "Designed \"Shelby,\" an AI recommendation chat that narrows a real candidate pool of named games turn-by-turn via clarifying questions, backed by a Cloudflare Worker proxying Groq (Llama 3.3 70B) and cross-verified against the RAWG API.",
+      "Implemented Steam library import and a dashboard surfacing playtime stats, completion rates, and weekly trends.",
+      "Built and deployed the marketing website (React + Vite + Tailwind, Cloudflare Pages) with a live GitHub Releases-backed download button.",
+    ],
+    details: [
+      {
+        title: "Automatic Playtime Tracking",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-1.png", width: "900px" },
+          {
+            type: "text",
+            text: "A background poller in the Rust process watches running processes every few seconds and matches them against exe names stored in the library — no manual start/stop. Opening a matched game opens a session row; closing it ends the session and rolls the duration into the dashboard's totals. The dashboard surfaces a \"Jump back in\" card for the last-played game alongside a rolling 7-day chart and a most-played-this-week breakdown, computed against a rolling previous-week baseline for the week-over-week delta.",
+          },
+        ],
+      },
+      {
+        title: "Hotkey Clip Capture",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-2.png", width: "900px" },
+          {
+            type: "text",
+            text: "Capture runs continuously for the length of a game session using FFmpeg's segment muxer, writing a fixed-length ring buffer of MPEG-TS segments to disk. MPEG-TS is deliberate — unlike MP4, a segment is readable up to its current write position even while FFmpeg is still appending to it, so a clip can include footage right up to the hotkey press without losing the final few seconds. Pressing the configurable hotkey (Alt+F9 by default) pulls the last 30 seconds from the buffer, re-encodes it, and shows a transparent always-on-top overlay toast for save feedback — the same pattern mainstream clipping tools like ShadowPlay use, since OS notifications get suppressed by fullscreen games.",
+          },
+        ],
+      },
+      {
+        title: "Shelby, the AI Rec Chat",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-4.png", width: "900px" },
+          {
+            type: "text",
+            text: "Shelby is a narrowing conversation, not a one-shot prompt. Each turn, a Cloudflare Worker asks Groq (Llama 3.3 70B) to name a real candidate pool of specific games matching the request so far — the pool's size is reported honestly rather than fabricated. Flow control lives outside the model: if the pool is small enough, results show immediately; otherwise the app asks the one clarifying question that best splits the remaining candidates, capped at four rounds so the conversation can't loop forever. Every candidate is cross-verified against the RAWG API for its real release date, genre, and platform facts before it's shown, and games already in the player's library are filtered out.",
+          },
+        ],
+      },
+      {
+        title: "Steam Library Import",
+        content: [
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3a.png", width: "900px" },
+          { type: "image", src: "/assets/project/Backloggr/backloggr-3b.png", width: "900px" },
+          {
+            type: "text",
+            text: "Pulls a player's entire owned Steam library — including games they've never launched — via their profile URL, vanity name, or SteamID64, and lets them pick which ones to add. Each imported title is resolved against RAWG for cover art and genre data, with a progress modal reporting live import counts for large libraries.",
+          },
+        ],
+      },
+    ],
+  },
+  "Git Gud Coach": {
+    tokenizedName: "git-gud-coach",
+    category: "hackathons",
+    filterGroup: "apps",
+    description: `Git Gud Coach is a VS Code extension that watches your Git behaviour and roasts you for it like a toxic esports coach. Every commit, push, and merge is scored across a Bronze-to-Diamond rank ladder with AI-generated roasts powered by 5 providers, 20 achievements, and a Weekly Hygiene Report quantifying how unhinged your week actually was. Built at Trendhacker 2026 by team Trend Hackers.`,
+    date: "Trendhacker 2026",
+    type: "Hackathon",
+    teamSize: 3,
+    role: "Fullstack Extension Developer",
+    thumbnail: "/assets/project/GitGud/git-gud-image.png",
+    previewVid: "",
+    images: [],
+    technologies: ["TypeScript", "VS Code Extension API", "Node.js", "Next.js", "React", "Gemini API"],
+    liveLink: "",
+    instagramLink: "https://www.instagram.com/p/DX4QxVyiTJe-xHEW-OICwsUxRRHvPIl84w3umU0/?hl=en",
+    githubLink: "https://github.com/IJ-hackies/HackMelbourne-Trend-Hackers",
+    itchLink: "",
+    wwwLink: "https://git-gud-extension.app/",
+    status: "Released",
+    projectTime: "4 Days",
+    keyResponsibilities: [
+      "Designed and implemented the Git Gud Coach landing page, including layout, copy, and deployment to GitHub Pages.",
+      "Built the Git event pipeline — a filesystem watcher that captures commits, pushes, file diffs, and merge activity in real time.",
+      "Implemented the AI coaching pipeline: structured prompt construction from raw Git event data, fed into the Gemini API using a prompt-engineered system prompt tuned for toxic esports coach tone.",
+      "Developed live merge conflict resolution assistance, detecting active conflict state via the Git pipeline and triggering per-block roasts through the same parsing and AI flow.",
+      "Curated and implemented the meme and reaction image library, including the tag taxonomy and verdict bridge that scopes which meme categories the AI can draw from per offense.",
+      "Improved the VS Code extension sidebar UI, including layout, card structure, and visual polish across the Rank, Latest Roast, and Settings cards.",
+      "Packaged and published the extension to the VS Code Marketplace, handling build configuration and the publishing workflow.",
+    ],
+    details: [
+      {
+        title: "Source Control & Commit UI",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-1.png", width: "900px" },
+          { type: "text", text: "The in-sidebar Source Control card connects directly to the VS Code Git API. A branch dropdown lists all local and remote branches, and switching prompts for confirmation before checkout. The AI Generate button constructs a prompt from the staged diff and fires a Gemini request, returning a commit message in either clean (Conventional Commits) or savage (toxic-coach) tone based on the active toggle. The Commit and Push button auto-stages changes before committing and auto-sets the upstream remote on first push." },
+        ]
+      },
+      {
+        title: "Roast & Tip History",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-2.png", width: "900px" },
+          { type: "text", text: "Every Git event produces a scored verdict that feeds the AI coaching pipeline. A structured prompt is built from the event type, file diff summary, and a scoped subset of meme tags matched to the offense category. Gemini returns a roast and a coaching tip as a paired response. The Recent Offenses card renders these pairs in sequence, newest first, with the roast styled in the extension's hot-pink accent and the tip in muted text below." },
+        ]
+      },
+      {
+        title: "VS Code Notifications",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-3.png", width: "900px" },
+          { type: "text", text: "Git Gud surfaces feedback as native VS Code notifications immediately after each scored event. Positive deltas trigger hype messages while negative deltas trigger roasts. Each notification fires from the extension host using the VS Code notifications API, keeping feedback in the editor flow without requiring the sidebar to be open." },
+        ]
+      },
+      {
+        title: "Achievements",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-4.png", width: "900px" },
+          { type: "text", text: "Twenty achievements unlock from real Git behaviour tracked across the session, including clean streaks, force-push counts, late-night commits, and merge conflict volume. Each achievement has a threshold condition evaluated against the running stats object. Unlocking one fires a notification and appends it to the Achievements card with the unlock timestamp." },
+        ]
+      },
+      {
+        title: "Weekly Hygiene Report",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-5.png", width: "900px" },
+          { type: "text", text: "The Weekly Hygiene Report is a webview panel that aggregates 7 days of Git activity into a structured metrics summary. It tracks total commits, force-pushes, pushes to main, merge conflicts, branch switches, average commit size, score delta, savage roast rate, and clean streak. Each metric is paired with a roast caption generated from the week's data, and the panel opens via the Weekly Hygiene Report command." },
+        ]
+      },
+      {
+        title: "Rank Card",
+        content: [
+          { type: "image", src: "/assets/project/GitGud/git-gud-image-6.png", width: "900px" },
+          { type: "text", text: "The rank card is a 1200x630 SVG generated from the current session stats, displaying rank tier, personality archetype, and top offenses as a shareable rap sheet. It is constructed entirely in memory from the stats object and exported via the Export Rank Card command, ready to post directly to X." },
+        ]
+      },
     ]
   },
   "Stella Taco": {
