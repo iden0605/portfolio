@@ -17,6 +17,26 @@ const FILTER_GROUPS = [
   { key: 'university', label: 'University', className: 'proj-lang--university' },
 ];
 
+const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+const AWARD_RANK = { Winner: 2, Finalist: 1 };
+
+// Latest year in the date string, plus the last month named (end of a range) when present.
+// Returns 0 for the month when none is given, so same-year entries stay in source order.
+function dateSortKey(dateStr = '') {
+  const years = (dateStr.match(/\b(?:19|20)\d{2}\b/g) || []).map(Number);
+  const year = years.length ? Math.max(...years) : 0;
+  const months = dateStr.toLowerCase().match(/jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec/g) || [];
+  const month = months.length ? MONTHS.indexOf(months[months.length - 1]) + 1 : 0;
+  return year * 100 + month;
+}
+
+// Highest award first, then most recent. Equal keys fall through to Object.entries order (stable sort).
+function compareProjects([, a], [, b]) {
+  const byAward = (AWARD_RANK[b.award] || 0) - (AWARD_RANK[a.award] || 0);
+  if (byAward) return byAward;
+  return dateSortKey(b.date) - dateSortKey(a.date);
+}
+
 function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [activeMobileProject, setActiveMobileProject] = useState(null);
@@ -86,7 +106,7 @@ function Projects() {
     });
   }, [activeMobileProject, isMobile]);
 
-  const allEntries = Object.entries(projectData);
+  const allEntries = Object.entries(projectData).sort(compareProjects);
   const groupCounts = FILTER_GROUPS.map(group => ({
     ...group,
     count: allEntries.filter(([, project]) => project.filterGroup === group.key).length,

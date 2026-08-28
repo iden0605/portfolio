@@ -1,5 +1,68 @@
 // data for project section
 const projectData = {
+  "LeafRoute": {
+    tokenizedName: "leafroute",
+    category: "hackathons",
+    filterGroup: "apps",
+    description: `LeafRoute is a Melbourne walking route planner built around climate action. It plans real walking routes over the city's pedestrian network with three options — fastest, shadiest, and quietest — each backed by real differences in tree canopy or live foot traffic. It shows live temperature, UV, air quality, and canopy for any destination, leans harder into shaded routing as the heat rises, and tracks the CO2e each walk avoids against a growing public total. Built in 3 days for MelbourneHack 2026.`,
+    date: "MelbourneHack 2026",
+    type: "Hackathon",
+    teamSize: 2,
+    role: "Fullstack Developer | ML Engineer",
+    thumbnail: "/assets/project/LeafRoute/leafroute-image-1.png",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MapLibre GL", "Python", "XGBoost", "Supabase", "PostgreSQL", "Vercel"],
+    liveLink: "https://www.youtube.com/watch?v=v4EALF0QRII",
+    githubLink: "https://github.com/IJ-hackies/MelbourneHack2026",
+    itchLink: "",
+    wwwLink: "https://leafroute.org/",
+    status: "Completed",
+    projectTime: "3 Days",
+    keyResponsibilities: [
+      "Built the entire application and marketing site in Next.js and React, including the interactive route map and walk-tracking UI.",
+      "Implemented the route planner as Python functions on Vercel, generating fastest, shadiest, and quietest walking routes across Melbourne.",
+      "Built the walkable street network by merging the City of Melbourne pedestrian data with OpenStreetMap.",
+      "Connected the XGBoost foot-traffic model to live routing, and used tree canopy data to steer walkers into shade on hot days.",
+      "Integrated live weather, UV, and air quality so routing adapts to real conditions.",
+      "Added Supabase auth and stored walk history, preferences, and a running public total of CO2e avoided.",
+    ],
+    details: [
+      {
+        title: "Every Walk Is Climate Action",
+        content: [
+          { type: "image", src: "/assets/project/LeafRoute/leafroute-1.png", width: "900px" },
+          { type: "text", text: "The premise is that swapping a short car trip for a walk is a concrete climate action, and that rising heat is the main thing that makes people stop walking. The landing page carries a live public counter — total CO2e avoided, kilometres walked, and walks logged across every walk ever recorded, signed in or not." },
+        ]
+      },
+      {
+        title: "Three Routes to One Destination",
+        content: [
+          { type: "image", src: "/assets/project/LeafRoute/leafroute-2.png", width: "900px" },
+          { type: "text", text: "Every search returns up to three real routes over Melbourne's pedestrian network — fastest, most shaded, and least crowded — each shown against the fastest with its actual trade-off, like +2.7 minutes for +36 points of tree canopy or −51% foot traffic. A live conditions panel for the destination sits alongside: feels-like temperature, UV index, air quality, nearby crowd levels versus the weekly average, and canopy cover." },
+        ]
+      },
+      {
+        title: "Shaded Routing on the Map",
+        content: [
+          { type: "image", src: "/assets/project/LeafRoute/leafroute-3.png", width: "900px" },
+          { type: "text", text: "Once a walk starts, the route renders on a MapLibre map with turn-by-turn guidance and live counters for distance walked and CO2e saved. The shaded route is computed with Dijkstra's algorithm over a graph built by merging the City of Melbourne pedestrian dataset with an OpenStreetMap extract, biased by tree canopy density — the canopy percentage and average foot traffic measured along the chosen path are shown beneath the map." },
+        ]
+      },
+      {
+        title: "The Emissions Payoff",
+        content: [
+          { type: "image", src: "/assets/project/LeafRoute/leafroute-4.png", width: "900px" },
+          { type: "text", text: "Walk history turns the running emissions total into something concrete — the month's avoided emissions are expressed as an equivalent like a tree absorbing CO2 for 70 days rather than a bare figure. An activity heatmap tracks walking frequency, and recent walks can be re-run with one tap." },
+        ]
+      },
+      {
+        title: "Tuned to the Walker",
+        content: [
+          { type: "image", src: "/assets/project/LeafRoute/leafroute-5.png", width: "900px" },
+          { type: "text", text: "Preferences — heat and sun sensitivity, speed versus comfort, and a quieter-streets priority — decide which of the returned routes gets recommended for a signed-in user. They never change how many routes a search finds or what they are; higher heat sensitivity simply defaults the recommendation to the shaded option whenever one exists." },
+        ]
+      },
+    ]
+  },
   "NAUT": {
     tokenizedName: "naut",
     category: "hackathons",
