@@ -248,10 +248,19 @@ body, html {
   border-left: none;
 }
 
-.about-me-link:hover {
+.about-me-link {
+  color: var(--highlight-color);
+  font-weight: 500;
   text-decoration: underline;
+  text-decoration-color: rgba(91, 107, 82, 0.4);
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  transition: text-decoration 0.1s ease-in-out;
+  transition: color 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out;
+}
+
+.about-me-link:hover {
+  color: var(--primary-color);
+  text-decoration-color: currentColor;
 }
 
 .skills-languages-hobbies-container {

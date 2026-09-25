@@ -71,15 +71,15 @@ const jobExperienceData = {
         date: "Apr 2026 - Present",
         paragraphs: [
           "Promoted to Technical Director, now leading development of the <strong>GMC Hub</strong>, an internal piece of software used by committee members to track reimbursements, log event attendance, and create voting booths.",
-          "Continue to improve and maintain both the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer'>club website</a> and the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer'>Product Division website</a>, while implementing a GMC gallery so games made by all club members can be stored and displayed in one place, and maintaining the club's Discord bot."
+          "Continue to improve and maintain both the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>club website</a> and the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>Product Division website</a>, while implementing a GMC gallery so games made by all club members can be stored and displayed in one place, and maintaining the club's Discord bot."
         ]
       },
       {
         title: "Technical Officer | Full-stack Developer",
         date: "Aug 2025 - Apr 2026",
         paragraphs: [
-          "For the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer'>club website</a>, committee data from the Notion backend was parsed and integrated to dynamically render committee information. The committee webpage was implemented based on the provided designs, along with several UX improvements to improve navigation and usability.",
-          "On the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer'>Product Division website</a>, the team and team member data structure was designed and implemented to support structured profile data. The team member pages were developed to showcase member profiles and experience, alongside UX enhancements such as a dynamic header for improved visual presentation."
+          "For the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>club website</a>, committee data from the Notion backend was parsed and integrated to dynamically render committee information. The committee webpage was implemented based on the provided designs, along with several UX improvements to improve navigation and usability.",
+          "On the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>Product Division website</a>, the team and team member data structure was designed and implemented to support structured profile data. The team member pages were developed to showcase member profiles and experience, alongside UX enhancements such as a dynamic header for improved visual presentation."
         ]
       }
     ]
@@ -125,7 +125,7 @@ const jobExperienceData = {
     cardImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
     headerImage: "/assets/WorkExperience/Momu/Momu-image.jpg",
     description: `Serving as the sole IT and Analytics Officer for the Malaysians of Melbourne University club, responsible for the maintenance and improvement of the club's website, alongside collecting and analyzing social media analytics to guide outreach strategies.`,
-    date: "Oct 2025 - Present",
+    date: "Oct 2025 - Sep 2026",
     teamSize: 25,
     keyResponsibilities: [
       "Club website maintenance and enhancement.",
@@ -136,9 +136,10 @@ const jobExperienceData = {
     positions: [
       {
         title: "IT and Analytics Officer",
-        date: "Oct 2025 - Present",
+        date: "Oct 2025 - Sep 2026",
         paragraphs: [
-          "Responsibilities include maintaining and updating the <a href='https://www.momumomu.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>MoMU website</a>, implementing UI/UX improvements, and reporting social media analytics to the club's publicity team."
+          "Responsibilities include maintaining and updating the <a href='https://www.momumomu.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>MoMU website</a>, implementing UI/UX improvements, and reporting social media analytics to the club's publicity team.",
+          "MoMU Instagram analytics for the 2025/2026 term can be found <a href='https://statistics.momumomu.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>here</a>."
         ]
       }
     ]
@@ -164,7 +165,7 @@ const jobExperienceData = {
         title: "Web Developer",
         date: "Nov 2024 - Jun 2025",
         paragraphs: [
-          "Websites were built for clients through the MonthlySoft platform, using GoHighLevel, JavaScript, HTML, and CSS. A notable project was the site for <a href='https://DolphinBayIslandResort.com' target='_blank' rel='noopener noreferrer'>DolphinBayIslandResort</a> in Kota Kinabalu. While design direction was a collaborative effort, the focus of this role was on technical implementation."
+          "Websites were built for clients through the MonthlySoft platform, using GoHighLevel, JavaScript, HTML, and CSS. A notable project was the site for <a href='https://DolphinBayIslandResort.com' target='_blank' rel='noopener noreferrer' class='about-me-link'>DolphinBayIslandResort</a> in Kota Kinabalu. While design direction was a collaborative effort, the focus of this role was on technical implementation."
         ]
       }
     ]
