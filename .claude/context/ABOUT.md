@@ -4,7 +4,7 @@ _Last updated: 2026-08-18 (session 9)_
 
 ## What It Is
 
-Personal portfolio website for Iden McElhone (Systems & Cloud Architect / DevOps Engineer), showcasing projects and work experience at [idenmcelhone.dev](https://idenmcelhone.dev/).
+Personal portfolio website for Iden McElhone (Associate Product Engineer @ PaperCut, Computing student @ Unimelb), showcasing projects and work experience at [idenmcelhone.dev](https://idenmcelhone.dev/).
 
 ## Stack
 

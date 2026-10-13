@@ -131,7 +131,7 @@ function Terminal() {
                   My work spans infrastructure design, deployment automation, and maintaining full-stack applications. I thrive on building efficient workflows and making technical decisions that balance performance, security, and maintainability, all while adopting modern tools and technologies.
                 </div>
                 <div className="about-paragraph">
-                  Professional experience includes working as a DevOps Engineering Intern and Junior Software Developer at <span className="term-bold term-blue">Kewpump</span>, where I managed containerized applications, implemented GitHub Actions pipelines, and maintained scalable cloud and local deployments. I have also contributed to tutoring and freelance web development, including co-founding <span className="term-bold term-blue">BookingsMadeEasy</span>.
+                  I currently work as an Associate Product Engineer at <span className="term-bold term-blue">PaperCut</span>, developing and maintaining the cloud side of its print management products, PaperCut Hive and PaperCut Pocket, on Google Cloud. Before that, I was a DevOps Engineering Intern and Junior Software Developer at <span className="term-bold term-blue">Kewpump</span>, where I managed containerized applications, implemented GitHub Actions pipelines, and maintained scalable cloud and local deployments. I have also contributed to tutoring and freelance web development, including co-founding <span className="term-bold term-blue">BookingsMadeEasy</span>.
                 </div>
                 <div className="about-ls">
                   <div className="prompt-line about-secondary-prompt">

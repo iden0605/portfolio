@@ -5,7 +5,8 @@ import './Profile.css';
 function Profile() {
   // define name and tagline
   const name = "Iden McElhone";
-  const tagline = "Systems & Cloud Architect | DevOps Engineer";
+  const tagline = "Associate Product Engineer @ PaperCut";
+  const subTagline = "Computing student @ Unimelb";
   const { ref, className } = useReveal({ immediate: true });
 
   // render the profile section
@@ -21,6 +22,7 @@ function Profile() {
       </div>
       <h1>{name}</h1>
       <p>{tagline}</p>
+      <p className="profile-sub-tagline">{subTagline}</p>
       <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
         <button className="cta-button">View Resume</button>
       </a>

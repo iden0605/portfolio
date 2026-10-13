@@ -3,6 +3,9 @@
 ## BookingsMadeEasy
 - `/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg`
 
+## PaperCut
+- `/assets/WorkExperience/PaperCut/PaperCut-image.jpg`
+
 ## KewPump
 - `/assets/WorkExperience/KewPump/KewPump-image.jpg`
 

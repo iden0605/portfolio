@@ -1,6 +1,6 @@
 # Iden McElhone — Portfolio
 
-> **Systems & Cloud Architect | DevOps Engineer**
+> **Associate Product Engineer @ PaperCut | Computing student @ Unimelb**
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-iden0605.github.io-6a7fda?style=flat-square&logo=github)](https://iden0605.github.io/portfolio)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Iden%20McElhone-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/iden-mcelhone-8a6983354/)
@@ -14,7 +14,7 @@ Hi! I'm **Iden**, a Computing & Software Systems student at the **University of 
 
 My work spans infrastructure design, deployment automation, and maintaining full-stack applications. I thrive on building efficient workflows and making technical decisions that balance performance, security, and maintainability — all while adopting modern tools and technologies.
 
-Professional experience includes working as a **DevOps Engineering Intern** and **Junior Software Developer** at **Kewpump**, where I managed containerised applications, implemented GitHub Actions pipelines, and maintained scalable cloud and local deployments. I have also contributed to tutoring and freelance web development, including co-founding **BookingsMadeEasy**.
+I currently work as an **Associate Product Engineer** at **PaperCut**, developing and maintaining the cloud side of its print management products, PaperCut Hive and PaperCut Pocket, on Google Cloud. Before that, I was a **DevOps Engineering Intern** and **Junior Software Developer** at **Kewpump**, where I managed containerised applications, implemented GitHub Actions pipelines, and maintained scalable cloud and local deployments. I have also contributed to tutoring and freelance web development, including co-founding **BookingsMadeEasy**.
 
 ---
 

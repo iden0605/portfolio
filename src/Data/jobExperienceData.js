@@ -1,5 +1,33 @@
 // data for work experience section
 const jobExperienceData = {
+  "PaperCut": {
+    tokenizedName: "papercut",
+    category: "professional",
+    jobTitle: "Associate Product Engineer",
+    cardImage: "/assets/WorkExperience/PaperCut/PaperCut-image.jpg",
+    headerImage: "/assets/WorkExperience/PaperCut/PaperCut-image.jpg",
+    description: `Associate Product Engineer at PaperCut, developing and maintaining the company's print management products. I work on the cloud side of the product suite, building and supporting the Google Cloud services behind PaperCut Hive and PaperCut Pocket.`,
+    date: "Oct 2026 - Present",
+    keyResponsibilities: [
+      "Developing and maintaining PaperCut's print management products.",
+      "Building and supporting cloud services on Google Cloud Platform for PaperCut Hive and PaperCut Pocket.",
+      "Shipping features, bug fixes, and improvements across the cloud product suite.",
+      "Collaborating with engineers, product, and support teams to deliver reliable releases to customers.",
+      "Taking part in code reviews, testing, and the team's engineering practices."
+    ],
+    technologies: ["Google Cloud Platform (GCP)", "Cloud Infrastructure", "PaperCut Hive", "PaperCut Pocket"],
+    positions: [
+      {
+        title: "Associate Product Engineer",
+        date: "Oct 2026 - Present",
+        paragraphs: [
+          "Joined <a href='https://www.papercut.com/' target='_blank' rel='noopener noreferrer' class='about-me-link'>PaperCut</a> as an Associate Product Engineer, developing and maintaining the print management products used by organisations around the world.",
+          "My work sits on the cloud side of PaperCut, where I build and maintain services on <strong>Google Cloud Platform</strong> for <strong>PaperCut Hive</strong> and <strong>PaperCut Pocket</strong>, the company's cloud-native print management products."
+        ]
+      }
+    ]
+  },
+
   "Kewpump": {
     tokenizedName: "kewpump",
     category: "professional",
@@ -7,7 +35,7 @@ const jobExperienceData = {
     cardImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     headerImage: "/assets/WorkExperience/KewPump/KewPump-image.jpg",
     description: `Worked on the infrastructure and deployment architecture for a centralized factory and product management platform used internally by company employees. Initially designed and deployed the system on Google Cloud, but later migrated development to a local server environment to reduce infrastructure costs. After stabilizing the application locally, helped transition the full stack (frontend, backend, and database) to DigitalOcean for scalable staging and production deployments.`,
-    date: "Nov 2025 - Present",
+    date: "Nov 2025 - Aug 2026",
     teamSize: 8,
     keyResponsibilities: [
       "Contributed to the development and deployment of a centralized factory and product management platform used internally by company employees.",
@@ -23,13 +51,13 @@ const jobExperienceData = {
     positions: [
       {
         title: "Junior DevOps Engineer | Software Developer",
-        date: "Jan 2026 - Present",
+        date: "Jan 2026 - Aug 2026",
         paragraphs: [
           "Promoted to a development role after successfully delivering CI/CD pipelines and automated testing infrastructure during my DevOps internship.",
           "Led the migration of the application infrastructure from local hosting to DigitalOcean, improving scalability and reliability for both staging and production environments.",
           "Implemented secure authentication using <strong>Authentik</strong>, along with role-based access control (RBAC) using group-based permissions to manage employee access to the platform.",
           "Improved frontend styling and user experience across the platform to make the system clearer and easier for factory employees to use.",
-          "Continue to support the system part-time by maintaining the infrastructure, CI/CD pipelines, and GitHub workflows while providing internal IT support for deployment and operational issues."
+          "Continued to support the system part-time by maintaining the infrastructure, CI/CD pipelines, and GitHub workflows while providing internal IT support for deployment and operational issues."
         ]
       },
       {
