@@ -180,7 +180,7 @@ const jobExperienceData = {
     cardImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
     headerImage: "/assets/WorkExperience/BookingsMadeEasy/BookingsMadeEasy-image.jpg",
     description: `Co-founded a web development service based in Kota Kinabalu, Malaysia, specializing in creating custom websites for hotels and Airbnb hosts. As co-founder and lead developer, responsibilities included designing and maintaining client-facing platforms.`,
-    date: "Nov 2024 - Jun 2025",
+    date: "Oct 2024 - Jun 2025",
     teamSize: 2,
     keyResponsibilities: [
       "Web development (Frontend)",
@@ -191,7 +191,7 @@ const jobExperienceData = {
     positions: [
       {
         title: "Web Developer",
-        date: "Nov 2024 - Jun 2025",
+        date: "Oct 2024 - Jun 2025",
         paragraphs: [
           "Websites were built for clients through the MonthlySoft platform, using GoHighLevel, JavaScript, HTML, and CSS. A notable project was the site for <a href='https://DolphinBayIslandResort.com' target='_blank' rel='noopener noreferrer' class='about-me-link'>DolphinBayIslandResort</a> in Kota Kinabalu. While design direction was a collaborative effort, the focus of this role was on technical implementation."
         ]
