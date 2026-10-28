@@ -80,15 +80,15 @@ const jobExperienceData = {
     jobTitle: "Technical Director",
     cardImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
     headerImage: "/assets/WorkExperience/UMGMC/UMGMC-image.jpg",
-    description: `Technical Director in the University of Melbourne GameMakers club, leading development of the GMC Hub, an internal system for committee members to track reimbursements, event attendance, and voting booths, alongside maintaining the club's website, the Product Division's website, a members' game gallery, and the club's Discord bot.`,
-    date: "Aug 2025 - Present",
+    description: `Technical Director in the University of Melbourne GameMakers club, led development of the GMC Hub, an internal system for committee members to track reimbursements, event attendance, and voting booths, alongside maintaining the club's website, the Product Division's website, a members' game gallery, and the club's Discord bot.`,
+    date: "Aug 2025 - Oct 2026",
     teamSize: 20,
     keyResponsibilities: [
-      "Leading development of the GMC Hub, internal software for committee reimbursement tracking, event attendance, and voting booths.",
+      "Led development of the GMC Hub, internal software for committee reimbursement tracking, event attendance, and voting booths.",
       "Club website maintenance and full-stack development.",
       "Product Division website maintenance and full-stack development.",
-      "Implementing a GMC gallery to store and display games from all club members in one place.",
-      "Maintaining the club's Discord bot.",
+      "Implemented a GMC gallery to store and display games from all club members in one place.",
+      "Maintained the club's Discord bot.",
       "Notion and Google Calendar integration for event management.",
       "Notion database management."
     ],
@@ -96,10 +96,10 @@ const jobExperienceData = {
     positions: [
       {
         title: "Technical Director",
-        date: "Apr 2026 - Present",
+        date: "Apr 2026 - Oct 2026",
         paragraphs: [
-          "Promoted to Technical Director, now leading development of the <strong>GMC Hub</strong>, an internal piece of software used by committee members to track reimbursements, log event attendance, and create voting booths.",
-          "Continue to improve and maintain both the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>club website</a> and the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>Product Division website</a>, while implementing a GMC gallery so games made by all club members can be stored and displayed in one place, and maintaining the club's Discord bot."
+          "Promoted to Technical Director, leading development of the <strong>GMC Hub</strong>, an internal piece of software used by committee members to track reimbursements, log event attendance, and create voting booths.",
+          "Continued to improve and maintain both the <a href='https://www.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>club website</a> and the <a href='https://stegostudios.gamemakersclub.org/' target='_blank' rel='noopener noreferrer' class='about-me-link'>Product Division website</a>, while implementing a GMC gallery so games made by all club members can be stored and displayed in one place, and maintaining the club's Discord bot."
         ]
       },
       {
@@ -119,8 +119,8 @@ const jobExperienceData = {
     jobTitle: "Game Developer (Programmer)",
     cardImage: "/assets/WorkExperience/StegoStudios/StegoStudios-image.jpg",
     headerImage: "/assets/WorkExperience/StegoStudios/StegoStudios-image.jpg",
-    description: `Working with a team of 9 to develop our game Cascade over the course of a year. I focus on implementing core gameplay systems such as player movement and camera mechanics, as well as advanced physics-based features including gravity and fluid mechanics.`,
-    date: "Mar 2026 - Present",
+    description: `Worked with a team of 9 to develop our game Cascade over the course of a year. I focused on implementing core gameplay systems such as player movement and camera mechanics, as well as advanced physics-based features including gravity and fluid mechanics.`,
+    date: "Mar 2026 - Nov 2026",
     teamSize: 9,
     keyResponsibilities: [
       "Designed and implemented core gameplay mechanics, including player movement and camera systems.",
@@ -137,10 +137,10 @@ const jobExperienceData = {
     positions: [
       {
         title: "Game Developer (Programmer)",
-        date: "Mar 2026 - Present",
+        date: "Mar 2026 - Nov 2026",
         paragraphs: [
-          "At Stego Studios, I am part of a dedicated 9-person team building <em>Cascade</em>, a game we have been developing over the course of a year. I specialize in programming core gameplay mechanics, bringing the player experience to life by building robust movement and camera systems. Beyond the basics, I also focus on creating advanced, physics-based interactions like complex gravity and fluid mechanics.",
-          "My role frequently involves collaborating with artists and composers to integrate character animations, visual assets, and dynamic audio seamlessly into the Unity engine. I've also implemented foundational infrastructure for the game, including local save systems to persist player progress, dynamic environmental effects, and in-game achievement tracking. Recently, I've been preparing <em>Cascade</em> for distribution on Steam by handling build configurations and integrating the Steamworks SDK."
+          "At Stego Studios, I was part of a dedicated 9-person team building <em>Cascade</em>, a game we developed over the course of a year. I specialized in programming core gameplay mechanics, bringing the player experience to life by building robust movement and camera systems. Beyond the basics, I also focused on creating advanced, physics-based interactions like complex gravity and fluid mechanics.",
+          "My role frequently involves collaborating with artists and composers to integrate character animations, visual assets, and dynamic audio seamlessly into the Unity engine. I've also implemented foundational infrastructure for the game, including local save systems to persist player progress, dynamic environmental effects, and in-game achievement tracking. I also prepared <em>Cascade</em> for distribution on Steam, handling build configurations and integrating the Steamworks SDK."
         ]
       }
     ]
