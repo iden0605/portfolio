@@ -28,6 +28,39 @@ const jobExperienceData = {
     ]
   },
 
+  "Musculoskeletal Health Australia": {
+    tokenizedName: "mpowered-mha",
+    category: "professional",
+    jobTitle: "Software Engineer",
+    cardImage: "/assets/WorkExperience/MPowered/MHA-card.jpeg",
+    headerImage: "/assets/WorkExperience/MPowered/MHA-header.png",
+    description: `Scrum Master and DevOps Lead in a team of 6 building MPowered for Musculoskeletal Health Australia (MHA) as our University of Melbourne capstone IT Project. MPowered is a mobile app that helps people living with musculoskeletal conditions track their pain, movement and everyday health, and go into their appointments more prepared. The app was handed over to MHA, who plan to use it as the foundation for their app going forward.`,
+    date: "Aug 2026 - Nov 2026",
+    teamSize: 6,
+    keyResponsibilities: [
+      "Ran the team's six two-week sprints as Scrum Master, including sprint planning, stand ups, reviews and retrospectives.",
+      "Set up and maintained the CI/CD pipeline in GitHub Actions, with linting, type checks, unit and integration tests, branch policy checks and automatic Expo previews on every pull request.",
+      "Worked on the automated deployments of the Supabase database and Edge Functions, the production app updates and the guest web demo on EAS Hosting.",
+      "Managed releases v1.0.0 to v1.0.4, including the upgrade to Expo SDK 58 when older versions stopped opening in Expo Go.",
+      "Built frontend features including the UI redesign, modular languages, the guest web demo and sign up for new phone numbers.",
+      "Found and fixed data access issues in the Care Taker feature before the first release, with Row Level Security tests to cover them.",
+      "Contributed unit, component and end-to-end tests to a suite of over 1,000 automated tests, run on every pull request.",
+      "Prepared the handover to MHA, including the technical documentation, licensing and transfer of the GitHub, Supabase and Expo accounts."
+    ],
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "GitHub Actions", "CI/CD", "EAS Update", "Jest", "Maestro", "Confluence", "Agile (Scrum)"],
+    positions: [
+      {
+        title: "Software Engineer",
+        date: "Aug 2026 - Nov 2026",
+        paragraphs: [
+          "Worked with <a href='https://msk.org.au/' target='_blank' rel='noopener noreferrer' class='about-me-link'>Musculoskeletal Health Australia</a> to build <strong>MPowered</strong>, a mobile app for people living with musculoskeletal conditions to track their pain, movement, personal care and social health each week, plan appointments with AI suggested questions, and share access with carers and support people.",
+          "As Scrum Master, I ran our sprints and kept the team and client in sync through regular reviews and demos. As DevOps Lead, I looked after the pipeline that tested every pull request and deployed the database, backend and app automatically, which let us release fixes the next day after our first production release.",
+          "At the handover, MHA said the app covers around 80-90% of what they had in mind, and they plan to use it as the foundation for their app going forward. You can try the <a href='https://mpowered-demo.expo.app' target='_blank' rel='noopener noreferrer' class='about-me-link'>web demo</a> on your phone."
+        ]
+      }
+    ]
+  },
+
   "Kewpump": {
     tokenizedName: "kewpump",
     category: "professional",
